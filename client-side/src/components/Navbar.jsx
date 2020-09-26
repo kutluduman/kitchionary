@@ -67,29 +67,6 @@ const useStyles = makeStyles((theme) => ({
 
 function Navbar() {
 
-  const [sign, setSign] = useState(false);
-  const [login, setLogin] = useState(false);
-
-
-  const onOpenModal = () => {
-    setSign(true);
-  };
-
-  const onOpenModalLogin = () => {
-    setLogin(true);
-  };
-
- const onCloseModal = () => {
-    setSign(false);
-  };
-
-  const onCloseModalLogin = () => {
-    setLogin(false);
-  };
-
-
-
-
   const classes = useStyles();
   //popout
   const {loginShowing, toggleLogin} = useLogin();
