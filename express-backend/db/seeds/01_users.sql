@@ -7,3 +7,5 @@ INSERT INTO users (first_name, last_name, email, password, phone_number) VALUES 
 INSERT INTO users (first_name, last_name, email, password, phone_number) VALUES ('Roy', 'Gomez', 'roygomez@email.com', 'hello', '4168524563');
 INSERT INTO users (first_name, last_name, email, password, phone_number) VALUES ('John', 'Doe', 'johndoe@email.com', 'hello', '4162564563');
 INSERT INTO users (first_name, last_name, email, password, phone_number) VALUES ('Jane', 'Doe', 'janedoeh@email.com', 'hello', '4163214563');
+INSERT INTO users (first_name, last_name, email, password, phone_number) VALUES ('Alex', 'Gonzales', 'alexgonzales@email.com', 'hello', '4167614563');
+INSERT INTO users (first_name, last_name, email, password, phone_number) VALUES ('Paul', 'Sam', 'paulsam@email.com', 'hello', '4163184563');

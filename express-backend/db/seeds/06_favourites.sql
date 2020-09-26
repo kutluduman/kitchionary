@@ -1,5 +1,5 @@
 -- Favourites table seeds here
-INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (1, 8, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (1, 15, true);
 INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (2, 1, true);
 INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (3, 2, true);
 INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (4, 3, true);
@@ -7,5 +7,23 @@ INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (5, 4, true);
 INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (6, 5, true);
 INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (7, 6, true);
 INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (8, 7, true);
-
-
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (9, 8, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (10, 9, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (1, 10, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (2, 11, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (3, 12, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (4, 13, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (5, 14, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (1, 3, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (2, 4, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (3, 5, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (4, 6, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (5, 7, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (6, 8, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (7, 9, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (8, 10, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (9, 11, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (10, 12, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (1, 13, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (2, 14, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (3, 15, true);
