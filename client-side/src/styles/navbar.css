@@ -6,7 +6,9 @@
 
 
   .banner {
-    background-color: #8BC2D8;
+
+
+    background-color: #f3f3f3;
   }
 
   .navButton {
@@ -15,11 +17,6 @@
 
 
   /* popout */
-
-  /* .App {
-    text-align: center;
-    padding-top: 2rem;
-  } */
   
   .modal-overlay {
     position: fixed;
