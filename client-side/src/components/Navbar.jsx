@@ -8,7 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles, withStyles } from '@material-ui/core/styles';
-import logo from "../docs/Kitchionary_logo.jpg";
+import logo from "../docs/Kitchionary_logo_white.jpg";
 import "../styles/navbar.css";
 
 //popout
