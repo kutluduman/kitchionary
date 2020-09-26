@@ -14,7 +14,7 @@ function App() {
       </head>
       <body>
     <div className="App">
-     <RegisterTemplate/>
+     <Navbar/>
     </div>
     </body>
     </div>

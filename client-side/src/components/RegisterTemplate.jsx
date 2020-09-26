@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     width: '25ch',
   },
   phoneNumber: {
-    marginLeft: theme.spacing(25)
+    marginLeft: theme.spacing(20)
   }
 
 }));
@@ -30,7 +30,6 @@ const RegisterTemplate = () => {
 
   return (
     <section>
-      <Navbar/>
       <h2 className={classes.root}>Register</h2>
     <div className={classes.root}>
       <div>

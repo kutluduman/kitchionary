@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import RegisterTemplate from './RegisterTemplate';
 
 
 const Register = ({ registerShowing, hide }) => registerShowing ? ReactDOM.createPortal(
@@ -12,9 +13,7 @@ const Register = ({ registerShowing, hide }) => registerShowing ? ReactDOM.creat
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <p>
-         Register
-        </p>
+        <RegisterTemplate/>
       </div>
     </div>
   </React.Fragment>, document.body

@@ -19,10 +19,11 @@ import Register from "./Register";
 import  useRegister from './useRegister';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    marginLeft: 'auto',
     
-  },
+    root: { 
+      marginLeft: 'auto',
+    },
+  
     menuButton: {
       margin: theme.spacing(5),
 
