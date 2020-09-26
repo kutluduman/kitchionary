@@ -1,5 +1,7 @@
+
 .logo {
-  height: 90px;
+  height: 100px;
+  margin-right: 0;
 }
 
 
@@ -10,3 +12,4 @@
   .navButton {
     margin: 10px;
   }
+
