@@ -8,7 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles, withStyles } from '@material-ui/core/styles';
-import logo from "../docs/Kitchionary_logo.jpg"
+import logo from "../docs/Kitchionary_logo.jpg";
 import "../styles/navbar.css";
 
 //popout
@@ -20,14 +20,12 @@ import  useRegister from './useRegister';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'right',
+    marginLeft: 'auto',
     
   },
     menuButton: {
       margin: theme.spacing(5),
+
     },
     search: {
       position: 'relative',
@@ -36,11 +34,10 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
       },
-    marginRight: theme.spacing(60),
-    marginLeft: 0,
+
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(23),
+
       width: 'auto',
       }
     },
@@ -76,7 +73,7 @@ function Navbar() {
 
   
   return (
-    <div className={classes.root}>
+    <div>
     <AppBar position="static">
       <main className='banner'>
     <Toolbar>
@@ -99,7 +96,7 @@ function Navbar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-        <div className="navButton">
+        <div  className="navButton" className={classes.root}>
         
           <Button onClick={toggleLogin}> Login</Button>
             <Login loginShowing={loginShowing} hide={toggleLogin}/>
