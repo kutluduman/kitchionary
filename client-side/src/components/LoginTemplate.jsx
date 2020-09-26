@@ -24,34 +24,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const RegisterTemplate = () => {
+const LoginTemplate = () => {
   const classes = useStyles();
 
   return (
     <section>
-      <h2 className={classes.root}>Register</h2>
+      <h2 className={classes.root}>Login</h2>
     <div className={classes.root}>
       <div>
         <br/>
-        <TextField
-          label="First Name"
-          id="outlined-margin-normal"
-          defaultValue="Default Value"
-          className={classes.textField}
-          helperText="Some important text"
-          margin="normal"
-          variant="outlined"
-        />
-         <TextField
-          label="Last Name"
-          id="outlined-margin-normal"
-          defaultValue="Default Value"
-          className={classes.textField}
-          helperText="Some important text"
-          margin="normal"
-          variant="outlined"
-        />
-        <div>
         <TextField
           label="Email"
           id="outlined-margin-normal"
@@ -61,7 +42,9 @@ const RegisterTemplate = () => {
           margin="normal"
           variant="outlined"
         />
-         <TextField
+         
+        <div>
+        <TextField
           label="Password"
           id="outlined-margin-normal"
           defaultValue="Default Value"
@@ -71,25 +54,15 @@ const RegisterTemplate = () => {
           variant="outlined"
         />
         </div>
-        <div>
-        <TextField
-          label="Phone Number"
-          id="outlined-margin-normal"
-          defaultValue="Default Value"
-          className={classes.phoneNumber}
-          margin="normal"
-          variant="outlined"
-        />
-        </div>
         <br/>
         <div className={classes.root}>
-        <Button variant="contained" color="primary">Register</Button>
+        <Button variant="contained" color="primary">Login</Button>
         </div>
         <div className={classes.root}>
-          <p>Already have an Account?</p>
+          <p>Don't have an Account?</p>
         </div>
         <div className={classes.root}>
-        <Button variant="outlined" color="primary">Sign In</Button>
+        <Button variant="outlined" color="primary">Register</Button>
         </div>
       </div>
     </div>
@@ -97,4 +70,4 @@ const RegisterTemplate = () => {
   )
 }
 
-export default RegisterTemplate;
+export default LoginTemplate;
