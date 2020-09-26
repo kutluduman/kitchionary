@@ -1,5 +1,7 @@
 import React from 'react';
 import Navbar from "./components/Navbar";
+import RegisterTemplate from "./components/RegisterTemplate";
+
 
 function App() {
   return (
@@ -12,11 +14,22 @@ function App() {
       </head>
       <body>
     <div className="App">
-     <Navbar />
+     <RegisterTemplate/>
     </div>
     </body>
     </div>
   );
 }
-
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
