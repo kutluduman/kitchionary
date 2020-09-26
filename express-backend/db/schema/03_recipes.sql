@@ -13,7 +13,7 @@ CREATE TABLE recipes (
   is_gluten_free BOOLEAN NOT NULL,
   is_dairy_free BOOLEAN NOT NULL,
   is_vegan BOOLEAN NOT NULL,
-  is_vegetarianBOOLEAN NOT NULL,
+  is_vegetarian BOOLEAN NOT NULL,
   is_nut_free BOOLEAN NOT NULL,
   is_salty BOOLEAN NOT NULL,
   is_greasy BOOLEAN NOT NULL,
