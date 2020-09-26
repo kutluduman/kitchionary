@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import LoginTemplate from './LoginTemplate';
+
 
 const Login = ({ loginShowing, hide }) => loginShowing ? ReactDOM.createPortal(
   <React.Fragment>
@@ -11,9 +13,7 @@ const Login = ({ loginShowing, hide }) => loginShowing ? ReactDOM.createPortal(
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <p>
-          LOGIN
-        </p>
+       <LoginTemplate />
       </div>
     </div>
   </React.Fragment>, document.body
