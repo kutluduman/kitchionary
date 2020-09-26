@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -66,6 +66,30 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Navbar() {
+
+  const [sign, setSign] = useState(false);
+  const [login, setLogin] = useState(false);
+
+
+  const onOpenModal = () => {
+    setSign(true);
+  };
+
+  const onOpenModalLogin = () => {
+    setLogin(true);
+  };
+
+ const onCloseModal = () => {
+    setSign(false);
+  };
+
+  const onCloseModalLogin = () => {
+    setLogin(false);
+  };
+
+
+
+
   const classes = useStyles();
   //popout
   const {loginShowing, toggleLogin} = useLogin();
@@ -73,6 +97,7 @@ function Navbar() {
 
   
   return (
+    
     <div>
     <AppBar position="static">
       <main className='banner'>
@@ -107,6 +132,46 @@ function Navbar() {
   </Toolbar>
   </main>
 </AppBar>
+<Modal open={sign} onClose={onCloseModal}>
+      <div >
+          <h2>Register</h2>
+          <form >
+            <div >
+                <input  type="first_name" name="first_name" placeholder="First Name" required="" autocomplete="off" aria-required="true" />
+            </div>
+            <div >
+                <input  type="last_name" name="last_name" placeholder="Last Name" required="" autocomplete="off" aria-required="true" />
+            </div>
+            <div >
+                <input  type="phone" name="phone" placeholder="phone_number" required="" autocomplete="off" aria-required="true" />
+            </div>
+            <div >
+                <input  type="email" name="email" placeholder="E-mail" required="" autocomplete="off" aria-required="true" />
+            </div>
+            <div>
+                <input type="password" name="password"  placeholder="Password" required="" autocomplete="off" aria-required="true" />
+            </div>
+            <input id="sign_up" type="button" value="Sign Up" />
+          </form>
+      </div>
+  </Modal>
+<Modal open={login} onClose={onCloseModalLogin}>
+      <div>
+          <h2>Login and Get <span>Started</span></h2>
+
+          <span>Just fill in the form below</span>
+          <form novalidate="novalidate">
+              <div>
+                  <input type="email" name="email" placeholder="E-mail" required="" autocomplete="off" aria-required="true" />
+              </div>
+              <div>
+                  <input type="password" name="pass" className="form-control" placeholder="Password" required="" autocomplete="off" aria-required="true" />
+              </div>
+              <input id="login_btn" type="button" value="Login" />
+          </form>
+
+      </div>
+  </Modal>
 </div>
   );
 }
