@@ -10,18 +10,13 @@ import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles, withStyles } from '@material-ui/core/styles';
 import logo from "../docs/Kitchionary_logo.jpg";
 import "../styles/navbar.css";
-import { flexbox } from '@material-ui/system';
 
-// const ColorButton = withStyles((theme) => ({
-//   root: {
-//     color: theme.palette.getContrastText(green[500]),
-//     backgroundColor: green[500],
-//     '&:hover': {
-//       backgroundColor: purple[700],
-//     },
-//   },
-// }))(Button);
+//popout
 
+import Login from "./Login";
+import  useLogin from './useLogin';
+import Register from "./Register";
+import  useRegister from './useRegister';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -72,6 +67,10 @@ const useStyles = makeStyles((theme) => ({
 
 function Navbar() {
   const classes = useStyles();
+  //popout
+  const {loginShowing, toggleLogin} = useLogin();
+  const {registerShowing, toggleRegister} = useRegister();
+
   
   return (
     <div>
@@ -99,9 +98,11 @@ function Navbar() {
           </div>
         <div  className="navButton" className={classes.root}>
         
-          <Button>Login</Button>
+          <Button onClick={toggleLogin}> Login</Button>
+            <Login loginShowing={loginShowing} hide={toggleLogin}/>
        
-          <Button >Register</Button>
+          <Button onClick={toggleRegister}>Sign Up</Button>
+            <Register registerShowing={registerShowing} hide={toggleRegister}/>
       </div>
   </Toolbar>
   </main>
