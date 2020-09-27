@@ -58,7 +58,7 @@ const RegisterTemplate = () => {
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const user = {
@@ -76,23 +76,23 @@ const RegisterTemplate = () => {
       })
   }
 
-  const handleChangeFirstName = e => {
+  const handleChangeFirstName = (e) => {
     setFirstName(e.target.value);
   }
 
-  const handleChangeLastName = e => {
+  const handleChangeLastName = (e) => {
     setLastName(e.target.value);
   }
 
-  const handleChangeEmail = e => {
+  const handleChangeEmail = (e) => {
     setEmail(e.target.value);
   }
 
-  const handleChangePhoneNumber = e => {
+  const handleChangePhoneNumber = (e) => {
     setPhoneNumber(e.target.value);
   }
 
-  const handleChangePassword = e => {
+  const handleChangePassword = (e) => {
     setPassword(e.target.value);
   }
   
