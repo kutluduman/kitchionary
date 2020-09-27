@@ -1,32 +1,19 @@
 import React from 'react';
-import {createMuiTheme, makeStyles, withStyles, ThemeProvider, MuiThemeProvider } from '@material-ui/core/styles';
+import {createMuiTheme, makeStyles, withStyles, MuiThemeProvider, ThemeProvider, styled } from '@material-ui/core/styles';
 import {lightBlue } from "@material-ui/core/colors";
-import Paper from '@material-ui/core/Paper';
-
-
-
-const useStyles = makeStyles((theme) => ({
-    
-  root: { 
-    backgroundColor: 'blue'
-  },
-}));
-
-// const theme = createMuiTheme({
-//   palette: {
-//     primary: lightBlue,
-//   },
-// });
-
+import {Helmet} from 'react-helmet';
 
 
 
 const Home = () => {
-  const classes = useStyles();
 
   return (
-    <Paper className={classes.root}>
-    </Paper>
+   <div>
+       <p>ITS A GREAT DAY :D</p>
+       <Helmet>
+                <style>{'body { background-color: #8BC2D8; }'}</style>
+            </Helmet>
+   </div>
   )
 }
 
