@@ -1,8 +1,10 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { orange, lightBlue } from "@material-ui/core/colors";
+import axios from 'axios';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -50,13 +52,58 @@ const theme = createMuiTheme({
 const RegisterTemplate = () => {
   const classes = useStyles();
 
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    const user = {
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      password: password,
+      phone_number: phoneNumber
+    };
+
+    axios.post(`http://localhost:8080/register`, { user })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+  }
+
+  const handleChangeFirstName = e => {
+    setFirstName(e.target.value);
+  }
+
+  const handleChangeLastName = e => {
+    setLastName(e.target.value);
+  }
+
+  const handleChangeEmail = e => {
+    setEmail(e.target.value);
+  }
+
+  const handleChangePhoneNumber = e => {
+    setPhoneNumber(e.target.value);
+  }
+
+  const handleChangePassword = e => {
+    setPassword(e.target.value);
+  }
+  
   return (
     <section>
       <h2 className={classes.root}>Register</h2>
     <div className={classes.root}>
       <div>
         <br/>
-        <TextField
+      <form onSubmit={handleSubmit}>
+        <TextField onChange={handleChangeFirstName}
           label="First Name"
           id="outlined-margin-normal"
           placeholder="First Name"
@@ -65,9 +112,10 @@ const RegisterTemplate = () => {
           variant="outlined"
           InputLabelProps={{
             style: { color: 'orange' },
-          }}
+          }  
+        }
         />
-         <TextField
+         <TextField onChange={handleChangeLastName}
           label="Last Name"
           id="outlined-margin-normal"
           placeholder="Last Name"
@@ -79,7 +127,7 @@ const RegisterTemplate = () => {
           }}
         />
         <div>
-        <TextField
+        <TextField onChange={handleChangeEmail}
           label="Email"
           id="outlined-margin-normal"
           placeholder="Email"
@@ -90,7 +138,7 @@ const RegisterTemplate = () => {
             style: { color: 'orange' },
           }}
         />
-         <TextField
+         <TextField onChange={handleChangePassword}
           label="Password"
           id="outlined-margin-normal"
           placeholder="Password"
@@ -103,7 +151,7 @@ const RegisterTemplate = () => {
         />
         </div>
         <div>
-        <TextField
+        <TextField onChange={handleChangePhoneNumber}
           label="Phone Number"
           id="outlined-margin-normal"
           placeholder="Phone Number"
@@ -115,10 +163,13 @@ const RegisterTemplate = () => {
           }}
         />
         </div>
+       
         <br/>
         <div className={classes.root}>
-        <ColorButton variant="contained" color="primary">Register</ColorButton>
+        <ColorButton type='submit' variant="contained" color="primary">Register</ColorButton>
         </div>
+
+      </form>
         <div className={classes.root}>
           <p>Already have an Account?</p>
         </div>
