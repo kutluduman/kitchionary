@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -7,9 +7,15 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
-import { fade, makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles,withStyles } from '@material-ui/core/styles';
 import logo from "../docs/Kitchionary_logo_white.jpg";
 import "../styles/navbar.css";
+import { fade } from '@material-ui/core/styles/colorManipulator';
+import { orange, lightBlue } from "@material-ui/core/colors";
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
+
 
 //popout
 
@@ -17,6 +23,7 @@ import Login from "./Login";
 import  useLogin from './useLogin';
 import Register from "./Register";
 import  useRegister from './useRegister';
+
 
 const useStyles = makeStyles((theme) => ({
     
@@ -26,14 +33,17 @@ const useStyles = makeStyles((theme) => ({
   
     menuButton: {
       margin: theme.spacing(5),
+      color: 'orange'
 
     },
     search: {
+
+      //font color: #37ade0
       position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
     '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
+      backgroundColor: fade(theme.palette.common.black, 0.05),
       },
 
     width: '100%',
@@ -50,9 +60,10 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      color: '#37ade0',
     },
     inputRoot: {
-      color: 'inherit',
+      color: 'black',
     },
     inputInput: {
       padding: theme.spacing(1, 1, 1, 0),
@@ -63,10 +74,23 @@ const useStyles = makeStyles((theme) => ({
       [theme.breakpoints.up('md')]: {
         width: '50ch',
       },
-    }
+    },
+    
 }));
 
+const ColorButton = withStyles((theme) => ({
+  root: {
+    backgroundColor: lightBlue,
+    "&:hover": {
+      backgroundColor: orange[100]
+    },
+    margin: 10
+    
+  }
+}))(Button);
+
 function Navbar() {
+
 
   const classes = useStyles();
   //popout
@@ -99,13 +123,15 @@ function Navbar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-        <div  className="navButton" className={classes.root}>
+        <div   className={classes.root}>
         
-          <Button onClick={toggleLogin}> Login</Button>
+          <ColorButton startIcon={<ExitToAppIcon />} onClick={toggleLogin}> Login</ColorButton>
             <Login loginShowing={loginShowing} hide={toggleLogin}/>
        
-          <Button onClick={toggleRegister}>Sign Up</Button>
+            <ColorButton startIcon={<AccountCircleIcon />} onClick={toggleRegister}>Sign Up</ColorButton>
             <Register registerShowing={registerShowing} hide={toggleRegister}/>
+
+          
       </div>
   </Toolbar>
   </main>
