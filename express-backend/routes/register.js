@@ -13,12 +13,14 @@ module.exports = (db) => {
   };
 
   router.post("/", (req, res) => {
+    console.log(req.body)
     const user = req.body;
     const first_name = user.first_name;
     const last_name = user.last_name;
     const email = user.email;
     const password = user.password;
     const phone_number = user.phone_number;
+    console.log("phone", phone_number)
     return db.query(`
     INSERT INTO users (first_name, last_name, email, password, phone_number)
     VALUES ($1, $2, $3, $4, $5)
@@ -29,6 +31,7 @@ module.exports = (db) => {
         res.json({ users });
       })
       .catch(err => {
+        console.log(err)
         res
           .status(500)
           .json({ error: err.message });

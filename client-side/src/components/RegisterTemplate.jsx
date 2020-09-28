@@ -60,6 +60,11 @@ const RegisterTemplate = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('firstname', firstName)
+    console.log('lastname', lastName)
+    console.log('email', email)
+    console.log('password', password)
+    console.log('phone', phoneNumber)
 
     const user = {
       first_name: firstName,
@@ -69,7 +74,9 @@ const RegisterTemplate = () => {
       phone_number: phoneNumber
     };
 
-    axios.post(`http://localhost:8080/register`, { user })
+    console.log(user);
+    
+    axios.post(`http://localhost:8080/register`, user)
       .then(res => {
         console.log(res);
         console.log(res.data);
@@ -104,6 +111,7 @@ const RegisterTemplate = () => {
         <br/>
       <form onSubmit={handleSubmit}>
         <TextField onChange={handleChangeFirstName}
+          value={firstName}
           label="First Name"
           id="outlined-margin-normal"
           placeholder="First Name"
@@ -116,6 +124,7 @@ const RegisterTemplate = () => {
         }
         />
          <TextField onChange={handleChangeLastName}
+          value={lastName}
           label="Last Name"
           id="outlined-margin-normal"
           placeholder="Last Name"
@@ -128,6 +137,7 @@ const RegisterTemplate = () => {
         />
         <div>
         <TextField onChange={handleChangeEmail}
+          value={email}
           label="Email"
           id="outlined-margin-normal"
           placeholder="Email"
@@ -139,6 +149,7 @@ const RegisterTemplate = () => {
           }}
         />
          <TextField onChange={handleChangePassword}
+          value={password}
           label="Password"
           id="outlined-margin-normal"
           placeholder="Password"
@@ -152,6 +163,7 @@ const RegisterTemplate = () => {
         </div>
         <div>
         <TextField onChange={handleChangePhoneNumber}
+          value={phoneNumber}
           label="Phone Number"
           id="outlined-margin-normal"
           placeholder="Phone Number"
