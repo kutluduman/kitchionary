@@ -1,0 +1,17 @@
+.mode {
+  margin-top: 100px;
+  margin-left: 90px;
+  margin-right: 90px;
+  margin-bottom: 200px;
+  border: 2px solid red;
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-around;
+
+}
+
+.featured {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
