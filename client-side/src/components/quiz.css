@@ -1,24 +1,41 @@
-.container {
+.container1 {
   position: relative;
   border: 2px solid red;
-  margin-top: 0;
-  margin-left: 0;
+  /* margin-top: 0;
+  margin-left: 0; */
+  margin: 100px;
+  display:flex;
+  justify-content: center;
 }
 
-.image {
+/* .image {
+   position: relative;
+} */
+
+.image1 {
   position: absolute;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+}
+.background1 {
+  z-index: 0;
+}
+.question1 {
+  z-index: 100;
 }
 
-.background {
+
+.background1 {
   border: 2px solid red;
 }
 
-.question {
+.question1 {
   margin-top: 5em;
   margin-left: 3em;
 }
 
-.question:hover {
+.question1:hover {
   animation: shake 0.5s;
   animation-iteration-count: infinite;
 }
