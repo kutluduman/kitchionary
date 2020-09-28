@@ -60,11 +60,6 @@ const RegisterTemplate = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('firstname', firstName)
-    console.log('lastname', lastName)
-    console.log('email', email)
-    console.log('password', password)
-    console.log('phone', phoneNumber)
 
     const user = {
       first_name: firstName,
@@ -74,8 +69,7 @@ const RegisterTemplate = () => {
       phone_number: phoneNumber
     };
 
-    console.log(user);
-    
+
     axios.post(`http://localhost:8080/register`, user)
       .then(res => {
         console.log(res);
