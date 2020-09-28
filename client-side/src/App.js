@@ -10,7 +10,8 @@ import FeaturedSalad from "./components/FeaturedSalad";
 
 
 import "./styles/mode.css";
-
+import SimpleGlobe from './components/GlobeFeature';
+import OverlayGlobe from './components/OverlayGlobe';
 
 
 
@@ -40,6 +41,8 @@ function App() {
     <FeaturedDessert/>
     </div>
     </div>
+    {/* <SimpleGlobe/>
+    <OverlayGlobe/> */}
     </div>
   );
 }
