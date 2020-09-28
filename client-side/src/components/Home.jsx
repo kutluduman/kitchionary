@@ -1,10 +1,22 @@
 import React from 'react';
 import {createMuiTheme, makeStyles, withStyles, MuiThemeProvider, ThemeProvider, styled } from '@material-ui/core/styles';
-import {lightBlue } from "@material-ui/core/colors";
+import {lightBlue,red } from "@material-ui/core/colors";
 import {Helmet} from 'react-helmet';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import { height } from '@material-ui/system';
+
+import { ReactComponent as Logo } from '../docs/breakfast.jpg'
+
+//door
+
+import "./door.css";
+// import "./door.js"
+import Door from "./Door";
+
+
+//quiz
+import "./quiz.css"
 
 // food images
 import breakfast from "../docs/breakfast.jpg";
@@ -118,19 +130,47 @@ const useStyles = makeStyles((theme) => ({
     left: 'calc(50% - 9px)',
     transition: theme.transitions.create('opacity'),
   },
+  rootCard: {
+    maxWidth: 345,
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    marginLeft: 'auto',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
+  avatar: {
+    backgroundColor: red[500],
+  },
+
+
 }));
 
 
 
 const Home = () => {
+  const classes = useStyles();
+  const [expanded, setExpanded] = React.useState(false);
 
-    const classes = useStyles();
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
+
+  
+  
+
   return (
 
-
     <div className={classes.root}>
-
-<Helmet>
+        <Helmet>
            <style>{'body { background-color: #d1e1ef; }'}</style>
          </Helmet>
     {images.map((image) => (
@@ -163,25 +203,16 @@ const Home = () => {
         </span>
       </ButtonBase>
     ))}
+
+    
+    
+    
   </div>
+
   
 );
 
-    
-//    <div>
-//        <Helmet>
-//           <style>{'body { background-color: #8BC2D8; }'}</style>
-//         </Helmet>
-// <div>
-// <button>hello</button>
-// <button>hello</button>
-// <button>hello</button>
-// <button>hello</button>
-// <button>hello</button>
-// </div>
-        
-//    </div>
-//   )
+  
 }
 
 export default Home;
