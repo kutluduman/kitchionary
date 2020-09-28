@@ -69,7 +69,8 @@ const RegisterTemplate = () => {
       phone_number: phoneNumber
     };
 
-    axios.post(`http://localhost:8080/register`, { user })
+
+    axios.post(`http://localhost:8080/register`, user)
       .then(res => {
         console.log(res);
         console.log(res.data);
@@ -104,6 +105,7 @@ const RegisterTemplate = () => {
         <br/>
       <form onSubmit={handleSubmit}>
         <TextField onChange={handleChangeFirstName}
+          value={firstName}
           label="First Name"
           id="outlined-margin-normal"
           placeholder="First Name"
@@ -116,6 +118,7 @@ const RegisterTemplate = () => {
         }
         />
          <TextField onChange={handleChangeLastName}
+          value={lastName}
           label="Last Name"
           id="outlined-margin-normal"
           placeholder="Last Name"
@@ -128,6 +131,7 @@ const RegisterTemplate = () => {
         />
         <div>
         <TextField onChange={handleChangeEmail}
+          value={email}
           label="Email"
           id="outlined-margin-normal"
           placeholder="Email"
@@ -139,6 +143,7 @@ const RegisterTemplate = () => {
           }}
         />
          <TextField onChange={handleChangePassword}
+          value={password}
           label="Password"
           id="outlined-margin-normal"
           placeholder="Password"
@@ -152,6 +157,7 @@ const RegisterTemplate = () => {
         </div>
         <div>
         <TextField onChange={handleChangePhoneNumber}
+          value={phoneNumber}
           label="Phone Number"
           id="outlined-margin-normal"
           placeholder="Phone Number"

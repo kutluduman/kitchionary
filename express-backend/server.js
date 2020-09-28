@@ -6,9 +6,9 @@ const PORT       = process.env.PORT || 8080;
 const ENV        = process.env.ENV || "development";
 const express    = require("express");
 const bodyParser = require("body-parser");
-const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const cors = require('cors')
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -22,14 +22,10 @@ db.connect();
 app.use(morgan('dev'));
 
 app.set("view engine", "ejs");
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use("/styles", sass({
-  src: __dirname + "/styles",
-  dest: __dirname + "/public/styles",
-  debug: true,
-  outputStyle: 'expanded'
-}));
 app.use(express.static("public"));
+app.use(cors())
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -44,6 +40,9 @@ const registerRoutes = require("./routes/register");
 // app.use("", usersRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/login",loginRoutes(db));
+app.get("/ping", (req,res) => {
+  res.send('Pong');
+})
 
 // Note: mount other resources here, using the same pattern above
 
@@ -52,7 +51,7 @@ app.use("/login",loginRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  res.send("okay");
 });
 
 app.listen(PORT, () => {
