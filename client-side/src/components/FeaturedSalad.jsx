@@ -57,7 +57,7 @@ const  FeaturedSalad = () => {
         title="Perfect Guacamole"
       />
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="h6" color="textSecondary" component="p">
         The perfect guacamole!
         </Typography>
       </CardContent>

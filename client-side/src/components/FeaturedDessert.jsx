@@ -57,8 +57,8 @@ const  FeaturedDessert = () => {
         title="Pineapple Coconut Sorbet"
       />
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-        Pineapple Coconut Sorbet: just 2 ingredients and 5 minutes prep to make delicious coconut pineapple sorbet. Healthy, Dairy-Free, Paleo, Vegan.
+        <Typography variant="h6" color="textSecondary" component="p">
+        Just 2 ingredients and 5 minutes prep to make delicious coconut pineapple sorbet. 
         </Typography>
       </CardContent>
       <Button size="large" color="primary">

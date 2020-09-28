@@ -66,7 +66,7 @@ const  FeaturedPasta = () => {
         title="Smoked Cheese Ravioli"
       />
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="h6" color="textSecondary" component="p">
         Quick and easy but tastes gourmet!
         </Typography>
       </CardContent>
