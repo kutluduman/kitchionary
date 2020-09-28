@@ -5,6 +5,12 @@ import Button from '@material-ui/core/Button';
 import { orange, lightBlue } from "@material-ui/core/colors";
 import axios from 'axios';
 
+import Login from "./Login";
+import  useLogin from './useLogin';
+import  useRegister from './useRegister';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -52,15 +58,40 @@ const theme = createMuiTheme({
 const RegisterTemplate = () => {
   const classes = useStyles();
 
+  const [error, setError] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
 
+  const {loginShowing, toggleLogin} = useLogin();
+  const {registerShowing, toggleRegister} = useRegister();
+  
+
+  function validate() {
+    if(!firstName){
+      setError("First Name is required!");
+      return false;
+    }
+    if(!lastName){
+      setError("Last Name is required!");
+      return false;
+    }
+    if(!email){
+      setError("Email is required!");
+      return false;
+    }
+    if(!password){
+      setError("Password is required!");
+      return false;
+    }
+    if(!phoneNumber){
+      setError("Phone Number is required!");
+      return false;
+    }
+
+    
     const user = {
       first_name: firstName,
       last_name: lastName,
@@ -69,12 +100,25 @@ const RegisterTemplate = () => {
       phone_number: phoneNumber
     };
 
+    
 
     axios.post(`http://localhost:8080/register`, user)
       .then(res => {
         console.log(res);
         console.log(res.data);
+        toggleRegister()
       })
+      .catch(err => {
+        console.log(err)
+        setError("Account already exists!");
+      })
+  }
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    validate()
   }
 
   const handleChangeFirstName = (e) => {
@@ -97,13 +141,16 @@ const RegisterTemplate = () => {
     setPassword(e.target.value);
   }
   
+
   return (
     <section>
       <h2 className={classes.root}>Register</h2>
     <div className={classes.root}>
       <div>
         <br/>
+        {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>
+
         <TextField onChange={handleChangeFirstName}
           value={firstName}
           label="First Name"
@@ -181,7 +228,8 @@ const RegisterTemplate = () => {
         </div>
         <ThemeProvider theme={theme}>
         <div className={classes.root}>
-        <Button variant="outlined" color="primary">Sign In</Button>
+        <Button hide={toggleRegister} onClick={toggleLogin} variant="outlined" color="primary">Sign In</Button>
+        <Login loginShowing={loginShowing} hide={toggleLogin}/>
         </div>
         </ThemeProvider>
       </div>

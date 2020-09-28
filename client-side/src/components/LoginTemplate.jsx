@@ -5,6 +5,10 @@ import Button from '@material-ui/core/Button';
 import { orange, lightBlue} from "@material-ui/core/colors";
 import axios from 'axios';
 
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import Register from "./Register";
+import  useRegister from './useRegister';
+import  useLogin from './useLogin';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,25 +51,48 @@ const theme = createMuiTheme({
 
 
 
+
+
 const LoginTemplate = () => {
   const classes = useStyles();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const {registerShowing, toggleRegister} = useRegister();
+  const {loginShowing, toggleLogin} = useLogin();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const validate = () => {
+    if (!email || !password) {
+      setError("Email is required!");
+      console.log("NO EMAIL OR PASSWORD",error)
+      return;
+    } 
+    if (!password) {
+      setError("Password is required!");
+      console.log(error);
+    }
+     const user = {
+       email,
+       password
+      }
 
-    const user = {
-      email: email,
-      password: password,
-    };
-
+     setError("NOT BLANK");
+  
+  
     axios.post(`http://localhost:8080/login`, { user })
       .then(res => {
         console.log(res);
         console.log(res.data);
+        toggleLogin()
       })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    validate();
+
   }
   
   const handleChangeEmail = (e) => {
@@ -76,6 +103,7 @@ const LoginTemplate = () => {
     setPassword(e.target.value);
   }
 
+
   return (
     <section>
       <h2 className={classes.root}>Login</h2>
@@ -85,6 +113,7 @@ const LoginTemplate = () => {
         <form onSubmit={handleSubmit}>
         <TextField onChange={handleChangeEmail}
           label="Email"
+          value={email}
           id="outlined-margin-normal"
           placeholder="Email"
           className={classes.textField}
@@ -98,6 +127,7 @@ const LoginTemplate = () => {
         <div>
         <TextField onChange={handleChangePassword}
           label="Password"
+          value={password}
           id="outlined-margin-normal"
           placeholder="Password"
           className={classes.textField}
@@ -118,7 +148,8 @@ const LoginTemplate = () => {
         </div>
         <ThemeProvider theme={theme}>
         <div className={classes.root}>
-        <Button variant="outlined" color="primary">Register</Button>
+      <Button hide={toggleLogin} onClick={toggleRegister} variant="outlined" color="primary">Register</Button>
+        <Register registerShowing={registerShowing} hide={toggleRegister}/>
         </div>
         </ThemeProvider>
       </div>

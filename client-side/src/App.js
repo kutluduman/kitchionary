@@ -3,11 +3,12 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Door from "./components/Door.jsx";
 import Question from "./components/Question";
-import axios from "axios";
 import Globe from "./components/Globe.jsx"
 import FeaturedDessert from "./components/FeaturedDessert"
 import FeaturedPasta from "./components/FeaturedPasta";
 import FeaturedSalad from "./components/FeaturedSalad";
+
+
 import "./styles/mode.css";
 import SimpleGlobe from './components/GlobeFeature';
 import OverlayGlobe from './components/OverlayGlobe';
@@ -15,25 +16,6 @@ import OverlayGlobe from './components/OverlayGlobe';
 
 
 function App() {
-  // axios({
-  //   method: "GET",
-  //   url: "http://localhost:8080/",
-  //   headers: {
-  //     "Content-Type": "application/json"
-  //   }
-  // }).then(res => {
-  //   console.log(res.data.message);
-  // });
-
-  // axios({
-  //   method: 'post',
-  //   url: '/user/12345',
-  //   data: {
-  //     firstName: 'Fred',
-  //     lastName: 'Flintstone'
-  //   }
-  // });
-
   return (
     <div>
     <head>

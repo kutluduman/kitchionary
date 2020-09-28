@@ -4,11 +4,10 @@
   margin-right: 90px; 
   margin-left: auto;*/
   margin-bottom: 200px;
-  border: 2px solid red;
   display: flex; 
   flex-direction: row; 
   justify-content: space-evenly;
-
+  width: 80%;
 
 }
 

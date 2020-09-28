@@ -5,7 +5,11 @@ const useLogin = () => {
   const [loginShowing, setLoginShowing] = useState(false);
 
   function toggleLogin() {
-    setLoginShowing(!loginShowing);
+    if (loginShowing) {
+      setLoginShowing(false);
+    } else {
+      setLoginShowing(true);
+    }
   }
 
   return {

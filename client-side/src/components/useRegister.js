@@ -5,7 +5,11 @@ const useRegister = () => {
   const [registerShowing, setRegisterShowing] = useState(false);
 
   function toggleRegister() {
-    setRegisterShowing(!registerShowing);
+    if (registerShowing) {
+      setRegisterShowing(false);
+    } else {
+      setRegisterShowing(true);
+    }
   }
 
   return {
