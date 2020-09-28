@@ -6,21 +6,21 @@ function SimpleGlobe() {
     {
       id: 'marker1',
       city: 'Singapore',
-      color: 'red',
+      color: 'gold',
       coordinates: [1.3521, 103.8198],
       value: 50,
     },
     {
       id: 'marker2',
       city: 'New York',
-      color: 'blue',
+      color: 'gold',
       coordinates: [40.73061, -73.935242],
       value: 25,
     },
     {
       id: 'marker3',
       city: 'San Francisco',
-      color: 'orange',
+      color: 'gold',
       coordinates: [37.773972, -122.431297],
       value: 35,
     },
@@ -34,7 +34,7 @@ function SimpleGlobe() {
     {
       id: 'marker5',
       city: 'London',
-      color: 'green',
+      color: 'gold',
       coordinates: [51.5074, 0.1278],
       value: 80,
     },
