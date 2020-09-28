@@ -9,6 +9,7 @@ import FeaturedDessert from "./components/FeaturedDessert"
 import FeaturedPasta from "./components/FeaturedPasta";
 import FeaturedSalad from "./components/FeaturedSalad";
 import "./styles/mode.css";
+import SimpleGlobe from './components/GlobeFeature';
 
 
 
@@ -58,6 +59,7 @@ function App() {
     <FeaturedDessert/>
     </div>
     </div>
+    <SimpleGlobe/>
     </div>
   );
 }
