@@ -7,11 +7,13 @@ import Globe from "./components/Globe.jsx"
 import FeaturedDessert from "./components/FeaturedDessert"
 import FeaturedPasta from "./components/FeaturedPasta";
 import FeaturedSalad from "./components/FeaturedSalad";
+import FridgeBoxImage from "./components/FridgeBoxImage";
+import FridgeCheckbox from "./components/FridgeCheckbox";
 
 
 import "./styles/mode.css";
-import SimpleGlobe from './components/GlobeFeature';
-import OverlayGlobe from './components/OverlayGlobe';
+// import SimpleGlobe from './components/GlobeFeature';
+// import OverlayGlobe from './components/OverlayGlobe';
 
 
 
@@ -39,6 +41,13 @@ function App() {
      <FeaturedSalad/>
     <FeaturedPasta/>
     <FeaturedDessert/>
+    </div>
+    <div>
+      <br/>
+      {/* <FridgeBoxImage/> */}
+    </div>
+    <div>
+      {/* <FridgeCheckbox/> */}
     </div>
     </div>
     {/* <SimpleGlobe/>
