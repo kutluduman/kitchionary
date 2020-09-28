@@ -45,9 +45,22 @@ function SimpleGlobe() {
       coordinates: [29.7604, -95.3698],
       value: 54,
     },
-  ]
+  ];
+
+  const options = {
+    ambientLightColor: 'white',
+    cameraRotateSpeed: 0.5,
+    focusAnimationDuration: 2000,
+    focusEasingFunction: ['Linear', 'None'],
+    pointLightIntensity: 1.5,
+    globeGlowColor: 'blue',
+    markerTooltipRenderer: marker => `${marker.city} (${marker.value})`,
+  };
+
+
   return <ReactGlobe 
           markers={markers}
+          options={options}
           />
 }
 
