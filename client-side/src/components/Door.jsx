@@ -1,6 +1,7 @@
 import React from 'react';
 import "./door.css";
-import pic from "../docs/dessert.jpg"
+import background from "../docs/white_back.jpg"
+import fridge from "../docs/fridge.jpg";
 
 const Door = () => {
 
@@ -13,9 +14,10 @@ const Door = () => {
 
   return (
   <div class="container">
-    <img class='background image' src={pic} alt="dessert" width="400" height="500" />
+    <img class='background image' src={background} alt="dessert" width="450" height="500" />
     <div className="backDoor" onMouseOver={hover} >
       <div className="door"> 
+      <img  src={fridge} alt="question" width="250" height="400" />
       </div>
     </div>
   </div>

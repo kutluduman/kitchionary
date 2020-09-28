@@ -1,7 +1,7 @@
 .container {
   /* position: relative; */
   margin-top:0;
-  border: 2px solid red;
+  
   /* display:flex; */
   margin: 100px;
   margin-left: 0;
@@ -9,7 +9,7 @@
 }
 
 .background {
-  border: 2px solid red;
+  border: solid orange;
 }
 
 .image {
@@ -20,7 +20,7 @@
 
 .globe {
   margin-top: 5em;
-  margin-left: 3em;
+  margin-left: 4.25em;
 }
 
 img.globe:hover {
