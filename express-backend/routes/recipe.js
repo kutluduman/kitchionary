@@ -7,7 +7,7 @@ module.exports = (db) => {
     const ingredient = req.body.name;
     const amount = req.body.amount;
     const culture = req.body.culture;
-    is_gluten_free = req.body.
+
 
     return db.query(`SELECT id, first_name, last_name, email, phone_number
     FROM users

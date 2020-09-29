@@ -63,6 +63,11 @@ const theme = createMuiTheme({
 
 const FridgeForm = () => {
   const classes = useStyles();
+
+  const handleSubmit = () => {
+
+  };
+  
   return (
     <article className={classes.root}>
        <Helmet>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -63,35 +63,41 @@ const useStyles = makeStyles((theme) => ({
 const FridgeAvatar = () => {
   const classes = useStyles();
 
-  // const [state, setState] = React.useState({
-  //   breakfast : false,
-  //   lunch : false,
-  //   appetizer : false,
-  //   dinner : false,
-  //   dessert : false,
-  
-  // });
+  const [state, setState] = useState({
+    cb1 : false,
+    cb2 : false,
+    cb3 : false,
+    cb4 : false,
+    cb5 : false,
 
-  // const handleChange = (event) => {
-  //   setState({ ...state, [event.target.name]: event.target.checked });
-  // };
+  });
+
+  const handleChange = (event) => {
+    console.log("event name", event.target.id)
+    console.log("event checked", event.target.checked)
+    setState({ ...state, [event.target.id]: event.target.checked });
+  };
+  
+ 
+
+  console.log('state', state);
 
   return(
   <div className={classes.root}>
   <ul>
-    <li><input type="checkbox" id="cb1" />
+    <li><input onClick={handleChange}  type="checkbox" id="cb1" />
       <label className="labelMeal" for="cb1"><img src={breakfast}/></label>
     </li>
-    <li><input type="checkbox" id="cb2" />
+    <li><input onClick={handleChange} type="checkbox" id="cb2" />
         <label className="labelMeal"for="cb2"><img src={lunch} /></label>
       </li>
-      <li><input type="checkbox" id="cb3" />
+      <li><input onClick={handleChange} type="checkbox" id="cb3" />
         <label  className="labelMeal" for="cb3"><img src={appetizer} /></label>
       </li>
-      <li><input type="checkbox" id="cb4" />
+      <li><input onClick={handleChange} type="checkbox" id="cb4" />
         <label  className="labelMeal" for="cb4"><img src={dinner} /></label>
       </li>
-      <li><input type="checkbox" id="cb5" />
+      <li><input onClick={handleChange} type="checkbox" id="cb5" />
         <label  className="labelMeal" for="cb5"><img src={dessert} /></label>
       </li>
     </ul>
