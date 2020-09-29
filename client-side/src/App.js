@@ -42,10 +42,6 @@ function App() {
     <FeaturedDessert/>
     </div>
     </div>
-    <div class="globefeature">
-    <OverlayGlobe/>
-    <SimpleGlobe/>
-    </div>
     </div>
   );
 }
