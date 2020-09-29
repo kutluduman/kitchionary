@@ -3,10 +3,6 @@ const router  = express.Router();
 
 module.exports = (db) => {
 
-  // const emailExist = function(email) {
-
-  // };
-
   router.post("/", (req, res) => {
     const user = req.body;
     const first_name = user.first_name;
@@ -22,7 +18,6 @@ module.exports = (db) => {
     `, [email])
     .then((data) => {
       if (data.rows.length > 0) {
-        // console.log("idk")
        res.status(401).send("Email already exists")
 
       } else {
