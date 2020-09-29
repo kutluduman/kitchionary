@@ -63,22 +63,10 @@ const useStyles = makeStyles((theme) => ({
 const FridgeAvatar = (props) => {
   const classes = useStyles();
 
-  const [state, setState] = useState({
-    breakfast: false,
-    lunch: false,
-    appetizer: false,
-    dinner: false,
-    dessert: false,
-
-  });
-
   const handleChange = (event) => {
-    console.log("event name", event.target.name)
-    console.log("event checked", event.target.checked)
-    setState({ ...state, [event.target.name]: event.target.checked });
+    props.setInput({ ...props.state, [event.target.name]: event.target.checked });
   };
 
-  console.log(state);
 
   return(
   <div className={classes.root}>

@@ -26,32 +26,14 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function IngredientForm() {
-  const classes = useStyles();
-  const [state, setState] = useState({
-    name: '',
-    quantity: '',
-    unit: '',
-    culture:'',
-
-  });
-
-  
- 
+export default function IngredientForm(props) {
+  const classes = useStyles(); 
 
   const handleChange = (event) => {
-    console.log('event name', event.target.name)
-    console.log('event value', event.target.value)
-    setState({ ...state, [event.target.name]: event.target.value });
+    props.setInput({ ...props.state, [event.target.name]: event.target.value });
   };
-  console.log(state)
 
-  // const handleCulture = (event) => {
-  //   setCulture(event.target.value);
-  // };
-  // const handleUnit = (event) => {
-  //   setUnit(event.target.value);
-  // };
+
 
   return (
     <div>
@@ -88,7 +70,7 @@ export default function IngredientForm() {
         <Select
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
-          // value={unit}
+          value={props.unit}
           onChange={handleChange}
           label="Unit"
           name='unit'
@@ -115,7 +97,7 @@ export default function IngredientForm() {
         <Select
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
-          // value={culture}
+          value={props.culture}
           onChange={handleChange}
           label="Culture"
           name = 'culture'

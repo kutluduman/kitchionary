@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useReducer} from 'react';
 import { Redirect } from "react-router-dom";
 import { createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -67,8 +67,14 @@ const theme = createMuiTheme({
 
 const FridgeForm = () => {
   const classes = useStyles();
-
   
+
+  // console.log('cb1', state.cb1);
+  // console.log('cb2', state.cb2);
+  // console.log('cb3', state.cb3);
+  // console.log('cb4', state.cb4);
+    //   cb4
+    //  }
  
  
   //  axios.post(`http://localhost:8080/recipe`, { user })
@@ -81,17 +87,25 @@ const FridgeForm = () => {
   //    })
   // };
 
+  const [inputState, setInputState] = useState({
+    breakfast: false,
+    lunch: false,
+    appetizer: false,
+    dinner: false,
+    dessert: false,
+    glutenFree : false,
+    nutFree : false,
+    dairyFree : false,
+    vegetarian : false,
+    vegan : false,
+    name: '',
+    quantity: '',
+    unit: '',
+    culture:'',
+  });
 
 
-  // const handleChangeChecked = (event) => {
-  //   setState({ ...state, [event.target.name]: event.target.checked });
-  // };
-
-  // const handleChange = (event) => {
-  //   setState({ ...state, [event.target.name]: event.target.value });
-  // };
-
-  // console.log(state)
+  console.log(inputState)
 
   return (
     <article className={classes.root}>
@@ -102,14 +116,14 @@ const FridgeForm = () => {
         <h1 className='fridgeTitle'>Fridge Mode</h1>
         <h2 className='fridgeSubtitle'>Step One: What meal are you cooking?</h2>
         <div className={classes.avatar}>
-          <FridgeAvatar/>
+          <FridgeAvatar setInput={setInputState}/>
         </div>
         <h2 className='fridgeSubtitle'>Step Two: Any dietary restrictions?</h2>
         <div className={classes.checkbox}>
-          <FridgeCheckbox/>
+          <FridgeCheckbox setInput={setInputState}/>
         </div>
         <h2 className='fridgeSubtitle'> Step Three: What ingredients do you want to cook with?</h2> 
-          <IngredientForm/>
+          <IngredientForm setInput={setInputState}/>
 
         <div className={classes.submit}>
         <ColorButton size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>
