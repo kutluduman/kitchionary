@@ -14,3 +14,8 @@ INSERT INTO cultures (recipe_id, name) VALUES (12, 'Italian');
 INSERT INTO cultures (recipe_id, name) VALUES (13, 'Greek');
 INSERT INTO cultures (recipe_id, name) VALUES (14, 'American');
 INSERT INTO cultures (recipe_id, name) VALUES (15, 'American');
+INSERT INTO cultures (recipe_id, name) VALUES (16, 'Italian');
+INSERT INTO cultures (recipe_id, name) VALUES (17, 'Turkish');
+INSERT INTO cultures (recipe_id, name) VALUES (18, 'Italian');
+INSERT INTO cultures (recipe_id, name) VALUES (19, 'Italian');
+INSERT INTO cultures (recipe_id, name) VALUES (20, 'Italian');
