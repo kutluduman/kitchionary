@@ -13,8 +13,8 @@ const Door = () => {
 
 
   return (
-  <div class="container">
-    <img class='background image' src={background} alt="dessert" width="450" height="500" />
+  <div className="container">
+    <img className='background image' src={background} alt="dessert" width="450" height="500" />
     <div className="backDoor" onMouseOver={hover} >
       <div className="door"> 
       <img  src={fridge} alt="question" width="250" height="400" />
