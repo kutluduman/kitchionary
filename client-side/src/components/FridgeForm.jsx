@@ -67,26 +67,7 @@ const theme = createMuiTheme({
 
 const FridgeForm = () => {
   const classes = useStyles();
-  
-
-  // console.log('cb1', state.cb1);
-  // console.log('cb2', state.cb2);
-  // console.log('cb3', state.cb3);
-  // console.log('cb4', state.cb4);
-    //   cb4
-    //  }
  
- 
-  //  axios.post(`http://localhost:8080/recipe`, { user })
-  //    .then(res => {
-  //     return <Redirect to = {{ pathname: "/??" }} />;
-  //    })
-  //    .catch(err => {
-  //     res.status(500).json({ error: err.message });
-  //     // or set error state
-  //    })
-  // };
-
   const [inputState, setInputState] = useState({
     breakfast: false,
     lunch: false,
@@ -104,6 +85,36 @@ const FridgeForm = () => {
     culture:'',
   });
 
+  const handleSubmit = () => {
+     const recipes = {
+      breakfast: inputState.breakfast,
+      lunch: inputState.lunch,
+      appetizer: inputState.appetizer,
+      dinner: inputState.dinner,
+      dessert: inputState.dessert,
+      glutenFree: inputState.glutenFree,
+      nutFree: inputState.nutFree,
+      dairyFree: inputState.dairyFree,
+      vegetarian: inputState.vegetarian,
+      vegan: inputState.vegan,
+      name: inputState.name,
+      quantity: inputState.quantity,
+      unit: inputState.unit,
+      culture: inputState.culture,
+      }
+  
+  
+    axios.post(`http://localhost:8080/recipe`, { recipes })
+      .then(res => {
+        return <Redirect to = {{ pathname: "/recipes" }} />;
+      })
+      .catch(err => {
+        // res.status(500).json({ error: err.message });
+        // or set error state
+      })
+    };
+
+
 
   console.log(inputState)
 
@@ -112,7 +123,7 @@ const FridgeForm = () => {
        <Helmet>
            <style>{'body { background-color: #d1e1ef; }'}</style>
          </Helmet>
-      <form >
+      <form onSubmit={handleSubmit}>
         <h1 className='fridgeTitle'>Fridge Mode</h1>
         <h2 className='fridgeSubtitle'>Step One: What meal are you cooking?</h2>
         <div className={classes.avatar}>
