@@ -60,47 +60,42 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const FridgeAvatar = () => {
+const FridgeAvatar = (props) => {
   const classes = useStyles();
 
   const [state, setState] = useState({
-    cb1 : false,
-    cb2 : false,
-    cb3 : false,
-    cb4 : false,
-    cb5 : false,
+    breakfast: false,
+    lunch: false,
+    appetizer: false,
+    dinner: false,
+    dessert: false,
 
   });
 
   const handleChange = (event) => {
-    console.log("event name", event.target.id)
+    console.log("event name", event.target.name)
     console.log("event checked", event.target.checked)
-    setState({ ...state, [event.target.id]: event.target.checked });
+    setState({ ...state, [event.target.name]: event.target.checked });
   };
-  
- 
-  // console.log('cb1', state.cb1);
-  // console.log('cb2', state.cb2);
-  // console.log('cb3', state.cb3);
-  // console.log('cb4', state.cb4);
 
+  console.log(state);
 
   return(
   <div className={classes.root}>
   <ul>
-    <li><input onClick={handleChange}  type="checkbox" id="cb1" />
+    <li><input onClick={handleChange} name='breakfast' type="checkbox" id="cb1" />
       <label className="labelMeal" for="cb1"><img src={breakfast}/></label>
     </li>
-    <li><input onClick={handleChange} type="checkbox" id="cb2" />
+    <li><input onClick={handleChange} name='lunch' type="checkbox" id="cb2" />
         <label className="labelMeal"for="cb2"><img src={lunch} /></label>
       </li>
-      <li><input onClick={handleChange} type="checkbox" id="cb3" />
+      <li><input onClick={handleChange} name='appetizer' type="checkbox" id="cb3" />
         <label  className="labelMeal" for="cb3"><img src={appetizer} /></label>
       </li>
-      <li><input onClick={handleChange} type="checkbox" id="cb4" />
+      <li><input onClick={handleChange} name='dinner' type="checkbox" id="cb4" />
         <label  className="labelMeal" for="cb4"><img src={dinner} /></label>
       </li>
-      <li><input onClick={handleChange} type="checkbox" id="cb5" />
+      <li><input onClick={handleChange} name='dessert' type="checkbox" id="cb5" />
         <label  className="labelMeal" for="cb5"><img src={dessert} /></label>
       </li>
     </ul>

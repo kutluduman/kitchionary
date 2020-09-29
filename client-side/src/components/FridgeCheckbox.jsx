@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { green } from '@material-ui/core/colors';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -22,7 +22,7 @@ const GreenCheckbox = withStyles({
 
 
 const FridgeCheckbox = () => {
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     glutenFree : false,
     nutFree : false,
     dairyFree : false,
@@ -37,7 +37,7 @@ const FridgeCheckbox = () => {
   };
 
   console.log(state);
-  
+
   return (
     <FormGroup row>
       <FormControlLabel
