@@ -45,9 +45,10 @@ const FridgeCheckbox = () => {
             onChange={handleChange}
             name="glutenFree"
             color="primary"
+            
           />
         }
-        label="gluten free"
+        label="Gluten Free"
       />
       <FormControlLabel
         control={
@@ -58,7 +59,7 @@ const FridgeCheckbox = () => {
             color="primary"
           />
         }
-        label="nut free"
+        label="Nut Free"
       />
       <FormControlLabel
         control={
@@ -69,7 +70,7 @@ const FridgeCheckbox = () => {
             color="primary"
           />
         }
-        label="dairy free"
+        label="Dairy Free"
       />
       <FormControlLabel
         control={
@@ -80,7 +81,7 @@ const FridgeCheckbox = () => {
             color="primary"
           />
         }
-        label="vegetarian"
+        label="Vegetarian"
       />
       <FormControlLabel
         control={
@@ -91,7 +92,7 @@ const FridgeCheckbox = () => {
             color="primary"
           />
         }
-        label="vegan"
+        label="Vegan"
       />
     </FormGroup>
       
