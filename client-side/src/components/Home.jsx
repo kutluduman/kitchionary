@@ -215,7 +215,7 @@ const Home = () => {
       </ButtonBase>
     ))}
     <div className="mode"> 
-      <Door/>
+      <Door/> 
       <Question/>
       <Globe/> 
     </div>

@@ -6,6 +6,15 @@
   margin-right: 0;
   /* margin: 100px; */
 }
+.titleFridge {
+  position: relative;
+  margin-top: 17em;
+  z-index: 5;
+}
+
+.description{
+  padding: 15px;
+}
 
 .backDoor
 {
