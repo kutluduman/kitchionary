@@ -14,64 +14,64 @@ import FridgeForm from "./components/FridgeForm";
 import RecipeDetail from "./components/RecipeDetail";
 import MatchingRecipes from "./components/MatchingRecipes";
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  HashRouter
+} from "react-router-dom";
 
+import Login from "./components/Login";
+import LoginTemplate from "./components/LoginTemplate";
+import RegisterTemplate from "./components/RegisterTemplate";
+import Register from "./components/Register";
 import "./styles/mode.css";
-// import SimpleGlobe from './components/GlobeFeature';
-// import OverlayGlobe from './components/OverlayGlobe';
-
+import SimpleGlobe from './components/GlobeFeature';
+import OverlayGlobe from './components/OverlayGlobe';
+import "./styles/globefeature.css";
 
 
 function App() {
-  // return (
-  //   <div>
-  //   <head>
-  //       <meta
-  //         name="viewport"
-  //         content="minimum-scale=1, initial-scale=1, width=device-width"
-  //       />
-  //       <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"></link>
-
-  //     </head>
-     
-  //   <div className="App">
-  //    <Navbar/>
-  //    <Home/>
-  //    <div class="mode">
-  //       <Door/>
-  //       <Question/>
-  //       <Globe />
-  //    </div>
-  //    <div class="featured">
-  //    <FeaturedSalad/>
-  //   <FeaturedPasta/>
-  //   <FeaturedDessert/>
-  //   </div>
-  //   <div>
-  //     <br/>
-  //     {/* <FridgeBoxImage/> */}
-  //   </div>
-  //   <div>
-  //     {/* <FridgeCheckbox/> */}
-  //   </div>
-  //   <div>
-  //     {/* <FridgeAvatar/> */}
-  //   </div>
-  //   <div>
-  //     {/* <FridgeForm/> */}
-  //   </div>
-  //   </div>
-  //   {/* <SimpleGlobe/>
-  //   <OverlayGlobe/> */}
-  //   </div>
-  // );
-
-  return(
-    <div>
-      {/* <FridgeForm/>  */}
-       {/* <MatchingRecipes/> */}
-      {/* <RecipeDetail/>       */}
-    </div>
-  )
+  return (
+    <Router>
+      <div className="App">
+        <Navbar/>
+        <dialog role="alertdialog" id="login" open>
+          <LoginTemplate/>
+        </dialog>
+        <dialog role="alertdialog" id="register">
+          <RegisterTemplate/>
+        </dialog>
+        <main role="main">
+            <Switch>
+             <Route path="/">
+             <Home/>
+             {/* <Door/>
+             <Question/>
+             <Globe/>  */}
+              </Route>
+              <Route path="/door">
+                <Door/>
+              </Route>
+              <Route path="/question">
+                <Question/>
+              </Route>
+              <Route path="/globe">
+                <Globe/>
+              </Route>
+              <Route path="/recipes/:id">
+              </Route>
+            </Switch>
+            {/* <div className="featured">
+              <FeaturedSalad/>
+              <FeaturedPasta/>
+              <FeaturedDessert/>
+            </div> */}
+        </main>
+      </div>
+    </Router>
+  );
 }
 export default App;
 

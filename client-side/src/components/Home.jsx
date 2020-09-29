@@ -10,9 +10,9 @@ import { ReactComponent as Logo } from '../docs/breakfast.jpg'
 
 //door
 
-import "./door.css";
-// import "./door.js"
-import Door from "./Door";
+// import "./door.css";
+// // import "./door.js"
+// import Door from "./Door";
 
 
 //quiz
@@ -24,6 +24,17 @@ import lunch from "../docs/lunch.jpg";
 import appetizer from "../docs/appetizer.jpg";
 import dinner from "../docs/dinner.jpg";
 import dessert from "../docs/dessert.jpg";
+
+
+import Door from "./Door.jsx";
+import Question from "./Question";
+import Globe from "./Globe.jsx"
+import "../styles/mode.css";
+
+
+import FeaturedDessert from "./FeaturedDessert"
+import FeaturedPasta from "./FeaturedPasta";
+import FeaturedSalad from "./FeaturedSalad";
 
 
 
@@ -57,11 +68,11 @@ const images = [
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    minWidth: 300,
-    width: '100%',
-    justifyContent: 'center'
+    // display: 'flex',
+    // flexWrap: 'wrap',
+    // // minWidth: 300,
+    // width: '100%',
+    // justifyContent: 'center'
   },
   image: {
 
@@ -171,7 +182,7 @@ const Home = () => {
 
     <div className={classes.root}>
         <Helmet>
-           <style>{'body { background-color: #d1e1ef; }'}</style>
+           <style>{'body { background-color: #e0e9f1; }'}</style>
          </Helmet>
     {images.map((image) => (
       <ButtonBase
@@ -203,9 +214,18 @@ const Home = () => {
         </span>
       </ButtonBase>
     ))}
-
-    
-    
+    <div className="mode"> 
+      <Door/>
+      <Question/>
+      <Globe/> 
+    </div>
+    <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2>
+    <div className="featured">
+      <FeaturedSalad/>
+      <FeaturedPasta/>
+      <FeaturedDessert/>
+      
+    </div>
     
   </div>
 

@@ -21,10 +21,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width:500,
     height:500,
+    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)'
   },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
+    
   },
   expand: {
     transform: 'rotate(0deg)',

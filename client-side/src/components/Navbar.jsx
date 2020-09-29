@@ -1,4 +1,6 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
+import { useCookies } from 'react-cookie';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -14,8 +16,9 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import { orange, lightBlue } from "@material-ui/core/colors";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-
-
+import {
+  Link
+} from "react-router-dom";
 
 //popout
 
@@ -29,6 +32,8 @@ const useStyles = makeStyles((theme) => ({
     
     root: { 
       marginLeft: 'auto',
+      display: 'flex'
+      // backgroundColor:orange,
     },
   
     menuButton: {
@@ -76,6 +81,7 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     
+    
 }));
 
 const ColorButton = withStyles((theme) => ({
@@ -91,53 +97,88 @@ const ColorButton = withStyles((theme) => ({
 
 function Navbar() {
 
-
   const classes = useStyles();
+  const [cookies, setCookie, removeCookie] = useCookies(['name']);
+  console.log(cookies)
   //popout
-  const {loginShowing, toggleLogin} = useLogin();
-  const {registerShowing, toggleRegister} = useRegister();
-
+  // const {loginShowing, toggleLogin} = useLogin();
+  // const {registerShowing, toggleRegister} = useRegister();
   
+  const handleRemoveCookie = () => {
+    removeCookie('name')
+  };
+  
+if (!cookies.name){
   return (
-    
     <div>
-    <AppBar position="static">
-      <main className='banner'>
-    <Toolbar>
-    <Typography variant="h6">
-        <img src={logo} className= "logo" alt="logo"></img>
-      </Typography>
-      <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-        <MenuIcon />
-      </IconButton>
-      <div className={classes.search}>
-        <div className={classes.searchIcon}>
-              <SearchIcon />
+      <AppBar position="static">
+        <main className='banner'>
+          <Toolbar>
+            <Typography variant="h6">
+                <img src={logo} className= "logo" alt="logo"></img>
+            </Typography>
+            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+              <MenuIcon />
+            </IconButton>
+                <div className={classes.search}>
+                  <div className={classes.searchIcon}>
+                    <SearchIcon />
+                  </div>
+                  <InputBase
+                    placeholder="Search…"
+                    classes={{
+                      root: classes.inputRoot,
+                      input: classes.inputInput,
+                    }}
+                    inputProps={{ 'aria-label': 'search' }}
+                  />
+                </div>
+              <div className={classes.root}>
+                <ColorButton href="#login" startIcon={<ExitToAppIcon />}> Login </ColorButton>
+                <ColorButton href="#register" startIcon={<AccountCircleIcon />}> Register </ColorButton>
             </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
-        <div   className={classes.root}>
-        
-          <ColorButton startIcon={<ExitToAppIcon />} onClick={toggleLogin}> Login</ColorButton>
-            <Login loginShowing={loginShowing} hide={toggleLogin}/>
-       
-            <ColorButton startIcon={<AccountCircleIcon />} onClick={toggleRegister}>Sign Up</ColorButton>
-            <Register registerShowing={registerShowing} hide={toggleRegister}/>
-
-          
-      </div>
-  </Toolbar>
-  </main>
-</AppBar>
-</div>
+          </Toolbar>
+        </main> 
+      </AppBar>
+    </div>
   );
+} else {
+  return (
+    <div>
+      <AppBar position="static">
+        <main className='banner'>
+        <Toolbar>
+        <Typography variant="h6">
+            <img src={logo} className= "logo" alt="logo"></img>
+          </Typography>
+          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+          <div className={classes.search}>
+            <div className={classes.searchIcon}>
+                  <SearchIcon />
+                </div>
+                <InputBase
+                  placeholder="Search…"
+                  classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput,
+                  }}
+                  inputProps={{ 'aria-label': 'search' }}
+                />
+              </div>
+            <div className={classes.root}>
+            <p className="Name">Logged in as {cookies.name}!</p>
+            <ColorButton onClick={handleRemoveCookie}> Logout
+            <Redirect to = {{ pathname: "/" }} />
+            </ColorButton>
+          </div>
+      </Toolbar>
+      </main>
+    </AppBar>
+  </div>
+)}
+
 }
 
 export default Navbar;

@@ -1,14 +1,17 @@
 import React,{useState} from 'react';
+import { Redirect } from "react-router-dom";
+import { useCookies } from 'react-cookie';
 import {createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { orange, lightBlue } from "@material-ui/core/colors";
 import axios from 'axios';
 
-import Login from "./Login";
-import  useLogin from './useLogin';
-import  useRegister from './useRegister';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+// import Login from "./Login";
+// import  useLogin from './useLogin';
+// import  toggle from './useLogin';
+// import  useRegister from './useRegister';
+// import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 
 
@@ -64,9 +67,10 @@ const RegisterTemplate = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [cookies, setCookie] = useCookies(['name']);
 
-  const {loginShowing, toggleLogin} = useLogin();
-  const {registerShowing, toggleRegister} = useRegister();
+  // const {loginShowing, toggleLogin} = useLogin();
+  // const {registerShowing, toggleRegister} = useRegister();
   
 
   function validate() {
@@ -106,10 +110,11 @@ const RegisterTemplate = () => {
       .then(res => {
         console.log(res);
         console.log(res.data);
-        toggleRegister()
+        if (res.status === 200) {
+          setCookie('name', user.email, {path: '/'});
+        }
       })
       .catch(err => {
-        console.log(err)
         setError("Account already exists!");
       })
   }
@@ -118,7 +123,13 @@ const RegisterTemplate = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    validate()
+    validate();
+
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setPhoneNumber('');
+    setPassword('');
   }
 
   const handleChangeFirstName = (e) => {
@@ -141,9 +152,15 @@ const RegisterTemplate = () => {
     setPassword(e.target.value);
   }
   
-
+  if (!cookies.name){
   return (
     <section>
+      <div className="modal-overlay"/>
+    <div className="modal-wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
+      <div className="modal">
+      <div className="modal-header">
+       <a href="#"><span aria-hidden="true">&times;</span></a>
+       </div>
       <h2 className={classes.root}>Register</h2>
     <div className={classes.root}>
       <div>
@@ -228,14 +245,18 @@ const RegisterTemplate = () => {
         </div>
         <ThemeProvider theme={theme}>
         <div className={classes.root}>
-        <Button hide={toggleRegister} onClick={toggleLogin} variant="outlined" color="primary">Sign In</Button>
-        <Login loginShowing={loginShowing} hide={toggleLogin}/>
+        <Button href="#login" variant="outlined" color="primary">Login</Button>
         </div>
         </ThemeProvider>
+        </div>
+        </div>
       </div>
     </div>
     </section>
   )
+  } else {
+    return <Redirect to = {{ pathname: "/" }} />;
+  }
 }
 
 export default RegisterTemplate;
