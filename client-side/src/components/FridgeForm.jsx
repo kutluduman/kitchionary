@@ -6,7 +6,10 @@ import { orange, lightBlue} from "@material-ui/core/colors";
 import {Helmet} from 'react-helmet';
 import FridgeAvatar from './FridgeAvatar';
 import FridgeCheckbox from './FridgeCheckbox';
-import {Select,MenuItem, FormControl, InputLabel} from '@material-ui/core';
+import {Select,MenuItem, FormControl, InputLabel} from 
+'@material-ui/core';
+
+import IngredientForm from "./FridgeIngredientInput"
 
 import "./fridgeMealCheck.css"
 
@@ -37,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom:theme.spacing(10)
   },
   formControl: {
     mindWidth:100,
@@ -78,42 +82,13 @@ const FridgeForm = () => {
         <div className={classes.checkbox}>
           <FridgeCheckbox/>
         </div>
-        <h2 className='fridgeSubtitle'> Step Three: What ingredients do you want to cook with?</h2>
-    <TextField
-          label="Name"
-          id="outlined-margin-normal"
-          defaultValue=""
-          className={classes.textField}
-          margin="normal"
-          variant="outlined"
-        />
-        <TextField
-          label="Amount"
-          id="outlined-margin-normal"
-          defaultValue=""
-          className={classes.textField}
-          margin="normal"
-          variant="outlined"
-        />
-        <TextField
-          label="Culture"
-          id="outlined-margin-normal"
-          defaultValue=""
-          className={classes.textField}
-          margin="normal"
-          variant="outlined"
-        />
-         <TextField
-          label="Culture"
-          id="outlined-margin-normal"
-          defaultValue=""
-          className={classes.textField}
-          margin="normal"
-          variant="outlined"
-        />
+        <h2 className='fridgeSubtitle'> Step Three: What ingredients do you want to cook with?</h2> 
+          <IngredientForm/>
+
         <div className={classes.submit}>
-        <ColorButton size="large" type = 'submit' variant="contained" >Submit</ColorButton>
+        <ColorButton size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>
         </div>
+
         </form>
     </article>
   )
