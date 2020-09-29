@@ -82,7 +82,6 @@ const FridgeForm = () => {
     name: '',
     quantity: '',
     unit: '',
-    culture:'',
   });
 
   const handleSubmit = () => {
@@ -100,13 +99,12 @@ const FridgeForm = () => {
       name: inputState.name,
       quantity: inputState.quantity,
       unit: inputState.unit,
-      culture: inputState.culture,
       }
   
   
-    axios.post(`http://localhost:8080/recipe`, { recipes })
+    axios.post(`http://localhost:8080/recipes`, {recipes})
       .then(res => {
-        return <Redirect to = {{ pathname: "/recipes" }} />;
+        // return <Redirect to = {{ pathname: "/" }} />;
       })
       .catch(err => {
         // res.status(500).json({ error: err.message });
@@ -127,14 +125,14 @@ const FridgeForm = () => {
         <h1 className='fridgeTitle'>Fridge Mode</h1>
         <h2 className='fridgeSubtitle'>Step One: What meal are you cooking?</h2>
         <div className={classes.avatar}>
-          <FridgeAvatar setInput={setInputState}/>
+          <FridgeAvatar setInput={setInputState} inputState={inputState}/>
         </div>
         <h2 className='fridgeSubtitle'>Step Two: Any dietary restrictions?</h2>
         <div className={classes.checkbox}>
-          <FridgeCheckbox setInput={setInputState}/>
+          <FridgeCheckbox setInput={setInputState} inputState={inputState}/>
         </div>
         <h2 className='fridgeSubtitle'> Step Three: What ingredients do you want to cook with?</h2> 
-          <IngredientForm setInput={setInputState}/>
+          <IngredientForm setInput={setInputState} inputState={inputState}/>
 
         <div className={classes.submit}>
         <ColorButton size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>

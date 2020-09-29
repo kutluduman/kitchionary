@@ -30,7 +30,7 @@ export default function IngredientForm(props) {
   const classes = useStyles(); 
 
   const handleChange = (event) => {
-    props.setInput({ ...props.state, [event.target.name]: event.target.value });
+    props.setInput({ ...props.inputState, [event.target.name]: event.target.value });
   };
 
 
@@ -90,31 +90,7 @@ export default function IngredientForm(props) {
         </Select>
       </FormControl>
 
-  {/* CUISINE */}
-
-  <FormControl variant="outlined" className={classes.textField}>
-        <InputLabel id="demo-simple-select-outlined-label">Cuisine</InputLabel>
-        <Select
-          labelId="demo-simple-select-outlined-label"
-          id="demo-simple-select-outlined"
-          value={props.culture}
-          onChange={handleChange}
-          label="Culture"
-          name = 'culture'
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={'Mexican'}>Mexican</MenuItem>
-          <MenuItem value={'Italian'}>Italian</MenuItem>
-          <MenuItem value={'Chinese'}>Chinese</MenuItem>
-          <MenuItem value={'American'}>American</MenuItem>
-          <MenuItem value={'Japanese'}>Japanese</MenuItem>
-          <MenuItem value={'Mediterranean'}>Mediterranean</MenuItem>
-          <MenuItem value={'Spanish'}>Spanish</MenuItem>
-          <MenuItem value={'Turkish'}>Turkish</MenuItem>
-         </Select>
-      </FormControl>
+  
     </div>
   );
 }
