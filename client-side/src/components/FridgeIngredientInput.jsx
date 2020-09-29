@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -26,39 +26,41 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function IngredientForm() {
-  const classes = useStyles();
-  const [culture, setCulture] = React.useState('');
-  const [unit, setUnit] = React.useState('');
-  const handleCulture = (event) => {
-    setCulture(event.target.value);
+export default function IngredientForm(props) {
+  const classes = useStyles(); 
+
+  const handleChange = (event) => {
+    props.setInput({ ...props.state, [event.target.name]: event.target.value });
   };
-  const handleUnit = (event) => {
-    setUnit(event.target.value);
-  };
+
+
 
   return (
     <div>
 {/* NAME */}
-<FormControl variant="outlined" className={classes.formControl}>
+<FormControl  variant="outlined" className={classes.formControl}>
  <TextField
           label="Name"
+          onChange={handleChange}
           id="outlined-margin-normal"
           defaultValue=""
           className={classes.textField}
           margin="normal"
           variant="outlined"
+          name= "name"
         />
       </FormControl>  
   {/* AMOUNT   */}
  <FormControl variant="outlined" className={classes.formControl}>
  <TextField
           label="Quantity"
+          onChange={handleChange}
           id="outlined-margin-normal"
           defaultValue=""
           className={classes.textField}
           margin="normal"
           variant="outlined"
+          name='quantity'
         />
       </FormControl>  
 
@@ -68,9 +70,10 @@ export default function IngredientForm() {
         <Select
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
-          value={unit}
-          onChange={handleUnit}
+          value={props.unit}
+          onChange={handleChange}
           label="Unit"
+          name='unit'
         >
           <MenuItem value="">
             <em>None</em>
@@ -94,9 +97,10 @@ export default function IngredientForm() {
         <Select
           labelId="demo-simple-select-outlined-label"
           id="demo-simple-select-outlined"
-          value={culture}
-          onChange={handleCulture}
+          value={props.culture}
+          onChange={handleChange}
           label="Culture"
+          name = 'culture'
         >
           <MenuItem value="">
             <em>None</em>

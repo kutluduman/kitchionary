@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -60,38 +60,30 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const FridgeAvatar = () => {
+const FridgeAvatar = (props) => {
   const classes = useStyles();
 
-  // const [state, setState] = React.useState({
-  //   breakfast : false,
-  //   lunch : false,
-  //   appetizer : false,
-  //   dinner : false,
-  //   dessert : false,
-  
-  // });
+  const handleChange = (event) => {
+    props.setInput({ ...props.state, [event.target.name]: event.target.checked });
+  };
 
-  // const handleChange = (event) => {
-  //   setState({ ...state, [event.target.name]: event.target.checked });
-  // };
 
   return(
   <div className={classes.root}>
   <ul>
-    <li><input type="checkbox" id="cb1" />
+    <li><input onClick={handleChange} name='breakfast' type="checkbox" id="cb1" />
       <label className="labelMeal" for="cb1"><img src={breakfast}/></label>
     </li>
-    <li><input type="checkbox" id="cb2" />
+    <li><input onClick={handleChange} name='lunch' type="checkbox" id="cb2" />
         <label className="labelMeal"for="cb2"><img src={lunch} /></label>
       </li>
-      <li><input type="checkbox" id="cb3" />
+      <li><input onClick={handleChange} name='appetizer' type="checkbox" id="cb3" />
         <label  className="labelMeal" for="cb3"><img src={appetizer} /></label>
       </li>
-      <li><input type="checkbox" id="cb4" />
+      <li><input onClick={handleChange} name='dinner' type="checkbox" id="cb4" />
         <label  className="labelMeal" for="cb4"><img src={dinner} /></label>
       </li>
-      <li><input type="checkbox" id="cb5" />
+      <li><input onClick={handleChange} name='dessert' type="checkbox" id="cb5" />
         <label  className="labelMeal" for="cb5"><img src={dessert} /></label>
       </li>
     </ul>
