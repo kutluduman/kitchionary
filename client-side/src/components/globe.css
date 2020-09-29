@@ -8,9 +8,22 @@
   /* justify-content: space-between; */
 }
 
+.titleGlobe {
+  position: relative;
+  margin-top: 17em;
+  z-index: 5;
+}
+
+.descriptionGlobe{
+  padding: 15px;
+}
+
 .background {
-  border: orange solid 0.5em; 
+  border: #53a5dc solid 0.3em; 
   border-radius: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19);
+ 
+
 }
 
 .image {

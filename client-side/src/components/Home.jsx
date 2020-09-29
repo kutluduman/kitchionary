@@ -182,7 +182,7 @@ const Home = () => {
 
     <div className={classes.root}>
         <Helmet>
-           <style>{'body { background-color: #d1e1ef; }'}</style>
+           <style>{'body { background-color: #e0e9f1; }'}</style>
          </Helmet>
     {images.map((image) => (
       <ButtonBase

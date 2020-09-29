@@ -20,9 +20,10 @@
 
 .featuredTitle {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-bottom: 100px;
-  font-size: 5em;
-  background-color: rgb(240, 187, 89);
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    font-size: 3em;
+    background-color: rgb(240, 187, 89);
+    height: 100px;
 }
