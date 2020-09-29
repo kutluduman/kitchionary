@@ -22,5 +22,10 @@ CREATE TABLE recipes (
   is_healthy BOOLEAN NOT NULL,
   is_spicy BOOLEAN NOT NULL,
   is_hot BOOLEAN NOT NULL,
-  is_cold BOOLEAN NOT NULL
+  is_cold BOOLEAN NOT NULL,
+  is_breakfast BOOLEAN NOT NULL,
+  is_lunch BOOLEAN NOT NULL,
+  is_appetizer BOOLEAN NOT NULL,
+  is_dinner BOOLEAN NOT NULL,
+  is_dessert BOOLEAN NOT NULL
 );
