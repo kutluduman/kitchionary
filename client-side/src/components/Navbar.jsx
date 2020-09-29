@@ -170,7 +170,7 @@ if (!cookies.name){
             <div className={classes.root}>
             <p className="Name">Logged in as {cookies.name}!</p>
             <ColorButton onClick={handleRemoveCookie}> Logout
-            <Redirect to = {{ pathname: "/#" }} />
+            <Redirect to = {{ pathname: "/" }} />
             </ColorButton>
           </div>
       </Toolbar>
