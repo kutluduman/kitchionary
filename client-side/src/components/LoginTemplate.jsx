@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import { Redirect } from "react-router-dom";
 import { createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -59,8 +60,10 @@ const LoginTemplate = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const {registerShowing, toggleRegister} = useRegister();
-  const {loginShowing, toggleLogin} = useLogin();
+  const [isLoggedIn, setLoggedIn] = useState(false);
+
+  // const {registerShowing, toggleRegister} = useRegister();
+  // const {loginShowing, toggleLogin} = useLogin();
 
   const validate = () => {
     if (!email) {
@@ -83,7 +86,9 @@ const LoginTemplate = () => {
       .then(res => {
         console.log(res);
         console.log(res.data);
-        toggleLogin()
+        if (res.status === 200) {
+          setLoggedIn(true);
+        }
       })
       .catch(err => {
         console.log(err)
@@ -106,6 +111,7 @@ const LoginTemplate = () => {
     setPassword(e.target.value);
   }
 
+  if (!isLoggedIn){
 
   return (
     <section>
@@ -168,6 +174,10 @@ const LoginTemplate = () => {
     </div>
     </section>
   )
+
+  } else {
+    return <Redirect to = {{ pathname: "/" }} />;
+  }
 }
 
 export default LoginTemplate;

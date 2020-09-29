@@ -1,15 +1,16 @@
 import React,{useState} from 'react';
+import { Redirect } from "react-router-dom";
 import {createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { orange, lightBlue } from "@material-ui/core/colors";
 import axios from 'axios';
 
-import Login from "./Login";
-import  useLogin from './useLogin';
-import  toggle from './useLogin';
-import  useRegister from './useRegister';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+// import Login from "./Login";
+// import  useLogin from './useLogin';
+// import  toggle from './useLogin';
+// import  useRegister from './useRegister';
+// import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 
 
@@ -65,9 +66,10 @@ const RegisterTemplate = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [isValid, setValid] = useState(false);
 
-  const {loginShowing, toggleLogin} = useLogin();
-  const {registerShowing, toggleRegister} = useRegister();
+  // const {loginShowing, toggleLogin} = useLogin();
+  // const {registerShowing, toggleRegister} = useRegister();
   
 
   function validate() {
@@ -107,7 +109,9 @@ const RegisterTemplate = () => {
       .then(res => {
         console.log(res);
         console.log(res.data);
-        toggleRegister()
+        if (res.status === 200) {
+          setValid(true);
+        }
       })
       .catch(err => {
         console.log(err)
@@ -142,7 +146,7 @@ const RegisterTemplate = () => {
     setPassword(e.target.value);
   }
   
-
+  if (!isValid){
   return (
     <section>
       <div className="modal-overlay"/>
@@ -244,6 +248,9 @@ const RegisterTemplate = () => {
     </div>
     </section>
   )
+  } else {
+    return <Redirect to = {{ pathname: "/" }} />;
+  }
 }
 
 export default RegisterTemplate;
