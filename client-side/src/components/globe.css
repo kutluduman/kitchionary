@@ -9,7 +9,8 @@
 }
 
 .background {
-  border: solid orange;
+  border: orange solid 0.5em; 
+  border-radius: 50px;
 }
 
 .image {
@@ -20,7 +21,7 @@
 
 .globe {
   margin-top: 5em;
-  margin-left: 4.25em;
+  margin-left: 5em;
 }
 
 img.globe:hover {

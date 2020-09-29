@@ -18,7 +18,8 @@
 }
 .background1 {
   z-index: 0;
-  border: orange solid
+  border: orange solid 0.5em; 
+  border-radius: 50px;
 }
 .question1 {
   z-index: 100;

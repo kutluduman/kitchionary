@@ -37,13 +37,12 @@ function App() {
           <RegisterTemplate/>
         </dialog>
         <main role="main">
-          <div className="mode">
             <Switch>
              <Route path="/">
              <Home/>
-             <Door/>
+             {/* <Door/>
              <Question/>
-             <Globe/> 
+             <Globe/>  */}
               </Route>
               <Route path="/door">
                 <Door/>
@@ -62,7 +61,6 @@ function App() {
               <FeaturedPasta/>
               <FeaturedDessert/>
             </div> */}
-          </div>
         </main>
       </div>
     </Router>

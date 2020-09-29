@@ -29,6 +29,13 @@ import dessert from "../docs/dessert.jpg";
 import Door from "./Door.jsx";
 import Question from "./Question";
 import Globe from "./Globe.jsx"
+import "../styles/mode.css";
+
+
+import FeaturedDessert from "./FeaturedDessert"
+import FeaturedPasta from "./FeaturedPasta";
+import FeaturedSalad from "./FeaturedSalad";
+
 
 
 const images = [
@@ -61,11 +68,11 @@ const images = [
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    minWidth: 300,
-    width: '100%',
-    justifyContent: 'center'
+    // display: 'flex',
+    // flexWrap: 'wrap',
+    // // minWidth: 300,
+    // width: '100%',
+    // justifyContent: 'center'
   },
   image: {
 
@@ -207,13 +214,18 @@ const Home = () => {
         </span>
       </ButtonBase>
     ))}
-
-    <div>
-      <Home/>
+    <div className="mode"> 
       <Door/>
       <Question/>
+      <Globe/> 
     </div>
-    
+    <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2>
+    <div className="featured">
+      <FeaturedSalad/>
+      <FeaturedPasta/>
+      <FeaturedDessert/>
+      
+    </div>
     
   </div>
 
