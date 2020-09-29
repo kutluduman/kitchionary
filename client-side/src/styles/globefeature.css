@@ -1,0 +1,10 @@
+.globefeature{
+  position: relative;
+  display:flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.overlay {
+  position: absolute;
+}
