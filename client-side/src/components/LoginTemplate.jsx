@@ -109,6 +109,12 @@ const LoginTemplate = () => {
 
   return (
     <section>
+      <div className="modal-overlay"/>
+    <div className="modal-wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
+      <div className="modal">
+      <div className="modal-header">
+       <a href="#"><span aria-hidden="true">&times;</span></a>
+       </div>
       <h2 className={classes.root}>Login</h2>
     <div className={classes.root}>
       <div>
@@ -152,10 +158,12 @@ const LoginTemplate = () => {
         </div>
         <ThemeProvider theme={theme}>
         <div className={classes.root}>
-      <Button hide={toggleLogin} onClick={toggleRegister} variant="outlined" color="primary">Register</Button>
-        <Register registerShowing={registerShowing} hide={toggleRegister}/>
+        <Button href="#register" variant="outlined" color="primary">Register</Button>
+          
         </div>
         </ThemeProvider>
+      </div>
+      </div>
       </div>
     </div>
     </section>

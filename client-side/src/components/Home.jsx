@@ -10,9 +10,9 @@ import { ReactComponent as Logo } from '../docs/breakfast.jpg'
 
 //door
 
-import "./door.css";
-// import "./door.js"
-import Door from "./Door";
+// import "./door.css";
+// // import "./door.js"
+// import Door from "./Door";
 
 
 //quiz
@@ -25,6 +25,10 @@ import appetizer from "../docs/appetizer.jpg";
 import dinner from "../docs/dinner.jpg";
 import dessert from "../docs/dessert.jpg";
 
+
+import Door from "./Door.jsx";
+import Question from "./Question";
+import Globe from "./Globe.jsx"
 
 
 const images = [
@@ -204,7 +208,11 @@ const Home = () => {
       </ButtonBase>
     ))}
 
-    
+    <div>
+      <Home/>
+      <Door/>
+      <Question/>
+    </div>
     
     
   </div>

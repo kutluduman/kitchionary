@@ -14,6 +14,7 @@ const useRegister = () => {
 
   return {
     registerShowing,
+    // setRegisterShowing,
     toggleRegister,
   }
 };
