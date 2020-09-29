@@ -59,7 +59,8 @@ function SimpleGlobe() {
 
 
   return <ReactGlobe 
-          height="200vh"
+          height="100vh"
+          width="100vw"
           markers={markers}
           options={options}
           />
