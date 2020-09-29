@@ -9,6 +9,9 @@ import FeaturedPasta from "./components/FeaturedPasta";
 import FeaturedSalad from "./components/FeaturedSalad";
 import FridgeBoxImage from "./components/FridgeBoxImage";
 import FridgeCheckbox from "./components/FridgeCheckbox";
+import FridgeAvatar from "./components/FridgeAvatar";
+import FridgeForm from "./components/FridgeForm";
+import RecipeDetail from "./components/RecipeDetail";
 
 
 import "./styles/mode.css";
@@ -18,42 +21,55 @@ import "./styles/mode.css";
 
 
 function App() {
-  return (
-    <div>
-    <head>
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width"
-        />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"></link>
+  // return (
+  //   <div>
+  //   <head>
+  //       <meta
+  //         name="viewport"
+  //         content="minimum-scale=1, initial-scale=1, width=device-width"
+  //       />
+  //       <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"></link>
 
-      </head>
+  //     </head>
      
-    <div className="App">
-     <Navbar/>
-     <Home/>
-     <div class="mode">
-        <Door/>
-        <Question/>
-        <Globe />
-     </div>
-     <div class="featured">
-     <FeaturedSalad/>
-    <FeaturedPasta/>
-    <FeaturedDessert/>
-    </div>
+  //   <div className="App">
+  //    <Navbar/>
+  //    <Home/>
+  //    <div class="mode">
+  //       <Door/>
+  //       <Question/>
+  //       <Globe />
+  //    </div>
+  //    <div class="featured">
+  //    <FeaturedSalad/>
+  //   <FeaturedPasta/>
+  //   <FeaturedDessert/>
+  //   </div>
+  //   <div>
+  //     <br/>
+  //     {/* <FridgeBoxImage/> */}
+  //   </div>
+  //   <div>
+  //     {/* <FridgeCheckbox/> */}
+  //   </div>
+  //   <div>
+  //     {/* <FridgeAvatar/> */}
+  //   </div>
+  //   <div>
+  //     {/* <FridgeForm/> */}
+  //   </div>
+  //   </div>
+  //   {/* <SimpleGlobe/>
+  //   <OverlayGlobe/> */}
+  //   </div>
+  // );
+
+  return(
     <div>
-      <br/>
-      {/* <FridgeBoxImage/> */}
+      {/* <RecipeDetail/> */}
+      {/* <FridgeForm/> */}
     </div>
-    <div>
-      {/* <FridgeCheckbox/> */}
-    </div>
-    </div>
-    {/* <SimpleGlobe/>
-    <OverlayGlobe/> */}
-    </div>
-  );
+  )
 }
 export default App;
 
