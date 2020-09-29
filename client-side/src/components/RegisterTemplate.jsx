@@ -7,6 +7,7 @@ import axios from 'axios';
 
 import Login from "./Login";
 import  useLogin from './useLogin';
+import  toggle from './useLogin';
 import  useRegister from './useRegister';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
@@ -144,6 +145,12 @@ const RegisterTemplate = () => {
 
   return (
     <section>
+      <div className="modal-overlay"/>
+    <div className="modal-wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
+      <div className="modal">
+      <div className="modal-header">
+       <a href="#"><span aria-hidden="true">&times;</span></a>
+       </div>
       <h2 className={classes.root}>Register</h2>
     <div className={classes.root}>
       <div>
@@ -228,10 +235,11 @@ const RegisterTemplate = () => {
         </div>
         <ThemeProvider theme={theme}>
         <div className={classes.root}>
-        <Button hide={toggleRegister} onClick={toggleLogin} variant="outlined" color="primary">Sign In</Button>
-        <Login loginShowing={loginShowing} hide={toggleLogin}/>
+        <Button href="#login" variant="outlined" color="primary">Login</Button>
         </div>
         </ThemeProvider>
+        </div>
+        </div>
       </div>
     </div>
     </section>

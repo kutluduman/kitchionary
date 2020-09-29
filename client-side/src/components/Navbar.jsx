@@ -14,8 +14,9 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import { orange, lightBlue } from "@material-ui/core/colors";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-
-
+import {
+  Link
+} from "react-router-dom";
 
 //popout
 
@@ -29,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
     
     root: { 
       marginLeft: 'auto',
+      backgroundColor:orange,
     },
   
     menuButton: {
@@ -75,6 +77,7 @@ const useStyles = makeStyles((theme) => ({
         width: '50ch',
       },
     },
+    
     
 }));
 
@@ -123,15 +126,9 @@ function Navbar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-        <div   className={classes.root}>
-        
-          <ColorButton startIcon={<ExitToAppIcon />} onClick={toggleLogin}> Login</ColorButton>
-            <Login loginShowing={loginShowing} hide={toggleLogin}/>
-       
-            <ColorButton startIcon={<AccountCircleIcon />} onClick={toggleRegister}>Sign Up</ColorButton>
-            <Register registerShowing={registerShowing} hide={toggleRegister}/>
-
-          
+        <div className={classes.root}>
+        <ColorButton href="#login" startIcon={<ExitToAppIcon />}> Login </ColorButton>
+        <ColorButton href="#register" startIcon={<AccountCircleIcon />}> Register </ColorButton>
       </div>
   </Toolbar>
   </main>

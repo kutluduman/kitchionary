@@ -3,20 +3,20 @@ import ReactDOM from 'react-dom';
 import LoginTemplate from './LoginTemplate';
 
 
-const Login = ({ loginShowing, hide }) => loginShowing ? ReactDOM.createPortal(
+const Login = () => {
+  return (
   <React.Fragment>
     <div className="modal-overlay"/>
     <div className="modal-wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
       <div className="modal">
         <div className="modal-header">
-          <button type="button" className="modal-close-button" data-dismiss="modal" aria-label="Close" onClick={hide}>
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <a href="#"><span aria-hidden="true">&times;</span></a>
         </div>
        <LoginTemplate />
       </div>
     </div>
   </React.Fragment>, document.body
-) : null;
+  )
+}
 
-export default Login
+export default Login;
