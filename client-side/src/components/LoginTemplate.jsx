@@ -63,21 +63,20 @@ const LoginTemplate = () => {
   const {loginShowing, toggleLogin} = useLogin();
 
   const validate = () => {
-    if (!email || !password) {
+    if (!email) {
       setError("Email is required!");
-      console.log("NO EMAIL OR PASSWORD",error)
       return;
     } 
     if (!password) {
       setError("Password is required!");
       console.log(error);
+      return;
     }
+
      const user = {
        email,
        password
       }
-
-     setError("NOT BLANK");
   
   
     axios.post(`http://localhost:8080/login`, { user })
@@ -85,6 +84,10 @@ const LoginTemplate = () => {
         console.log(res);
         console.log(res.data);
         toggleLogin()
+      })
+      .catch(err => {
+        console.log(err)
+        setError("Incorrect Email or Password!");
       })
   }
 
@@ -110,6 +113,7 @@ const LoginTemplate = () => {
     <div className={classes.root}>
       <div>
         <br/>
+        {error && <p>{error}</p>}
         <form onSubmit={handleSubmit}>
         <TextField onChange={handleChangeEmail}
           label="Email"
