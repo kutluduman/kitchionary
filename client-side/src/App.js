@@ -12,6 +12,7 @@ import FridgeCheckbox from "./components/FridgeCheckbox";
 import FridgeAvatar from "./components/FridgeAvatar";
 import FridgeForm from "./components/FridgeForm";
 import RecipeDetail from "./components/RecipeDetail";
+import MatchingRecipes from "./components/MatchingRecipes";
 
 
 import "./styles/mode.css";
@@ -66,8 +67,9 @@ function App() {
 
   return(
     <div>
-      {/* <RecipeDetail/> */}
-      {/* <FridgeForm/> */}
+      {/* <FridgeForm/>  */}
+       {/* <MatchingRecipes/> */}
+      {/* <RecipeDetail/>       */}
     </div>
   )
 }

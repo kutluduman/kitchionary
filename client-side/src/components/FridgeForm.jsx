@@ -62,6 +62,8 @@ const theme = createMuiTheme({
 const FridgeForm = () => {
   const classes = useStyles();
 
+
+
   return (
     <article className={classes.root}>
        <Helmet>
@@ -70,6 +72,12 @@ const FridgeForm = () => {
       <form>
         <div className={classes.avatar}>
           <FridgeAvatar/>
+
+          <Button variant="outlined" color="primary"> Breakfast</Button>
+          <Button variant="outlined" color="primary"> Lunch</Button>
+          <Button variant="outlined" color="primary"> Appetizer</Button>
+          <Button variant="outlined" color="primary"> Dinner</Button>
+          <Button variant="outlined" color="primary"> Dessert</Button>
         </div>
         <div className={classes.checkbox}>
           <FridgeCheckbox/>
