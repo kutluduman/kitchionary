@@ -7,6 +7,12 @@ import Globe from "./components/Globe.jsx"
 import FeaturedDessert from "./components/FeaturedDessert"
 import FeaturedPasta from "./components/FeaturedPasta";
 import FeaturedSalad from "./components/FeaturedSalad";
+import FridgeBoxImage from "./components/FridgeBoxImage";
+import FridgeCheckbox from "./components/FridgeCheckbox";
+import FridgeAvatar from "./components/FridgeAvatar";
+import FridgeForm from "./components/FridgeForm";
+import RecipeDetail from "./components/RecipeDetail";
+import MatchingRecipes from "./components/MatchingRecipes";
 
 import {
   BrowserRouter as Router,
