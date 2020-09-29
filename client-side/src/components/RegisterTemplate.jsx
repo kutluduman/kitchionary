@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import { Redirect } from "react-router-dom";
+import { useCookies } from 'react-cookie';
 import {createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -67,6 +68,7 @@ const RegisterTemplate = () => {
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [isValid, setValid] = useState(false);
+  const [cookies, setCookie] = useCookies(['name']);
 
   // const {loginShowing, toggleLogin} = useLogin();
   // const {registerShowing, toggleRegister} = useRegister();
@@ -111,10 +113,10 @@ const RegisterTemplate = () => {
         console.log(res.data);
         if (res.status === 200) {
           setValid(true);
+          setCookie('name', user.email, {path: '/'});
         }
       })
       .catch(err => {
-        console.log(err)
         setError("Account already exists!");
       })
   }
