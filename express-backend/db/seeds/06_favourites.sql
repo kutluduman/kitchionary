@@ -27,3 +27,8 @@ INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (10, 12, true);
 INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (1, 13, true);
 INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (2, 14, true);
 INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (3, 15, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (4, 16, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (5, 17, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (6, 18, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (7, 19, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (8, 20, true);
