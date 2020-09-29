@@ -45,14 +45,14 @@ function App() {
         </dialog>
         <main role="main">
             <Switch>
-             <Route path="/">
+             <Route exact path="/">
              <Home/>
              {/* <Door/>
              <Question/>
              <Globe/>  */}
               </Route>
-              <Route path="/door">
-                <Door/>
+              <Route exact path="/fridge">
+                <FridgeForm/>
               </Route>
               <Route path="/question">
                 <Question/>

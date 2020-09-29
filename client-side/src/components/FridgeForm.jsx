@@ -8,6 +8,8 @@ import FridgeAvatar from './FridgeAvatar';
 import FridgeCheckbox from './FridgeCheckbox';
 import {Select,MenuItem, FormControl, InputLabel} from '@material-ui/core';
 
+import "./fridgeMealCheck.css"
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -61,27 +63,22 @@ const theme = createMuiTheme({
 
 const FridgeForm = () => {
   const classes = useStyles();
-
-
-
   return (
     <article className={classes.root}>
        <Helmet>
            <style>{'body { background-color: #d1e1ef; }'}</style>
          </Helmet>
       <form>
+        <h1 className='fridgeTitle'>Fridge Mode</h1>
+        <h2 className='fridgeSubtitle'>Step One: What meal are you cooking?</h2>
         <div className={classes.avatar}>
           <FridgeAvatar/>
-
-          <Button variant="outlined" color="primary"> Breakfast</Button>
-          <Button variant="outlined" color="primary"> Lunch</Button>
-          <Button variant="outlined" color="primary"> Appetizer</Button>
-          <Button variant="outlined" color="primary"> Dinner</Button>
-          <Button variant="outlined" color="primary"> Dessert</Button>
         </div>
+        <h2 className='fridgeSubtitle'>Step Two: Any dietary restrictions?</h2>
         <div className={classes.checkbox}>
           <FridgeCheckbox/>
         </div>
+        <h2 className='fridgeSubtitle'> Step Three: What ingredients do you want to cook with?</h2>
     <TextField
           label="Name"
           id="outlined-margin-normal"
