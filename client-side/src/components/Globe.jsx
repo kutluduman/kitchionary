@@ -20,12 +20,12 @@ const Globe = () =>  {
   const classes = useStyles();
   return (
   <div>
-    <div class="container">
-      <img class='background image' src={background} alt="dessert" width="450" height="700" />
-      <img class="globe image" src={imageQuestion} alt="globe" width="300" height="325"/>
+    <div className="container">
+      <img className='background image' src={background} alt="dessert" width="450" height="700" />
+      <img className="globe image" src={imageQuestion} alt="globe" width="300" height="325"/>
     </div>
     <div className="descriptionGlobe">  
-      <h1 class="titleGlobe"> GLOBE MODE</h1>
+      <h1 className="titleGlobe"> GLOBE MODE</h1>
       <div className={classes.root}>
         <Button variant="outlined" color="primary">
           Primary

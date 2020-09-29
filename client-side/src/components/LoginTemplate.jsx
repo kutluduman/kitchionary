@@ -1,4 +1,6 @@
 import React,{useState} from 'react';
+import { Redirect } from "react-router-dom";
+import { useCookies } from 'react-cookie';
 import { createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -59,8 +61,10 @@ const LoginTemplate = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const {registerShowing, toggleRegister} = useRegister();
-  const {loginShowing, toggleLogin} = useLogin();
+  const [cookies, setCookie] = useCookies(['name']);
+
+  // const {registerShowing, toggleRegister} = useRegister();
+  // const {loginShowing, toggleLogin} = useLogin();
 
   const validate = () => {
     if (!email) {
@@ -69,7 +73,6 @@ const LoginTemplate = () => {
     } 
     if (!password) {
       setError("Password is required!");
-      console.log(error);
       return;
     }
 
@@ -81,12 +84,11 @@ const LoginTemplate = () => {
   
     axios.post(`http://localhost:8080/login`, { user })
       .then(res => {
-        console.log(res);
-        console.log(res.data);
-        toggleLogin()
+        if (res.status === 200) {
+          setCookie('name', user.email, {path: '/'});
+        }
       })
       .catch(err => {
-        console.log(err)
         setError("Incorrect Email or Password!");
       })
   }
@@ -95,7 +97,9 @@ const LoginTemplate = () => {
     e.preventDefault();
 
     validate();
-
+    
+    setEmail('')
+    setPassword('')
   }
   
   const handleChangeEmail = (e) => {
@@ -106,6 +110,7 @@ const LoginTemplate = () => {
     setPassword(e.target.value);
   }
 
+  if (!cookies.name){
 
   return (
     <section>
@@ -168,6 +173,10 @@ const LoginTemplate = () => {
     </div>
     </section>
   )
+
+  } else {
+    return <Redirect to = {{ pathname: "/" }} />;
+  }
 }
 
 export default LoginTemplate;
