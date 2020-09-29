@@ -23,6 +23,7 @@ import Register from "./components/Register";
 import "./styles/mode.css";
 import SimpleGlobe from './components/GlobeFeature';
 import OverlayGlobe from './components/OverlayGlobe';
+import "./styles/globefeature.css";
 
 
 function App() {
