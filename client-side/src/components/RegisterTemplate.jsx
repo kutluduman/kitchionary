@@ -67,7 +67,6 @@ const RegisterTemplate = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [isValid, setValid] = useState(false);
   const [cookies, setCookie] = useCookies(['name']);
 
   // const {loginShowing, toggleLogin} = useLogin();
@@ -112,7 +111,6 @@ const RegisterTemplate = () => {
         console.log(res);
         console.log(res.data);
         if (res.status === 200) {
-          setValid(true);
           setCookie('name', user.email, {path: '/'});
         }
       })
@@ -125,7 +123,13 @@ const RegisterTemplate = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    validate()
+    validate();
+
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setPhoneNumber('');
+    setPassword('');
   }
 
   const handleChangeFirstName = (e) => {
@@ -148,7 +152,7 @@ const RegisterTemplate = () => {
     setPassword(e.target.value);
   }
   
-  if (!isValid){
+  if (!cookies.name){
   return (
     <section>
       <div className="modal-overlay"/>

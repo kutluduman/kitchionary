@@ -61,7 +61,6 @@ const LoginTemplate = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [isLoggedIn, setLoggedIn] = useState(false);
   const [cookies, setCookie] = useCookies(['name']);
 
   // const {registerShowing, toggleRegister} = useRegister();
@@ -86,7 +85,6 @@ const LoginTemplate = () => {
     axios.post(`http://localhost:8080/login`, { user })
       .then(res => {
         if (res.status === 200) {
-          setLoggedIn(true);
           setCookie('name', user.email, {path: '/'});
         }
       })
@@ -99,7 +97,9 @@ const LoginTemplate = () => {
     e.preventDefault();
 
     validate();
-
+    
+    setEmail('')
+    setPassword('')
   }
   
   const handleChangeEmail = (e) => {
@@ -110,7 +110,7 @@ const LoginTemplate = () => {
     setPassword(e.target.value);
   }
 
-  if (!isLoggedIn){
+  if (!cookies.name){
 
   return (
     <section>
