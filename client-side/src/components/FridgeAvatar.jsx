@@ -79,8 +79,11 @@ const FridgeAvatar = () => {
   };
   
  
+  // console.log('cb1', state.cb1);
+  // console.log('cb2', state.cb2);
+  // console.log('cb3', state.cb3);
+  // console.log('cb4', state.cb4);
 
-  console.log('state', state);
 
   return(
   <div className={classes.root}>
