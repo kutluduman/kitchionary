@@ -86,7 +86,7 @@ const FridgeForm = () => {
           <IngredientForm/>
 
         <div className={classes.submit}>
-        <ColorButton size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>
+        <ColorButton href="/fridge/results" size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>
         </div>
 
         </form>

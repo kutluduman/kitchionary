@@ -54,6 +54,9 @@ function App() {
               <Route exact path="/fridge">
                 <FridgeForm/>
               </Route>
+              <Route path="/fridge/results">
+                <MatchingRecipes/>
+              </Route>
               <Route path="/question">
                 <Question/>
               </Route>
