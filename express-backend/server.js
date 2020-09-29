@@ -29,9 +29,9 @@ app.use(cors())
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
 const loginRoutes = require("./routes/login");
 const registerRoutes = require("./routes/register");
+const recipeRoutes = require("./routes/recipe");
 
 
 // Mount all resource routes
@@ -40,9 +40,7 @@ const registerRoutes = require("./routes/register");
 // app.use("", usersRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/login",loginRoutes(db));
-app.get("/ping", (req,res) => {
-  res.send('Pong');
-})
+app.use("/recipe", recipeRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
