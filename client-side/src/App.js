@@ -60,6 +60,9 @@ function App() {
               <Route path="/globe">
                 <Globe/>
               </Route>
+              <Route path="/recipes">
+                <MatchingRecipes/>
+              </Route>
               <Route path="/recipes/:id">
               </Route>
             </Switch>

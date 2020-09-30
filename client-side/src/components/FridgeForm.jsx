@@ -104,7 +104,7 @@ const FridgeForm = () => {
   
     axios.post(`http://localhost:8080/recipes`, {recipes})
       .then(res => {
-        // return <Redirect to = {{ pathname: "/" }} />;
+        return <Redirect to = {{ pathname: "/recipes" }} />;
       })
       .catch(err => {
         // res.status(500).json({ error: err.message });
