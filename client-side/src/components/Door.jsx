@@ -34,8 +34,7 @@ const Door = () => {
               <Button href="/fridge" variant="outlined" color="primary">
                 Primary
               </Button>
-              </div>
-       
+            </div>
         </div>
     </div>
   

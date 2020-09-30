@@ -5,12 +5,17 @@
   /* display:flex; */
   margin: 100px;
   margin-left: 0;
+  margin-right: 0;
+  
   /* justify-content: space-between; */
 }
 
 .titleGlobe {
+  display: flex;
+  justify-content: center; 
+
   position: relative;
-  margin-top: 17em;
+  margin-top: 16em;
   z-index: 5;
 }
 

@@ -26,12 +26,10 @@ const Globe = () =>  {
     </div>
     <div className="descriptionGlobe">  
       <h1 className="titleGlobe"> GLOBE MODE</h1>
-      <div className={classes.root}>
         <Button variant="outlined" color="primary">
           Primary
         </Button>
       </div>
-    </div>   
   </div>
   )
 }
