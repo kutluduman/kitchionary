@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState, useReducer} from 'react';
+import { Redirect } from "react-router-dom";
 import { createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -6,8 +7,8 @@ import { orange, lightBlue} from "@material-ui/core/colors";
 import {Helmet} from 'react-helmet';
 import FridgeAvatar from './FridgeAvatar';
 import FridgeCheckbox from './FridgeCheckbox';
-import {Select,MenuItem, FormControl, InputLabel} from 
-'@material-ui/core';
+import {Select,MenuItem, FormControl, InputLabel} from '@material-ui/core';
+import axios from 'axios';
 
 import IngredientForm from "./FridgeIngredientInput"
 
@@ -64,26 +65,76 @@ const theme = createMuiTheme({
 });
 
 
-
 const FridgeForm = () => {
   const classes = useStyles();
+ 
+  const [inputState, setInputState] = useState({
+    breakfast: false,
+    lunch: false,
+    appetizer: false,
+    dinner: false,
+    dessert: false,
+    glutenFree : false,
+    nutFree : false,
+    dairyFree : false,
+    vegetarian : false,
+    vegan : false,
+    name: '',
+    quantity: '',
+    unit: '',
+    culture:'',
+  });
+
+  const handleSubmit = () => {
+     const recipes = {
+      breakfast: inputState.breakfast,
+      lunch: inputState.lunch,
+      appetizer: inputState.appetizer,
+      dinner: inputState.dinner,
+      dessert: inputState.dessert,
+      glutenFree: inputState.glutenFree,
+      nutFree: inputState.nutFree,
+      dairyFree: inputState.dairyFree,
+      vegetarian: inputState.vegetarian,
+      vegan: inputState.vegan,
+      name: inputState.name,
+      quantity: inputState.quantity,
+      unit: inputState.unit,
+      culture: inputState.culture,
+      }
+  
+  
+    axios.post(`http://localhost:8080/recipe`, { recipes })
+      .then(res => {
+        return <Redirect to = {{ pathname: "/recipes" }} />;
+      })
+      .catch(err => {
+        // res.status(500).json({ error: err.message });
+        // or set error state
+      })
+    };
+
+
+
+  console.log(inputState)
+
   return (
     <article className={classes.root}>
        <Helmet>
            <style>{'body { background-color: #d1e1ef; }'}</style>
          </Helmet>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h1 className='fridgeTitle'>Fridge Mode</h1>
         <h2 className='fridgeSubtitle'>Step One: What meal are you cooking?</h2>
         <div className={classes.avatar}>
-          <FridgeAvatar/>
+          <FridgeAvatar setInput={setInputState}/>
         </div>
         <h2 className='fridgeSubtitle'>Step Two: Any dietary restrictions?</h2>
         <div className={classes.checkbox}>
-          <FridgeCheckbox/>
+          <FridgeCheckbox setInput={setInputState}/>
         </div>
         <h2 className='fridgeSubtitle'> Step Three: What ingredients do you want to cook with?</h2> 
-          <IngredientForm/>
+          <IngredientForm setInput={setInputState}/>
 
         <div className={classes.submit}>
         <ColorButton href="/fridge/recipes" size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>

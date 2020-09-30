@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { green } from '@material-ui/core/colors';
 import FormGroup from '@material-ui/core/FormGroup';
@@ -21,27 +21,19 @@ const GreenCheckbox = withStyles({
 })((props) => <Checkbox color="default" {...props} />);
 
 
-const FridgeCheckbox = () => {
-  const [state, setState] = React.useState({
-    glutenFree : false,
-    nutFree : false,
-    dairyFree : false,
-    vegetarian : false,
-    vegan : false,
-
-
-  });
+const FridgeCheckbox = (props) => {
 
   const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+    props.setInput({ ...props.state, [event.target.name]: event.target.checked });
   };
+
 
   return (
     <FormGroup row>
       <FormControlLabel
         control={
           <Checkbox
-            checked={state.glutenFree}
+            // checked={state.glutenFree}
             onChange={handleChange}
             name="glutenFree"
             color="primary"
@@ -53,7 +45,7 @@ const FridgeCheckbox = () => {
       <FormControlLabel
         control={
           <Checkbox
-            checked={state.nutFree}
+            // checked={state.nutFree}
             onChange={handleChange}
             name="nutFree"
             color="primary"
@@ -64,7 +56,7 @@ const FridgeCheckbox = () => {
       <FormControlLabel
         control={
           <Checkbox
-            checked={state.dairyFree}
+            // checked={state.dairyFree}
             onChange={handleChange}
             name="dairyFree"
             color="primary"
@@ -75,7 +67,7 @@ const FridgeCheckbox = () => {
       <FormControlLabel
         control={
           <Checkbox
-            checked={state.vegetarian}
+            // checked={state.vegetarian}
             onChange={handleChange}
             name="vegetarian"
             color="primary"
@@ -86,7 +78,7 @@ const FridgeCheckbox = () => {
       <FormControlLabel
         control={
           <Checkbox
-            checked={state.vegan}
+            // checked={state.vegan}
             onChange={handleChange}
             name="vegan"
             color="primary"
