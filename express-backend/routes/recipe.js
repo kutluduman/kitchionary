@@ -17,7 +17,7 @@ module.exports = (db) => {
     const vegan = recipes.vegan;
     const name = recipes.name;
 
-    let queryString = `SELECT recipes.name
+    let queryString = `SELECT recipes.name, recipes.description, recipes.img_url
     FROM ingredients
     FULL JOIN measurements ON ingredients.id = ingredient_id
     FULL JOIN recipes ON recipes.id = recipe_id

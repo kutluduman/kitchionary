@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Door from "./components/Door.jsx";
@@ -33,6 +33,10 @@ import "./styles/globefeature.css";
 
 
 function App() {
+  const [matchingRecipes, setMatchingRecipes] = useState({});
+
+  console.log('matching', matchingRecipes);
+  
   return (
     <Router>
       <div className="App">
@@ -52,7 +56,7 @@ function App() {
              <Globe/>  */}
               </Route>
               <Route exact path="/fridge">
-                <FridgeForm/>
+                <FridgeForm setMatchingRecipes={setMatchingRecipes}/>
               </Route>
               <Route path="/question">
                 <Question/>
@@ -61,7 +65,7 @@ function App() {
                 <Globe/>
               </Route>
               <Route path="/recipes">
-                <MatchingRecipes/>
+                <MatchingRecipes matchingRecipes={matchingRecipes}/>
               </Route>
               <Route path="/recipes/:id">
               </Route>
@@ -75,6 +79,7 @@ function App() {
       </div>
     </Router>
   );
+
 }
 export default App;
 

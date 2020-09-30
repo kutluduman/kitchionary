@@ -65,7 +65,7 @@ const theme = createMuiTheme({
 });
 
 
-const FridgeForm = () => {
+const FridgeForm = (props) => {
   const classes = useStyles();
   const [redirect, setRedirect] = useState(false);
   const [inputState, setInputState] = useState({
@@ -104,7 +104,8 @@ const FridgeForm = () => {
   
     axios.post(`http://localhost:8080/recipes`, {recipes})
       .then(res => {
-        console.log(res.status)
+        console.log("resss", res.data.recipes)
+        props.setMatchingRecipes(res.data.recipes)
         if (res.status === 200) {
           setRedirect(true)
           console.log("redirect??", redirect)
@@ -114,6 +115,7 @@ const FridgeForm = () => {
         // res.status(500).json({ error: err.message });
         // or set error state
       });
+
     };
 
   console.log(inputState)
