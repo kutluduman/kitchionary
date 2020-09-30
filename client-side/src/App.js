@@ -54,7 +54,7 @@ function App() {
               <Route exact path="/fridge">
                 <FridgeForm/>
               </Route>
-              <Route path="/fridge/results">
+              <Route exact path="/fridge/recipes">
                 <MatchingRecipes/>
               </Route>
               <Route path="/question">
@@ -63,7 +63,8 @@ function App() {
               <Route path="/globe">
                 <Globe/>
               </Route>
-              <Route path="/recipes/:id">
+              <Route path="/fridge/recipes/1">
+                <RecipeDetail/>
               </Route>
             </Switch>
             {/* <div className="featured">

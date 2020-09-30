@@ -13,16 +13,18 @@ import sample from '../docs/sample.jpg';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 600,
-    height: 845, 
-    margin: 45,
+    maxWidth: 450,
+    height: 700, 
+    margin: 25,
     marginTop: 40,
-    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)'
+    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)',
   },
   media: {
-    height: 550,
+    height: 450,
     weight: 250,
-  }
+
+  },
+
 });
 
 
@@ -42,17 +44,17 @@ const MatchingRecipes = () => {
               title="Shrimp and Chorizo Paella"
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
+              <Typography  gutterBottom variant="h5" component="h3">
               Shrimp and Chorizo Paella
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
+              <Typography variant="subtitle1" color="textSecondary" component="p">
               This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
               </Typography>
             </CardContent>
           </CardActionArea>
           <CardActions>
             <Button size="large" color="primary">
-              Learn More
+            Cook This!
             </Button>
           </CardActions>
         </Card>
@@ -70,14 +72,14 @@ const MatchingRecipes = () => {
               <Typography gutterBottom variant="h5" component="h2">
               Shrimp and Chorizo Paella
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
+              <Typography variant="subtitle1" color="textSecondary" component="p">
               This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
               </Typography>
             </CardContent>
           </CardActionArea>
           <CardActions>
             <Button size="large" color="primary">
-              Learn More
+             Cook This!
             </Button>
           </CardActions>
         </Card>
@@ -95,14 +97,14 @@ const MatchingRecipes = () => {
               <Typography gutterBottom variant="h5" component="h2">
               Shrimp and Chorizo Paella
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
+              <Typography variant="subtitle1" color="textSecondary" component="p">
               This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
               </Typography>
             </CardContent>
           </CardActionArea>
           <CardActions>
             <Button size="large" color="primary">
-              Learn More
+            Cook This!
             </Button>
           </CardActions>
         </Card>
@@ -120,14 +122,14 @@ const MatchingRecipes = () => {
               <Typography gutterBottom variant="h5" component="h2">
               Shrimp and Chorizo Paella
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
+              <Typography variant="subtitle1"  color="textSecondary" component="p">
               This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
               </Typography>
             </CardContent>
           </CardActionArea>
           <CardActions>
             <Button size="large" color="primary">
-              Learn More
+            Cook This!
             </Button>
           </CardActions>
         </Card>
