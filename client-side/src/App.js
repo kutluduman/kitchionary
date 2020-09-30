@@ -69,7 +69,7 @@ function App() {
               <Route path="/globe">
                 <Globe/>
               </Route>
-              <Route path="/recipes/:id" render={(props) => <RecipeDetail {...props} recipeData={recipeData} matchingRecipes={matchingRecipes}/>} />
+              <Route path="/recipes/:id" render={(props) => <RecipeDetail {...props} recipeData={recipeData}/>} />
               <Route path="/recipes">
                 <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
               </Route>
