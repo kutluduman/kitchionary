@@ -23,22 +23,21 @@ const Door = () => {
   }
 
   return (
-  <div className="container">
-    <img className='background image' src={background} alt="dessert" width="450" height="700" />
-    <div className="backDoor" onMouseOver={hover} >
-      <div className="door"> 
-      <img  src={fridge} alt="question" width="250" height="400" />
-      </div>
+    <div className="container">
+      <img className='background image' src={background} alt="dessert" width="450" height="700" />
+        <div className="backDoor" onMouseOver={hover} >
+          <div className="door"> 
+            <img  src={fridge} alt="question" width="250" height="400" />
+            </div>
+        <div className="descriptionFridge"> 
+          <h1 className="titleFridge"> FRIDGE MODE</h1>
+              <Button href="/fridge" variant="outlined" color="primary">
+                Primary
+              </Button>
+              </div>
+       
+        </div>
     </div>
-    <div className="descriptionFridge"> 
-    <h1 className="titleFridge"> FRIDGE MODE</h1>
-    <div className={classes.root}>
-        <Button href="/fridge" variant="outlined" color="primary">
-          Primary
-        </Button>
-      </div>
-    </div>
-  </div>
   
   )
 };
