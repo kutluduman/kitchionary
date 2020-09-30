@@ -1,0 +1,35 @@
+label {
+  font-size: 20px;
+  display: block;
+  position: relative;
+  box-sizing: content-box;
+  margin-right: 20px;
+  margin-top: 20px;
+  
+}
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+  left: 0; 
+  width: 250px;
+  height: 100px; 
+  z-index: 1;  
+}
+input + button {
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  width: 250px;
+  height: 100px;
+  z-index: 0;
+   
+}
+input:checked + button {
+  background-color: rgba(251, 56, 56, 0.445);
+}
+
+input:focus {
+  outline: none;
+}

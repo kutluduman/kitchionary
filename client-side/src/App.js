@@ -30,6 +30,7 @@ import "./styles/mode.css";
 import SimpleGlobe from './components/GlobeFeature';
 import OverlayGlobe from './components/OverlayGlobe';
 import "./styles/globefeature.css";
+import QuizForm from "./components/QuizForm";
 
 
 function App() {
@@ -63,8 +64,8 @@ function App() {
               {/* <Route exact path="/fridge/recipes">
                 <MatchingRecipes matchingRecipes={matchingRecipes}/>
               </Route> */}
-              <Route path="/question">
-                <Question/>
+              <Route path="/quiz">
+                <QuizForm/>
               </Route>
               <Route path="/globe">
                 <Globe/>
