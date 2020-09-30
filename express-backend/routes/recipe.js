@@ -116,7 +116,7 @@ module.exports = (db) => {
       if (queryParams.length > 1) {
         queryString += ` AND recipes.is_vegan = ${vegan}`;
       } else {
-        queryString += `WHERE recipes.is_lunch = ${vegan}`;
+        queryString += `WHERE recipes.is_vegan = ${vegan}`;
       }
     }
 
