@@ -200,13 +200,17 @@ module.exports = (db) => {
     }
 
     if (notSalty) {
-      queryParams.push(notSalty);
-      queryString += ` WHERE NOT recipes.is_salty = ${notSalty}`;
+      queryNotParams.push(notSalty);
+      if (queryParams.length > 1) {
+      queryString += ` AND NOT recipes.is_salty = ${notSalty}`;
+      } else {
+        queryString += ` WHERE NOT recipes.is_greasy = ${notGreasy}`;
+      }
     }
 
     if (notGreasy) {
-      queryParams.push(notGreasy);
-      if (queryParams.length > 1) {
+      queryNotParams.push(notGreasy);
+      if (queryNotParams.length > 1) {
         queryString += ` AND NOT recipes.is_greasy = ${notGreasy}`;
       } else {
         queryString += ` WHERE NOT recipes.is_greasy = ${notGreasy}`;
@@ -214,8 +218,8 @@ module.exports = (db) => {
     }
 
     if (notSpicy) {
-      queryParams.push(notSpicy);
-      if (queryParams.length > 1) {
+      queryNotParams.push(notSpicy);
+      if (queryNotParams.length > 1) {
         queryString += ` AND NOT recipes.is_spicy = ${notSpicy}`;
       } else {
         queryString += ` WHERE NOT recipes.is_spicy = ${notSpicy}`;
@@ -223,8 +227,8 @@ module.exports = (db) => {
     }
 
     if (notSweet) {
-      queryParams.push(notSweet);
-      if (queryParams.length > 1) {
+      queryNotParams.push(notSweet);
+      if (queryNotParams.length > 1) {
         queryString += ` AND NOT recipes.is_sweet = ${notSweet}`;
       } else {
         queryString += ` WHERE NOT recipes.is_sweet = ${notSweet}`;
@@ -232,8 +236,8 @@ module.exports = (db) => {
     }
 
     if (notFruity) {
-      queryParams.push(notFruity);
-      if (queryParams.length > 1) {
+      queryNotParams.push(notFruity);
+      if (queryNotParams.length > 1) {
         queryString += ` AND NOT recipes.is_fruity = ${notFruity}`;
       } else {
         queryString += ` WHERE NOT recipes.is_fruity = ${notFruity}`;
@@ -241,8 +245,8 @@ module.exports = (db) => {
     }
 
     if (notHealthy) {
-      queryParams.push(notHealthy);
-      if (queryParams.length > 1) {
+      queryNotParams.push(notHealthy);
+      if (queryNotParams.length > 1) {
         queryString += ` AND NOT recipes.is_healthy = ${notHealthy}`;
       } else {
         queryString += ` WHERE NOT recipes.is_healthy = ${notHealthy}`;
@@ -250,8 +254,8 @@ module.exports = (db) => {
     }
 
     if (notCold) {
-      queryParams.push(notCold);
-      if (queryParams.length > 1) {
+      queryNotParams.push(notCold);
+      if (queryNotParams.length > 1) {
         queryString += ` AND NOT recipes.is_cold = ${notCold}`;
       } else {
         queryString += ` WHERE NOT recipes.is_cold = ${notCold}`;
@@ -259,8 +263,8 @@ module.exports = (db) => {
     }
 
     if (notHot) {
-      queryParams.push(notHot);
-      if (queryParams.length > 1) {
+      queryNotParams.push(notHot);
+      if (queryNotParams.length > 1) {
         queryString += ` AND NOT recipes.is_hot = ${notHot}`;
       } else {
         queryString += ` WHERE NOT recipes.is_hot = ${notHot}`;

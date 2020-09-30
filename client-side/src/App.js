@@ -35,6 +35,7 @@ import QuizForm from "./components/QuizForm";
 
 function App() {
   const [matchingRecipes, setMatchingRecipes] = useState({});
+  const [matchingQuiz, setMatchingQuiz] = useState({});
   const [recipeData, setRecipeData] = useState({});
 
   console.log('matching', matchingRecipes);
@@ -65,7 +66,7 @@ function App() {
                 <MatchingRecipes matchingRecipes={matchingRecipes}/>
               </Route> */}
               <Route path="/quiz">
-                <QuizForm/>
+                <QuizForm setMatchingRecipes={setMatchingRecipes}/>
               </Route>
               <Route path="/globe">
                 <Globe/>
