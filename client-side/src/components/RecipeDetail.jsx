@@ -35,9 +35,13 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-function RecipeDetail() {
+function RecipeDetail(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(4);
+  console.log("PROPS recipeData", props.recipeData);
+  console.log("PROPS matchingRecipes", props.matchingRecipes);
+
+  const 
 
   return (
     <Row>

@@ -36,7 +36,7 @@ function App() {
   const [matchingRecipes, setMatchingRecipes] = useState({});
   const [recipeData, setRecipeData] = useState({});
 
-  // console.log('matching', matchingRecipes.id);
+  console.log('matching', matchingRecipes);
   // const { id } = matchingRecipes.id;
   
   return (
@@ -69,7 +69,7 @@ function App() {
               <Route path="/globe">
                 <Globe/>
               </Route>
-              <Route path="/recipes/:id" render={(props) => <RecipeDetail {...props}/>} />
+              <Route path="/recipes/:id" render={(props) => <RecipeDetail {...props} recipeData={recipeData} matchingRecipes={matchingRecipes}/>} />
               <Route path="/recipes">
                 <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
               </Route>
