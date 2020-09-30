@@ -38,7 +38,11 @@ const useStyles = makeStyles((theme) => ({
 function RecipeDetail(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(4);
+  const info = props.recipeData;
+
+
   console.log("PROPS recipeData", props.recipeData);
+  console.log("INFO", info[0])
 
 
   return (
@@ -47,7 +51,7 @@ function RecipeDetail(props) {
         <CardMedia
         // INSERT RECIPE IMAGE
           className={classes.media}
-          image={sample}
+          image={info[0].img_url}
           title="Paella dish"
         />
       </Col>
@@ -56,9 +60,9 @@ function RecipeDetail(props) {
         <Col  className={classes.cont} span={3}>
         <Box className="rating" component="fieldset" mb={3} borderColor="transparent">
           {/* INSERT RECIPE OWNER */}
-            <h3><FaceIcon fontSize="medium" color="primary"/> James Smith</h3> 
+         <h3><FaceIcon fontSize="medium" color="primary"/> {info[0].first_name} {info[0].last_name}</h3> 
           {/* INSERT RECIPE TIME */}
-            <h3><AccessTimeIcon fontSize="medium" color="secondary"/> 40 min</h3> 
+            <h3><AccessTimeIcon fontSize="medium" color="secondary"/> {info[0].time} min</h3> 
             <Rating name="read-only" value={value} readOnly></Rating>
         </Box>
         <Typography variant="h5" color="textSecondary">
@@ -77,19 +81,17 @@ function RecipeDetail(props) {
           
         <Typography className={classes.title} variant="h3" component="h2" align="center">
             {/* INSERT RECIPE NAME */}
-          Shrimp and Chorizo Paella
+          {info[0].name}
         </Typography>
         <br/>
         <Typography >
             {/* INSERT RECIPE DESCRIPTION */}
-        Spanish Rice Dish Paella Recipe ‐ This simple Shrimp and Chorizo Paella is easy to make, has classic paella ingredients with all Spanish flavors. Feed and impress a crowd with this paella recipe!
+            {info[0].description}
         </Typography>
             <Typography variant="h5" color="textSecondary">
           {/* INSERT DIRECTIONS */}
           <p>
-            Heat olive oil over medium-low heat in a saucepan; stir anchovy fillets into olive oil and cook, stirring often, until the fillets begin to sizzle, about 1 minute. Mix garlic into oil and cook just until fragrant, 1 minute more. Add fresh oregano and reduce heat to low; cook until oregano is wilted, 2 or 3 more minutes.
-
-            Mix red pepper flakes, dried oregano, and tomatoes into olive oil mixture. Bring sauce to a simmer and season with salt, sugar, and black pepper. Turn heat to low; simmer sauce until thickened and oil rises to the top, 35 to 40 minutes, stirring occasionally.
+            {info[0].directions}
           </p>         
         </Typography>
         </Col>
