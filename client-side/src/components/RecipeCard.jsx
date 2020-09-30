@@ -40,7 +40,8 @@ const RecipeCard = (props) => {
 
     axios.post(`http://localhost:8080/recipes/${recipe_id}`, { recipe })
       .then(res => {
-        
+        console.log("resss", res.data.info)
+        props.setRecipeData(res.data.info)
       })
       .catch(err => {
         // setError("Incorrect Email or Password!");
