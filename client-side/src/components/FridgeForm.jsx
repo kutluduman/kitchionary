@@ -140,8 +140,7 @@ if (!redirect) {
           <IngredientForm setInput={setInputState} inputState={inputState}/>
 
         <div className={classes.submit}>
-        <ColorButton size="large" type = 'submit' variant="contained" >Generate Recipes
-        </ColorButton>
+        <ColorButton size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>
         </div>
 
         </form>

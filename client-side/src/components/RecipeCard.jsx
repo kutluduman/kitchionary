@@ -11,21 +11,26 @@ import Typography from '@material-ui/core/Typography';
 import sample from '../docs/sample.jpg';
 
 
+
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    maxWidth: 450,
+    height: 700, 
+    margin: 25,
+    marginTop: 40,
+    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)',
   },
   media: {
-    height:400,
-    weight:400,
-  }
+    height: 450,
+    weight: 250,
+
+  },
+
 });
 
 const RecipeCard = (props) => {
 
   const classes = useStyles();
-
-
     
   return (
         <Card className={classes.root}>
@@ -47,9 +52,9 @@ const RecipeCard = (props) => {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="large" color="primary">
-            Learn More
-          </Button>
+        <Button size="large" color="primary">
+            Cook This!
+        </Button>
         </CardActions>
       </Card>
       )

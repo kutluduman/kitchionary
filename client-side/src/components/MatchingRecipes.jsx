@@ -12,20 +12,11 @@ import sample from '../docs/sample.jpg';
 import RecipeCard from './RecipeCard';
 
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height:400,
-    weight:400,
-  }
-});
 
 
 
 const MatchingRecipes = (props) => {
-  const classes = useStyles();
+
 
   console.log("from matchingrecipes", props.matchingRecipes);
 
@@ -51,8 +42,9 @@ const MatchingRecipes = (props) => {
     </Grid>
     </div>
 
+    
   )
-
 }
+
 
 export default MatchingRecipes;

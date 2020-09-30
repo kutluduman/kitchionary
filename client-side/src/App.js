@@ -58,6 +58,9 @@ function App() {
               <Route exact path="/fridge">
                 <FridgeForm setMatchingRecipes={setMatchingRecipes}/>
               </Route>
+              {/* <Route exact path="/fridge/recipes">
+                <MatchingRecipes matchingRecipes={matchingRecipes}/>
+              </Route> */}
               <Route path="/question">
                 <Question/>
               </Route>
@@ -67,8 +70,11 @@ function App() {
               <Route path="/recipes">
                 <MatchingRecipes matchingRecipes={matchingRecipes}/>
               </Route>
-              <Route path="/recipes/:id">
-              </Route>
+              {/* <Route path="/recipes/:id">
+                </Route> */}
+              {/* <Route path="/fridge/recipes/1">
+                <RecipeDetail/>
+              </Route> */}
             </Switch>
             {/* <div className="featured">
               <FeaturedSalad/>
