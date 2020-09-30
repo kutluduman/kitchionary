@@ -1,27 +1,141 @@
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const router = express.Router();
 
 module.exports = (db) => {
+  router.post("/", (req, res) => {
+    console.log("reqqq", req.body);
+    const recipes = req.body.recipes;
+    const breakfast = recipes.breakfast;
+    const lunch = recipes.lunch;
+    const appetizer = recipes.appetizer;
+    const dinner = recipes.dinner;
+    const dessert = recipes.dessert;
+    const glutenFree = recipes.glutenFree;
+    const nutFree = recipes.nutFree;
+    const dairyFree = recipes.dairyFree;
+    const vegetarian = recipes.vegetarian;
+    const vegan = recipes.vegan;
+    const name = recipes.name;
 
-  router.post("/", (req,res) => {
-    const ingredient = req.body.name;
-    const amount = req.body.amount;
-    const culture = req.body.culture;
+    const queryParams = [];
+
+    let queryString = `SELECT DISTINCT recipes.name, recipes.description, recipes.img_url
+    FROM ingredients
+    FULL JOIN measurements ON ingredients.id = ingredient_id
+    FULL JOIN recipes ON recipes.id = recipe_id
+    `;
+
+    if (name) {
+      queryParams.push(name);
+      queryString += `WHERE ingredients.name = '${name}'`;
+    }
+
+    if (breakfast) {
+      queryParams.push(breakfast);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_breakfast = ${breakfast}`;
+      } else {
+        queryString += `WHERE recipes.is_breakfast = ${breakfast}`;
+      }
+    }
+
+    if (lunch) {
+      queryParams.push(lunch);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_lunch = ${lunch}`;
+      } else {
+        queryString += `WHERE recipes.is_lunch = ${lunch}`;
+      }
+    }
+
+    if (appetizer) {
+      queryParams.push(appetizer);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_appetizer = ${appetizer}`;
+      } else {
+        queryString += `WHERE recipes.is_appetizer = ${appetizer}`;
+      }
+    }
+
+    if (dinner) {
+      queryParams.push(dinner);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_dinner = ${dinner}`;
+      } else {
+        queryString += `WHERE recipes.is_dinner = ${dinner}`;
+      }
+    }
+
+    if (dessert) {
+      queryParams.push(dessert);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_dessert = ${dessert}`;
+      } else {
+        queryString += `WHERE recipes.is_dessert = ${dessert}`;
+      }
+    }
+
+    if (glutenFree) {
+      queryParams.push(glutenFree);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_gluten_free = ${glutenFree}`;
+      } else {
+        queryString += `WHERE recipes.is_gluten_free = ${glutenFree}`;
+      }
+    }
+
+    if (nutFree) {
+      queryParams.push(nutFree);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_nut_free = ${nutFree}`;
+      } else {
+        queryString += `WHERE recipes.is_nut_free = ${nutFree}`;
+      }
+    }
+
+    if (dairyFree) {
+      queryParams.push(dairyFree);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_dairy_free= ${dairyFree}`;
+      } else {
+        queryString += `WHERE recipes.is_dairy_free = ${dairyFree}`;
+      }
+    }
+
+    if (vegetarian) {
+      queryParams.push(vegetarian);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_vegetarian = ${vegetarian}`;
+      } else {
+        queryString += `WHERE recipes.is_vegetarian = ${vegetarian}`;
+      }
+    }
+
+    if (vegan) {
+      queryParams.push(vegan);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_vegan = ${vegan}`;
+      } else {
+        queryString += `WHERE recipes.is_vegan = ${vegan}`;
+      }
+    }
+
+    queryString += `;`;
+    console.log("QUERY", queryString)
 
 
-    return db.query(`SELECT id, first_name, last_name, email, phone_number
-    FROM users
-    WHERE email = $1 AND password = $2;`,[email, password])
-    .then((data) => {
-        const user = data.rows[0];
-        console.log('user', user);
-        res.json({ user });
-    })
-    .catch((err) => {
-      res.status(500).json({ error: err.message });
-    });
+    return db
+      .query(queryString)
+      .then((data) => {
+        console.log("data", data);
+        const recipes = data.rows;
+        console.log("recipes", recipes);
+        res.json({ recipes });
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
   });
 
   return router;
-
 };

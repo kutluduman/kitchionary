@@ -65,9 +65,9 @@ const theme = createMuiTheme({
 });
 
 
-const FridgeForm = () => {
+const FridgeForm = (props) => {
   const classes = useStyles();
- 
+  const [redirect, setRedirect] = useState(false);
   const [inputState, setInputState] = useState({
     breakfast: false,
     lunch: false,
@@ -80,12 +80,11 @@ const FridgeForm = () => {
     vegetarian : false,
     vegan : false,
     name: '',
-    quantity: '',
-    unit: '',
-    culture:'',
   });
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+      e.preventDefault();
+
      const recipes = {
       breakfast: inputState.breakfast,
       lunch: inputState.lunch,
@@ -100,24 +99,28 @@ const FridgeForm = () => {
       name: inputState.name,
       quantity: inputState.quantity,
       unit: inputState.unit,
-      culture: inputState.culture,
       }
   
   
-    axios.post(`http://localhost:8080/recipe`, { recipes })
+    axios.post(`http://localhost:8080/recipes`, {recipes})
       .then(res => {
-        return <Redirect to = {{ pathname: "/recipes" }} />;
+        console.log("resss", res.data.recipes)
+        props.setMatchingRecipes(res.data.recipes)
+        if (res.status === 200) {
+          setRedirect(true)
+          console.log("redirect??", redirect)
+        }
       })
       .catch(err => {
         // res.status(500).json({ error: err.message });
         // or set error state
-      })
+      });
+
     };
-
-
 
   console.log(inputState)
 
+if (!redirect) {
   return (
     <article className={classes.root}>
        <Helmet>
@@ -127,22 +130,25 @@ const FridgeForm = () => {
         <h1 className='fridgeTitle'>Fridge Mode</h1>
         <h2 className='fridgeSubtitle'>Step One: What meal are you cooking?</h2>
         <div className={classes.avatar}>
-          <FridgeAvatar setInput={setInputState}/>
+          <FridgeAvatar setInput={setInputState} inputState={inputState}/>
         </div>
         <h2 className='fridgeSubtitle'>Step Two: Any dietary restrictions?</h2>
         <div className={classes.checkbox}>
-          <FridgeCheckbox setInput={setInputState}/>
+          <FridgeCheckbox setInput={setInputState} inputState={inputState}/>
         </div>
         <h2 className='fridgeSubtitle'> Step Three: What ingredients do you want to cook with?</h2> 
-          <IngredientForm setInput={setInputState}/>
+          <IngredientForm setInput={setInputState} inputState={inputState}/>
 
         <div className={classes.submit}>
-        <ColorButton href="/fridge/recipes" size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>
+        <ColorButton size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>
         </div>
 
         </form>
     </article>
   )
+} else {
+  return <Redirect to = {{ pathname: "/recipes" }} />;
+}
 }
 
 export default FridgeForm;
