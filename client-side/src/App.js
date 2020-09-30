@@ -36,7 +36,7 @@ function App() {
   const [matchingRecipes, setMatchingRecipes] = useState({});
   const [recipeData, setRecipeData] = useState({});
 
-  console.log('matching', matchingRecipes);
+  console.log('matching', matchingRecipes.id);
   
   return (
     <Router>

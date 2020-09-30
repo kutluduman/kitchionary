@@ -40,6 +40,7 @@ const RecipeCard = (props) => {
     console.log('props', props.name)
     const recipe = props.name;
     const recipe_id = props.id;
+    console.log('RECIPEID2', recipe_id);
 
     axios.post(`http://localhost:8080/recipes/${recipe_id}`, { recipe })
       .then(res => {
