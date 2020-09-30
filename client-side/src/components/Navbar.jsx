@@ -134,9 +134,8 @@ function Navbar() {
                   open={Boolean(anchorEl)}
                   onClose={handleClose}
                 >
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={handleClose}>My account</MenuItem>
-                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                  <MenuItem onClick={handleClose}>My Recipes</MenuItem>
+                  <MenuItem onClick={handleClose}>Saved</MenuItem>
                 </Menu>
               </IconButton>
               <div className={classes.search}>
