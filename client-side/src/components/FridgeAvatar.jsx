@@ -64,7 +64,7 @@ const FridgeAvatar = (props) => {
   const classes = useStyles();
 
   const handleChange = (event) => {
-    props.setInput({ ...props.state, [event.target.name]: event.target.checked });
+    props.setInput({ ...props.inputState, [event.target.name]: event.target.checked });
   };
 
 
