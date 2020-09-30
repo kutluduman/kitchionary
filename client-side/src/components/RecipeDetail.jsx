@@ -98,13 +98,28 @@ function RecipeDetail(props) {
         <br/>
         <Typography >
             {/* INSERT RECIPE DESCRIPTION */}
-            {info[0].description}
+            {info[0].description_one}
         </Typography>
             <Typography variant="h5" color="textSecondary">
           {/* INSERT DIRECTIONS */}
           <p>
-            {info[0].directions}
-          </p>         
+            {info[0].directions_one}
+          </p>      
+          <p>
+            {info[0].directions_two}
+          </p>  
+          <p>
+            {info[0].directions_three}
+          </p>  
+          <p>
+            {info[0].directions_four}
+          </p>  
+          <p>
+            {info[0].directions_five}
+          </p>  
+          <p>
+            {info[0].directions_six}
+          </p>     
         </Typography>
         </Col>
       </Col>
