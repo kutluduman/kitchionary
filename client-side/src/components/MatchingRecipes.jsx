@@ -53,7 +53,7 @@ const MatchingRecipes = () => {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="large" color="primary">
+            <Button href="/fridge/recipes/1" size="large" color="primary">
             Cook This!
             </Button>
           </CardActions>
@@ -78,7 +78,7 @@ const MatchingRecipes = () => {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="large" color="primary">
+            <Button href="/fridge/recipes/1" size="large" color="primary">
              Cook This!
             </Button>
           </CardActions>
@@ -103,7 +103,7 @@ const MatchingRecipes = () => {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="large" color="primary">
+            <Button href="/fridge/recipes/1" size="large" color="primary">
             Cook This!
             </Button>
           </CardActions>
@@ -128,7 +128,7 @@ const MatchingRecipes = () => {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="large" color="primary">
+            <Button href="/fridge/recipes/1" size="large" color="primary">
             Cook This!
             </Button>
           </CardActions>
