@@ -11,6 +11,7 @@ import "react-simple-flex-grid/lib/main.css";
 import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 import FaceIcon from '@material-ui/icons/Face';
+import IngredientDetails from './IngredientDetails';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,6 +46,13 @@ function RecipeDetail(props) {
   console.log("INFO", info[0])
 
 
+//  info.map(data => {
+//     ingredient = data.ingredient;
+//     amount = data.amount;
+//     unit = data.unit
+//   })
+
+
   return (
     <Row>
       <Col span={5}>
@@ -52,7 +60,7 @@ function RecipeDetail(props) {
         // INSERT RECIPE IMAGE
           className={classes.media}
           image={info[0].img_url}
-          title="Paella dish"
+          title={info[0].name}
         />
       </Col>
       <Col span={6}>
@@ -68,13 +76,17 @@ function RecipeDetail(props) {
         <Typography variant="h5" color="textSecondary">
           {/* INSERT RECIPE INGREDIENTS */}
           <h3>Ingredients</h3>
-              <ListItemText primary="Olive Oil" secondary="2 tablespoons"/>
-              <Divider variant="inset" component="li" />
-              <ListItemText primary="Bomba rice or Arborio" secondary="2 1.5 cups"/>
-              <Divider variant="inset" component="li" />
-              <ListItemText primary="Chicken Stock" secondary="3 cups"/>
-              <Divider variant="inset" component="li" />
-              <ListItemText primary="Chicken Stock" secondary="3 cups"/>
+          {props.recipeData.map(ingredient => {
+          return (
+            <IngredientDetails 
+            ingredient={ingredient.ingredient}
+            amount={ingredient.amount}
+            unit={ingredient.unit}
+            />
+          );
+          })
+          }
+
         </Typography>
         </Col>
         <Col span={9}>
