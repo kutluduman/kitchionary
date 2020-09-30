@@ -18,8 +18,10 @@
   z-index: 5;
 }
 
-.descriptionFridge{
-  /* padding: 15px; */
+
+.fridgeButton{
+  display: flex;
+justify-content: center;
 }
 
 .backDoor
