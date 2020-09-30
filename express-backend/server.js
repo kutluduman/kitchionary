@@ -32,6 +32,7 @@ app.use(cors())
 const loginRoutes = require("./routes/login");
 const registerRoutes = require("./routes/register");
 const recipeRoutes = require("./routes/recipe");
+const quizRoutes = require("./routes/quiz");
 
 
 // Mount all resource routes
@@ -41,6 +42,7 @@ const recipeRoutes = require("./routes/recipe");
 app.use("/register", registerRoutes(db));
 app.use("/login",loginRoutes(db));
 app.use("/recipes", recipeRoutes(db));
+app.use("/quiz", recipeRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
