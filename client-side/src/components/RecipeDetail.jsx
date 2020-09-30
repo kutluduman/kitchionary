@@ -14,18 +14,19 @@ import FaceIcon from '@material-ui/icons/Face';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1 
+    flexGrow: 1, 
   },
   
   media: {
         width: 700,
         height: 700,
         marginTop: 30,
-        marginLeft: 15,
+        marginLeft: 45,
         
       },
   cont: {
    marginTop: 30,
+   
   },
 
   title:{
@@ -48,7 +49,7 @@ function RecipeDetail() {
           title="Paella dish"
         />
       </Col>
-      <Col span={5}>
+      <Col span={6}>
 
         <Col  className={classes.cont} span={3}>
         <Box className="rating" component="fieldset" mb={3} borderColor="transparent">
