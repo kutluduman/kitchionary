@@ -37,29 +37,21 @@ const useStyles = makeStyles((theme) => ({
 
 function IngredientDetail(props) {
   const classes = useStyles();
-  // const [value, setValue] = React.useState(4);
-  // const info = props.recipeData;
 
-
-  // console.log("PROPS recipeData", props.recipeData);
-  // console.log("INFO", info[0])
-
-
-//  info.map(data => {
-//     ingredient = data.ingredient;
-//     amount = data.amount;
-//     unit = data.unit
-//   })
+  const capitalize = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  const ingredient = capitalize(props.ingredient);
 
   let amount = `${props.amount}`
   if (props.unit) {
     amount += ` ${props.unit}`
-  }
+  };
 
 
   return (
    <div>
-              <ListItemText primary={props.ingredient} secondary={amount}/>
+              <ListItemText primary={ingredient} secondary={amount}/>
               <Divider variant="inset" component="li" />
       </div>
         
