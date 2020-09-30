@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px"
   },
   slider: {
-    width: 1250,
+    width: 250,
     marginLeft: theme.spacing(40),
     display: "flex",
     justifyContent: 'center',
@@ -74,7 +74,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     flexWrap: "wrap"
-  }
+  },
+
 
 }));
 
@@ -134,11 +135,12 @@ const QuizForm = (props) => {
   // const [value, setValue] = React.useState<number | string | Array<number | string>>(30);
 
   const handleSliderChange = (event, newValue) => {
+    setInputState({ ...inputState, time: newValue });
     setValue(newValue);
   };
-  // const handleSliderChange = (event: any, newValue: number | number[]) => {
-  //   setValue(newValue);
-  // };
+
+
+  console.log("SLIDER", inputState.time)
 
   const handleInputChange = (event) => {
     setValue(event.target.value === '' ? '' : Number(event.target.value));
@@ -270,19 +272,20 @@ if (!redirect) {
           <Slider
             value={typeof value === 'number' ? value : 0}
             onChange={handleSliderChange}
+            name="time"
             aria-labelledby="input-slider"
             max="200"
           />
         </Grid>
         <Grid item>
           <Input1
-            className={classes.input}
+            className={classes.slider}
             value={value}
             margin="dense"
             onChange={handleInputChange}
             onBlur={handleBlur}
             inputProps={{
-              step: 10,
+              step: 1,
               min: 0,
               max: 200,
               type: 'number',

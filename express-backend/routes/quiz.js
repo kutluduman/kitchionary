@@ -199,6 +199,15 @@ module.exports = (db) => {
       }
     }
 
+    if (time > 0) {
+      queryParams.push(time);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.time <= ${time}`;
+      } else {
+        queryString += ` WHERE recipes.time <= ${time}`;
+      }
+    }
+
     if (notSalty) {
       queryNotParams.push(notSalty);
       if (queryParams.length > 1) {

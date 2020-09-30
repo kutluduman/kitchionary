@@ -11,7 +11,7 @@ const QuizButton = (props) => {
     props.setInput({ ...props.inputState, [event.target.name]: event.target.checked });
   };
 
-  console.log("state from button", props.inputState);
+  // console.log("state from button", props.inputState);
 
   return (
   <label >
