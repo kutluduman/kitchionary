@@ -42,6 +42,7 @@ function RecipeDetail() {
     <Row>
       <Col span={5}>
         <CardMedia
+        // INSERT RECIPE IMAGE
           className={classes.media}
           image={sample}
           title="Paella dish"
@@ -51,12 +52,14 @@ function RecipeDetail() {
 
         <Col  className={classes.cont} span={3}>
         <Box className="rating" component="fieldset" mb={3} borderColor="transparent">
+          {/* INSERT RECIPE OWNER */}
             <h3><FaceIcon fontSize="medium" color="primary"/> James Smith</h3> 
+          {/* INSERT RECIPE TIME */}
             <h3><AccessTimeIcon fontSize="medium" color="secondary"/> 40 min</h3> 
             <Rating name="read-only" value={value} readOnly></Rating>
         </Box>
         <Typography variant="h5" color="textSecondary">
-
+          {/* INSERT RECIPE INGREDIENTS */}
           <h3>Ingredients</h3>
               <ListItemText primary="Olive Oil" secondary="2 tablespoons"/>
               <Divider variant="inset" component="li" />
@@ -70,10 +73,12 @@ function RecipeDetail() {
         <Col span={9}>
           
         <Typography className={classes.title} variant="h3" component="h2" align="center">
+            {/* INSERT RECIPE NAME */}
           Shrimp and Chorizo Paella
         </Typography>
         <br/>
         <Typography >
+            {/* INSERT RECIPE DESCRIPTION */}
         Spanish Rice Dish Paella Recipe ‐ This simple Shrimp and Chorizo Paella is easy to make, has classic paella ingredients with all Spanish flavors. Feed and impress a crowd with this paella recipe!
         </Typography>
             <Typography variant="h5" color="textSecondary">
@@ -85,7 +90,6 @@ function RecipeDetail() {
           </p>         
         </Typography>
         </Col>
-
       </Col>
     </Row>
   );
