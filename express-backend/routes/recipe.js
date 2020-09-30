@@ -37,18 +37,18 @@ module.exports = (db) => {
     FROM ingredients
     FULL JOIN measurements ON ingredients.id = ingredient_id
     FULL JOIN recipes ON recipes.id = recipe_id
-    WHERE
+    WHERE ingredients.name = '${name}'
     `;
 
     if (breakfast) {
       queryParams.push(breakfast);
-      queryString += ` ingredients.name = ${breakfast}`;
+      queryString += ` AND recipes.is_breakfast = ${breakfast}`;
     }
 
     if (lunch) {
       queryParams.push(lunch);
       if (queryParams.length !== 0) {
-        queryString += `AND recipes.is_lunch = ${lunch}`
+        queryString += ` AND recipes.is_lunch = ${lunch}`
       } else {
         queryString += ` recipes.is_lunch = ${lunch}`;
       }
@@ -56,7 +56,7 @@ module.exports = (db) => {
     if (appetizer) {
       queryParams.push(appetizer);
       if (queryParams.length !== 0) {
-          queryString += `AND recipes.is_appetizer = ${appetizer}`
+          queryString += ` AND recipes.is_appetizer = ${appetizer}`
       } else {
         queryString += ` recipes.is_appetizer = ${appetizer}`;
       }
@@ -65,7 +65,7 @@ module.exports = (db) => {
     if (dinner) {
       queryParams.push(dinner);
       if (queryParams.length !== 0) {
-        queryString += `AND recipes.is_dinner = ${dinner}`
+        queryString += ` AND recipes.is_dinner = ${dinner}`
       } else {
         queryString += ` recipes.is_dinner = ${dinner}`;
       }
@@ -73,17 +73,18 @@ module.exports = (db) => {
     }
     if (dessert){
       queryParams.push(dessert);
+
       if (queryParams.length !== 0) {
-        queryString += `AND recipes.is_dessert = ${dessert}`
+        queryString += ` AND recipes.is_dessert = ${dessert}`
       } else {
         queryString += ` recipes.is_dessert = ${dessert}`;
-      }
+       }
 
     }
     if (glutenFree){
       queryParams.push(glutenFree);
       if (queryParams.length !== 0) {
-        queryString += `AND recipes.is_gluten_free = ${glutenFree}`
+        queryString += ` AND recipes.is_gluten_free = ${glutenFree}`
       } else {
         queryString += ` recipes.is_gluten_free = ${glutenFree}`;
       }
@@ -92,7 +93,7 @@ module.exports = (db) => {
     if (nutFree){
       queryParams.push(nutFree);
       if (queryParams.length !== 0) {
-          queryString += `AND recipes.is_nut_free = ${nutFree}`
+          queryString += ` AND recipes.is_nut_free = ${nutFree}`
       } else {
         queryString += ` recipes.is_nut_free = ${nutFree}`;
       }
@@ -101,7 +102,7 @@ module.exports = (db) => {
     if (dairyFree){
       queryParams.push(dairyFree);
       if (queryParams.length !== 0) {
-          queryString += `AND recipes.is_dairy_free= ${dairyFree}`
+          queryString += ` AND recipes.is_dairy_free= ${dairyFree}`
       } else {
         queryString += ` recipes.is_dairy_free = ${dairyFree}`;
       }
@@ -110,7 +111,7 @@ module.exports = (db) => {
     if (vegetarian){
       queryParams.push(vegetarian);
       if (queryParams.length !== 0) {
-        queryString += `AND recipes.is_vegetarian = ${vegetarian}`
+        queryString += ` AND recipes.is_vegetarian = ${vegetarian}`
       } else {
         queryString += ` recipes.is_vegetarian = ${vegetarian}`;
       }
@@ -119,31 +120,23 @@ module.exports = (db) => {
     if (vegan) {
       queryParams.push(vegan);
       if (queryParams.length !== 0) {
-        queryString += `AND recipes.is_vegan = ${vegan}`
+        queryString += ` AND recipes.is_vegan = ${vegan}`
       } else {
         queryString += ` recipes.is_vegan = ${vegan}`;
       }
     }
 
-    `
-    WHERE ingredients.name = $1
-    AND recipes.is_breakfast = $2
-    AND recipes.is_lunch = $3
-    AND recipes.is_appetizer = $4
-    AND recipes.is_dinner = $5
-    AND recipes.is_dessert = $6
-    AND recipes.is_gluten_free= $7
-    AND recipes.is_nut_free = $8
-    AND recipes.is_dairy_free = $9
-    AND recipes.is_vegetarian = $10
-    AND recipes.is_vegan = $11;`,[name, breakfast, lunch, appetizer, dinner, dessert, glutenFree, nutFree, dairyFree, vegetarian, vegan])
+    queryString += `;`
 
 
+    console.log(queryString)
+    return db.query(queryString, queryParams)
     .then((data) => {
       console.log('data', data)
-        const recipes = data.rows[0];
+        const recipes = data.rows;
         console.log('recipes', recipes);
-        res.json({ user });
+        res.json({ recipes });
+        console.log('no recipeeeeeeee')
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
