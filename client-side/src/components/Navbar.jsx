@@ -19,6 +19,12 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import {
   Link
 } from "react-router-dom";
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+
 
 //popout
 
@@ -99,10 +105,13 @@ function Navbar() {
 
   const classes = useStyles();
   const [cookies, setCookie, removeCookie] = useCookies(['name']);
-  console.log(cookies)
+
+  // console.log(cookies)
   //popout
   // const {loginShowing, toggleLogin} = useLogin();
   // const {registerShowing, toggleRegister} = useRegister();
+
+
   
   const handleRemoveCookie = () => {
     removeCookie('name')
@@ -117,7 +126,7 @@ if (!cookies.name){
             <Typography variant="h6">
                <Button href="http://localhost:3000/"> <img src={logo} className= "logo" alt="logo"></img> </Button>
             </Typography>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <IconButton  className={classes.menuButton} color="inherit" aria-label="menu">
               <MenuIcon />
             </IconButton>
                 <div className={classes.search}>
