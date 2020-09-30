@@ -127,15 +127,56 @@ module.exports = (db) => {
     return db
       .query(queryString)
       .then((data) => {
-        console.log("data", data);
+        console.log("DATA", data);
         const recipes = data.rows;
-        console.log("recipes", recipes);
+        console.log("RECIPES", recipes);
         res.json({ recipes });
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
       });
   });
+
+  router.post('/:id', (req,res) => {
+
+    return db.query(`SELECT ingredients.name, measurements.amount, measurements.unit, users.first_name, users.last_name, recipes.directions
+    FROM ingredients
+    FULL JOIN measurements ON ingredients.id = ingredient_id
+    FULL JOIN recipes ON recipes.id = recipe_id
+    FULL JOIN users ON users.id = user_id
+    WHERE recipes.name = $1;`,[name])
+
+    .then((data) => {
+      if (data.rows.length === 0) {
+        res.status(401).send("Incorrect Email or Password");
+      } else {
+        const user = data.rows[0];
+        console.log('user', user);
+        res.json({ user });
+      }
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+  });return db.query(`SELECT id, first_name, last_name, email, phone_number
+  FROM users
+  WHERE email = $1 AND password = $2;`,[email, password])
+  .then((data) => {
+    if (data.rows.length === 0) {
+      res.status(401).send("Incorrect Email or Password");
+    } else {
+      const user = data.rows[0];
+      console.log('user', user);
+      res.json({ user });
+    }
+  })
+  .catch((err) => {
+    res.status(500).json({ error: err.message });
+  });
+});
+
+
+  })
 
   return router;
 };
