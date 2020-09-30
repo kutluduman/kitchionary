@@ -37,6 +37,7 @@ function App() {
   const [recipeData, setRecipeData] = useState({});
 
   // console.log('matching', matchingRecipes.id);
+  // const { id } = matchingRecipes.id;
   
   return (
     <Router>
@@ -68,12 +69,12 @@ function App() {
               <Route path="/globe">
                 <Globe/>
               </Route>
+              <Route path="/recipes/:id" render={(props) => <RecipeDetail {...props}/>} />
               <Route path="/recipes">
                 <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
               </Route>
-              <Route path="/recipes/:id">
-                <RecipeDetail recipeData={recipeData} />
-                </Route>
+              
+              
               {/* <Route path="/fridge/recipes/1">
                 <RecipeDetail/>
               </Route> */}
