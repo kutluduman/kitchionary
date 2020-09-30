@@ -11,7 +11,7 @@ import {Select,MenuItem, FormControl, InputLabel} from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
-import Input from '@material-ui/core/Input';
+import Input1 from '@material-ui/core/Input';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import axios from 'axios';
 
@@ -134,8 +134,8 @@ const QuizForm = (props) => {
   const handleBlur = () => {
     if (value < 0) {
       setValue(0);
-    } else if (value > 200) {
-      setValue(200);
+    } else if (value > 100) {
+      setValue(100);
     }
   };
 
@@ -154,9 +154,7 @@ const QuizForm = (props) => {
       dairyFree: inputState.dairyFree,
       vegetarian: inputState.vegetarian,
       vegan: inputState.vegan,
-      name: inputState.name,
-      quantity: inputState.quantity,
-      unit: inputState.unit,
+   
       }
   
   
@@ -187,11 +185,11 @@ if (!redirect) {
          </Helmet>
       <form onSubmit={handleSubmit}>
         <h1>Quiz Mode</h1>
-        <h2 className='fridgeSubtitle'>I'm cooking...</h2>
+        <h2 className='quizSubtitle'>I'm cooking...</h2>
         <div className={classes.avatar}>
           <QuizAvatar setInput={setInputState} inputState={inputState}/>
         </div>
-        <h2 className='fridgeSubtitle'>I need it to be...</h2>
+        <h2 className='quizSubtitle'>I need it to be...</h2>
         
       
         
@@ -203,7 +201,7 @@ if (!redirect) {
         <QuizButton attribute="Vegetarian"/>
         <QuizButton attribute="Vegan"/>
         </div>
-        <h2 className='fridgeSubtitle'> I'm craving...</h2> 
+        <h2 className='quizSubtitle'> I'm craving...</h2> 
         <div className={classes.craving}>
           <QuizButton attribute="Salty"/>
           <QuizButton attribute="Greasy"/>
@@ -214,7 +212,7 @@ if (!redirect) {
           <QuizButton attribute="Cold"/>  
           <QuizButton attribute="Hot"/>  
         </div>
-        <h2 className='fridgeSubtitle'> I don't want...</h2> 
+        <h2 className='quizSubtitle'> I don't want...</h2> 
         <div className={classes.craving}>
           <QuizButton attribute="Salty"/>
           <QuizButton attribute="Greasy"/>
@@ -225,7 +223,7 @@ if (!redirect) {
           <QuizButton attribute="Cold"/>  
           <QuizButton attribute="Hot"/>  
          </div>
-        <h2 className='fridgeSubtitle'> Time </h2> 
+        <h2 className='quizTime'> Time </h2> 
         <div>
         <div className={classes.slider}>
 
@@ -242,7 +240,7 @@ if (!redirect) {
           />
         </Grid>
         <Grid item>
-          <Input
+          <Input1
             className={classes.input}
             value={value}
             margin="dense"
@@ -263,7 +261,7 @@ if (!redirect) {
         </div>
 
         <div className={classes.submit}>
-        <ColorButton size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>
+        <ColorButton href="/recipes" size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>
         </div>
 
         </form>

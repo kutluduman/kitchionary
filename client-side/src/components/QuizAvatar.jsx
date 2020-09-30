@@ -14,42 +14,6 @@ import Typography from '@material-ui/core/Typography';
 
 import"./QuizMealCheck.css";
 
-// const images = [
-//   {
-//     url: breakfast,
-//     title:'Breakfast',
-//     width: '20%'
-//   },
-//   {
-//     url: lunch,
-//     title:'Lunch',
-//     width: '20%'
-//   },
-//   {
-//     url: appetizer,
-//     title:'Appetizers',
-//     width: '20%'
-//   },
-//   {
-//     url: dinner,
-//     title:'Dinner',
-//     width: '20%'
-//   },
-//   {
-//     url: dessert,
-//     title:'Desserts',
-//     width: '20%'
-//   }
-// ]
-
-// const breakfast = {
-//   url: breakfastimg,
-//   title:'Breakfast',
-//   width: '20%'
-
-// }
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',

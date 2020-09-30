@@ -4,6 +4,7 @@ label {
   position: relative;
   box-sizing: content-box;
   margin-right: 20px;
+  margin-top: 20px;
   
 }
 input {
@@ -26,7 +27,7 @@ input + button {
    
 }
 input:checked + button {
-  background-color: rgba(245, 0, 87, 0.5);
+  background-color: rgba(251, 56, 56, 0.445);
 }
 
 input:focus {
