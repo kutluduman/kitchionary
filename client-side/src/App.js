@@ -34,9 +34,8 @@ import "./styles/globefeature.css";
 
 function App() {
   const [matchingRecipes, setMatchingRecipes] = useState({});
-  const [recipeData, setRecipeData] = useState({});
 
-  console.log('matching', matchingRecipes.id);
+  console.log('matching', matchingRecipes);
   
   return (
     <Router>
@@ -57,7 +56,7 @@ function App() {
              <Globe/>  */}
               </Route>
               <Route exact path="/fridge">
-                <FridgeForm setMatchingRecipes={setMatchingRecipes} />
+                <FridgeForm setMatchingRecipes={setMatchingRecipes}/>
               </Route>
               {/* <Route exact path="/fridge/recipes">
                 <MatchingRecipes matchingRecipes={matchingRecipes}/>
@@ -69,11 +68,10 @@ function App() {
                 <Globe/>
               </Route>
               <Route path="/recipes">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes}/>
               </Route>
-              <Route path="/recipes/:id">
-                <RecipeDetail recipeData={recipeData} />
-                </Route>
+              {/* <Route path="/recipes/:id">
+                </Route> */}
               {/* <Route path="/fridge/recipes/1">
                 <RecipeDetail/>
               </Route> */}

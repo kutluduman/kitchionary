@@ -30,11 +30,9 @@ const MatchingRecipes = (props) => {
         {props.matchingRecipes.map(recipe => {
           return (
             <RecipeCard 
-            id={recipe.id}
             name={recipe.name}
             description={recipe.description}
             image={recipe.img_url}
-            setRecipeData={props.setRecipeData}
             />
           );
           })
