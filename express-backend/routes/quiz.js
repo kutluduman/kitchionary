@@ -210,7 +210,7 @@ module.exports = (db) => {
 
     if (notGreasy) {
       queryNotParams.push(notGreasy);
-      if (queryNotParams.length > 1) {
+      if (queryParams.length > 1 || queryNotParams.length > 1) {
         queryString += ` AND NOT recipes.is_greasy = ${notGreasy}`;
       } else {
         queryString += ` WHERE NOT recipes.is_greasy = ${notGreasy}`;
@@ -219,7 +219,7 @@ module.exports = (db) => {
 
     if (notSpicy) {
       queryNotParams.push(notSpicy);
-      if (queryNotParams.length > 1) {
+      if (queryParams.length > 1 || queryNotParams.length > 1) {
         queryString += ` AND NOT recipes.is_spicy = ${notSpicy}`;
       } else {
         queryString += ` WHERE NOT recipes.is_spicy = ${notSpicy}`;
@@ -228,7 +228,7 @@ module.exports = (db) => {
 
     if (notSweet) {
       queryNotParams.push(notSweet);
-      if (queryNotParams.length > 1) {
+      if (queryParams.length > 1 || queryNotParams.length > 1) {
         queryString += ` AND NOT recipes.is_sweet = ${notSweet}`;
       } else {
         queryString += ` WHERE NOT recipes.is_sweet = ${notSweet}`;
@@ -237,7 +237,7 @@ module.exports = (db) => {
 
     if (notFruity) {
       queryNotParams.push(notFruity);
-      if (queryNotParams.length > 1) {
+      if (queryParams.length > 1 || queryNotParams.length > 1) {
         queryString += ` AND NOT recipes.is_fruity = ${notFruity}`;
       } else {
         queryString += ` WHERE NOT recipes.is_fruity = ${notFruity}`;
@@ -246,7 +246,7 @@ module.exports = (db) => {
 
     if (notHealthy) {
       queryNotParams.push(notHealthy);
-      if (queryNotParams.length > 1) {
+      if (queryParams.length > 1 || queryNotParams.length > 1) {
         queryString += ` AND NOT recipes.is_healthy = ${notHealthy}`;
       } else {
         queryString += ` WHERE NOT recipes.is_healthy = ${notHealthy}`;
@@ -255,7 +255,7 @@ module.exports = (db) => {
 
     if (notCold) {
       queryNotParams.push(notCold);
-      if (queryNotParams.length > 1) {
+      if (queryParams.length > 1 || queryNotParams.length > 1) {
         queryString += ` AND NOT recipes.is_cold = ${notCold}`;
       } else {
         queryString += ` WHERE NOT recipes.is_cold = ${notCold}`;
@@ -264,7 +264,7 @@ module.exports = (db) => {
 
     if (notHot) {
       queryNotParams.push(notHot);
-      if (queryNotParams.length > 1) {
+      if (queryParams.length > 1 || queryNotParams.length > 1) {
         queryString += ` AND NOT recipes.is_hot = ${notHot}`;
       } else {
         queryString += ` WHERE NOT recipes.is_hot = ${notHot}`;
