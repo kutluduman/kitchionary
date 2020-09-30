@@ -17,53 +17,111 @@ module.exports = (db) => {
     const vegan = recipes.vegan;
     const name = recipes.name;
 
-    let queryString = `SELECT recipes.name, recipes.description, recipes.img_url
+    const queryParams = [];
+
+    let queryString = `SELECT DISTINCT recipes.name, recipes.description, recipes.img_url
     FROM ingredients
     FULL JOIN measurements ON ingredients.id = ingredient_id
     FULL JOIN recipes ON recipes.id = recipe_id
-    WHERE ingredients.name = '${name}'
     `;
 
+    if (name) {
+      queryParams.push(name);
+      queryString += `WHERE ingredients.name = '${name}'`;
+    }
+
     if (breakfast) {
-      queryString += ` AND recipes.is_breakfast = ${breakfast}`;
+      queryParams.push(breakfast);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_breakfast = ${breakfast}`;
+      } else {
+        queryString += `WHERE recipes.is_breakfast = ${breakfast}`;
+      }
     }
 
     if (lunch) {
-      queryString += ` AND recipes.is_lunch = ${lunch}`;
+      queryParams.push(lunch);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_lunch = ${lunch}`;
+      } else {
+        queryString += `WHERE recipes.is_lunch = ${lunch}`;
+      }
     }
+
     if (appetizer) {
-      queryString += ` AND recipes.is_appetizer = ${appetizer}`;
+      queryParams.push(appetizer);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_appetizer = ${appetizer}`;
+      } else {
+        queryString += `WHERE recipes.is_appetizer = ${appetizer}`;
+      }
     }
 
     if (dinner) {
-      queryString += ` AND recipes.is_dinner = ${dinner}`;
+      queryParams.push(dinner);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_dinner = ${dinner}`;
+      } else {
+        queryString += `WHERE recipes.is_dinner = ${dinner}`;
+      }
     }
 
     if (dessert) {
-      queryString += ` AND recipes.is_dessert = ${dessert}`;
+      queryParams.push(dessert);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_dessert = ${dessert}`;
+      } else {
+        queryString += `WHERE recipes.is_dessert = ${dessert}`;
+      }
     }
 
     if (glutenFree) {
-      queryString += ` AND recipes.is_gluten_free = ${glutenFree}`;
+      queryParams.push(glutenFree);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_gluten_free = ${glutenFree}`;
+      } else {
+        queryString += `WHERE recipes.is_gluten_free = ${glutenFree}`;
+      }
     }
 
     if (nutFree) {
-      queryString += ` AND recipes.is_nut_free = ${nutFree}`;
+      queryParams.push(nutFree);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_nut_free = ${nutFree}`;
+      } else {
+        queryString += `WHERE recipes.is_nut_free = ${nutFree}`;
+      }
     }
 
     if (dairyFree) {
-      queryString += ` AND recipes.is_dairy_free= ${dairyFree}`;
+      queryParams.push(dairyFree);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_dairy_free= ${dairyFree}`;
+      } else {
+        queryString += `WHERE recipes.is_dairy_free = ${dairyFree}`;
+      }
     }
 
     if (vegetarian) {
-      queryString += ` AND recipes.is_vegetarian = ${vegetarian}`;
+      queryParams.push(vegetarian);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_vegetarian = ${vegetarian}`;
+      } else {
+        queryString += `WHERE recipes.is_vegetarian = ${vegetarian}`;
+      }
     }
 
     if (vegan) {
-      queryString += ` AND recipes.is_vegan = ${vegan}`;
+      queryParams.push(vegan);
+      if (queryParams.length > 1) {
+        queryString += ` AND recipes.is_vegan = ${vegan}`;
+      } else {
+        queryString += `WHERE recipes.is_vegan = ${vegan}`;
+      }
     }
 
     queryString += `;`;
+    console.log("QUERY", queryString)
 
 
     return db
