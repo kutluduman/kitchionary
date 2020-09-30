@@ -17,12 +17,7 @@ import RecipeCard from './RecipeCard';
 
 const MatchingRecipes = (props) => {
 
-
   console.log("from matchingrecipes", props.matchingRecipes);
-
-  
-
- 
 
   return (
     <div>
