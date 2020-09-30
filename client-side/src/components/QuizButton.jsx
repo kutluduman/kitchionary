@@ -7,10 +7,16 @@ import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/sty
 
 const QuizButton = (props) => {
  
+  const handleChange = (event) => {
+    props.setInput({ ...props.inputState, [event.target.name]: event.target.checked });
+  };
+
+  console.log("state from button", props.inputState);
+
   return (
-  <label>
-    <input className="input" type="checkbox"/>
-    <Button className="button" variant="outlined" size="large" color="secondary">
+  <label >
+    <input onClick={handleChange} name={props.name} className="input" type="checkbox" />
+    <Button  className="button" variant="outlined" size="large" color="secondary">
          {props.attribute}
     </Button>
   </label>

@@ -109,8 +109,26 @@ const QuizForm = (props) => {
     dairyFree : false,
     vegetarian : false,
     vegan : false,
-    name: '',
+    isSalty: false,
+    isGreasy: false,
+    isSpicy: false,
+    isSweet: false,
+    isFruity: false,
+    isHealthy: false,
+    isCold: false,
+    isHot: false,
+    notSalty: false,
+    notGreasy: false,
+    notSpicy: false,
+    notSweet: false,
+    notFruity: false,
+    notHealthy: false,
+    notCold: false,
+    notHot: false,
+    time: 20,
   });
+
+
 
   const [value, setValue] = React.useState(30);
   // const [value, setValue] = React.useState<number | string | Array<number | string>>(30);
@@ -139,11 +157,12 @@ const QuizForm = (props) => {
     }
   };
 
-  
+
+
   const handleSubmit = (e) => {
       e.preventDefault();
 
-     const recipes = {
+     const quizInfo = {
       breakfast: inputState.breakfast,
       lunch: inputState.lunch,
       appetizer: inputState.appetizer,
@@ -154,11 +173,27 @@ const QuizForm = (props) => {
       dairyFree: inputState.dairyFree,
       vegetarian: inputState.vegetarian,
       vegan: inputState.vegan,
-   
+      isSalty: inputState.isSalty,
+      isGreasy: inputState.isGreasy,
+      isSpicy: inputState.isSpicy,
+      isSweet: inputState.isSweet,
+      isFruity: inputState.isFruity,
+      isHealthy: inputState.isHealthy,
+      isCold: inputState.isCold,
+      isHot: inputState.isHot,
+      notSalty: inputState.notSalty,
+      notGreasy: inputState.notGreasy,
+      notSpicy: inputState.notSalty,
+      notSweet: inputState.notSweet,
+      notFruity: inputState.notFruity,
+      notHealthy: inputState.notHealthy,
+      notCold: inputState.notCold,
+      notHot: inputState.notHot,
+      time: inputState.time,
       }
   
   
-    axios.post(`http://localhost:8080/recipes`, {recipes})
+    axios.post(`http://localhost:8080/quiz`, {quizInfo})
       .then(res => {
         console.log("resss", res.data.recipes)
         props.setMatchingRecipes(res.data.recipes)
@@ -174,7 +209,7 @@ const QuizForm = (props) => {
 
     };
 
-  console.log(inputState)
+  console.log("state", inputState)
 
 
 if (!redirect) {
@@ -195,33 +230,33 @@ if (!redirect) {
         
         <div className={classes.checkbox}>
 
-        <QuizButton attribute="Gluten Free"/>
-        <QuizButton attribute="Nut Free"/>
-        <QuizButton attribute="Dairy Free"/>
-        <QuizButton attribute="Vegetarian"/>
-        <QuizButton attribute="Vegan"/>
+        <QuizButton setInput={setInputState} inputState={inputState} name="glutenFree" attribute="Gluten Free"/>
+        <QuizButton setInput={setInputState} inputState={inputState} name="nutFree" attribute="Nut Free" />
+        <QuizButton setInput={setInputState} inputState={inputState} name="dairyFree" attribute="Dairy Free"/>
+        <QuizButton setInput={setInputState} inputState={inputState} name= "vegetarian" attribute="Vegetarian"/>
+        <QuizButton setInput={setInputState} inputState={inputState} name="vegan" attribute="Vegan"/>
         </div>
         <h2 className='quizSubtitle'> I'm craving...</h2> 
         <div className={classes.craving}>
-          <QuizButton attribute="Salty"/>
-          <QuizButton attribute="Greasy"/>
-          <QuizButton attribute="Spicy"/>
-          <QuizButton attribute="Sweet"/>
-          <QuizButton attribute="Fruity"/>
-          <QuizButton attribute="Healthy"/>
-          <QuizButton attribute="Cold"/>  
-          <QuizButton attribute="Hot"/>  
+          <QuizButton setInput={setInputState} inputState={inputState} name="isSalty" attribute="Salty"/>
+          <QuizButton setInput={setInputState} inputState={inputState} name="isGreasy"attribute="Greasy"/>
+          <QuizButton setInput={setInputState} inputState={inputState} name="isSpicy"attribute="Spicy"/>
+          <QuizButton setInput={setInputState} inputState={inputState} name="isSweet"attribute="Sweet"/>
+          <QuizButton setInput={setInputState} inputState={inputState} name="isFruity"attribute="Fruity"/>
+          <QuizButton setInput={setInputState} inputState={inputState} name="isHealthy"attribute="Healthy"/>
+          <QuizButton setInput={setInputState} inputState={inputState} name="isCold"attribute="Cold"/>  
+          <QuizButton setInput={setInputState} inputState={inputState} name="isHot"attribute="Hot"/>  
         </div>
         <h2 className='quizSubtitle'> I don't want...</h2> 
         <div className={classes.craving}>
-          <QuizButton attribute="Salty"/>
-          <QuizButton attribute="Greasy"/>
-          <QuizButton attribute="Spicy"/>
-          <QuizButton attribute="Sweet"/>
-          <QuizButton attribute="Fruity"/>
-          <QuizButton attribute="Healthy"/>
-          <QuizButton attribute="Cold"/>  
-          <QuizButton attribute="Hot"/>  
+          <QuizButton setInput={setInputState} inputState={inputState} name="notSalty" attribute="Salty"/>
+          <QuizButton setInput={setInputState} inputState={inputState} name="notGreasy"attribute="Greasy"/>
+          <QuizButton setInput={setInputState} inputState={inputState} name="notSpicy"attribute="Spicy"/>
+          <QuizButton setInput={setInputState} inputState={inputState} name="notSweet" attribute="Sweet"/>
+          <QuizButton setInput={setInputState} inputState={inputState} name="notFruity" attribute="Fruity"/>
+          <QuizButton setInput={setInputState} inputState={inputState} name="notHealthy" attribute="Healthy"/>
+          <QuizButton setInput={setInputState} inputState={inputState} name="notCold" attribute="Cold"/>  
+          <QuizButton setInput={setInputState} inputState={inputState}  name="notHot" attribute="Hot"/>  
          </div>
         <h2 className='quizTime'> Time </h2> 
         <div>
@@ -261,7 +296,7 @@ if (!redirect) {
         </div>
 
         <div className={classes.submit}>
-        <ColorButton href="/recipes" size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>
+        <ColorButton size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>
         </div>
 
         </form>
