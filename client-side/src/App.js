@@ -54,13 +54,17 @@ function App() {
               <Route exact path="/fridge">
                 <FridgeForm/>
               </Route>
+              <Route exact path="/fridge/recipes">
+                <MatchingRecipes/>
+              </Route>
               <Route path="/question">
                 <Question/>
               </Route>
               <Route path="/globe">
                 <Globe/>
               </Route>
-              <Route path="/recipes/:id">
+              <Route path="/fridge/recipes/1">
+                <RecipeDetail/>
               </Route>
             </Switch>
             {/* <div className="featured">
