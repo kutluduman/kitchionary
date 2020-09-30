@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Door from "./components/Door.jsx";
@@ -33,6 +33,10 @@ import "./styles/globefeature.css";
 
 
 function App() {
+  const [matchingRecipes, setMatchingRecipes] = useState({});
+
+  console.log('matching', matchingRecipes);
+  
   return (
     <Router>
       <div className="App">
@@ -52,20 +56,25 @@ function App() {
              <Globe/>  */}
               </Route>
               <Route exact path="/fridge">
-                <FridgeForm/>
+                <FridgeForm setMatchingRecipes={setMatchingRecipes}/>
               </Route>
-              <Route exact path="/fridge/recipes">
-                <MatchingRecipes/>
-              </Route>
+              {/* <Route exact path="/fridge/recipes">
+                <MatchingRecipes matchingRecipes={matchingRecipes}/>
+              </Route> */}
               <Route path="/question">
                 <Question/>
               </Route>
               <Route path="/globe">
                 <Globe/>
               </Route>
-              <Route path="/fridge/recipes/1">
-                <RecipeDetail/>
+              <Route path="/recipes">
+                <MatchingRecipes matchingRecipes={matchingRecipes}/>
               </Route>
+              {/* <Route path="/recipes/:id">
+                </Route> */}
+              {/* <Route path="/fridge/recipes/1">
+                <RecipeDetail/>
+              </Route> */}
             </Switch>
             {/* <div className="featured">
               <FeaturedSalad/>
@@ -76,6 +85,7 @@ function App() {
       </div>
     </Router>
   );
+
 }
 export default App;
 

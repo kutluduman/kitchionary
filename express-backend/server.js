@@ -40,7 +40,7 @@ const recipeRoutes = require("./routes/recipe");
 // app.use("", usersRoutes(db));
 app.use("/register", registerRoutes(db));
 app.use("/login",loginRoutes(db));
-app.use("/recipe", recipeRoutes(db));
+app.use("/recipes", recipeRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 

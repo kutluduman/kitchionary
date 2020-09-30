@@ -9,132 +9,40 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import sample from '../docs/sample.jpg';
+import RecipeCard from './RecipeCard';
 
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 450,
-    height: 700, 
-    margin: 25,
-    marginTop: 40,
-    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)',
-  },
-  media: {
-    height: 450,
-    weight: 250,
-
-  },
-
-});
 
 
-const MatchingRecipes = () => {
-  const classes = useStyles();
+
+const MatchingRecipes = (props) => {
+
+
+  console.log("from matchingrecipes", props.matchingRecipes);
+
+  
+
+ 
 
   return (
     <div>
-      <Grid container direction="row" justify="center" spacing={2}>
-        <Card className={classes.root} >
-          <CardActionArea>
-            <CardMedia className={classes.media}
-              component="img"
-              alt="Shrimp and Chorizo Paella"
-              height="140"
-              image={sample}
-              title="Shrimp and Chorizo Paella"
+      <Grid container direction="row" justify="center">
+        {props.matchingRecipes.map(recipe => {
+          return (
+            <RecipeCard 
+            name={recipe.name}
+            description={recipe.description}
+            image={recipe.img_url}
             />
-            <CardContent>
-              <Typography  gutterBottom variant="h5" component="h3">
-              Shrimp and Chorizo Paella
-              </Typography>
-              <Typography variant="subtitle1" color="textSecondary" component="p">
-              This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-            <Button href="/fridge/recipes/1" size="large" color="primary">
-            Cook This!
-            </Button>
-          </CardActions>
-        </Card>
+          );
+          })
+          }
 
-        <Card className={classes.root}>
-          <CardActionArea>
-            <CardMedia className={classes.media}
-              component="img"
-              alt="Shrimp and Chorizo Paella"
-              height="140"
-              image={sample}
-              title="Shrimp and Chorizo Paella"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-              Shrimp and Chorizo Paella
-              </Typography>
-              <Typography variant="subtitle1" color="textSecondary" component="p">
-              This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-            <Button href="/fridge/recipes/1" size="large" color="primary">
-             Cook This!
-            </Button>
-          </CardActions>
-        </Card>
 
-        <Card className={classes.root}>
-          <CardActionArea>
-            <CardMedia className={classes.media}
-              component="img"
-              alt="Shrimp and Chorizo Paella"
-              height="140"
-              image={sample}
-              title="Shrimp and Chorizo Paella"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-              Shrimp and Chorizo Paella
-              </Typography>
-              <Typography variant="subtitle1" color="textSecondary" component="p">
-              This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-            <Button href="/fridge/recipes/1" size="large" color="primary">
-            Cook This!
-            </Button>
-          </CardActions>
-        </Card>
-
-        <Card className={classes.root}>
-          <CardActionArea>
-            <CardMedia className={classes.media}
-              component="img"
-              alt="Shrimp and Chorizo Paella"
-              height="140"
-              image={sample}
-              title="Shrimp and Chorizo Paella"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-              Shrimp and Chorizo Paella
-              </Typography>
-              <Typography variant="subtitle1"  color="textSecondary" component="p">
-              This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-            <Button href="/fridge/recipes/1" size="large" color="primary">
-            Cook This!
-            </Button>
-          </CardActions>
-        </Card>
-      </Grid>
+    </Grid>
     </div>
+
+    
   )
 }
 
