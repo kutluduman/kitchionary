@@ -35,8 +35,10 @@ import QuizForm from "./components/QuizForm";
 
 function App() {
   const [matchingRecipes, setMatchingRecipes] = useState({});
+  const [recipeData, setRecipeData] = useState({});
 
   console.log('matching', matchingRecipes);
+  // const { id } = matchingRecipes.id;
   
   return (
     <Router>
@@ -57,7 +59,7 @@ function App() {
              <Globe/>  */}
               </Route>
               <Route exact path="/fridge">
-                <FridgeForm setMatchingRecipes={setMatchingRecipes}/>
+                <FridgeForm setMatchingRecipes={setMatchingRecipes} />
               </Route>
               {/* <Route exact path="/fridge/recipes">
                 <MatchingRecipes matchingRecipes={matchingRecipes}/>
@@ -68,11 +70,12 @@ function App() {
               <Route path="/globe">
                 <Globe/>
               </Route>
+              <Route path="/recipes/:id" render={(props) => <RecipeDetail {...props} recipeData={recipeData}/>} />
               <Route path="/recipes">
-                <MatchingRecipes matchingRecipes={matchingRecipes}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
               </Route>
-              {/* <Route path="/recipes/:id">
-                </Route> */}
+              
+              
               {/* <Route path="/fridge/recipes/1">
                 <RecipeDetail/>
               </Route> */}

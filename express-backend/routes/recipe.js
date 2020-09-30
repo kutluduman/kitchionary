@@ -2,6 +2,31 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
+
+  router.post('/:id', (req,res) => {
+    // console.log('req', req.body)
+    const name = req.body.recipe;
+
+    return db.query(`SELECT DISTINCT ingredients.name AS ingredient, measurements.amount, measurements.unit, users.first_name, users.last_name, recipes.directions_one, recipes.directions_two, recipes.directions_three, recipes.directions_four, recipes.directions_five, recipes.directions_six,recipes.name, recipes.description, recipes.img_url, recipes.time
+    FROM ingredients
+    JOIN measurements ON ingredients.id = ingredient_id
+    JOIN recipes ON recipes.id = recipe_id
+    JOIN users ON users.id = user_id
+    WHERE recipes.name = $1;`,[name])
+
+    .then((data) => {
+      // console.log('data', data.rows)
+        const info = data.rows;
+        console.log('everything', info);
+        res.json({ info });
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+
+  })
+
+
   router.post("/", (req, res) => {
     console.log("reqqq", req.body);
     const recipes = req.body.recipes;
@@ -19,7 +44,7 @@ module.exports = (db) => {
 
     const queryParams = [];
 
-    let queryString = `SELECT DISTINCT recipes.name, recipes.description, recipes.img_url
+    let queryString = `SELECT DISTINCT recipes.id, recipes.name, recipes.description, recipes.img_url
     FROM ingredients
     FULL JOIN measurements ON ingredients.id = ingredient_id
     FULL JOIN recipes ON recipes.id = recipe_id
@@ -127,9 +152,9 @@ module.exports = (db) => {
     return db
       .query(queryString)
       .then((data) => {
-        console.log("data", data);
+        console.log("DATA", data);
         const recipes = data.rows;
-        console.log("recipes", recipes);
+        console.log("RECIPES", recipes);
         res.json({ recipes });
       })
       .catch((err) => {
@@ -137,5 +162,7 @@ module.exports = (db) => {
       });
   });
 
+
   return router;
+
 };
