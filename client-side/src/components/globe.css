@@ -5,25 +5,47 @@
   /* display:flex; */
   margin: 100px;
   margin-left: 0;
+  margin-right: 0;
+  
   /* justify-content: space-between; */
 }
 
 .titleGlobe {
-  position: relative;
-  margin-top: 17em;
+  /* display: flex;
+  justify-content: flex-end;  */
+
+  /* position: relative; */
+  margin-top: 16em;
   z-index: 5;
+  margin-left: 110px;
 }
 
 .descriptionGlobe{
   padding: 15px;
+  position: relative
+  /* margin-left: 100%; */
+  /* display: flex;
+  justify-content: center;
+  flex-direction: column; */
 }
 
 .background {
   border: #53a5dc solid 0.3em; 
-  border-radius: 50px;
+  /* border-radius: 50px; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19);
  
 
+}
+
+.globeText {
+  width: 250px;
+  margin-left: 80px;
+}
+
+.globeButton{
+  margin-left: 85px;
+  display: flex;
+justify-content: center;
 }
 
 .image {

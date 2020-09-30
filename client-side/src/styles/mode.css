@@ -6,8 +6,8 @@
   margin-bottom: 200px;
   display: flex; 
   flex-direction: row; 
-  justify-content: space-evenly;
-  width: 80%;
+  justify-content: space-around;
+  width: 95%;
 
 }
 
