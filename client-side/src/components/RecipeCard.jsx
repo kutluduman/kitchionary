@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { Redirect } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -9,6 +10,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import sample from '../docs/sample.jpg';
+import axios from "axios";
 
 
 
@@ -31,7 +33,29 @@ const useStyles = makeStyles({
 const RecipeCard = (props) => {
 
   const classes = useStyles();
-    
+  const [redirect, setRedirect] = useState(false);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log('props', props.name)
+    const recipe = props.name;
+    const recipe_id = props.id;
+    console.log('RECIPEID2', recipe_id);
+
+    axios.post(`http://localhost:8080/recipes/${recipe_id}`, { recipe })
+      .then(res => {
+        console.log("resss", res.data.info)
+        props.setRecipeData(res.data.info)
+        if (res.status === 200) {
+          setRedirect(true)
+        }
+      })
+      .catch(err => {
+        // setError("Incorrect Email or Password!");
+      })
+  };
+  
+  if (!redirect) {
   return (
         <Card className={classes.root}>
         <CardActionArea>
@@ -52,12 +76,15 @@ const RecipeCard = (props) => {
           </CardContent>
         </CardActionArea>
         <CardActions>
-        <Button size="large" color="primary">
+        <Button onClick= {handleClick} size="large" color="primary">
             Cook This!
         </Button>
         </CardActions>
       </Card>
       )
+    } else {
+      return <Redirect to = {{ pathname: `/recipes/${props.id}` }} />;
+    }
 }
 
 export default RecipeCard;

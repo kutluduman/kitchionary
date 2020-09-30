@@ -108,7 +108,6 @@ const FridgeForm = (props) => {
         props.setMatchingRecipes(res.data.recipes)
         if (res.status === 200) {
           setRedirect(true)
-          console.log("redirect??", redirect)
         }
       })
       .catch(err => {
