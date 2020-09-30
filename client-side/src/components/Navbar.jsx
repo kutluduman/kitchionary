@@ -115,7 +115,7 @@ if (!cookies.name){
         <main className='banner'>
           <Toolbar>
             <Typography variant="h6">
-                <img src={logo} className= "logo" alt="logo"></img>
+               <Button href="http://localhost:3000/"> <img src={logo} className= "logo" alt="logo"></img> </Button>
             </Typography>
             <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
               <MenuIcon />
