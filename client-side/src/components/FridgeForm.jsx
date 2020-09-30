@@ -67,7 +67,7 @@ const theme = createMuiTheme({
 
 const FridgeForm = () => {
   const classes = useStyles();
- 
+  const [redirect, setRedirect] = useState(false);
   const [inputState, setInputState] = useState({
     breakfast: false,
     lunch: false,
@@ -80,11 +80,11 @@ const FridgeForm = () => {
     vegetarian : false,
     vegan : false,
     name: '',
-    quantity: '',
-    unit: '',
   });
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+      e.preventDefault();
+
      const recipes = {
       breakfast: inputState.breakfast,
       lunch: inputState.lunch,
@@ -104,18 +104,21 @@ const FridgeForm = () => {
   
     axios.post(`http://localhost:8080/recipes`, {recipes})
       .then(res => {
-        return <Redirect to = {{ pathname: "/recipes" }} />;
+        console.log(res.status)
+        if (res.status === 200) {
+          setRedirect(true)
+          console.log("redirect??", redirect)
+        }
       })
       .catch(err => {
         // res.status(500).json({ error: err.message });
         // or set error state
-      })
+      });
     };
-
-
 
   console.log(inputState)
 
+if (!redirect) {
   return (
     <article className={classes.root}>
        <Helmet>
@@ -135,12 +138,16 @@ const FridgeForm = () => {
           <IngredientForm setInput={setInputState} inputState={inputState}/>
 
         <div className={classes.submit}>
-        <ColorButton size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>
+        <ColorButton size="large" type = 'submit' variant="contained" >Generate Recipes
+        </ColorButton>
         </div>
 
         </form>
     </article>
   )
+} else {
+  return <Redirect to = {{ pathname: "/recipes" }} />;
+}
 }
 
 export default FridgeForm;
