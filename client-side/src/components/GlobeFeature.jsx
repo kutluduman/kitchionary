@@ -88,10 +88,11 @@ const useStyles = makeStyles((theme) => ({
 
     padding: 50,
     fontSize: 50,
+    height: 150,
     display: 'flex',
     justifyContent: 'center',
     backgroundColor: 'pink'
-    
+  
   },
 
 }));
@@ -104,7 +105,7 @@ function GlobeFeature() {
 
 {/* Start */}
 
-<h2 className={classes.country}>COUNTRY 2</h2>      
+<h2 className={classes.country}>American</h2>      
       <div className={classes.formatRow}>
         <Col>
            <Box className={classes.formatBox}>
@@ -142,7 +143,7 @@ function GlobeFeature() {
            <Box className={classes.formatBox}>
              <div classN
              ame={classes.text}>
-             <h1 className={classes.title}>French</h1>
+             {/* <h1 className={classes.title}>French</h1> */}
              <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
              <Button className={classes.link} href="#text-buttons" color="primary">
               Try making it here!
@@ -156,22 +157,13 @@ function GlobeFeature() {
 {/* END */}
 
 
-<h2 className={classes.country}>COUNTRY 2</h2>      
-
+<h2 className={classes.country}>Chinese</h2>      
       <div className={classes.formatRow}>
-        <Col>
-          <CardMedia
-          // INSERT RECIPE IMAGE
-            className={classes.media}
-            image={sample}
-            title="SAMPLE 1"
-          />
-        </Col>
         <Col>
            <Box className={classes.formatBox}>
              <div classN
              ame={classes.text}>
-             <h1 className={classes.title}>French</h1>
+             {/* <h1 className={classes.title}>French</h1> */}
              <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
              <Button className={classes.link} href="#text-buttons" color="primary">
               Try making it here!
@@ -189,12 +181,13 @@ function GlobeFeature() {
         </Col>
       </div>
 
-    <div className={classes.formatRow}>
-        <Col>
+      <div className={classes.formatRow}>
+
+      <Col>
           <CardMedia
           // INSERT RECIPE IMAGE
-            className={classes.media}
-            image={sample}
+            className={classes.location2}
+            image={location}
             title="SAMPLE 1"
           />
         </Col>
@@ -202,7 +195,22 @@ function GlobeFeature() {
            <Box className={classes.formatBox}>
              <div classN
              ame={classes.text}>
-             <h1 className={classes.title}>French</h1>
+             {/* <h1 className={classes.title}>French</h1> */}
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
+        </Col>
+      </div>
+      <h2 className={classes.country}>Greek</h2>      
+      <div className={classes.formatRow}>
+        <Col>
+           <Box className={classes.formatBox}>
+             <div classN
+             ame={classes.text}>
+             {/* <h1 className={classes.title}>French</h1> */}
              <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
              <Button className={classes.link} href="#text-buttons" color="primary">
               Try making it here!
@@ -220,196 +228,406 @@ function GlobeFeature() {
         </Col>
       </div>
 
+      <div className={classes.formatRow}>
 
+      <Col>
+          <CardMedia
+          // INSERT RECIPE IMAGE
+            className={classes.location2}
+            image={location}
+            title="SAMPLE 1"
+          />
+        </Col>
+        <Col>
+           <Box className={classes.formatBox}>
+             <div classN
+             ame={classes.text}>
+             {/* <h1 className={classes.title}>French</h1> */}
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
+        </Col>
+      </div>
+      <h2 className={classes.country}>Indian</h2>      
       <div className={classes.formatRow}>
         <Col>
-           <Box  className={classes.formatBox}>
-           <p className={classes.paragraph}>JavaScript Object Notation (JSON, pronounced /ˈdʒeɪsən/; also /ˈdʒeɪˌsɒn/[note 1]) is an open standard file format, and data interchange format, that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and array data types (or any other serializable value). It is a very common data format, with a diverse range of applications, such as serving as a replacement for XML in AJAX systems.[6]
-
-JSON is a language-independent data format. It was derived from JavaScript, but many modern programming languages include code to generate and parse JSON-format data. The official Internet media type for JSON is application/json. JSON filenames use the extension .json.
-
-Douglas Crockford originally specified the JSON format in the early 2000s. JSON was first standardized in 2013, as ECMA-404.[7] RFC 8259, published in 2017, is the current version of the Internet Standard STD 90, and it remains consistent with ECMA-404.[8] That same year, JSON was also standardized as ISO/IEC 21778:2017.[1] The ECMA and ISO standards describe only the allowed syntax, whereas the RFC covers some security and interoperability considerations.[9]</p>
-        </Box>
+           <Box className={classes.formatBox}>
+             <div classN
+             ame={classes.text}>
+             {/* <h1 className={classes.title}>French</h1> */}
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
         </Col>
         <Col>
           <CardMedia
           // INSERT RECIPE IMAGE
-            className={classes.media}
-            image={sample}
-            title="SAMPLE 2"
+            className={classes.location}
+            image={location}
+            title="SAMPLE 1"
           />
         </Col>
       </div>
+
       <div className={classes.formatRow}>
+
+      <Col>
+          <CardMedia
+          // INSERT RECIPE IMAGE
+            className={classes.location2}
+            image={location}
+            title="SAMPLE 1"
+          />
+        </Col>
+        <Col>
+           <Box className={classes.formatBox}>
+             <div classN
+             ame={classes.text}>
+             {/* <h1 className={classes.title}>French</h1> */}
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
+        </Col>
+      </div>
+      <h2 className={classes.country}>Italian</h2>      
+      <div className={classes.formatRow}>
+        <Col>
+           <Box className={classes.formatBox}>
+             <div classN
+             ame={classes.text}>
+             {/* <h1 className={classes.title}>French</h1> */}
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
+        </Col>
         <Col>
           <CardMedia
           // INSERT RECIPE IMAGE
-            className={classes.media}
-            image={sample}
-            title="SAMPLE 3"
+            className={classes.location}
+            image={location}
+            title="SAMPLE 1"
+          />
+        </Col>
+      </div>
+
+      <div className={classes.formatRow}>
+
+      <Col>
+          <CardMedia
+          // INSERT RECIPE IMAGE
+            className={classes.location2}
+            image={location}
+            title="SAMPLE 1"
           />
         </Col>
         <Col>
            <Box className={classes.formatBox}>
-           <p className={classes.paragraph}>JavaScript Object Notation (JSON, pronounced /ˈdʒeɪsən/; also /ˈdʒeɪˌsɒn/[note 1]) is an open standard file format, and data interchange format, that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and array data types (or any other serializable value). It is a very common data format, with a diverse range of applications, such as serving as a replacement for XML in AJAX systems.[6]
-
-JSON is a language-independent data format. It was derived from JavaScript, but many modern programming languages include code to generate and parse JSON-format data. The official Internet media type for JSON is application/json. JSON filenames use the extension .json.
-
-Douglas Crockford originally specified the JSON format in the early 2000s. JSON was first standardized in 2013, as ECMA-404.[7] RFC 8259, published in 2017, is the current version of the Internet Standard STD 90, and it remains consistent with ECMA-404.[8] That same year, JSON was also standardized as ISO/IEC 21778:2017.[1] The ECMA and ISO standards describe only the allowed syntax, whereas the RFC covers some security and interoperability considerations.[9]</p>
-        </Box>
+             <div classN
+             ame={classes.text}>
+             {/* <h1 className={classes.title}>French</h1> */}
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
         </Col>
       </div>
+      <h2 className={classes.country}>Japanese</h2>      
       <div className={classes.formatRow}>
         <Col>
-           <Box  className={classes.formatBox}>
-           <p className={classes.paragraph}>JavaScript Object Notation (JSON, pronounced /ˈdʒeɪsən/; also /ˈdʒeɪˌsɒn/[note 1]) is an open standard file format, and data interchange format, that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and array data types (or any other serializable value). It is a very common data format, with a diverse range of applications, such as serving as a replacement for XML in AJAX systems.[6]
-JSON is a language-independent data format. It was derived from JavaScript, but many modern programming languages include code to generate and parse JSON-format data. The official Internet media type for JSON is application/json. JSON filenames use the extension .json.
-
-Douglas Crockford originally specified the JSON format in the early 2000s. JSON was first standardized in 2013, as ECMA-404.[7] RFC 8259, published in 2017, is the current version of the Internet Standard STD 90, and it remains consistent with ECMA-404.[8] That same year, JSON was also standardized as ISO/IEC 21778:2017.[1] The ECMA and ISO standards describe only the allowed syntax, whereas the RFC covers some security and interoperability considerations.[9]</p>
-        </Box>
+           <Box className={classes.formatBox}>
+             <div classN
+             ame={classes.text}>
+             {/* <h1 className={classes.title}>French</h1> */}
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
         </Col>
         <Col>
-        <CardMedia
+          <CardMedia
           // INSERT RECIPE IMAGE
-            className={classes.media}
-            image={sample}
-            title="SAMPLE 4"
+            className={classes.location}
+            image={location}
+            title="SAMPLE 1"
           />
         </Col>
       </div>
+
       <div className={classes.formatRow}>
-        <Col>
-        <CardMedia
+
+      <Col>
+          <CardMedia
           // INSERT RECIPE IMAGE
-            className={classes.media}
-            image={sample}
-            title="SAMPLE 5"
+            className={classes.location2}
+            image={location}
+            title="SAMPLE 1"
           />
         </Col>
         <Col>
            <Box className={classes.formatBox}>
-           <p className={classes.paragraph}>JavaScript Object Notation (JSON, pronounced /ˈdʒeɪsən/; also /ˈdʒeɪˌsɒn/[note 1]) is an open standard file format, and data interchange format, that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and array data types (or any other serializable value). It is a very common data format, with a diverse range of applications, such as serving as a replacement for XML in AJAX systems.[6]
-
-JSON is a language-independent data format. It was derived from JavaScript, but many modern programming languages include code to generate and parse JSON-format data. The official Internet media type for JSON is application/json. JSON filenames use the extension .json.
-
-Douglas Crockford originally specified the JSON format in the early 2000s. JSON was first standardized in 2013, as ECMA-404.[7] RFC 8259, published in 2017, is the current version of the Internet Standard STD 90, and it remains consistent with ECMA-404.[8] That same year, JSON was also standardized as ISO/IEC 21778:2017.[1] The ECMA and ISO standards describe only the allowed syntax, whereas the RFC covers some security and interoperability considerations.[9]</p>
-        </Box>
+             <div classN
+             ame={classes.text}>
+             {/* <h1 className={classes.title}>French</h1> */}
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
         </Col>
       </div>
+      <h2 className={classes.country}>Korean</h2>      
       <div className={classes.formatRow}>
         <Col>
-           <Box  className={classes.formatBox}>
-           <p className={classes.paragraph}>JavaScript Object Notation (JSON, pronounced /ˈdʒeɪsən/; also /ˈdʒeɪˌsɒn/[note 1]) is an open standard file format, and data interchange format, that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and array data types (or any other serializable value). It is a very common data format, with a diverse range of applications, such as serving as a replacement for XML in AJAX systems.[6]
-
-JSON is a language-independent data format. It was derived from JavaScript, but many modern programming languages include code to generate and parse JSON-format data. The official Internet media type for JSON is application/json. JSON filenames use the extension .json.
-
-Douglas Crockford originally specified the JSON format in the early 2000s. JSON was first standardized in 2013, as ECMA-404.[7] RFC 8259, published in 2017, is the current version of the Internet Standard STD 90, and it remains consistent with ECMA-404.[8] That same year, JSON was also standardized as ISO/IEC 21778:2017.[1] The ECMA and ISO standards describe only the allowed syntax, whereas the RFC covers some security and interoperability considerations.[9]</p>
-        </Box>
+           <Box className={classes.formatBox}>
+             <div classN
+             ame={classes.text}>
+             {/* <h1 className={classes.title}>French</h1> */}
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
         </Col>
         <Col>
-        <CardMedia
+          <CardMedia
           // INSERT RECIPE IMAGE
-            className={classes.media}
-            image={sample}
-            title='sample7'
+            className={classes.location}
+            image={location}
+            title="SAMPLE 1"
           />
         </Col>
       </div>
+
       <div className={classes.formatRow}>
-        <Col>
-        <CardMedia
+
+      <Col>
+          <CardMedia
           // INSERT RECIPE IMAGE
-            className={classes.media}
-            image={sample}
-            title='sample8'
+            className={classes.location2}
+            image={location}
+            title="SAMPLE 1"
           />
         </Col>
         <Col>
            <Box className={classes.formatBox}>
-           <p className={classes.paragraph}>JavaScript Object Notation (JSON, pronounced /ˈdʒeɪsən/; also /ˈdʒeɪˌsɒn/[note 1]) is an open standard file format, and data interchange format, that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and array data types (or any other serializable value). It is a very common data format, with a diverse range of applications, such as serving as a replacement for XML in AJAX systems.[6]
-
-JSON is a language-independent data format. It was derived from JavaScript, but many modern programming languages include code to generate and parse JSON-format data. The official Internet media type for JSON is application/json. JSON filenames use the extension .json.
-
-Douglas Crockford originally specified the JSON format in the early 2000s. JSON was first standardized in 2013, as ECMA-404.[7] RFC 8259, published in 2017, is the current version of the Internet Standard STD 90, and it remains consistent with ECMA-404.[8] That same year, JSON was also standardized as ISO/IEC 21778:2017.[1] The ECMA and ISO standards describe only the allowed syntax, whereas the RFC covers some security and interoperability considerations.[9]</p>
-        </Box>
+             <div classN
+             ame={classes.text}>
+             {/* <h1 className={classes.title}>French</h1> */}
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
         </Col>
       </div>
+      <h2 className={classes.country}>Mediterranean</h2>      
       <div className={classes.formatRow}>
         <Col>
            <Box className={classes.formatBox}>
-           <p className={classes.paragraph}>JavaScript Object Notation (JSON, pronounced /ˈdʒeɪsən/; also /ˈdʒeɪˌsɒn/[note 1]) is an open standard file format, and data interchange format, that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and array data types (or any other serializable value). It is a very common data format, with a diverse range of applications, such as serving as a replacement for XML in AJAX systems.[6]
-
-JSON is a language-independent data format. It was derived from JavaScript, but many modern programming languages include code to generate and parse JSON-format data. The official Internet media type for JSON is application/json. JSON filenames use the extension .json.
-
-Douglas Crockford originally specified the JSON format in the early 2000s. JSON was first standardized in 2013, as ECMA-404.[7] RFC 8259, published in 2017, is the current version of the Internet Standard STD 90, and it remains consistent with ECMA-404.[8] That same year, JSON was also standardized as ISO/IEC 21778:2017.[1] The ECMA and ISO standards describe only the allowed syntax, whereas the RFC covers some security and interoperability considerations.[9]</p>
-        </Box>
+             <div classN
+             ame={classes.text}>
+             {/* <h1 className={classes.title}>French</h1> */}
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
         </Col>
         <Col>
-        <CardMedia
+          <CardMedia
           // INSERT RECIPE IMAGE
-            className={classes.media}
-            image={sample}
-            title='sample11'
+            className={classes.location}
+            image={location}
+            title="SAMPLE 1"
           />
         </Col>
       </div>
+
       <div className={classes.formatRow}>
-        <Col>
-        <CardMedia
+
+      <Col>
+          <CardMedia
           // INSERT RECIPE IMAGE
-            className={classes.media}
-            image={sample}
-            title='sample6'
-          />
-        </Col>
-        <Col>
-           <Box className={classes.formatBox}>
-           <p className={classes.paragraph}>JavaScript Object Notation (JSON, pronounced /ˈdʒeɪsən/; also /ˈdʒeɪˌsɒn/[note 1]) is an open standard file format, and data interchange format, that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and array data types (or any other serializable value). It is a very common data format, with a diverse range of applications, such as serving as a replacement for XML in AJAX systems.[6]
-
-JSON is a language-independent data format. It was derived from JavaScript, but many modern programming languages include code to generate and parse JSON-format data. The official Internet media type for JSON is application/json. JSON filenames use the extension .json.
-
-Douglas Crockford originally specified the JSON format in the early 2000s. JSON was first standardized in 2013, as ECMA-404.[7] RFC 8259, published in 2017, is the current version of the Internet Standard STD 90, and it remains consistent with ECMA-404.[8] That same year, JSON was also standardized as ISO/IEC 21778:2017.[1] The ECMA and ISO standards describe only the allowed syntax, whereas the RFC covers some security and interoperability considerations.[9]</p>
-        </Box>
-        </Col>
-      </div>
-      <div className={classes.formatRow}>
-        <Col>
-           <Box className={classes.formatBox}>
-           <p className={classes.paragraph}>JavaScript Object Notation (JSON, pronounced /ˈdʒeɪsən/; also /ˈdʒeɪˌsɒn/[note 1]) is an open standard file format, and data interchange format, that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and array data types (or any other serializable value). It is a very common data format, with a diverse range of applications, such as serving as a replacement for XML in AJAX systems.[6]
-
-JSON is a language-independent data format. It was derived from JavaScript, but many modern programming languages include code to generate and parse JSON-format data. The official Internet media type for JSON is application/json. JSON filenames use the extension .json.
-
-Douglas Crockford originally specified the JSON format in the early 2000s. JSON was first standardized in 2013, as ECMA-404.[7] RFC 8259, published in 2017, is the current version of the Internet Standard STD 90, and it remains consistent with ECMA-404.[8] That same year, JSON was also standardized as ISO/IEC 21778:2017.[1] The ECMA and ISO standards describe only the allowed syntax, whereas the RFC covers some security and interoperability considerations.[9]</p>
-        </Box>
-        </Col>
-        <Col>
-        <CardMedia
-          // INSERT RECIPE IMAGE
-            className={classes.media}
-            image={sample}
-            title='sample10'
-          />
-        </Col>
-      </div>
-      <div className={classes.formatRow}>
-        <Col>
-        <CardMedia
-          // INSERT RECIPE IMAGE
-            className={classes.media}
-            image={sample}
-            title='sample9'
+            className={classes.location2}
+            image={location}
+            title="SAMPLE 1"
           />
         </Col>
         <Col>
            <Box className={classes.formatBox}>
-           <p className={classes.paragraph}>JavaScript Object Notation (JSON, pronounced /ˈdʒeɪsən/; also /ˈdʒeɪˌsɒn/[note 1]) is an open standard file format, and data interchange format, that uses human-readable text to store and transmit data objects consisting of attribute–value pairs and array data types (or any other serializable value). It is a very common data format, with a diverse range of applications, such as serving as a replacement for XML in AJAX systems.[6]
-
-JSON is a language-independent data format. It was derived from JavaScript, but many modern programming languages include code to generate and parse JSON-format data. The official Internet media type for JSON is application/json. JSON filenames use the extension .json.
-
-Douglas Crockford originally specified the JSON format in the early 2000s. JSON was first standardized in 2013, as ECMA-404.[7] RFC 8259, published in 2017, is the current version of the Internet Standard STD 90, and it remains consistent with ECMA-404.[8] That same year, JSON was also standardized as ISO/IEC 21778:2017.[1] The ECMA and ISO standards describe only the allowed syntax, whereas the RFC covers some security and interoperability considerations.[9]</p>
-        </Box>
+             <div classN
+             ame={classes.text}>
+             {/* <h1 className={classes.title}>French</h1> */}
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
         </Col>
       </div>
+      <h2 className={classes.country}>Mexican</h2>      
+      <div className={classes.formatRow}>
+        <Col>
+           <Box className={classes.formatBox}>
+             <div classN
+             ame={classes.text}>
+             {/* <h1 className={classes.title}>French</h1> */}
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
+        </Col>
+        <Col>
+          <CardMedia
+          // INSERT RECIPE IMAGE
+            className={classes.location}
+            image={location}
+            title="SAMPLE 1"
+          />
+        </Col>
+      </div>
+
+      <div className={classes.formatRow}>
+
+      <Col>
+          <CardMedia
+          // INSERT RECIPE IMAGE
+            className={classes.location2}
+            image={location}
+            title="SAMPLE 1"
+          />
+        </Col>
+        <Col>
+           <Box className={classes.formatBox}>
+             <div classN
+             ame={classes.text}>
+             {/* <h1 className={classes.title}>French</h1> */}
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
+        </Col>
+      </div>
+      <h2 className={classes.country}>Spanish</h2>      
+      <div className={classes.formatRow}>
+        <Col>
+           <Box className={classes.formatBox}>
+             <div classN
+             ame={classes.text}>
+             {/* <h1 className={classes.title}>French</h1> */}
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
+        </Col>
+        <Col>
+          <CardMedia
+          // INSERT RECIPE IMAGE
+            className={classes.location}
+            image={location}
+            title="SAMPLE 1"
+          />
+        </Col>
+      </div>
+
+      <div className={classes.formatRow}>
+
+      <Col>
+          <CardMedia
+          // INSERT RECIPE IMAGE
+            className={classes.location2}
+            image={location}
+            title="SAMPLE 1"
+          />
+        </Col>
+        <Col>
+           <Box className={classes.formatBox}>
+             <div classN
+             ame={classes.text}>
+             {/* <h1 className={classes.title}>French</h1> */}
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
+        </Col>
+      </div>
+      <h2 className={classes.country}>Turkish</h2>      
+      <div className={classes.formatRow}>
+        <Col>
+           <Box className={classes.formatBox}>
+             <div classN
+             ame={classes.text}>
+             {/* <h1 className={classes.title}>French</h1> */}
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
+        </Col>
+        <Col>
+          <CardMedia
+          // INSERT RECIPE IMAGE
+            className={classes.location}
+            image={location}
+            title="SAMPLE 1"
+          />
+        </Col>
+      </div>
+
+      <div className={classes.formatRow}>
+
+      <Col>
+          <CardMedia
+          // INSERT RECIPE IMAGE
+            className={classes.location2}
+            image={location}
+            title="SAMPLE 1"
+          />
+        </Col>
+        <Col>
+           <Box className={classes.formatBox}>
+             <div classN
+             ame={classes.text}>
+             {/* <h1 className={classes.title}>French</h1> */}
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
+        </Col>
+      </div>
+      
     </div>
   )
 }
