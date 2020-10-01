@@ -175,6 +175,7 @@ const Home = (props) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const [redirect, setRedirect] = useState(false);
+  const [meal, setMeal] = useState('');
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -182,7 +183,7 @@ const Home = (props) => {
 
   
 const handleClick = (category) => {
-
+setMeal(category)
 
 axios.post(`http://localhost:8080/${category}`, {category})
     .then(res => {
@@ -247,7 +248,7 @@ if (!redirect) {
     ))}
     <div className="mode"> 
       <Door/> 
-      <Question/>
+      <Question/> 
       <Globe/> 
     </div>
     <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2>
@@ -263,8 +264,20 @@ if (!redirect) {
   
 );
 } else {
-  return <Redirect to = {{ pathname: "/breakfast" }} />;
+  console.log('meal', meal);
+  if (meal === 'breakfast') {
+    return <Redirect to = {{ pathname: "/breakfast" }} />;
+  } else if (meal === 'lunch') {
+    return <Redirect to = {{ pathname: "/lunch" }} />;
+  } else if (meal === 'appetizer') {
+    return <Redirect to = {{ pathname: "/appetizer" }} />;
+  } else if (meal === 'dinner') {
+    return <Redirect to = {{ pathname: "/dinner" }} />;
+  } else {
+    return <Redirect to = {{ pathname: "/dessert" }} />;
+  }
 }
+
 
   
 }
