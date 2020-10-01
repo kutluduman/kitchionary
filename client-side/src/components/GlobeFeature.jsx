@@ -2,16 +2,21 @@ import React from 'react';
 import { Row, Col } from 'react-simple-flex-grid';
 import sample from '../docs/sample.jpg';
 import CardMedia from '@material-ui/core/CardMedia';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles,ThemeProvider, withStyles, createMuiTheme} from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import location from '../docs/location.jpg'
-import { display, textAlign } from '@material-ui/system';
+import { display, fontFamily, textAlign } from '@material-ui/system';
 import Typography from '@material-ui/core/Typography';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
+import { orange, lightBlue, green, blueGrey
+} from "@material-ui/core/colors";
+
 
 // AMERICAN
 import americanAll from '../docs/AmericanAll.jpg';
+
+
 
 
 
@@ -97,14 +102,14 @@ const useStyles = makeStyles((theme) => ({
 
   left: {
     padding: 50,
-    paddingTop: 50,
+    paddingTop: 30,
     paddingBottom: 30,
     fontSize: 50,
     height: 50,
     display: 'flex',
     justifyContent: 'center',
     backgroundColor: 'orange',
-    marginTop: 100,
+    marginTop: 50,
     marginBottom: 100,
     width: "60%",
 
@@ -126,115 +131,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "35%"
 
   },
-  greek: {
-    padding: 50,
-    paddingTop: 100,
-    paddingBottom: 30,
-    fontSize: 50,
-    height: 150,
-    display: 'flex',
-    justifyContent: 'center',
-    // backgroundColor: 'pink'
-    background: "url(https://out.edu.np/wp-content/uploads/2017/11/socialism-in-the-usa.jpg)"
-  
-  },
-  indian: {
-    padding: 50,
-    paddingTop: 100,
-    paddingBottom: 30,
-    fontSize: 50,
-    height: 150,
-    display: 'flex',
-    justifyContent: 'center',
-    // backgroundColor: 'pink'
-    background: "url(https://out.edu.np/wp-content/uploads/2017/11/socialism-in-the-usa.jpg)"
-  
-  },
-  italian: {
-    padding: 50,
-    paddingTop: 100,
-    paddingBottom: 30,
-    fontSize: 50,
-    height: 150,
-    display: 'flex',
-    justifyContent: 'center',
-    // backgroundColor: 'pink'
-    background: "url(https://out.edu.np/wp-content/uploads/2017/11/socialism-in-the-usa.jpg)"
-  
-  },
-  japanese: {
-    padding: 50,
-    paddingTop: 100,
-    paddingBottom: 30,
-    fontSize: 50,
-    height: 150,
-    display: 'flex',
-    justifyContent: 'center',
-    // backgroundColor: 'pink'
-    background: "url(https://out.edu.np/wp-content/uploads/2017/11/socialism-in-the-usa.jpg)"
-  
-  },
-  korean: {
-    padding: 50,
-    paddingTop: 100,
-    paddingBottom: 30,
-    fontSize: 50,
-    height: 150,
-    display: 'flex',
-    justifyContent: 'center',
-    // backgroundColor: 'pink'
-    background: "url(https://out.edu.np/wp-content/uploads/2017/11/socialism-in-the-usa.jpg)"
-  
-  },
-  mediterranean: {
-    padding: 50,
-    paddingTop: 100,
-    paddingBottom: 30,
-    fontSize: 50,
-    height: 150,
-    display: 'flex',
-    justifyContent: 'center',
-    // backgroundColor: 'pink'
-    background: "url(https://out.edu.np/wp-content/uploads/2017/11/socialism-in-the-usa.jpg)"
-  
-  },
-  mexican: {
-    padding: 50,
-    paddingTop: 100,
-    paddingBottom: 30,
-    fontSize: 50,
-    height: 150,
-    display: 'flex',
-    justifyContent: 'center',
-    // backgroundColor: 'pink'
-    background: "url(https://out.edu.np/wp-content/uploads/2017/11/socialism-in-the-usa.jpg)"
-  
-  },
-  spanish: {
-    padding: 50,
-    paddingTop: 100,
-    paddingBottom: 30,
-    fontSize: 50,
-    height: 150,
-    display: 'flex',
-    justifyContent: 'center',
-    // backgroundColor: 'pink'
-    background: "url(https://out.edu.np/wp-content/uploads/2017/11/socialism-in-the-usa.jpg)"
-  
-  },
-  turkish: {
-    padding: 50,
-    paddingTop: 100,
-    paddingBottom: 30,
-    fontSize: 50,
-    height: 150,
-    display: 'flex',
-    justifyContent: 'center',
-    // backgroundColor: 'pink'
-    background: "url(https://out.edu.np/wp-content/uploads/2017/11/socialism-in-the-usa.jpg)"
-  
-  },
-
+ 
   bullet: {
     display: 'inline-block',
     margin: '0 2px',
@@ -244,14 +141,34 @@ const useStyles = makeStyles((theme) => ({
   buttonroot: {
     display: 'flex',
      flexDirection: 'row',
-     justifyContent: 'center'
-     ,
+     justifyContent: 'center',
+     marginTop: 30,
+    // paddingTop: 0,
+    
     '& > *': {
       margin: theme.spacing(1),
+      color: "#928e91",
+      fontSize: "20px",
+      marginLeft: 0,
     },
   },
+  navButton: {
+    padding: 20,
+    paddingRight: 25,
+    paddingBottom: 5,
+  }
 
 }));
+
+const ColorButton = withStyles((theme) => ({
+  root: {
+    // backgroundColor: blueGrey[500],
+    "&:hover": {
+      // backgroundColor: blueGrey[200]
+    },
+  }
+}))(Button);
+
 
 
 function GlobeFeature() {
@@ -259,12 +176,20 @@ function GlobeFeature() {
   const bull = <span className={classes.bullet}>•</span>;
   return (
     <div>
-      <ButtonGroup className={classes.buttonroot}variant="text" color="primary" aria-label="text primary button group">
-        <Button>One</Button>
-        <Button>Two</Button>
-        <Button>Three</Button>
-      </ButtonGroup>
-
+      <div className={classes.buttonroot} >
+        <Button className={classes.navButton}>American</Button>
+        <Button className={classes.navButton}>Chinese</Button>
+        <Button className={classes.navButton}>Greek</Button>
+        <Button className={classes.navButton}>Indian</Button>
+        <Button className={classes.navButton}>Italian</Button>
+        <Button className={classes.navButton}>Japanese</Button>
+        <Button className={classes.navButton}>Korean</Button>
+        <Button className={classes.navButton}>Mediterranean</Button>
+        <Button className={classes.navButton}>Mexican</Button>
+        <Button className={classes.navButton}>Spanish</Button>
+        <ColorButton className={classes.navButton}>Turkish</ColorButton>
+      {/* </ButtonGroup> */}
+</div>
 {/* Start */}
 
 <h2 className={classes.left}>American</h2>      
