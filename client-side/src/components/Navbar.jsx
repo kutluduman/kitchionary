@@ -126,7 +126,11 @@ function Navbar() {
                 color="inherit"
                 aria-label="menu"
               >
-                <MenuIcon aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} />
+                <MenuIcon
+                  aria-controls="simple-menu"
+                  aria-haspopup="true"
+                  onClick={handleClick}
+                />
                 <Menu
                   id="simple-menu"
                   anchorEl={anchorEl}
@@ -134,8 +138,18 @@ function Navbar() {
                   open={Boolean(anchorEl)}
                   onClose={handleClose}
                 >
-                  <MenuItem onClick={handleClose}>My Recipes</MenuItem>
-                  <MenuItem onClick={handleClose}>Saved</MenuItem>
+                  <Link
+                    to="/fridge"
+                    style={{ textDecoration: "none", display: "block", color: "black" }}
+                  >
+                    <MenuItem onClick={handleClose}>My Recipes</MenuItem>
+                  </Link>
+                  <Link
+                    to="/quiz"
+                    style={{ textDecoration: "none", display: "block", color: "black" }}
+                  >
+                    <MenuItem onClick={handleClose}>Saved Recipes</MenuItem>
+                  </Link>
                 </Menu>
               </IconButton>
               <div className={classes.search}>
