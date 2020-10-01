@@ -142,12 +142,11 @@ const QuizForm = (props) => {
   const [value, setValue] = React.useState(0);
 
   const handleSliderChange = (event, newValue) => {
-    setInputState({ ...inputState, time: newValue });
+    props.setInputState({ ...props.inputState, time: newValue });
     setValue(newValue);
   };
 
 
-  console.log("SLIDER", inputState.time)
 
   const handleInputChange = (event) => {
     setValue(event.target.value === '' ? '' : Number(event.target.value));
@@ -172,33 +171,33 @@ const QuizForm = (props) => {
       e.preventDefault();
 
      const quizInfo = {
-      breakfast: inputState.breakfast,
-      lunch: inputState.lunch,
-      appetizer: inputState.appetizer,
-      dinner: inputState.dinner,
-      dessert: inputState.dessert,
-      glutenFree: inputState.glutenFree,
-      nutFree: inputState.nutFree,
-      dairyFree: inputState.dairyFree,
-      vegetarian: inputState.vegetarian,
-      vegan: inputState.vegan,
-      isSalty: inputState.isSalty,
-      isGreasy: inputState.isGreasy,
-      isSpicy: inputState.isSpicy,
-      isSweet: inputState.isSweet,
-      isFruity: inputState.isFruity,
-      isHealthy: inputState.isHealthy,
-      isCold: inputState.isCold,
-      isHot: inputState.isHot,
-      notSalty: inputState.notSalty,
-      notGreasy: inputState.notGreasy,
-      notSpicy: inputState.notSalty,
-      notSweet: inputState.notSweet,
-      notFruity: inputState.notFruity,
-      notHealthy: inputState.notHealthy,
-      notCold: inputState.notCold,
-      notHot: inputState.notHot,
-      time: inputState.time,
+      breakfast: props.inputState.breakfast,
+      lunch: props.inputState.lunch,
+      appetizer: props.inputState.appetizer,
+      dinner: props.inputState.dinner,
+      dessert: props.inputState.dessert,
+      glutenFree: props.inputState.glutenFree,
+      nutFree: props.inputState.nutFree,
+      dairyFree: props.inputState.dairyFree,
+      vegetarian: props.inputState.vegetarian,
+      vegan: props.inputState.vegan,
+      isSalty: props.inputState.isSalty,
+      isGreasy: props.inputState.isGreasy,
+      isSpicy: props.inputState.isSpicy,
+      isSweet: props.inputState.isSweet,
+      isFruity: props.inputState.isFruity,
+      isHealthy: props.inputState.isHealthy,
+      isCold: props.inputState.isCold,
+      isHot: props.inputState.isHot,
+      notSalty: props.inputState.notSalty,
+      notGreasy: props.inputState.notGreasy,
+      notSpicy: props.inputState.notSalty,
+      notSweet: props.inputState.notSweet,
+      notFruity: props.inputState.notFruity,
+      notHealthy: props.inputState.notHealthy,
+      notCold: props.inputState.notCold,
+      notHot: props.inputState.notHot,
+      time: props.inputState.time,
       }
   
   
@@ -218,7 +217,7 @@ const QuizForm = (props) => {
 
     };
 
-  console.log("state", inputState)
+  // console.log("state", inputState)
 
 
 if (!redirect) {
@@ -231,7 +230,7 @@ if (!redirect) {
         <h1>Quiz Mode</h1>
         <h2 className='quizSubtitle'>I'm cooking...</h2>
         <div className={classes.avatar}>
-          <QuizAvatar setInput={setInputState} inputState={inputState}/>
+          <QuizAvatar setInput={props.setInputState} inputState={props.inputState}/>
         </div>
         <h2 className='quizSubtitle'>I need it to be...</h2>
         
@@ -239,33 +238,33 @@ if (!redirect) {
         
         <div className={classes.checkbox}>
 
-        <QuizButton setInput={setInputState} inputState={inputState} name="glutenFree" attribute="Gluten Free"/>
-        <QuizButton setInput={setInputState} inputState={inputState} name="nutFree" attribute="Nut Free" />
-        <QuizButton setInput={setInputState} inputState={inputState} name="dairyFree" attribute="Dairy Free"/>
-        <QuizButton setInput={setInputState} inputState={inputState} name= "vegetarian" attribute="Vegetarian"/>
-        <QuizButton setInput={setInputState} inputState={inputState} name="vegan" attribute="Vegan"/>
+        <QuizButton setInput={props.setInputState} inputState={props.inputState} name="glutenFree" attribute="Gluten Free"/>
+        <QuizButton setInput={props.setInputState} inputState={props.inputState} name="nutFree" attribute="Nut Free" />
+        <QuizButton setInput={props.setInputState} inputState={props.inputState} name="dairyFree" attribute="Dairy Free"/>
+        <QuizButton setInput={props.setInputState} inputState={props.inputState} name= "vegetarian" attribute="Vegetarian"/>
+        <QuizButton setInput={props.setInputState} inputState={props.inputState} name="vegan" attribute="Vegan"/>
         </div>
         <h2 className='quizSubtitle'> I'm craving...</h2> 
         <div className={classes.craving}>
-          <QuizButton setInput={setInputState} inputState={inputState} name="isSalty" attribute="Salty"/>
-          <QuizButton setInput={setInputState} inputState={inputState} name="isGreasy"attribute="Greasy"/>
-          <QuizButton setInput={setInputState} inputState={inputState} name="isSpicy"attribute="Spicy"/>
-          <QuizButton setInput={setInputState} inputState={inputState} name="isSweet"attribute="Sweet"/>
-          <QuizButton setInput={setInputState} inputState={inputState} name="isFruity"attribute="Fruity"/>
-          <QuizButton setInput={setInputState} inputState={inputState} name="isHealthy"attribute="Healthy"/>
-          <QuizButton setInput={setInputState} inputState={inputState} name="isCold"attribute="Cold"/>  
-          <QuizButton setInput={setInputState} inputState={inputState} name="isHot"attribute="Hot"/>  
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="isSalty" attribute="Salty"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="isGreasy"attribute="Greasy"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="isSpicy"attribute="Spicy"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="isSweet"attribute="Sweet"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="isFruity"attribute="Fruity"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="isHealthy"attribute="Healthy"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="isCold"attribute="Cold"/>  
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="isHot"attribute="Hot"/>  
         </div>
         <h2 className='quizSubtitle'> I don't want...</h2> 
         <div className={classes.craving}>
-          <QuizButton setInput={setInputState} inputState={inputState} name="notSalty" attribute="Salty"/>
-          <QuizButton setInput={setInputState} inputState={inputState} name="notGreasy"attribute="Greasy"/>
-          <QuizButton setInput={setInputState} inputState={inputState} name="notSpicy"attribute="Spicy"/>
-          <QuizButton setInput={setInputState} inputState={inputState} name="notSweet" attribute="Sweet"/>
-          <QuizButton setInput={setInputState} inputState={inputState} name="notFruity" attribute="Fruity"/>
-          <QuizButton setInput={setInputState} inputState={inputState} name="notHealthy" attribute="Healthy"/>
-          <QuizButton setInput={setInputState} inputState={inputState} name="notCold" attribute="Cold"/>  
-          <QuizButton setInput={setInputState} inputState={inputState}  name="notHot" attribute="Hot"/>  
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="notSalty" attribute="Salty"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="notGreasy"attribute="Greasy"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="notSpicy"attribute="Spicy"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="notSweet" attribute="Sweet"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="notFruity" attribute="Fruity"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="notHealthy" attribute="Healthy"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="notCold" attribute="Cold"/>  
+          <QuizButton setInput={props.setInputState} inputState={props.inputState}  name="notHot" attribute="Hot"/>  
          </div>
         <h2 className='quizTime'> Time </h2> 
         <div>

@@ -86,19 +86,19 @@ const FridgeForm = (props) => {
       e.preventDefault();
 
      const recipes = {
-      breakfast: inputState.breakfast,
-      lunch: inputState.lunch,
-      appetizer: inputState.appetizer,
-      dinner: inputState.dinner,
-      dessert: inputState.dessert,
-      glutenFree: inputState.glutenFree,
-      nutFree: inputState.nutFree,
-      dairyFree: inputState.dairyFree,
-      vegetarian: inputState.vegetarian,
-      vegan: inputState.vegan,
-      name: inputState.name,
-      quantity: inputState.quantity,
-      unit: inputState.unit,
+      breakfast: props.inputState.breakfast,
+      lunch: props.inputState.lunch,
+      appetizer: props.inputState.appetizer,
+      dinner: props.inputState.dinner,
+      dessert: props.inputState.dessert,
+      glutenFree: props.inputState.glutenFree,
+      nutFree: props.inputState.nutFree,
+      dairyFree: props.inputState.dairyFree,
+      vegetarian: props.inputState.vegetarian,
+      vegan: props.inputState.vegan,
+      name: props.inputState.name,
+      quantity: props.inputState.quantity,
+      unit: props.inputState.unit,
       }
   
   
@@ -117,7 +117,7 @@ const FridgeForm = (props) => {
 
     };
 
-  console.log(inputState)
+  // console.log(inputState)
 
 if (!redirect) {
   return (
@@ -129,14 +129,14 @@ if (!redirect) {
         <h1 className='fridgeTitle'>Fridge Mode</h1>
         <h2 className='fridgeSubtitle'>Step One: What meal are you cooking?</h2>
         <div className={classes.avatar}>
-          <FridgeAvatar setInput={setInputState} inputState={inputState}/>
+          <FridgeAvatar setInput={props.setInputState} inputState={props.inputState}/>
         </div>
         <h2 className='fridgeSubtitle'>Step Two: Any dietary restrictions?</h2>
         <div className={classes.checkbox}>
-          <FridgeCheckbox setInput={setInputState} inputState={inputState}/>
+          <FridgeCheckbox setInput={props.setInputState} inputState={props.inputState}/>
         </div>
         <h2 className='fridgeSubtitle'> Step Three: What ingredients do you want to cook with?</h2> 
-          <IngredientForm setInput={setInputState} inputState={inputState}/>
+          <IngredientForm setInput={props.setInputState} inputState={props.inputState}/>
 
         <div className={classes.submit}>
         <ColorButton size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>

@@ -175,6 +175,9 @@ const Home = () => {
     setExpanded(!expanded);
   };
 
+  const handleClick = () => {
+    
+  }
   
   
 

@@ -90,13 +90,13 @@ function App() {
              <Globe/>  */}
               </Route>
               <Route exact path="/fridge">
-                <FridgeForm inputState={inputState} setInputState={inputState} setMatchingRecipes={setMatchingRecipes} />
+                <FridgeForm inputState={inputState} setInputState={setInputState} setMatchingRecipes={setMatchingRecipes} />
               </Route>
               {/* <Route exact path="/fridge/recipes">
                 <MatchingRecipes matchingRecipes={matchingRecipes}/>
               </Route> */}
               <Route path="/quiz">
-                <QuizForm inputState={inputState} setInputState={inputState} setMatchingRecipes={setMatchingRecipes}/>
+                <QuizForm inputState={inputState} setInputState={setInputState} setMatchingRecipes={setMatchingRecipes}/>
               </Route>
               <Route path="/globe">
                 <Globe/>
