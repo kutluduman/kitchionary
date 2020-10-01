@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import { createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { orange, lightBlue} from "@material-ui/core/colors";
+import { orange, black, lightBlue} from "@material-ui/core/colors";
 import {Helmet} from 'react-helmet';
 import QuizAvatar from './QuizAvatar';
 import FridgeCheckbox from './FridgeCheckbox';
@@ -91,9 +91,9 @@ const ColorButton = withStyles((theme) => ({
   root: {
     backgroundColor: orange[400],
     "&:hover": {
-      backgroundColor: orange[500],
-      color: orange[500]
+      backgroundColor: orange[500]
     },
+  
   }
 }))(Button);
 
