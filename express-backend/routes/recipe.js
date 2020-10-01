@@ -6,6 +6,7 @@ module.exports = (db) => {
   router.post('/:id', (req,res) => {
     // console.log('req', req.body)
     const name = req.body.recipe;
+    console.log('name', name)
 
     return db.query(`SELECT DISTINCT ingredients.name AS ingredient, measurements.amount, measurements.unit, users.first_name, users.last_name, recipes.directions_one, recipes.directions_two, recipes.directions_three, recipes.directions_four, recipes.directions_five, recipes.directions_six,recipes.name, recipes.description, recipes.img_url, recipes.time
     FROM ingredients

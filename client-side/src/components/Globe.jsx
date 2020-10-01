@@ -36,7 +36,7 @@ const Globe = () =>  {
 <br/>
       <div className="globeButton">
         
-        <Button variant="outlined" color="primary">
+        <Button variant="outlined" color="primary" href="/globe">
           Primary
         </Button>
         </div>
