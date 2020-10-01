@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px"
   },
   slider: {
-    width: 650,
+   width:"900px",
     display: "flex",
     justifyContent: 'center',
   },
@@ -83,6 +83,10 @@ const useStyles = makeStyles((theme) => ({
     display: "Flex",
     justifyContent: "center"
   },
+  align: {
+    display: "flex",
+    justifyContent: 'center',
+  }
 
 
 }));
@@ -267,8 +271,8 @@ if (!redirect) {
           <QuizButton setInput={props.setInputState} inputState={props.inputState}  name="notHot" attribute="Hot"/>  
          </div>
         <h2 className='quizTime'> Time </h2> 
+        <div className={classes.align}>
         <div>
-        <div className={classes.slider}>
 
       <Grid container spacing={2} alignItems="center">
         <Grid item>
@@ -276,6 +280,7 @@ if (!redirect) {
         </Grid>
         <Grid item xs>
           <Slider
+            className={classes.slider}
             value={typeof value === 'number' ? value : 0}
             onChange={handleSliderChange}
             name="time"
