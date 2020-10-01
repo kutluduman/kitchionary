@@ -11,6 +11,7 @@ import "react-simple-flex-grid/lib/main.css";
 import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 import FaceIcon from '@material-ui/icons/Face';
+import IngredientDetails from './IngredientDetails';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,9 +36,22 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-function RecipeDetail() {
+function RecipeDetail(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(4);
+  const info = props.recipeData;
+
+
+  console.log("PROPS recipeData", props.recipeData);
+  console.log("INFO", info[0])
+
+
+//  info.map(data => {
+//     ingredient = data.ingredient;
+//     amount = data.amount;
+//     unit = data.unit
+//   })
+
 
   return (
     <Row>
@@ -45,8 +59,8 @@ function RecipeDetail() {
         <CardMedia
         // INSERT RECIPE IMAGE
           className={classes.media}
-          image={sample}
-          title="Paella dish"
+          image={info[0].img_url}
+          title={info[0].name}
         />
       </Col>
       <Col span={6}>
@@ -54,41 +68,58 @@ function RecipeDetail() {
         <Col  className={classes.cont} span={3}>
         <Box className="rating" component="fieldset" mb={3} borderColor="transparent">
           {/* INSERT RECIPE OWNER */}
-            <h3><FaceIcon fontSize="medium" color="primary"/> James Smith</h3> 
+         <h3><FaceIcon fontSize="medium" color="primary"/> {info[0].first_name} {info[0].last_name}</h3> 
           {/* INSERT RECIPE TIME */}
-            <h3><AccessTimeIcon fontSize="medium" color="secondary"/> 40 min</h3> 
+            <h3><AccessTimeIcon fontSize="medium" color="secondary"/> {info[0].time} min</h3> 
             <Rating name="read-only" value={value} readOnly></Rating>
         </Box>
         <Typography variant="h5" color="textSecondary">
           {/* INSERT RECIPE INGREDIENTS */}
           <h3>Ingredients</h3>
-              <ListItemText primary="Olive Oil" secondary="2 tablespoons"/>
-              <Divider variant="inset" component="li" />
-              <ListItemText primary="Bomba rice or Arborio" secondary="2 1.5 cups"/>
-              <Divider variant="inset" component="li" />
-              <ListItemText primary="Chicken Stock" secondary="3 cups"/>
-              <Divider variant="inset" component="li" />
-              <ListItemText primary="Chicken Stock" secondary="3 cups"/>
+          {props.recipeData.map(ingredient => {
+          return (
+            <IngredientDetails 
+            ingredient={ingredient.ingredient}
+            amount={ingredient.amount}
+            unit={ingredient.unit}
+            />
+          );
+          })
+          }
+
         </Typography>
         </Col>
         <Col span={9}>
           
         <Typography className={classes.title} variant="h3" component="h2" align="center">
             {/* INSERT RECIPE NAME */}
-          Shrimp and Chorizo Paella
+          {info[0].name}
         </Typography>
         <br/>
         <Typography >
             {/* INSERT RECIPE DESCRIPTION */}
-        Spanish Rice Dish Paella Recipe ‐ This simple Shrimp and Chorizo Paella is easy to make, has classic paella ingredients with all Spanish flavors. Feed and impress a crowd with this paella recipe!
+            {info[0].description_one}
         </Typography>
             <Typography variant="h5" color="textSecondary">
           {/* INSERT DIRECTIONS */}
           <p>
-            Heat olive oil over medium-low heat in a saucepan; stir anchovy fillets into olive oil and cook, stirring often, until the fillets begin to sizzle, about 1 minute. Mix garlic into oil and cook just until fragrant, 1 minute more. Add fresh oregano and reduce heat to low; cook until oregano is wilted, 2 or 3 more minutes.
-
-            Mix red pepper flakes, dried oregano, and tomatoes into olive oil mixture. Bring sauce to a simmer and season with salt, sugar, and black pepper. Turn heat to low; simmer sauce until thickened and oil rises to the top, 35 to 40 minutes, stirring occasionally.
-          </p>         
+            {info[0].directions_one}
+          </p>      
+          <p>
+            {info[0].directions_two}
+          </p>  
+          <p>
+            {info[0].directions_three}
+          </p>  
+          <p>
+            {info[0].directions_four}
+          </p>  
+          <p>
+            {info[0].directions_five}
+          </p>  
+          <p>
+            {info[0].directions_six}
+          </p>     
         </Typography>
         </Col>
       </Col>

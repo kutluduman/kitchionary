@@ -43,9 +43,9 @@ label::before {
   transform: scale(0);
 }
 
-label img {
-  height: 150px;
-  width: 150px;
+.mealPic {
+  height: 300px;
+  width: 300px;
   transition-duration: 0.2s;
   transform-origin: 50% 50%;
 }
@@ -54,7 +54,7 @@ label img {
   border-color: #ddd;
 }
 
-/* :checked+label::before {
+/* .mealPic :checked+label::before {
   content: "✓";
   background-color: grey;
   transform: scale(1);
@@ -66,7 +66,7 @@ label img {
   z-index: -1;
 }
 
-.fridgeTitle{
+.quizTitle{
  font-size: 45px;
  display: flex;
  justify-content: center;
@@ -74,6 +74,18 @@ label img {
  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
-.fridgeSubtitle{
+.quizSubtitle{
   margin-top: 45px;
+  margin-left: 10%;
+font-size: 25px;
+  display: flex;
+ justify-content: flex-start;
+}
+
+.quizTime{
+  margin-top: 50px;
+
+font-size: 40px;
+  display: flex;
+ justify-content: center;
 }

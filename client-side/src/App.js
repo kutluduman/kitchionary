@@ -30,13 +30,15 @@ import "./styles/mode.css";
 import SimpleGlobe from './components/GlobeFeature';
 import OverlayGlobe from './components/OverlayGlobe';
 import "./styles/globefeature.css";
+import QuizForm from "./components/QuizForm";
 
 
 function App() {
   const [matchingRecipes, setMatchingRecipes] = useState({});
   const [recipeData, setRecipeData] = useState({});
 
-  // console.log('matching', matchingRecipes.id);
+  console.log('matching', matchingRecipes);
+  // const { id } = matchingRecipes.id;
   
   return (
     <Router>
@@ -62,18 +64,18 @@ function App() {
               {/* <Route exact path="/fridge/recipes">
                 <MatchingRecipes matchingRecipes={matchingRecipes}/>
               </Route> */}
-              <Route path="/question">
-                <Question/>
+              <Route path="/quiz">
+                <QuizForm/>
               </Route>
               <Route path="/globe">
                 <Globe/>
               </Route>
+              <Route path="/recipes/:id" render={(props) => <RecipeDetail {...props} recipeData={recipeData}/>} />
               <Route path="/recipes">
                 <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
               </Route>
-              <Route path="/recipes/:id">
-                <RecipeDetail recipeData={recipeData} />
-                </Route>
+              
+              
               {/* <Route path="/fridge/recipes/1">
                 <RecipeDetail/>
               </Route> */}
