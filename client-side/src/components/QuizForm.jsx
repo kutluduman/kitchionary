@@ -62,8 +62,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px"
   },
   slider: {
-    width: 1250,
-    marginLeft: theme.spacing(40),
+    width: 650,
     display: "flex",
     justifyContent: 'center',
   },
@@ -74,7 +73,17 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     flexWrap: "wrap"
-  }
+  },
+
+  valueHolder: {
+    width: 50,
+    height: 30,
+    // marginLeft: theme.spacing(5),
+    marginBottom: theme.spacing(4),
+    display: "Flex",
+    justifyContent: "center"
+  },
+
 
 }));
 
@@ -98,29 +107,46 @@ const theme = createMuiTheme({
 const QuizForm = (props) => {
   const classes = useStyles();
   const [redirect, setRedirect] = useState(false);
-  const [inputState, setInputState] = useState({
-    breakfast: false,
-    lunch: false,
-    appetizer: false,
-    dinner: false,
-    dessert: false,
-    glutenFree : false,
-    nutFree : false,
-    dairyFree : false,
-    vegetarian : false,
-    vegan : false,
-    name: '',
-  });
+  // const [inputState, setInputState] = useState({
+  //   breakfast: false,
+  //   lunch: false,
+  //   appetizer: false,
+  //   dinner: false,
+  //   dessert: false,
+  //   glutenFree : false,
+  //   nutFree : false,
+  //   dairyFree : false,
+  //   vegetarian : false,
+  //   vegan : false,
+  //   isSalty: false,
+  //   isGreasy: false,
+  //   isSpicy: false,
+  //   isSweet: false,
+  //   isFruity: false,
+  //   isHealthy: false,
+  //   isCold: false,
+  //   isHot: false,
+  //   notSalty: false,
+  //   notGreasy: false,
+  //   notSpicy: false,
+  //   notSweet: false,
+  //   notFruity: false,
+  //   notHealthy: false,
+  //   notCold: false,
+  //   notHot: false,
+  //   time: 0,
+  // });
 
-  const [value, setValue] = React.useState(30);
-  // const [value, setValue] = React.useState<number | string | Array<number | string>>(30);
+
+
+  const [value, setValue] = React.useState(0);
 
   const handleSliderChange = (event, newValue) => {
+    props.setInputState({ ...props.inputState, time: newValue });
     setValue(newValue);
   };
-  // const handleSliderChange = (event: any, newValue: number | number[]) => {
-  //   setValue(newValue);
-  // };
+
+
 
   const handleInputChange = (event) => {
     setValue(event.target.value === '' ? '' : Number(event.target.value));
@@ -139,26 +165,43 @@ const QuizForm = (props) => {
     }
   };
 
-  
+
+
   const handleSubmit = (e) => {
       e.preventDefault();
 
-     const recipes = {
-      breakfast: inputState.breakfast,
-      lunch: inputState.lunch,
-      appetizer: inputState.appetizer,
-      dinner: inputState.dinner,
-      dessert: inputState.dessert,
-      glutenFree: inputState.glutenFree,
-      nutFree: inputState.nutFree,
-      dairyFree: inputState.dairyFree,
-      vegetarian: inputState.vegetarian,
-      vegan: inputState.vegan,
-   
+     const quizInfo = {
+      breakfast: props.inputState.breakfast,
+      lunch: props.inputState.lunch,
+      appetizer: props.inputState.appetizer,
+      dinner: props.inputState.dinner,
+      dessert: props.inputState.dessert,
+      glutenFree: props.inputState.glutenFree,
+      nutFree: props.inputState.nutFree,
+      dairyFree: props.inputState.dairyFree,
+      vegetarian: props.inputState.vegetarian,
+      vegan: props.inputState.vegan,
+      isSalty: props.inputState.isSalty,
+      isGreasy: props.inputState.isGreasy,
+      isSpicy: props.inputState.isSpicy,
+      isSweet: props.inputState.isSweet,
+      isFruity: props.inputState.isFruity,
+      isHealthy: props.inputState.isHealthy,
+      isCold: props.inputState.isCold,
+      isHot: props.inputState.isHot,
+      notSalty: props.inputState.notSalty,
+      notGreasy: props.inputState.notGreasy,
+      notSpicy: props.inputState.notSalty,
+      notSweet: props.inputState.notSweet,
+      notFruity: props.inputState.notFruity,
+      notHealthy: props.inputState.notHealthy,
+      notCold: props.inputState.notCold,
+      notHot: props.inputState.notHot,
+      time: props.inputState.time,
       }
   
   
-    axios.post(`http://localhost:8080/recipes`, {recipes})
+    axios.post(`http://localhost:8080/quiz`, {quizInfo})
       .then(res => {
         console.log("resss", res.data.recipes)
         props.setMatchingRecipes(res.data.recipes)
@@ -174,7 +217,7 @@ const QuizForm = (props) => {
 
     };
 
-  console.log(inputState)
+  // console.log("state", inputState)
 
 
 if (!redirect) {
@@ -187,7 +230,7 @@ if (!redirect) {
         <h1>Quiz Mode</h1>
         <h2 className='quizSubtitle'>I'm cooking...</h2>
         <div className={classes.avatar}>
-          <QuizAvatar setInput={setInputState} inputState={inputState}/>
+          <QuizAvatar setInput={props.setInputState} inputState={props.inputState}/>
         </div>
         <h2 className='quizSubtitle'>I need it to be...</h2>
         
@@ -195,33 +238,33 @@ if (!redirect) {
         
         <div className={classes.checkbox}>
 
-        <QuizButton attribute="Gluten Free"/>
-        <QuizButton attribute="Nut Free"/>
-        <QuizButton attribute="Dairy Free"/>
-        <QuizButton attribute="Vegetarian"/>
-        <QuizButton attribute="Vegan"/>
+        <QuizButton setInput={props.setInputState} inputState={props.inputState} name="glutenFree" attribute="Gluten Free"/>
+        <QuizButton setInput={props.setInputState} inputState={props.inputState} name="nutFree" attribute="Nut Free" />
+        <QuizButton setInput={props.setInputState} inputState={props.inputState} name="dairyFree" attribute="Dairy Free"/>
+        <QuizButton setInput={props.setInputState} inputState={props.inputState} name= "vegetarian" attribute="Vegetarian"/>
+        <QuizButton setInput={props.setInputState} inputState={props.inputState} name="vegan" attribute="Vegan"/>
         </div>
         <h2 className='quizSubtitle'> I'm craving...</h2> 
         <div className={classes.craving}>
-          <QuizButton attribute="Salty"/>
-          <QuizButton attribute="Greasy"/>
-          <QuizButton attribute="Spicy"/>
-          <QuizButton attribute="Sweet"/>
-          <QuizButton attribute="Fruity"/>
-          <QuizButton attribute="Healthy"/>
-          <QuizButton attribute="Cold"/>  
-          <QuizButton attribute="Hot"/>  
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="isSalty" attribute="Salty"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="isGreasy"attribute="Greasy"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="isSpicy"attribute="Spicy"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="isSweet"attribute="Sweet"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="isFruity"attribute="Fruity"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="isHealthy"attribute="Healthy"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="isCold"attribute="Cold"/>  
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="isHot"attribute="Hot"/>  
         </div>
         <h2 className='quizSubtitle'> I don't want...</h2> 
         <div className={classes.craving}>
-          <QuizButton attribute="Salty"/>
-          <QuizButton attribute="Greasy"/>
-          <QuizButton attribute="Spicy"/>
-          <QuizButton attribute="Sweet"/>
-          <QuizButton attribute="Fruity"/>
-          <QuizButton attribute="Healthy"/>
-          <QuizButton attribute="Cold"/>  
-          <QuizButton attribute="Hot"/>  
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="notSalty" attribute="Salty"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="notGreasy"attribute="Greasy"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="notSpicy"attribute="Spicy"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="notSweet" attribute="Sweet"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="notFruity" attribute="Fruity"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="notHealthy" attribute="Healthy"/>
+          <QuizButton setInput={props.setInputState} inputState={props.inputState} name="notCold" attribute="Cold"/>  
+          <QuizButton setInput={props.setInputState} inputState={props.inputState}  name="notHot" attribute="Hot"/>  
          </div>
         <h2 className='quizTime'> Time </h2> 
         <div>
@@ -235,19 +278,20 @@ if (!redirect) {
           <Slider
             value={typeof value === 'number' ? value : 0}
             onChange={handleSliderChange}
+            name="time"
             aria-labelledby="input-slider"
             max="200"
           />
         </Grid>
         <Grid item>
           <Input1
-            className={classes.input}
+            className={classes.valueHolder}
             value={value}
             margin="dense"
             onChange={handleInputChange}
             onBlur={handleBlur}
             inputProps={{
-              step: 10,
+              step: 1,
               min: 0,
               max: 200,
               type: 'number',
@@ -261,7 +305,7 @@ if (!redirect) {
         </div>
 
         <div className={classes.submit}>
-        <ColorButton href="/recipes" size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>
+        <ColorButton size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>
         </div>
 
         </form>

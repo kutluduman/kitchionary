@@ -35,7 +35,38 @@ import QuizForm from "./components/QuizForm";
 
 function App() {
   const [matchingRecipes, setMatchingRecipes] = useState({});
+  // const [matchingQuiz, setMatchingQuiz] = useState({});
   const [recipeData, setRecipeData] = useState({});
+  const [inputState, setInputState] = useState({
+    name: '',
+    breakfast: false,
+    lunch: false,
+    appetizer: false,
+    dinner: false,
+    dessert: false,
+    glutenFree : false,
+    nutFree : false,
+    dairyFree : false,
+    vegetarian : false,
+    vegan : false,
+    isSalty: false,
+    isGreasy: false,
+    isSpicy: false,
+    isSweet: false,
+    isFruity: false,
+    isHealthy: false,
+    isCold: false,
+    isHot: false,
+    notSalty: false,
+    notGreasy: false,
+    notSpicy: false,
+    notSweet: false,
+    notFruity: false,
+    notHealthy: false,
+    notCold: false,
+    notHot: false,
+    time: 0,
+  });
 
   console.log('matching', matchingRecipes);
   // const { id } = matchingRecipes.id;
@@ -53,19 +84,34 @@ function App() {
         <main role="main">
             <Switch>
              <Route exact path="/">
-             <Home/>
+             <Home inputState={inputState} setInputState={setInputState}/>
              {/* <Door/>
              <Question/>
              <Globe/>  */}
               </Route>
+              <Route exact path="/breakfast">
+                <MatchingRecipes matchingRecipes={matchingRecipes}/>
+              </Route>
+              <Route exact path="/lunch">
+                <MatchingRecipes matchingRecipes={matchingRecipes}/>
+              </Route>
+              <Route exact path="/appetizer">
+                <MatchingRecipes matchingRecipes={matchingRecipes}/>
+              </Route>
+              <Route exact path="/dinner">
+                <MatchingRecipes matchingRecipes={matchingRecipes}/>
+              </Route>
+              <Route exact path="/dessert">
+                <MatchingRecipes matchingRecipes={matchingRecipes}/>
+              </Route>
               <Route exact path="/fridge">
-                <FridgeForm setMatchingRecipes={setMatchingRecipes} />
+                <FridgeForm inputState={inputState} setInputState={setInputState} setMatchingRecipes={setMatchingRecipes} />
               </Route>
               {/* <Route exact path="/fridge/recipes">
                 <MatchingRecipes matchingRecipes={matchingRecipes}/>
               </Route> */}
               <Route path="/quiz">
-                <QuizForm/>
+                <QuizForm inputState={inputState} setInputState={setInputState} setMatchingRecipes={setMatchingRecipes}/>
               </Route>
               <Route path="/globe">
                 <Globe/>
