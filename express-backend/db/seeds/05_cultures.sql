@@ -10,7 +10,7 @@ INSERT INTO cultures (recipe_id, name) VALUES (8, 'Japanese');
 INSERT INTO cultures (recipe_id, name) VALUES (9, 'Mediterranean');
 INSERT INTO cultures (recipe_id, name) VALUES (10, 'Spanish');
 INSERT INTO cultures (recipe_id, name) VALUES (11, 'Japanese');
-INSERT INTO cultures (recipe_id, name) VALUES (12, 'Italian');
+INSERT INTO cultures (recipe_id, name) VALUES (12, 'American');
 INSERT INTO cultures (recipe_id, name) VALUES (13, 'Greek');
 INSERT INTO cultures (recipe_id, name) VALUES (14, 'American');
 INSERT INTO cultures (recipe_id, name) VALUES (15, 'American');

@@ -38,6 +38,22 @@ const lunchRoutes = require("./routes/lunch");
 const appetizerRoutes = require("./routes/appetizer");
 const dinnerRoutes = require("./routes/dinner");
 const dessertRoutes = require("./routes/dessert");
+const mexicanRoutes = require("./routes/mexican");
+const italianRoutes = require("./routes/italian")
+const indianRoutes = require("./routes/indian");
+const chineseRoutes = require("./routes/chinese");
+const americanRoutes = require("./routes/american");
+const koreanRoutes = require("./routes/korean");
+const greekRoutes = require("./routes/greek");
+const japaneseRoutes = require("./routes/japanese");
+const mediterraneanRoutes = require("./routes/mediterranean");
+const spanishRoutes = require("./routes/spanish");
+const turkishRoutes = require("./routes/turkish");
+
+
+
+
+
 
 
 // Mount all resource routes
@@ -53,6 +69,17 @@ app.use("/lunch", lunchRoutes(db));
 app.use("/appetizer", appetizerRoutes(db));
 app.use("/dinner", dinnerRoutes(db));
 app.use("/dessert", dessertRoutes(db));
+app.use("/mexican", mexicanRoutes(db));
+app.use("/chinese", chineseRoutes(db));
+app.use("/italian", italianRoutes(db));
+app.use("/indian", indianRoutes(db));
+app.use("/american", americanRoutes(db));
+app.use("/japanese", japaneseRoutes(db));
+app.use("/mediterranean", mediterraneanRoutes(db));
+app.use("/korean", koreanRoutes(db));
+app.use("/greek", greekRoutes(db));
+app.use("/spanish", spanishRoutes(db));
+app.use("/turkish", turkishRoutes(db));
 
 
 // Note: mount other resources here, using the same pattern above
