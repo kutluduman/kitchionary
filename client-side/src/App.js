@@ -37,6 +37,19 @@ function App() {
   const [matchingRecipes, setMatchingRecipes] = useState({});
   // const [matchingQuiz, setMatchingQuiz] = useState({});
   const [recipeData, setRecipeData] = useState({});
+  const [inputState, setInputState] = useState({
+    breakfast: false,
+    lunch: false,
+    appetizer: false,
+    dinner: false,
+    dessert: false,
+    glutenFree : false,
+    nutFree : false,
+    dairyFree : false,
+    vegetarian : false,
+    vegan : false,
+    name: '',
+  });
 
   console.log('matching', matchingRecipes);
   // const { id } = matchingRecipes.id;
@@ -60,7 +73,7 @@ function App() {
              <Globe/>  */}
               </Route>
               <Route exact path="/fridge">
-                <FridgeForm setMatchingRecipes={setMatchingRecipes} />
+                <FridgeForm inputState={inputState} setInputState={inputState} setMatchingRecipes={setMatchingRecipes} />
               </Route>
               {/* <Route exact path="/fridge/recipes">
                 <MatchingRecipes matchingRecipes={matchingRecipes}/>

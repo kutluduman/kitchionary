@@ -68,19 +68,19 @@ const theme = createMuiTheme({
 const FridgeForm = (props) => {
   const classes = useStyles();
   const [redirect, setRedirect] = useState(false);
-  const [inputState, setInputState] = useState({
-    breakfast: false,
-    lunch: false,
-    appetizer: false,
-    dinner: false,
-    dessert: false,
-    glutenFree : false,
-    nutFree : false,
-    dairyFree : false,
-    vegetarian : false,
-    vegan : false,
-    name: '',
-  });
+  // const [inputState, setInputState] = useState({
+  //   breakfast: false,
+  //   lunch: false,
+  //   appetizer: false,
+  //   dinner: false,
+  //   dessert: false,
+  //   glutenFree : false,
+  //   nutFree : false,
+  //   dairyFree : false,
+  //   vegetarian : false,
+  //   vegan : false,
+  //   name: '',
+  // });
 
   const handleSubmit = (e) => {
       e.preventDefault();

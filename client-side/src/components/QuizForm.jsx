@@ -63,7 +63,6 @@ const useStyles = makeStyles((theme) => ({
   },
   slider: {
     width: 650,
-    // marginLeft: theme.spacing(60),
     display: "flex",
     justifyContent: 'center',
   },
