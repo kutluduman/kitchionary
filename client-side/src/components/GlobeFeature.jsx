@@ -5,6 +5,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
+import location from '../docs/location.jpg'
+import { textAlign } from '@material-ui/system';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -27,6 +29,8 @@ const useStyles = makeStyles((theme) => ({
   title:{
     // marginTop: 110,
     fontSize: 65,
+    margin: 20,
+    marginLeft: 40
   
   },
   formatBox: {
@@ -40,7 +44,9 @@ const useStyles = makeStyles((theme) => ({
 
   formatRow: {
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
+    justifyContent: 'center',
+    marginTop: 40
   },
   text: {
     marginLeft: theme.spacing(8),
@@ -48,12 +54,45 @@ const useStyles = makeStyles((theme) => ({
     width: 600
   },
   paragraph: {
-    fontSize: 20,
+    fontSize: 25,
+   width: 600,
+    
   },
   link: {
     fontSize: 18,
+    marginLeft: 25
     // marginLeft: theme.spacing(2),
-  }
+  },
+  location: {
+    width: 800,
+    height: 500,
+    marginLeft: 120,
+ 
+        
+   
+    
+  },
+
+  location2: {
+    width: 800,
+    height: 500,
+   
+    marginRight: 120
+        
+   
+    
+  },
+
+
+  country: {
+
+    padding: 50,
+    fontSize: 50,
+    display: 'flex',
+    justifyContent: 'center',
+    backgroundColor: 'pink'
+    
+  },
 
 }));
 
@@ -62,6 +101,63 @@ function GlobeFeature() {
   const classes = useStyles();
   return (
     <div>
+
+{/* Start */}
+
+<h2 className={classes.country}>COUNTRY 2</h2>      
+      <div className={classes.formatRow}>
+        <Col>
+           <Box className={classes.formatBox}>
+             <div classN
+             ame={classes.text}>
+             <h1 className={classes.title}>French</h1>
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
+        </Col>
+        <Col>
+          <CardMedia
+          // INSERT RECIPE IMAGE
+            className={classes.location}
+            image={location}
+            title="SAMPLE 1"
+          />
+        </Col>
+      </div>
+
+      <div className={classes.formatRow}>
+
+      <Col>
+          <CardMedia
+          // INSERT RECIPE IMAGE
+            className={classes.location2}
+            image={location}
+            title="SAMPLE 1"
+          />
+        </Col>
+        <Col>
+           <Box className={classes.formatBox}>
+             <div classN
+             ame={classes.text}>
+             <h1 className={classes.title}>French</h1>
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
+        </Col>
+      </div>
+
+
+{/* END */}
+
+
+<h2 className={classes.country}>COUNTRY 2</h2>      
+
       <div className={classes.formatRow}>
         <Col>
           <CardMedia
@@ -73,7 +169,8 @@ function GlobeFeature() {
         </Col>
         <Col>
            <Box className={classes.formatBox}>
-             <div className={classes.text}>
+             <div classN
+             ame={classes.text}>
              <h1 className={classes.title}>French</h1>
              <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
              <Button className={classes.link} href="#text-buttons" color="primary">
@@ -82,7 +179,48 @@ function GlobeFeature() {
             </div>
           </Box> 
         </Col>
+        <Col>
+          <CardMedia
+          // INSERT RECIPE IMAGE
+            className={classes.location}
+            image={location}
+            title="SAMPLE 1"
+          />
+        </Col>
       </div>
+
+    <div className={classes.formatRow}>
+        <Col>
+          <CardMedia
+          // INSERT RECIPE IMAGE
+            className={classes.media}
+            image={sample}
+            title="SAMPLE 1"
+          />
+        </Col>
+        <Col>
+           <Box className={classes.formatBox}>
+             <div classN
+             ame={classes.text}>
+             <h1 className={classes.title}>French</h1>
+             <p className={classes.paragraph}>A croissant (UK: /ˈkrwʌsɒŋ/;[3] US: /krwɑːˈsɒ̃/, /krəˈsɒnt/; French pronunciation: [kʁwa.sɑ̃] (About this soundlisten)) is a buttery, flaky, viennoiserie pastry of Austrian origin,[1] named for its historical crescent shape. Croissants and other viennoiserie are made of a layered yeast-leavened dough. The dough is layered with butter, rolled and folded several times in succession, then rolled into a thin sheet, in a technique called laminating. The process results in a layered, flaky texture, similar to a puff pastry.</p>
+             <Button className={classes.link} href="#text-buttons" color="primary">
+              Try making it here!
+            </Button>
+            </div>
+          </Box> 
+        </Col>
+        <Col>
+          <CardMedia
+          // INSERT RECIPE IMAGE
+            className={classes.location}
+            image={location}
+            title="SAMPLE 1"
+          />
+        </Col>
+      </div>
+
+
       <div className={classes.formatRow}>
         <Col>
            <Box  className={classes.formatBox}>
