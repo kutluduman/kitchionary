@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(1),
     },
+    justifyContent: "center"
   }
 }));
 

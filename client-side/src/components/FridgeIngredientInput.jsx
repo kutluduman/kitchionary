@@ -37,60 +37,20 @@ export default function IngredientForm(props) {
 
   return (
     <div>
-{/* NAME */}
-<FormControl  variant="outlined" className={classes.formControl}>
+
+ <form>
  <TextField
           label="Name"
           onChange={handleChange}
-          id="outlined-margin-normal"
+          id=""
           defaultValue=""
           className={classes.textField}
           margin="normal"
           variant="outlined"
           name= "name"
         />
-      </FormControl>  
-  {/* AMOUNT   */}
- <FormControl variant="outlined" className={classes.formControl}>
- <TextField
-          label="Quantity"
-          onChange={handleChange}
-          id="outlined-margin-normal"
-          defaultValue=""
-          className={classes.textField}
-          margin="normal"
-          variant="outlined"
-          name='quantity'
-        />
-      </FormControl>  
+      </form>   
 
-{/* UNIT   */}
-      <FormControl   className={classes.textField} variant="outlined" className={classes.textField}>
-        <InputLabel  id="demo-simple-select-outlined-label">Unit</InputLabel>
-        <Select
-          labelId="demo-simple-select-outlined-label"
-          id="demo-simple-select-outlined"
-          value={props.unit}
-          onChange={handleChange}
-          label="Unit"
-          name='unit'
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={'tbsp'}>tbsp</MenuItem>
-          <MenuItem value={'tsp'}>tsp</MenuItem>
-          <MenuItem value={'cup'}>cup</MenuItem>
-          <MenuItem value={'oz'}>oz</MenuItem>
-          <MenuItem value={'lb'}>lb</MenuItem>
-          <MenuItem value={'g'}>g</MenuItem>
-          <MenuItem value={'clove'}>clove</MenuItem>
-          <MenuItem value={'package'}>package</MenuItem>
-          <MenuItem value={'can'}>can</MenuItem>
-        </Select>
-      </FormControl>
-
-  
     </div>
   );
 }
