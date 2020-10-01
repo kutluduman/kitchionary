@@ -42,7 +42,7 @@ const quizRoutes = require("./routes/quiz");
 app.use("/register", registerRoutes(db));
 app.use("/login",loginRoutes(db));
 app.use("/recipes", recipeRoutes(db));
-app.use("/quiz", recipeRoutes(db));
+app.use("/quiz", quizRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
