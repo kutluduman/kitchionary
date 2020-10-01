@@ -62,8 +62,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px"
   },
   slider: {
-    width: 250,
-    marginLeft: theme.spacing(40),
+    width: 650,
+    // marginLeft: theme.spacing(60),
     display: "flex",
     justifyContent: 'center',
   },
@@ -74,6 +74,15 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     flexWrap: "wrap"
+  },
+
+  valueHolder: {
+    width: 50,
+    height: 30,
+    // marginLeft: theme.spacing(5),
+    marginBottom: theme.spacing(4),
+    display: "Flex",
+    justifyContent: "center"
   },
 
 
@@ -126,13 +135,12 @@ const QuizForm = (props) => {
     notHealthy: false,
     notCold: false,
     notHot: false,
-    time: 20,
+    time: 0,
   });
 
 
 
-  const [value, setValue] = React.useState(30);
-  // const [value, setValue] = React.useState<number | string | Array<number | string>>(30);
+  const [value, setValue] = React.useState(0);
 
   const handleSliderChange = (event, newValue) => {
     setInputState({ ...inputState, time: newValue });
@@ -279,7 +287,7 @@ if (!redirect) {
         </Grid>
         <Grid item>
           <Input1
-            className={classes.slider}
+            className={classes.valueHolder}
             value={value}
             margin="dense"
             onChange={handleInputChange}
