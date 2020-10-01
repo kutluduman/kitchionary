@@ -105,6 +105,39 @@ function App() {
               <Route exact path="/dessert">
                 <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
               </Route>
+              <Route exact path="/american">
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+              </Route>
+              <Route exact path="/chinese">
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+              </Route>
+              <Route exact path="/indian">
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+              </Route>
+              <Route exact path="/greek">
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+              </Route>
+              <Route exact path="/italian">
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+              </Route>
+              <Route exact path="/japanese">
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+              </Route>
+              <Route exact path="/korean">
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+              </Route>
+              <Route exact path="/mediterranean">
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+              </Route>
+              <Route exact path="/mexican">
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+              </Route>
+              <Route exact path="/spanish">
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+              </Route>
+              <Route exact path="/turkish">
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+              </Route>
               <Route exact path="/fridge">
                 <FridgeForm inputState={inputState} setInputState={setInputState} setMatchingRecipes={setMatchingRecipes} />
               </Route>
@@ -115,7 +148,7 @@ function App() {
                 <QuizForm inputState={inputState} setInputState={setInputState} setMatchingRecipes={setMatchingRecipes}/>
               </Route>
               <Route path="/globe">
-                <GlobeFeature/>
+                <GlobeFeature setMatchingRecipes={setMatchingRecipes}/>
               </Route>
               <Route path="/recipes/:id" render={(props) => <RecipeDetail {...props} recipeData={recipeData}/>} />
               <Route path="/recipes">

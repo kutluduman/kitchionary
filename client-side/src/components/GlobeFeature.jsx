@@ -1,4 +1,5 @@
-import React,{ useRef } from 'react';
+import React,{ useRef, useState } from 'react';
+import { Redirect } from "react-router-dom";
 import { Row, Col } from 'react-simple-flex-grid';
 import sample from '../docs/sample.jpg';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -11,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { orange, lightBlue, green, blueGrey
 } from "@material-ui/core/colors";
+import axios from 'axios';
 
 
 // AMERICAN
@@ -172,8 +174,11 @@ const ColorButton = withStyles((theme) => ({
 
 
 
-function GlobeFeature() {
+function GlobeFeature(props) {
   const classes = useStyles();
+  const [redirect, setRedirect] = useState(false);
+  const [cuisine, setCuisine] = useState('');
+
   const bull = <span className={classes.bullet}>•</span>;
 
   const myRefAmerican = useRef(null)
@@ -208,9 +213,31 @@ function GlobeFeature() {
   
   const myRefTurkish = useRef(null);
   const executeScrollTurkish = () => scrollToRef(myRefTurkish)
-  
-  
 
+
+  const handleClick = (cuisine) => {
+    console.log("cuisine", cuisine)
+    setCuisine(cuisine)
+    // cuisine.prevent.default
+  
+    axios.post(`http://localhost:8080/${cuisine}`, {cuisine})
+        .then(res => {
+          console.log("resss", res.data.recipes)
+          props.setMatchingRecipes(res.data.recipes)
+          // console.log("outside if statement")
+          if (res.status === 200) {
+            // console.log("inside if statement")
+            setRedirect(true);
+            // console.log("redirect??", redirect)
+          }
+        })
+        .catch(err => {
+          // res.status(500).json({ error: err.message });
+          // or set error state
+        });
+    }
+  
+if (!redirect) {
   return (
     <div>
       <div className={classes.buttonroot} >
@@ -238,7 +265,7 @@ function GlobeFeature() {
                 a{bull}mer{bull}i{bull}can
               </Typography>
              <p className={classes.paragraph}>American cuisine reflects the history of the United States, blending the culinary contributions of various groups of people from around the world, including indigenous American Indians, African Americans, Asians, Europeans, Pacific Islanders, and Latin Americans.</p>
-               <Button className={classes.link} href="#text-buttons" color="primary">
+               <Button onClick={() => handleClick('american')} className={classes.link}  color="primary">
               Find more Recipes here!
             </Button>
             </div>
@@ -292,7 +319,7 @@ function GlobeFeature() {
               chi{bull}nese
               </Typography>
              <p className={classes.paragraph}>Chinese cuisine is an important part of Chinese culture, which includes cuisine originating from the diverse regions of China, as well as from Overseas Chinese who have settled in other parts of the world.</p>
-               <Button className={classes.link} href="#text-buttons" color="primary">
+               <Button className={classes.link} onClick={() => handleClick('chinese')}  color="primary">
                Find more Recipes here!
             </Button>
             </div>
@@ -341,7 +368,7 @@ function GlobeFeature() {
              gr{bull}eek
               </Typography>
              <p className={classes.paragraph}>Greek cuisine is the cuisine of Greece and the Greek diaspora. It is founded on the triad of wheat, olive oil, and wine. It uses vegetables, olive oil, grains, fish, and meat, including pork, poultry, veal and beef, lamb, rabbit, and goat.</p>
-               <Button className={classes.link} href="#text-buttons" color="primary">
+               <Button className={classes.link} onClick={() => handleClick('greek')}  color="primary">
                Find more Recipes here!
             </Button>
             </div>
@@ -390,7 +417,7 @@ function GlobeFeature() {
              in{bull}di{bull}an
               </Typography>
              <p className={classes.paragraph}>Indian cuisine consists of a variety of regional and traditional cuisines native to the Indian subcontinent. Given the diversity in soil, climate, culture, ethnic groups, and occupations, these cuisines vary substantially and use locally available spices, herbs, vegetables, and fruits.</p>
-               <Button className={classes.link} href="#text-buttons" color="primary">
+               <Button className={classes.link} onClick={() => handleClick('indian')} color="primary">
                Find more Recipes here!
             </Button>
             </div>
@@ -438,7 +465,7 @@ function GlobeFeature() {
              i{bull}tal{bull}ian
               </Typography>
              <p className={classes.paragraph}>Italian cuisine consists of the ingredients, recipes and cooking techniques developed across the Italian Peninsula since the antiquity, and later spread around the world together with waves of Italian diaspora.</p>
-               <Button className={classes.link} href="#text-buttons" color="primary">
+               <Button className={classes.link} onClick={() => handleClick('italian')}  color="primary">
                Find more Recipes here!
             </Button>
             </div>
@@ -485,7 +512,7 @@ function GlobeFeature() {
              jap{bull}a{bull}nese
               </Typography>
              <p className={classes.paragraph}>Japanese cuisine encompasses the regional and traditional foods of Japan, which have developed through centuries of political, economic, and social changes. The traditional cuisine of Japan, washoku, lit. "Japanese eating", is based on rice with miso soup and other dishes; there is an emphasis on seasonal ingredients.</p>
-               <Button className={classes.link} href="#text-buttons" color="primary">
+               <Button className={classes.link}  onClick={() => handleClick('japanese')} color="primary">
                Find more Recipes here!
             </Button>
             </div>
@@ -532,7 +559,7 @@ function GlobeFeature() {
                 ko{bull}re{bull}an
                 </Typography>
              <p className={classes.paragraph}>Korean cuisine is the customary cooking traditions and practices of the culinary arts of Korea. Korean cuisine has evolved through centuries of social and political change.</p>
-               <Button className={classes.link} href="#text-buttons" color="primary">
+               <Button className={classes.link} onClick={() => handleClick('Korean')}  color="primary">
                Find more Recipes here!
             </Button>
             </div>
@@ -580,7 +607,7 @@ function GlobeFeature() {
                 med{bull}i{bull}ter{bull}ra{bull}ne{bull}an
                 </Typography>
              <p className={classes.paragraph}>Mediterranean cuisine is the foods and methods of preparation by people of the Mediterranean Basin. The idea of a Mediterranean cuisine originates with the cookery writer Elizabeth David's book, A Book of Mediterranean Food (1950) and was amplified by other writers working in English. Many writers define the three core elements of the cuisine as the olive, wheat, and the grape, yielding olive oil, bread and pasta, and wine; other writers emphasize the diversity of the region's foods and deny that it is a useful concept. A common definition of the geographical area covered follows the distribution of the olive tree.</p>
-               <Button className={classes.link} href="#text-buttons" color="primary">
+               <Button onClick={() => handleClick('mediterranean')} className={classes.link} color="primary">
                Find more Recipes here!
             </Button>
             </div>
@@ -628,7 +655,7 @@ function GlobeFeature() {
                 mex{bull}i{bull}can
                 </Typography>
              <p className={classes.paragraph}>Mexican cuisine began about nine thousand years ago, when agricultural communities such as the Maya formed, domesticating maize, creating the standard process of maize nixtamalization, and establishing their foodways (Maya cuisine). The staples are native foods, such as corn (maize), beans, squash, amaranth, chia, avocados, tomatoes, tomatillos, cacao, vanilla, agave, turkey, spirulina, sweet potato, cactus, and chili pepper.</p>
-             <Button className={classes.link} href="#text-buttons" color="primary">
+             <Button onClick={() => handleClick('mexican')} className={classes.link} color="primary">
              Find more Recipes here!
             </Button>
             </div>
@@ -676,7 +703,7 @@ function GlobeFeature() {
                 span{bull}ish
                 </Typography>
              <p className={classes.paragraph}>Spanish cuisine is heavily influenced by historical processes that shaped local culture and society in some of Europe's Iberian Peninsula territories. Geography and climate have had a great influence on cooking methods and available ingredients. These cooking methods and ingredients are still present in the gastronomy of the various regions that make up Spain. Spanish cuisine derives from a complex history where invasions and conquests of Spain have modified traditions, which made new ingredients available. Thus, the current and old cuisine of Spain incorporates old and new traditions.</p>
-               <Button className={classes.link} href="#text-buttons" color="primary">
+               <Button onClick={() => handleClick('spanish')} className={classes.link} color="primary">
                Find more Recipes here!
             </Button>
             </div>
@@ -725,7 +752,7 @@ function GlobeFeature() {
                 tur{bull}kish
                 </Typography>
              <p className={classes.paragraph}>Turkish cuisine is largely the heritage of Ottoman cuisine, which can be described as a fusion and refinement of Central Asian, Middle Eastern, Mediterranean, Eastern European and Balkan cuisines.</p>
-             <Button className={classes.link} href="#text-buttons" color="primary">
+             <Button onClick={() => handleClick('turkish')} className={classes.link} color="primary">
              Find more Recipes here!
             </Button>
             </div>
@@ -767,6 +794,33 @@ function GlobeFeature() {
       
     </div>
   )
+} else {
+  console.log('meal', cuisine);
+  if (cuisine === 'american') {
+    return <Redirect to = {{ pathname: "/american" }} />;
+  } else if (cuisine === 'chinese') {
+    return <Redirect to = {{ pathname: "/chinese" }} />;
+  } else if (cuisine === 'indian') {
+    return <Redirect to = {{ pathname: "/indian" }} />;
+  } else if (cuisine === 'japanese') {
+    return <Redirect to = {{ pathname: "/japanese" }} />;
+  } else if (cuisine === 'korean') {
+    return <Redirect to = {{ pathname: "/korean" }} />;
+  } else if (cuisine === 'italian') {
+    return <Redirect to = {{ pathname: "/italian" }} />;
+  } else if (cuisine === 'turkish') {
+    return <Redirect to = {{ pathname: "/turkish" }} />;
+  } else if (cuisine === 'spanish') {
+    return <Redirect to = {{ pathname: "/spanish" }} />;
+  } else if (cuisine === 'mexican') {
+    return <Redirect to = {{ pathname: "/mexican" }} />;
+  } else if (cuisine === 'mediterranean') {
+    return <Redirect to = {{ pathname: "/mediterranean" }} />;
+  } else if (cuisine === 'greek') {
+    return <Redirect to = {{ pathname: "/greek" }} />;
+  }
+}
+
 }
 
 export default GlobeFeature;
