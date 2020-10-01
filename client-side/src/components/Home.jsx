@@ -181,8 +181,8 @@ const Home = (props) => {
   };
 
 
-  const handleClick = (name) => {
-    console.log("event", name)
+  const handleClick = (e, name) => {
+    // console.log("event", name)
     props.setInputState({ ...props.inputState, [name]: true });
     console.log("did it set", props.inputState)
 
@@ -218,7 +218,7 @@ const Home = (props) => {
          </Helmet>
     {images.map((image) => (
       <ButtonBase
-      onClick={() =>handleClick(image.title)}
+      onClick={(e) =>handleClick(e, image.title)}
         // value={image.title}
         // href={image.href}
         focusRipple
