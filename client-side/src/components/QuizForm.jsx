@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import { createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { orange, lightBlue} from "@material-ui/core/colors";
+import { orange, black, lightBlue} from "@material-ui/core/colors";
 import {Helmet} from 'react-helmet';
 import QuizAvatar from './QuizAvatar';
 import FridgeCheckbox from './FridgeCheckbox';
@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px"
   },
   slider: {
-    width: 650,
+   width:"900px",
     display: "flex",
     justifyContent: 'center',
   },
@@ -83,6 +83,10 @@ const useStyles = makeStyles((theme) => ({
     display: "Flex",
     justifyContent: "center"
   },
+  align: {
+    display: "flex",
+    justifyContent: 'center',
+  }
 
 
 }));
@@ -91,9 +95,9 @@ const ColorButton = withStyles((theme) => ({
   root: {
     backgroundColor: orange[400],
     "&:hover": {
-      backgroundColor: orange[500],
-      color: orange[500]
+      backgroundColor: orange[500]
     },
+  
   }
 }))(Button);
 
@@ -267,8 +271,8 @@ if (!redirect) {
           <QuizButton setInput={props.setInputState} inputState={props.inputState}  name="notHot" attribute="Hot"/>  
          </div>
         <h2 className='quizTime'> Time </h2> 
+        <div className={classes.align}>
         <div>
-        <div className={classes.slider}>
 
       <Grid container spacing={2} alignItems="center">
         <Grid item>
@@ -276,6 +280,7 @@ if (!redirect) {
         </Grid>
         <Grid item xs>
           <Slider
+            className={classes.slider}
             value={typeof value === 'number' ? value : 0}
             onChange={handleSliderChange}
             name="time"
