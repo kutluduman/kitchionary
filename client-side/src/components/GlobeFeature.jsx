@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useRef } from 'react';
 import { Row, Col } from 'react-simple-flex-grid';
 import sample from '../docs/sample.jpg';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -16,13 +16,14 @@ import { orange, lightBlue, green, blueGrey
 // AMERICAN
 import americanAll from '../docs/AmericanAll.jpg';
 
-
-
-
-
-
 //Chinese
 import chineseAll from '../docs/chineseAll.jpg'
+
+
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)   
+
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -174,25 +175,61 @@ const ColorButton = withStyles((theme) => ({
 function GlobeFeature() {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
+
+  const myRefAmerican = useRef(null)
+  const executeScrollAmerican = () => scrollToRef(myRefAmerican)
+  
+  const myRefChinese = useRef(null)
+  const executeScrollChinese = () => scrollToRef(myRefChinese)
+  
+  const myRefGreek = useRef(null)
+  const executeScrollGreek = () => scrollToRef(myRefGreek)
+  
+  const myRefIndian = useRef(null)
+  const executeScrollIndian = () => scrollToRef(myRefIndian)
+  
+  const myRefItalian = useRef(null)
+  const executeScrollItalian = () => scrollToRef(myRefItalian)
+
+  const myRefJapanese = useRef(null)
+  const executeScrollJapanese = () => scrollToRef(myRefJapanese)
+
+  const myRefKorean = useRef(null);
+  const executeScrollKorean = () => scrollToRef(myRefKorean)
+  
+  const myRefMediterranean = useRef(null);
+  const executeScrollMediterranean = () => scrollToRef(myRefMediterranean)
+
+  const myRefMexican = useRef(null);
+  const executeScrollMexican = () => scrollToRef(myRefMexican)
+
+  const myRefSpanish = useRef(null);
+  const executeScrollSpanish = () => scrollToRef(myRefSpanish)
+  
+  const myRefTurkish = useRef(null);
+  const executeScrollTurkish = () => scrollToRef(myRefTurkish)
+  
+  
+
   return (
     <div>
       <div className={classes.buttonroot} >
-        <Button className={classes.navButton}>American</Button>
-        <Button className={classes.navButton}>Chinese</Button>
-        <Button className={classes.navButton}>Greek</Button>
-        <Button className={classes.navButton}>Indian</Button>
-        <Button className={classes.navButton}>Italian</Button>
-        <Button className={classes.navButton}>Japanese</Button>
-        <Button className={classes.navButton}>Korean</Button>
-        <Button className={classes.navButton}>Mediterranean</Button>
-        <Button className={classes.navButton}>Mexican</Button>
-        <Button className={classes.navButton}>Spanish</Button>
-        <ColorButton className={classes.navButton}>Turkish</ColorButton>
+        <Button className={classes.navButton} onClick={executeScrollAmerican}>American</Button>
+        <Button className={classes.navButton} onClick={executeScrollChinese}>Chinese</Button>
+        <Button className={classes.navButton} onClick={executeScrollGreek}>Greek</Button>
+        <Button className={classes.navButton} onClick={executeScrollIndian}>Indian</Button>
+        <Button className={classes.navButton} onClick={executeScrollItalian}>Italian</Button>
+        <Button className={classes.navButton} onClick={executeScrollJapanese}>Japanese</Button>
+        <Button className={classes.navButton} onClick={executeScrollKorean}>Korean</Button>
+        <Button className={classes.navButton} onClick={executeScrollMediterranean}>Mediterranean</Button>
+        <Button className={classes.navButton} onClick={executeScrollMexican}>Mexican</Button>
+        <Button className={classes.navButton} onClick={executeScrollSpanish}>Spanish</Button>
+        <ColorButton className={classes.navButton} onClick={executeScrollTurkish}>Turkish</ColorButton>
       {/* </ButtonGroup> */}
 </div>
 {/* Start */}
 
-<h2 className={classes.left}>American</h2>      
+<h2 className={classes.left} ref= {myRefAmerican}>American</h2>      
       <div className={classes.formatRow}>
         <Col>
            <Box className={classes.formatBox}>
@@ -245,7 +282,7 @@ function GlobeFeature() {
 {/* END */}
 
 
-<h2 className={classes.right}>Chinese</h2>      
+<h2 className={classes.right} ref={myRefChinese}>Chinese</h2>      
       <div className={classes.formatRow}>
         <Col>
            <Box className={classes.formatBox}>
@@ -294,7 +331,7 @@ function GlobeFeature() {
           </Box> 
         </Col>
       </div>
-      <h2 className={classes.left}>Greek</h2>      
+      <h2 className={classes.left} ref={myRefGreek}>Greek</h2>      
       <div className={classes.formatRow}>
         <Col>
            <Box className={classes.formatBox}>
@@ -337,13 +374,13 @@ function GlobeFeature() {
              <h1 className={classes.title}>Crispy Greek-style pie</h1>
              <p className={classes.paragraph}>A crispy pie that you can adapt for your needs, add chicken or keep it veggie. A good fail-safe for your repertoire</p>
                <Button className={classes.link} href="#text-buttons" color="primary">
-               Try more Recipes here!
+               Try making it here!
             </Button>
             </div>
           </Box> 
         </Col>
       </div>
-      <h2 className={classes.right}>Indian</h2>      
+      <h2 className={classes.right} ref={myRefIndian}>Indian</h2>      
       <div className={classes.formatRow}>
         <Col>
            <Box className={classes.formatBox}>
@@ -392,7 +429,7 @@ function GlobeFeature() {
           </Box> 
         </Col>
       </div>
-      <h2 className={classes.left}>Italian</h2>      
+      <h2 className={classes.left} ref={myRefItalian}>Italian</h2>      
       <div className={classes.formatRow}>
         <Col>
            <Box className={classes.formatBox}>
@@ -439,7 +476,7 @@ function GlobeFeature() {
           </Box> 
         </Col>
       </div>
-      <h2 className={classes.right}>Japanese</h2>      
+      <h2 className={classes.right} ref={myRefJapanese}>Japanese</h2>      
       <div className={classes.formatRow}>
         <Col>
            <Box className={classes.formatBox}>
@@ -486,7 +523,7 @@ function GlobeFeature() {
           </Box> 
         </Col>
       </div>
-      <h2 className={classes.left}>Korean</h2>      
+      <h2 className={classes.left} ref={myRefKorean}>Korean</h2>      
       <div className={classes.formatRow}>
         <Col>
            <Box className={classes.formatBox}>
@@ -534,7 +571,7 @@ function GlobeFeature() {
           </Box> 
         </Col>
       </div>
-      <h2 className={classes.right}>Mediterranean</h2>      
+      <h2 className={classes.right} ref={myRefMediterranean}>Mediterranean</h2>      
       <div className={classes.formatRow}>
         <Col>
            <Box className={classes.formatBox}>
@@ -582,7 +619,7 @@ function GlobeFeature() {
           </Box> 
         </Col>
       </div>
-      <h2 className={classes.left}>Mexican</h2>      
+      <h2 className={classes.left} ref={myRefMexican}>Mexican</h2>      
       <div className={classes.formatRow}>
         <Col>
            <Box className={classes.formatBox}>
@@ -630,7 +667,7 @@ function GlobeFeature() {
           </Box> 
         </Col>
       </div>
-      <h2 className={classes.right}>Spanish</h2>      
+      <h2 className={classes.right} ref={myRefSpanish}>Spanish</h2>      
       <div className={classes.formatRow}>
         <Col>
            <Box className={classes.formatBox}>
@@ -678,7 +715,7 @@ function GlobeFeature() {
           </Box> 
         </Col>
       </div>
-      <h2 className={classes.left}>Turkish</h2>      
+      <h2 className={classes.left} ref={myRefTurkish}>Turkish</h2>      
       <div className={classes.formatRow}>
         <Col>
            <Box className={classes.formatBox}>
