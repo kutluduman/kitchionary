@@ -14,7 +14,6 @@ import { orange, lightBlue, green, blueGrey
 } from "@material-ui/core/colors";
 import axios from 'axios';
 
-
 // AMERICAN
 import americanAll from '../docs/AmericanAll.jpg';
 
@@ -24,14 +23,10 @@ import chineseAll from '../docs/chineseAll.jpg'
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)   
 
-
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1, 
   },
-  
   media: {
         width: 500,
         height: 500,
@@ -43,14 +38,12 @@ const useStyles = makeStyles((theme) => ({
    marginTop: 30,
    
   },
-
   title:{
  
     fontSize: 30,
     fontWeight: 'bold',
     // margin: 20,
     // marginLeft: 40
-  
   },
   formatBox: {
     // width: "50%"
@@ -60,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row"
   },
-
   formatRow: {
     display: "flex",
     flexDirection: "row",
@@ -75,7 +67,6 @@ const useStyles = makeStyles((theme) => ({
   paragraph: {
     fontSize: 25,
    width: 600,
-    
   },
   link: {
     fontSize: 18,
@@ -86,23 +77,12 @@ const useStyles = makeStyles((theme) => ({
     width: 800,
     height: 500,
     marginLeft: 120,
- 
-        
-   
-    
   },
-
   location2: {
     width: 800,
-    height: 500,
-   
+    height: 500, 
     marginRight: 120
-        
-   
-    
   },
-
-
   left: {
     padding: 50,
     paddingTop: 30,
@@ -115,9 +95,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 50,
     marginBottom: 100,
     width: "60%",
-
-
-    
   },
   right: {
     padding: 50,
@@ -132,9 +109,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 100,
     width: "65%",
     marginLeft: "35%"
-
   },
- 
   bullet: {
     display: 'inline-block',
     margin: '0 2px',
@@ -146,8 +121,6 @@ const useStyles = makeStyles((theme) => ({
      flexDirection: 'row',
      justifyContent: 'center',
      marginTop: 30,
-    // paddingTop: 0,
-    
     '& > *': {
       margin: theme.spacing(1),
       color: "#928e91",
@@ -160,7 +133,6 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: 25,
     paddingBottom: 5,
   }
-
 }));
 
 const ColorButton = withStyles((theme) => ({
@@ -171,8 +143,6 @@ const ColorButton = withStyles((theme) => ({
     },
   }
 }))(Button);
-
-
 
 function GlobeFeature(props) {
   const classes = useStyles();
@@ -217,24 +187,37 @@ function GlobeFeature(props) {
 
   const handleClick = (cuisine) => {
     console.log("cuisine", cuisine)
-    setCuisine(cuisine)
-    // cuisine.prevent.default
+    setCuisine(cuisine);
   
     axios.post(`http://localhost:8080/${cuisine}`, {cuisine})
         .then(res => {
           console.log("resss", res.data.recipes)
           props.setMatchingRecipes(res.data.recipes)
-          // console.log("outside if statement")
           if (res.status === 200) {
-            // console.log("inside if statement")
             setRedirect(true);
-            // console.log("redirect??", redirect)
           }
         })
         .catch(err => {
           // res.status(500).json({ error: err.message });
           // or set error state
         });
+    }
+
+    const handleClickRecipe = (id, recipe) => {
+      setCuisine(`${id}`);
+
+      axios.post(`http://localhost:8080/recipes/${id}`, {recipe})
+      .then(res => {
+        console.log("resss", res.data.info)
+        props.setRecipeData(res.data.info)
+        if (res.status === 200) {
+          setRedirect(true);
+        }
+      })
+      .catch(err => {
+        // res.status(500).json({ error: err.message });
+        // or set error state
+      });
     }
   
 if (!redirect) {
@@ -255,7 +238,6 @@ if (!redirect) {
       {/* </ButtonGroup> */}
 </div>
 {/* Start */}
-
 <h2 className={classes.left} ref= {myRefAmerican}>American</h2>      
       <div className={classes.formatRow}>
         <Col>
@@ -297,17 +279,14 @@ if (!redirect) {
              ame={classes.text}>
              <h1 className={classes.title}>Mac & Cheese</h1>
              <p className={classes.paragraph}>This mac and cheese is a family favorite recipe, loved by both children and adults. It uses a combination of cheeses, layered in the dish as well as melted into a rich and creamy cheese sauce, for the ultimate in cheesy deliciousness!  Perfect for a comforting dinner or as a holiday side dish!</p>
-               <Button className={classes.link} href="#text-buttons" color="primary">
+               <Button onClick={() => handleClickRecipe(12, 'Mac & Cheese')} className={classes.link} color="primary">
               Try making it here!
             </Button>
             </div>
           </Box> 
         </Col>
       </div>
-
-
 {/* END */}
-
 
 <h2 className={classes.right} ref={myRefChinese}>Chinese</h2>      
       <div className={classes.formatRow}>
@@ -351,7 +330,7 @@ if (!redirect) {
              ame={classes.text}>
              <h1 className={classes.title}>Egg Fried Rice</h1>
              <p className={classes.paragraph}>The easiest egg fried rice that you can prep and cook in 10 minutes, and it tastes better than the restaurant version.</p>
-               <Button className={classes.link} href="#text-buttons" color="primary">
+               <Button onClick={() => handleClickRecipe(4, 'Egg Fried Rice')} className={classes.link} color="primary">
               Try making it here!
             </Button>
             </div>
@@ -400,7 +379,7 @@ if (!redirect) {
              ame={classes.text}>
              <h1 className={classes.title}>Crispy Greek-style pie</h1>
              <p className={classes.paragraph}>A crispy pie that you can adapt for your needs, add chicken or keep it veggie. A good fail-safe for your repertoire</p>
-               <Button className={classes.link} href="#text-buttons" color="primary">
+               <Button onClick={() => handleClickRecipe(13, 'Crispy Greek-style pie')} className={classes.link} color="primary">
                Try making it here!
             </Button>
             </div>
@@ -449,7 +428,7 @@ if (!redirect) {
              ame={classes.text}>
              <h1 className={classes.title}>Naan</h1>
              <p className={classes.paragraph}>While this recipe is not a true naan bread, this sure works in a pinch!</p>
-             <Button className={classes.link} href="#text-buttons" color="primary">
+             <Button onClick={() => handleClickRecipe(3, 'Naan')} className={classes.link} color="primary">
               Try making it here!
             </Button>
             </div>
@@ -496,7 +475,7 @@ if (!redirect) {
              <div className={classes.text}>
              <h1 className={classes.title}>Spinach Parmesan Pasta</h1>
              <p className={classes.paragraph}>5-Ingredient Spinach Parmesan Pasta-you only need 5 ingredients to make this quick and easy pasta dish! Add it to your dinner menu today!</p>
-             <Button className={classes.link} href="#text-buttons" color="primary">
+             <Button onClick={() => handleClickRecipe(16, 'Spinach Parmesan Pasta')}  className={classes.link} color="primary">
               Try making it here!
             </Button>
             </div>
@@ -541,9 +520,9 @@ if (!redirect) {
         <Col>
            <Box className={classes.formatBox}>
              <div className={classes.text}>
-             <h1 className={classes.title}>Chicken Teriyaki</h1>
+             <h1 className={classes.title}>Teriyaki Chicken</h1>
              <p className={classes.paragraph}>Everyone loves this quick and easy marinade! I always make extra chicken for leftovers – it is great chopped up on top of a salad or in a sandwich wrap. YUM! We make this almost every other week – so good!'</p>
-             <Button className={classes.link} href="#text-buttons" color="primary">
+             <Button onClick={() => handleClickRecipe(11, 'Teriyaki Chicken')} className={classes.link} color="primary">
               Try making it here!
             </Button>
             </div>
@@ -591,7 +570,7 @@ if (!redirect) {
              ame={classes.text}>
              <h1 className={classes.title}>Cheese Corn</h1>
              <p className={classes.paragraph}>Cheese corn what Koreans call cheesy corn. It often served in Korean BBQ restraints.</p>
-             <Button className={classes.link} href="#text-buttons" color="primary">
+             <Button onClick={() => handleClickRecipe(7, 'Cheese Corn')} className={classes.link} color="primary">
               Try making it here!
             </Button>
             </div>
@@ -639,7 +618,7 @@ if (!redirect) {
              ame={classes.text}>
              <h1 className={classes.title}>Shakshuka</h1>
              <p className={classes.paragraph}>This delicious breakfast dish comes together fast, thanks to prepared salsa.</p>
-             <Button className={classes.link} href="#text-buttons" color="primary">
+             <Button onClick={() => handleClickRecipe(9, 'Shakshuka')} className={classes.link} color="primary">
               Try making it here!
             </Button>
             </div>
@@ -687,7 +666,7 @@ if (!redirect) {
              ame={classes.text}>
              <h1 className={classes.title}>Perfect Guacamole</h1>
              <p className={classes.paragraph}>The perfect guacamole!</p>
-             <Button className={classes.link} href="#text-buttons" color="primary">
+             <Button onClick={() => handleClickRecipe(1, 'Perfect Guacamole')} className={classes.link} color="primary">
               Try making it here!
             </Button>
             </div>
@@ -735,7 +714,7 @@ if (!redirect) {
              ame={classes.text}>
              <h1 className={classes.title}>Tomato Soup</h1>
              <p className={classes.paragraph}>Roasting the tomatoes intensifies their flavor in this simple yet delicious soup.</p>
-             <Button className={classes.link} href="#text-buttons" color="primary">
+             <Button onClick={() => handleClickRecipe(10, 'Tomato Soup')} className={classes.link} color="primary">
               Try making it here!
             </Button>
             </div>
@@ -784,7 +763,7 @@ if (!redirect) {
              ame={classes.text}>
              <h1 className={classes.title}>Homemade Turkish Flatbread</h1>
              <p className={classes.paragraph}>Delicious, easy and cheap to make Turkish flatbread recipe. You can have this bread for breakfast, as a starter, snack or as a side dish to about everything.</p>
-             <Button className={classes.link} href="#text-buttons" color="primary">
+             <Button onClick={() => handleClickRecipe(17, 'Homemade Turkish Flatbread')} className={classes.link} color="primary">
               Try making it here!
             </Button>
             </div>
@@ -794,9 +773,7 @@ if (!redirect) {
       
     </div>
   )
-} else {
-  console.log('meal', cuisine);
-  if (cuisine === 'american') {
+} else if (cuisine === 'american') {
     return <Redirect to = {{ pathname: "/american" }} />;
   } else if (cuisine === 'chinese') {
     return <Redirect to = {{ pathname: "/chinese" }} />;
@@ -818,9 +795,29 @@ if (!redirect) {
     return <Redirect to = {{ pathname: "/mediterranean" }} />;
   } else if (cuisine === 'greek') {
     return <Redirect to = {{ pathname: "/greek" }} />;
+  } else if (cuisine === '12') {
+    return <Redirect to = {{ pathname: "/recipes/12" }} />;
+  } else if (cuisine === '4') {
+    return <Redirect to = {{ pathname: "/recipes/4" }} />;
+  } else if (cuisine === '13') {
+    return <Redirect to = {{ pathname: "/recipes/13" }} />;
+  } else if (cuisine === '3') {
+    return <Redirect to = {{ pathname: "/recipes/3" }} />;
+  } else if (cuisine === '16') {
+    return <Redirect to = {{ pathname: "/recipes/16" }} />;
+  } else if (cuisine === '11') {
+    return <Redirect to = {{ pathname: "/recipes/11" }} />;
+  } else if (cuisine === '7') {
+    return <Redirect to = {{ pathname: "/recipes/7" }} />;
+  } else if (cuisine === '9') {
+    return <Redirect to = {{ pathname: "/recipes/9" }} />;
+  } else if (cuisine === '1') {
+    return <Redirect to = {{ pathname: "/recipes/1" }} />;
+  } else if (cuisine === '10') {
+    return <Redirect to = {{ pathname: "/recipes/10" }} />;
+  } else if (cuisine === '17') {
+    return <Redirect to = {{ pathname: "/recipes/17" }} />; 
   }
-}
-
 }
 
 export default GlobeFeature;
