@@ -84,25 +84,25 @@ function App() {
         <main role="main">
             <Switch>
              <Route exact path="/">
-             <Home inputState={inputState} setInputState={setInputState}/>
+             <Home inputState={inputState} setInputState={setInputState} setMatchingRecipes={setMatchingRecipes}/>
              {/* <Door/>
              <Question/>
              <Globe/>  */}
               </Route>
               <Route exact path="/breakfast">
-                <MatchingRecipes matchingRecipes={matchingRecipes}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
               </Route>
               <Route exact path="/lunch">
-                <MatchingRecipes matchingRecipes={matchingRecipes}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
               </Route>
               <Route exact path="/appetizer">
-                <MatchingRecipes matchingRecipes={matchingRecipes}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
               </Route>
               <Route exact path="/dinner">
-                <MatchingRecipes matchingRecipes={matchingRecipes}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
               </Route>
               <Route exact path="/dessert">
-                <MatchingRecipes matchingRecipes={matchingRecipes}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
               </Route>
               <Route exact path="/fridge">
                 <FridgeForm inputState={inputState} setInputState={setInputState} setMatchingRecipes={setMatchingRecipes} />

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { Redirect } from "react-router-dom";
 import {createMuiTheme, makeStyles, withStyles, MuiThemeProvider, ThemeProvider, styled } from '@material-ui/core/styles';
 import {lightBlue,red } from "@material-ui/core/colors";
 import {Helmet} from 'react-helmet';
@@ -41,25 +42,25 @@ import FeaturedSalad from "./FeaturedSalad";
 const images = [
   {
     url: breakfast,
-    title:'Breakfast',
+    title:'breakfast',
     width: '20%',
     href: '/breakfast'
   },
   {
     url: lunch,
-    title:'Lunch',
+    title:'lunch',
     width: '20%',
     href: '/breakfast'
   },
   {
     url: appetizer,
-    title:'Appetizers',
+    title:'appetizer',
     width: '20%',
     href: '/appetizer'
   },
   {
     url: dinner,
-    title:'Dinner',
+    title:'dinner',
     width: '20%',
     href: '/dinner'
   },
@@ -166,8 +167,6 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: red[500],
   },
-
-
 }));
 
 
@@ -175,41 +174,34 @@ const useStyles = makeStyles((theme) => ({
 const Home = (props) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+  const [redirect, setRedirect] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-
-  const handleClick = (e, name) => {
-    // console.log("event", name)
-    props.setInputState({ ...props.inputState, [name]: true });
-    console.log("did it set", props.inputState)
-
-    const search = {
-    breakfast: props.inputState.breakfast,
-    lunch: props.inputState.lunch,
-    appetizer: props.inputState.appetizer,
-    dinner: props.inputState.dinner,
-    dessert: props.inputState.dessert,
-  }
-
-  axios.post(`http://localhost:8080/recipes`, {search})
-      .then(res => {
-        console.log("resss", res.data.recipes)
-        props.setMatchingRecipes(res.data.recipes)
-        if (res.status === 200) {
-          // setRedirect(true)
-          // console.log("redirect??", redirect)
-        }
-      })
-      .catch(err => {
-        // res.status(500).json({ error: err.message });
-        // or set error state
-      });
-}
   
+const handleClick = (category) => {
 
+
+axios.post(`http://localhost:8080/${category}`, {category})
+    .then(res => {
+      console.log("resss", res.data.recipes)
+      props.setMatchingRecipes(res.data.recipes)
+      // console.log("outside if statement")
+      if (res.status === 200) {
+        // console.log("inside if statement")
+        setRedirect(true);
+        console.log("redirect??", redirect)
+      }
+    })
+    .catch(err => {
+      // res.status(500).json({ error: err.message });
+      // or set error state
+    });
+}
+
+if (!redirect) {
   return (
 
     <div className={classes.root}>
@@ -218,7 +210,7 @@ const Home = (props) => {
          </Helmet>
     {images.map((image) => (
       <ButtonBase
-      onClick={(e) =>handleClick(e, image.title)}
+      onClick={() => handleClick(image.title)}
         // value={image.title}
         // href={image.href}
         focusRipple
@@ -270,6 +262,9 @@ const Home = (props) => {
 
   
 );
+} else {
+  return <Redirect to = {{ pathname: "/breakfast" }} />;
+}
 
   
 }
