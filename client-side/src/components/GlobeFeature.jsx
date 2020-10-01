@@ -219,6 +219,8 @@ function GlobeFeature(props) {
         // or set error state
       });
     }
+    console.log('cuisine', cuisine)
+    console.log(typeof cuisine)
   
 if (!redirect) {
   return (
