@@ -33,6 +33,11 @@ const loginRoutes = require("./routes/login");
 const registerRoutes = require("./routes/register");
 const recipeRoutes = require("./routes/recipe");
 const quizRoutes = require("./routes/quiz");
+const breakfastRoutes = require("./routes/breakfast");
+const lunchRoutes = require("./routes/lunch");
+const appetizerzRoutes = require("./routes/appetizer");
+const dinnerRoutes = require("./routes/dinner");
+const dessertRoutes = require("./routes/dessert");
 
 
 // Mount all resource routes
@@ -43,6 +48,11 @@ app.use("/register", registerRoutes(db));
 app.use("/login",loginRoutes(db));
 app.use("/recipes", recipeRoutes(db));
 app.use("/quiz", quizRoutes(db));
+app.use("/breakfast", breakfastRoutes(db));
+// app.use("/lunch", lunchRoutes(db));
+// app.use("/appetizer", appetizerRoutes(db));
+// app.use("/dinner", dinnerRoutes(db));
+// app.use("/dessert", dessertRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
