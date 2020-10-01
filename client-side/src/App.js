@@ -84,10 +84,25 @@ function App() {
         <main role="main">
             <Switch>
              <Route exact path="/">
-             <Home/>
+             <Home inputState={inputState} setInputState={setInputState}/>
              {/* <Door/>
              <Question/>
              <Globe/>  */}
+              </Route>
+              <Route exact path="/breakfast">
+                <MatchingRecipes matchingRecipes={matchingRecipes}/>
+              </Route>
+              <Route exact path="/lunch">
+                <MatchingRecipes matchingRecipes={matchingRecipes}/>
+              </Route>
+              <Route exact path="/appetizer">
+                <MatchingRecipes matchingRecipes={matchingRecipes}/>
+              </Route>
+              <Route exact path="/dinner">
+                <MatchingRecipes matchingRecipes={matchingRecipes}/>
+              </Route>
+              <Route exact path="/dessert">
+                <MatchingRecipes matchingRecipes={matchingRecipes}/>
               </Route>
               <Route exact path="/fridge">
                 <FridgeForm inputState={inputState} setInputState={setInputState} setMatchingRecipes={setMatchingRecipes} />

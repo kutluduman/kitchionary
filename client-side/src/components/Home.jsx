@@ -5,7 +5,7 @@ import {Helmet} from 'react-helmet';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import { height } from '@material-ui/system';
-
+import axios from 'axios';
 import { ReactComponent as Logo } from '../docs/breakfast.jpg'
 
 //door
@@ -42,27 +42,32 @@ const images = [
   {
     url: breakfast,
     title:'Breakfast',
-    width: '20%'
+    width: '20%',
+    href: '/breakfast'
   },
   {
     url: lunch,
     title:'Lunch',
-    width: '20%'
+    width: '20%',
+    href: '/breakfast'
   },
   {
     url: appetizer,
     title:'Appetizers',
-    width: '20%'
+    width: '20%',
+    href: '/appetizer'
   },
   {
     url: dinner,
     title:'Dinner',
-    width: '20%'
+    width: '20%',
+    href: '/dinner'
   },
   {
     url: dessert,
-    title:'Desserts',
-    width: '20%'
+    title:'dessert',
+    width: '20%',
+    href: '/dessert'
   }
 ]
 
@@ -167,7 +172,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const Home = () => {
+const Home = (props) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -175,10 +180,34 @@ const Home = () => {
     setExpanded(!expanded);
   };
 
-  const handleClick = () => {
-    
+
+  const handleClick = (name) => {
+    console.log("event", name)
+    props.setInputState({ ...props.inputState, [name]: true });
+    console.log("did it set", props.inputState)
+
+    const search = {
+    breakfast: props.inputState.breakfast,
+    lunch: props.inputState.lunch,
+    appetizer: props.inputState.appetizer,
+    dinner: props.inputState.dinner,
+    dessert: props.inputState.dessert,
   }
-  
+
+  axios.post(`http://localhost:8080/recipes`, {search})
+      .then(res => {
+        console.log("resss", res.data.recipes)
+        props.setMatchingRecipes(res.data.recipes)
+        if (res.status === 200) {
+          // setRedirect(true)
+          // console.log("redirect??", redirect)
+        }
+      })
+      .catch(err => {
+        // res.status(500).json({ error: err.message });
+        // or set error state
+      });
+}
   
 
   return (
@@ -189,8 +218,12 @@ const Home = () => {
          </Helmet>
     {images.map((image) => (
       <ButtonBase
+      onClick={() =>handleClick(image.title)}
+        // value={image.title}
+        // href={image.href}
         focusRipple
         key={image.title}
+        
         className={classes.image}
         focusVisibleClassName={classes.focusVisible}
         style={{
@@ -199,23 +232,26 @@ const Home = () => {
       >
         <span
           className={classes.imageSrc}
+        
           style={{
             backgroundImage: `url(${image.url})`,
           }}
         />
-        <span className={classes.imageBackdrop} />
-        <span className={classes.imageButton}>
+        <span className={classes.imageBackdrop}    />
+        <span className={classes.imageButton}   >
           <Typography
             component="span"
             variant="subtitle1"
             color="inherit"
             className={classes.imageTitle}
           >
+           
             {image.title}
             <span className={classes.imageMarked} />
           </Typography>
         </span>
       </ButtonBase>
+   
     ))}
     <div className="mode"> 
       <Door/> 
