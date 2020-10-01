@@ -13,6 +13,7 @@ import FridgeAvatar from "./components/FridgeAvatar";
 import FridgeForm from "./components/FridgeForm";
 import RecipeDetail from "./components/RecipeDetail";
 import MatchingRecipes from "./components/MatchingRecipes";
+import GlobeFeature from "./components/GlobeFeature";
 
 import {
   BrowserRouter as Router,
@@ -114,7 +115,7 @@ function App() {
                 <QuizForm inputState={inputState} setInputState={setInputState} setMatchingRecipes={setMatchingRecipes}/>
               </Route>
               <Route path="/globe">
-                <Globe/>
+                <GlobeFeature/>
               </Route>
               <Route path="/recipes/:id" render={(props) => <RecipeDetail {...props} recipeData={recipeData}/>} />
               <Route path="/recipes">
