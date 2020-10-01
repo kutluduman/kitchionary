@@ -125,7 +125,7 @@ if (!redirect) {
        <Helmet>
            <style>{'body { background-color: #d1e1ef; }'}</style>
          </Helmet>
-      <form onSubmit={handleSubmit}>
+       <form onSubmit={handleSubmit}>
         <h1 className='fridgeTitle'>Fridge Mode</h1>
         <h2 className='fridgeSubtitle'>Step One: What meal are you cooking?</h2>
         <div className={classes.avatar}>
@@ -135,12 +135,13 @@ if (!redirect) {
         <div className={classes.checkbox}>
           <FridgeCheckbox setInput={props.setInputState} inputState={props.inputState}/>
         </div>
-        <h2 className='fridgeSubtitle'> Step Three: What ingredients do you want to cook with?</h2> 
-          <IngredientForm setInput={props.setInputState} inputState={props.inputState}/>
+        
+         <h2 className='fridgeSubtitle'> Step Three: What ingredients do you want to cook with?</h2>  
+          <IngredientForm setInput={props.setInputState} inputState={props.inputState}/>  
 
         <div className={classes.submit}>
         <ColorButton size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>
-        </div>
+        </div> 
 
         </form>
     </article>
