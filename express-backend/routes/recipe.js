@@ -3,17 +3,6 @@ const router = express.Router();
 
 module.exports = (db) => {
 
-<<<<<<< HEAD
-  router.get("/", (req,res) => {
-
-    return db.query(`SELECT DISTINCT recipes.id, recipes.name, recipes.description, recipes.img_url
-    FROM recipes
-    LIMIT 6;`)
-    .then((data) => {
-        const recipes = data.rows;
-        console.log('user', recipes);
-        res.json({ recipes });
-=======
   router.get('/', (req,res) => {
     return db.query(`SELECT DISTINCT recipes.id, recipes.name, recipes.description, recipes.img_url
     FROM recipes
@@ -24,16 +13,11 @@ module.exports = (db) => {
       const recipes = data.rows;
       console.log("RECIPES", recipes);
       res.json({ recipes });
->>>>>>> c62ad99ae984ed827649c97cf0200e2cd5df842e
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
-<<<<<<< HEAD
-  });
-=======
   })
->>>>>>> c62ad99ae984ed827649c97cf0200e2cd5df842e
 
   router.post('/:id', (req,res) => {
     // console.log('req', req.body)

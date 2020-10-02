@@ -2,11 +2,11 @@ import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import breakfast from "../docs/breakfast.jpg";
-import lunch from "../docs/lunch.jpg";
-import appetizer from "../docs/appetizer.jpg";
-import dinner from "../docs/dinner.jpg";
-import dessert from "../docs/dessert.jpg";
+import breakfast from "../docs/breakfast3.jpg";
+import lunch from "../docs/lunch2.jpg";
+import appetizer from "../docs/appetizer2.jpg";
+import dinner from "../docs/dinner2.jpg";
+import dessert from "../docs/dessert2.jpg";
 
 import {lightBlue,red } from "@material-ui/core/colors";
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -20,6 +20,14 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(1),
     },
+  },
+  avatar:{
+    '&:hover, &$focusVisible': {
+      zIndex: 1,
+      '& $imageBackdrop': {
+        opacity: 0.15,
+      },
+    }
   }
 }));
 
@@ -34,7 +42,8 @@ const FridgeAvatar = (props) => {
   <div className={classes.root}>
   <ul>
     <li><input onClick={handleChange} name='breakfast' type="checkbox" id="cb1" />
-      <label className="labelMeal" for="cb1"><img src={breakfast}/></label>
+      <label className="labelMeal" for="cb1"><img src={breakfast}/>
+      </label>
     </li>
     <li><input onClick={handleChange} name='lunch' type="checkbox" id="cb2" />
         <label className="labelMeal"for="cb2"><img src={lunch} /></label>
