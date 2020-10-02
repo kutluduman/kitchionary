@@ -45,8 +45,9 @@ const useStyles = makeStyles((theme: Theme) =>
     button: {
       marginTop: theme.spacing(5),
       marginRight: theme.spacing(1),
-      height: '35px',
-      width: '85px'
+      height: '50px',
+      width: '100px',
+      fontSize: 15
     },
     actionsContainer: {
       marginBottom: theme.spacing(2),
