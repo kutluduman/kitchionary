@@ -88,7 +88,7 @@ function App() {
           <main role="main">
             <Switch>
               <Route exact path="/">
-                <Home inputState={inputState} setInputState={setInputState} matchingRecipes={matchingRecipes} setMatchingRecipes={setMatchingRecipes} />
+                <Home setMatchingRecipes={setMatchingRecipes} setRecipeData={setRecipeData} />
               </Route>
               <Route exact path="/breakfast">
                 <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
@@ -145,7 +145,7 @@ function App() {
                 <QuizForm inputState={inputState} setInputState={setInputState} setMatchingRecipes={setMatchingRecipes} />
               </Route>
               <Route path="/globe">
-                <GlobeFeature setRecipeData={setRecipeData} />
+                <GlobeFeature setRecipeData={setRecipeData} setMatchingRecipes={setMatchingRecipes} />
               </Route>
               <Route path="/recipes/:id" render={(props) => <RecipeDetail {...props} recipeData={recipeData} />} />
               <Route path="/recipes">
