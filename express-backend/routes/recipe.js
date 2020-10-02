@@ -3,6 +3,21 @@ const router = express.Router();
 
 module.exports = (db) => {
 
+  router.get("/", (req,res) => {
+
+    return db.query(`SELECT DISTINCT recipes.id, recipes.name, recipes.description, recipes.img_url
+    FROM recipes
+    LIMIT 6;`)
+    .then((data) => {
+        const recipes = data.rows;
+        console.log('user', recipes);
+        res.json({ recipes });
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+  });
+
   router.post('/:id', (req,res) => {
     // console.log('req', req.body)
     const name = req.body.recipe;
