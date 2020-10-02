@@ -2,11 +2,11 @@ import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import breakfast from "../docs/breakfast.jpg";
-import lunch from "../docs/lunch.jpg";
-import appetizer from "../docs/appetizer.jpg";
-import dinner from "../docs/dinner.jpg";
-import dessert from "../docs/dessert.jpg";
+import breakfast from "../docs/breakfast2.jpg";
+import lunch from "../docs/lunch3.jpg";
+import appetizer from "../docs/appetizer3.jpg";
+import dinner from "../docs/dinner3.jpg";
+import dessert from "../docs/dessert3.jpg";
 
 import {lightBlue,red } from "@material-ui/core/colors";
 import ButtonBase from '@material-ui/core/ButtonBase';
