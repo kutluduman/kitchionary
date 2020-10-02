@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       width: "2000px",
       display: "flex",
-      // justifyContent: 'center',
+      justifyContent: 'center',
       marginTop: theme.spacing(10),
     },
     button: {
@@ -52,6 +52,13 @@ const useStyles = makeStyles((theme: Theme) =>
     resetContainer: {
       padding: theme.spacing(3),
     },
+    stepper : {
+      width:"2000px",
+      // display:'flex',
+      // justifyContent: 'center',
+      marginLeft: '10%',
+
+    }
   })
 );
 
@@ -114,8 +121,8 @@ const FridgeForm = (props) => {
   if (!redirect) {
     return (
         <div className={classes.root}>
-          <Stepper activeStep={activeStep} orientation="vertical">
-            <Step key="key">
+          <Stepper activeStep={activeStep}  color="primary" orientation="vertical">
+            <Step className={classes.stepper} key="key">
               <StepLabel>
                 <h2 className="fridgeSubtitle">What meal are you cooking?</h2>
               </StepLabel>
@@ -150,7 +157,7 @@ const FridgeForm = (props) => {
               </StepContent>
             </Step>
 
-            <Step key="key">
+            <Step className={classes.stepper} key="key">
               <StepLabel>
                 <h2 className="fridgeSubtitle">Any dietary restrictions?</h2>
               </StepLabel>
@@ -183,7 +190,7 @@ const FridgeForm = (props) => {
               </StepContent>
             </Step>
 
-            <Step key="key">
+            <Step className={classes.stepper} key="key">
               <StepLabel>
                 <h2 className="fridgeSubtitle">
                   What ingredients do you want to cook with?
