@@ -20,7 +20,7 @@ const Question = () =>  {
            </div>
             <br/>
             <div className="quizButton">      
-          <Button href="/quiz" variant="outlined" color="primary">Primary</Button>
+          <Button href="/quiz" variant="outlined" color="primary">Explore</Button>
         </div>
       </div>
     </div>

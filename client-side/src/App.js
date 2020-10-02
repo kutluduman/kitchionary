@@ -14,6 +14,7 @@ import FridgeForm from "./components/FridgeForm";
 import RecipeDetail from "./components/RecipeDetail";
 import MatchingRecipes from "./components/MatchingRecipes";
 import GlobeFeature from "./components/GlobeFeature";
+import AddRecipe from "./components/AddRecipe";
 import axios from 'axios';
 
 import {
@@ -150,6 +151,10 @@ function App() {
               <Route path="/recipes/:id" render={(props) => <RecipeDetail {...props} recipeData={recipeData} />} />
               <Route path="/recipes">
                 <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
+              </Route>
+
+              <Route path="/add">
+                <AddRecipe />
               </Route>
             </Switch>
           </main>

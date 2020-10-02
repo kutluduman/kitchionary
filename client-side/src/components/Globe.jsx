@@ -37,7 +37,7 @@ const Globe = () =>  {
       <div className="globeButton">
         
         <Button variant="outlined" color="primary" href="/globe">
-          Primary
+          Explore
         </Button>
         </div>
       </div>

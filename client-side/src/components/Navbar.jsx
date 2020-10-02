@@ -145,10 +145,16 @@ function Navbar() {
                     <MenuItem onClick={handleClose}>My Recipes</MenuItem>
                   </Link>
                   <Link
-                    to="/quiz"
+                    to="/favorites"
                     style={{ textDecoration: "none", display: "block", color: "black" }}
                   >
-                    <MenuItem onClick={handleClose}>Saved Recipes</MenuItem>
+                    <MenuItem onClick={handleClose}>Favorites</MenuItem>
+                  </Link>
+                  <Link
+                    to="/add"
+                    style={{ textDecoration: "none", display: "block", color: "black" }}
+                  >
+                    <MenuItem onClick={handleClose}>New Recipe</MenuItem>
                   </Link>
                 </Menu>
               </IconButton>
