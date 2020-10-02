@@ -43,8 +43,10 @@ const useStyles = makeStyles((theme: Theme) =>
       marginTop: theme.spacing(10),
     },
     button: {
-      marginTop: theme.spacing(1),
+      marginTop: theme.spacing(5),
       marginRight: theme.spacing(1),
+      height: '35px',
+      width: '85px'
     },
     actionsContainer: {
       marginBottom: theme.spacing(2),
@@ -58,7 +60,26 @@ const useStyles = makeStyles((theme: Theme) =>
       // justifyContent: 'center',
       marginLeft: '10%',
 
-    }
+    },
+    fridgeHeader : {
+      padding: 50,
+      paddingTop: 30,
+      paddingBottom: 30,
+      fontSize: 50,
+      height: 50,
+      display: 'flex',
+      justifyContent: 'center',
+       backgroundColor: 'orange',
+      // marginBottom: 100,
+      width: '1200px', 
+      // marginLeft: "35%"
+      // zIndex: 2,
+      
+    }, 
+    quiz : {
+      fontSize: "30px",
+    },
+
   })
 );
 
@@ -69,6 +90,14 @@ function getSteps() {
 const FridgeForm = (props) => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
+  const [dietaryRestrictions, setDietaryRestrictions] = useState({
+    glutenFree: false,
+    nutFree: false,
+    dairyFree: false,
+    vegetarian: false,
+    vegan: false
+  });
+
   const steps = getSteps();
 
   const handleNext = () => {
@@ -120,11 +149,15 @@ const FridgeForm = (props) => {
 
   if (!redirect) {
     return (
-        <div className={classes.root}>
-          <Stepper activeStep={activeStep}  color="primary" orientation="vertical">
+        <div >
+          <div>
+          <h1 className={classes.fridgeHeader}> Fridge Mode</h1> 
+          </div>
+          <div>
+          <Stepper activeStep={activeStep} color="primary" orientation="vertical">
             <Step className={classes.stepper} key="key">
               <StepLabel>
-                <h2 className="fridgeSubtitle">What meal are you cooking?</h2>
+                <h2 className={classes.quiz}>What meal are you cooking?</h2>
               </StepLabel>
               <StepContent>
                 <Typography>
@@ -159,13 +192,15 @@ const FridgeForm = (props) => {
 
             <Step className={classes.stepper} key="key">
               <StepLabel>
-                <h2 className="fridgeSubtitle">Any dietary restrictions?</h2>
+                <h2 className={classes.quiz}>Any dietary restrictions?</h2>
               </StepLabel>
               <StepContent>
                 <div className={classes.checkbox}>
                   <FridgeCheckbox
                     setInput={props.setInputState}
                     inputState={props.inputState}
+                    dietaryRestrictions={dietaryRestrictions}
+                    setDietaryRestrictions={setDietaryRestrictions}
                   />
                 </div>
                 <div className={classes.actionsContainer}>
@@ -192,7 +227,7 @@ const FridgeForm = (props) => {
 
             <Step className={classes.stepper} key="key">
               <StepLabel>
-                <h2 className="fridgeSubtitle">
+                <h2 className={classes.quiz}>
                   What ingredients do you want to cook with?
                 </h2>
               </StepLabel>
@@ -225,6 +260,7 @@ const FridgeForm = (props) => {
               </StepContent>
             </Step>
           </Stepper>
+          </div>
           {activeStep === steps.length && (
             <Paper square elevation={0} className={classes.resetContainer}>
               <Typography>
