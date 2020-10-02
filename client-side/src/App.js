@@ -145,7 +145,7 @@ function App() {
                 <QuizForm inputState={inputState} setInputState={setInputState} setMatchingRecipes={setMatchingRecipes} />
               </Route>
               <Route path="/globe">
-                <GlobeFeature setRecipeData={setRecipeData} />
+                <GlobeFeature setRecipeData={setRecipeData} setMatchingRecipes={setMatchingRecipes} />
               </Route>
               <Route path="/recipes/:id" render={(props) => <RecipeDetail {...props} recipeData={recipeData} />} />
               <Route path="/recipes">
