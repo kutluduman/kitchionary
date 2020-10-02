@@ -88,7 +88,7 @@ function App() {
           <main role="main">
             <Switch>
               <Route exact path="/">
-                <Home inputState={inputState} setInputState={setInputState} matchingRecipes={matchingRecipes} setMatchingRecipes={setMatchingRecipes} />
+                <Home setMatchingRecipes={setMatchingRecipes} setRecipeData={setRecipeData} />
               </Route>
               <Route exact path="/breakfast">
                 <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />

@@ -47,13 +47,17 @@ const RecipeCard = (props) => {
         console.log("resss", res.data.info)
         props.setRecipeData(res.data.info)
         if (res.status === 200) {
+          console.log('redirect?fromabove', redirect)
           setRedirect(true)
+          console.log('redirect?frombelow', redirect)
         }
       })
       .catch(err => {
         // setError("Incorrect Email or Password!");
       })
   };
+
+      console.log('redirect?', redirect)
   
   if (!redirect) {
   return (
