@@ -222,6 +222,7 @@ function GlobeFeature(props) {
     }
     console.log('cuisine', cuisine)
     console.log(typeof cuisine)
+    console.log('matchingrecipesfromglobe?', props.matchingRecipes)
     console.log('redirect?', redirect)
   
 if (!redirect) {
