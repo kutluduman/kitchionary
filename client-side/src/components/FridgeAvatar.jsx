@@ -13,41 +13,6 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 
 import "./fridgeMealCheck.css"
-// const images = [
-//   {
-//     url: breakfast,
-//     title:'Breakfast',
-//     width: '20%'
-//   },
-//   {
-//     url: lunch,
-//     title:'Lunch',
-//     width: '20%'
-//   },
-//   {
-//     url: appetizer,
-//     title:'Appetizers',
-//     width: '20%'
-//   },
-//   {
-//     url: dinner,
-//     title:'Dinner',
-//     width: '20%'
-//   },
-//   {
-//     url: dessert,
-//     title:'Desserts',
-//     width: '20%'
-//   }
-// ]
-
-// const breakfast = {
-//   url: breakfastimg,
-//   title:'Breakfast',
-//   width: '20%'
-
-// }
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,15 +23,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-
-
 const FridgeAvatar = (props) => {
   const classes = useStyles();
 
   const handleChange = (event) => {
     props.setInput({ ...props.inputState, [event.target.name]: event.target.checked });
   };
-
 
   return(
   <div className={classes.root}>
@@ -87,10 +49,7 @@ const FridgeAvatar = (props) => {
         <label  className="labelMeal" for="cb5"><img src={dessert} /></label>
       </li>
     </ul>
-
   </div>
-
-
   )
 }
 

@@ -111,46 +111,12 @@ const theme = createMuiTheme({
 const QuizForm = (props) => {
   const classes = useStyles();
   const [redirect, setRedirect] = useState(false);
-  // const [inputState, setInputState] = useState({
-  //   breakfast: false,
-  //   lunch: false,
-  //   appetizer: false,
-  //   dinner: false,
-  //   dessert: false,
-  //   glutenFree : false,
-  //   nutFree : false,
-  //   dairyFree : false,
-  //   vegetarian : false,
-  //   vegan : false,
-  //   isSalty: false,
-  //   isGreasy: false,
-  //   isSpicy: false,
-  //   isSweet: false,
-  //   isFruity: false,
-  //   isHealthy: false,
-  //   isCold: false,
-  //   isHot: false,
-  //   notSalty: false,
-  //   notGreasy: false,
-  //   notSpicy: false,
-  //   notSweet: false,
-  //   notFruity: false,
-  //   notHealthy: false,
-  //   notCold: false,
-  //   notHot: false,
-  //   time: 0,
-  // });
-
-
-
   const [value, setValue] = React.useState(0);
 
   const handleSliderChange = (event, newValue) => {
     props.setInputState({ ...props.inputState, time: newValue });
     setValue(newValue);
   };
-
-
 
   const handleInputChange = (event) => {
     setValue(event.target.value === '' ? '' : Number(event.target.value));
@@ -168,8 +134,6 @@ const QuizForm = (props) => {
       setValue(100);
     }
   };
-
-
 
   const handleSubmit = (e) => {
       e.preventDefault();

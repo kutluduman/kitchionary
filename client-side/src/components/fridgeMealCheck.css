@@ -44,8 +44,8 @@ label::before {
 }
 
 label img {
-  height: 150px;
-  width: 150px;
+  height: 250px;
+  width: 250px;
   transition-duration: 0.2s;
   transform-origin: 50% 50%;
 }
@@ -67,7 +67,7 @@ label img {
 }
 
 .fridgeTitle{
- font-size: 45px;
+ font-size: 60px;
  display: flex;
  justify-content: center;
  background-color: whitesmoke;

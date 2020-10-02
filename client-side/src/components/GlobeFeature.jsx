@@ -392,8 +392,7 @@ if (!redirect) {
       <div className={classes.formatRow}>
         <Col>
            <Box className={classes.formatBox}>
-             <div classN
-             ame={classes.text}>
+             <div className={classes.text}>
              <Typography variant="h5" component="h2" className={classes.title}>
              in{bull}di{bull}an
               </Typography>
@@ -408,7 +407,7 @@ if (!redirect) {
           <CardMedia
           // INSERT RECIPE IMAGE
             className={classes.location}
-            image="https://lh3.googleusercontent.com/proxy/OW4eU_poUJUrjn2Mv981M7pru49dPzb20WwEAiprdw8FCpoElgjOVkY_9wegAww9DLKNhP0CHkS2gwEJFwhxUlRv2paLoo7AWI-35n26vSwnOKsW"
+            image="https://lh3.googleusercontent.com/proxy/wi_P6sMY9rsPDwjvYnjmiCPJjZgquzC2XXXakBo0qm712H_-F2uY65V1wvH4vcRG_eJm0O8IsQRhSdYtr-HWQMVmOIDspFuEp9J7KqFgITo_xI7P"
             title="SAMPLE 1"
           />
         </Col>
