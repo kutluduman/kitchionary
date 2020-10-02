@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Door from "./components/Door.jsx";
@@ -14,6 +14,7 @@ import FridgeForm from "./components/FridgeForm";
 import RecipeDetail from "./components/RecipeDetail";
 import MatchingRecipes from "./components/MatchingRecipes";
 import GlobeFeature from "./components/GlobeFeature";
+import axios from 'axios';
 
 import {
   BrowserRouter as Router,
@@ -45,11 +46,11 @@ function App() {
     appetizer: false,
     dinner: false,
     dessert: false,
-    glutenFree : false,
-    nutFree : false,
-    dairyFree : false,
-    vegetarian : false,
-    vegan : false,
+    glutenFree: false,
+    nutFree: false,
+    dairyFree: false,
+    vegetarian: false,
+    vegan: false,
     isSalty: false,
     isGreasy: false,
     isSpicy: false,
@@ -72,105 +73,91 @@ function App() {
   console.log('matching', matchingRecipes);
   console.log('RECIPEDATA', recipeData);
   // const { id } = matchingRecipes.id;
-  
+
+
   return (
     <Router>
       <div className="App">
-        <Navbar/>
-        <dialog role="alertdialog" id="login" open>
-          <LoginTemplate/>
-        </dialog>
-        <dialog role="alertdialog" id="register">
-          <RegisterTemplate/>
-        </dialog>
-        <main role="main">
+        <Navbar />
+          <dialog role="alertdialog" id="login" open>
+            <LoginTemplate />
+          </dialog>
+          <dialog role="alertdialog" id="register">
+            <RegisterTemplate />
+          </dialog>
+          <main role="main">
             <Switch>
-             <Route exact path="/">
-             <Home inputState={inputState} setInputState={setInputState} setMatchingRecipes={setMatchingRecipes}/>
-             {/* <Door/>
-             <Question/>
-             <Globe/>  */}
+              <Route exact path="/">
+                <Home inputState={inputState} setInputState={setInputState} matchingRecipes={matchingRecipes} setMatchingRecipes={setMatchingRecipes} />
               </Route>
               <Route exact path="/breakfast">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
               <Route exact path="/lunch">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
               <Route exact path="/appetizer">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
               <Route exact path="/dinner">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
               <Route exact path="/dessert">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
               <Route exact path="/american">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
               <Route exact path="/chinese">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
               <Route exact path="/indian">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
               <Route exact path="/greek">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
               <Route exact path="/italian">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
               <Route exact path="/japanese">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
               <Route exact path="/korean">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
               <Route exact path="/mediterranean">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
               <Route exact path="/mexican">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
               <Route exact path="/spanish">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
               <Route exact path="/turkish">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
               <Route exact path="/fridge">
                 <FridgeForm inputState={inputState} setInputState={setInputState} setMatchingRecipes={setMatchingRecipes} />
               </Route>
-              {/* <Route exact path="/fridge/recipes">
-                <MatchingRecipes matchingRecipes={matchingRecipes}/>
-              </Route> */}
               <Route path="/quiz">
-                <QuizForm inputState={inputState} setInputState={setInputState} setMatchingRecipes={setMatchingRecipes}/>
+                <QuizForm inputState={inputState} setInputState={setInputState} setMatchingRecipes={setMatchingRecipes} />
               </Route>
               <Route path="/globe">
-                <GlobeFeature setRecipeData={setRecipeData}/>
+                <GlobeFeature setRecipeData={setRecipeData} />
               </Route>
-              <Route path="/recipes/:id" render={(props) => <RecipeDetail {...props} recipeData={recipeData}/>} />
+              <Route path="/recipes/:id" render={(props) => <RecipeDetail {...props} recipeData={recipeData} />} />
               <Route path="/recipes">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData}/>
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
-              
-              
-              {/* <Route path="/fridge/recipes/1">
-                <RecipeDetail/>
-              </Route> */}
             </Switch>
-            {/* <div className="featured">
-              <FeaturedSalad/>
-              <FeaturedPasta/>
-              <FeaturedDessert/>
-            </div> */}
-        </main>
-      </div>
+          </main>
+          </div>
     </Router>
-  );
 
+  )  
+      
 }
 export default App;
 
