@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { useCookies } from "react-cookie";
+// import { useCookies } from "react-cookie";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -87,15 +87,10 @@ const ColorButton = withStyles((theme) => ({
   },
 }))(Button);
 
-function Navbar() {
+function Navbar(props) {
   const classes = useStyles();
-  const [cookies, setCookie, removeCookie] = useCookies(["name"]);
+  // const [cookies, setCookie, removeCookie] = useCookies(["name"]);
   const [anchorEl, setAnchorEl] = React.useState(null);
-
-  // console.log(cookies)
-  //popout
-  // const {loginShowing, toggleLogin} = useLogin();
-  // const {registerShowing, toggleRegister} = useRegister();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -106,10 +101,10 @@ function Navbar() {
   };
 
   const handleRemoveCookie = () => {
-    removeCookie("name");
+    props.removeCookie("name");
   };
 
-  if (!cookies.name) {
+  if (!props.cookies.name) {
     return (
       <div>
         <AppBar position="static">
@@ -122,6 +117,13 @@ function Navbar() {
                 </Button>
               </Typography>
               <IconButton
+                edge="start"
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="menu"
+              >
+                <MenuIcon />
+              {/* <IconButton
                 className={classes.menuButton}
                 color="inherit"
                 aria-label="menu"
@@ -130,8 +132,8 @@ function Navbar() {
                   aria-controls="simple-menu"
                   aria-haspopup="true"
                   onClick={handleClick}
-                />
-                <Menu
+                /> */}
+                {/* <Menu
                   id="simple-menu"
                   anchorEl={anchorEl}
                   keepMounted
@@ -145,7 +147,7 @@ function Navbar() {
                     <MenuItem onClick={handleClose}>My Recipes</MenuItem>
                   </Link>
                   <Link
-                    to="/favorites"
+                    to="/favorite"
                     style={{ textDecoration: "none", display: "block", color: "black" }}
                   >
                     <MenuItem onClick={handleClose}>Favorites</MenuItem>
@@ -156,7 +158,7 @@ function Navbar() {
                   >
                     <MenuItem onClick={handleClose}>New Recipe</MenuItem>
                   </Link>
-                </Menu>
+                </Menu> */}
               </IconButton>
               <div className={classes.search}>
                 <div className={classes.searchIcon}>
@@ -195,13 +197,49 @@ function Navbar() {
               <Typography variant="h6">
                 <img src={logo} className="logo" alt="logo"></img>
               </Typography>
-              <IconButton
+              {/* <IconButton
                 edge="start"
                 className={classes.menuButton}
                 color="inherit"
                 aria-label="menu"
               >
-                <MenuIcon />
+                <MenuIcon /> */}
+                <IconButton
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="menu"
+              >
+                <MenuIcon
+                  aria-controls="simple-menu"
+                  aria-haspopup="true"
+                  onClick={handleClick}
+                />
+                <Menu
+                  id="simple-menu"
+                  anchorEl={anchorEl}
+                  keepMounted
+                  open={Boolean(anchorEl)}
+                  onClose={handleClose}
+                >
+                  <Link
+                    to="/fridge"
+                    style={{ textDecoration: "none", display: "block", color: "black" }}
+                  >
+                    <MenuItem onClick={handleClose}>My Recipes</MenuItem>
+                  </Link>
+                  <Link
+                    to="/favorite"
+                    style={{ textDecoration: "none", display: "block", color: "black" }}
+                  >
+                    <MenuItem onClick={handleClose}>Favorites</MenuItem>
+                  </Link>
+                  <Link
+                    to="/add"
+                    style={{ textDecoration: "none", display: "block", color: "black" }}
+                  >
+                    <MenuItem onClick={handleClose}>New Recipe</MenuItem>
+                  </Link>
+                </Menu>
               </IconButton>
               <div className={classes.search}>
                 <div className={classes.searchIcon}>
@@ -217,7 +255,7 @@ function Navbar() {
                 />
               </div>
               <div className={classes.root}>
-                <p className="Name">Logged in as {cookies.name}!</p>
+                <p className="Name">Logged in as {props.cookies.name}!</p>
                 <ColorButton onClick={handleRemoveCookie}>
                   {" "}
                   Logout

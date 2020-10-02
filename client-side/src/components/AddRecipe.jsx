@@ -1,6 +1,5 @@
 import React,{useState} from 'react';
 import { Redirect } from "react-router-dom";
-import { useCookies } from 'react-cookie';
 import {createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -8,6 +7,7 @@ import { orange, lightBlue } from "@material-ui/core/colors";
 import axios from 'axios';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
 import InputLabel from '@material-ui/core/InputLabel';
 // import Login from "./Login";
@@ -71,26 +71,16 @@ const theme = createMuiTheme({
 
 
 
-const AddRecipe = () => {
+const AddRecipe = (props) => {
   const classes = useStyles();
 
   // DROPDOWN
 
-  const [state, setState] = React.useState<{ age: string | number; name: string }>({
-    age: '',
-    name: 'hai',
-  });
 
-  const handleChange = (event: React.ChangeEvent<{ name?: string; value: unknown }>) => {
-    const name = event.target.name as keyof typeof state
-    setState({
-      ...state,
-      [name]: event.target.value,
-    });
-  };
 
   const [error, setError] = useState('');
   const [inputRecipe, setInputRecipe] = useState({
+    user_id: props.cookies,
     name: '',
     img_url: '',
     description: '',
@@ -293,6 +283,12 @@ const AddRecipe = () => {
     })
   };
 
+
+  const handleChangeUnit = (event) => {
+    setInputRecipe({ ...inputRecipe, [event.target.name]: event.target.value });
+  };
+
+
   const handleChangeName = (e) => {
     setInputRecipe({ ...inputRecipe, name: e.target.value });
   }
@@ -322,6 +318,46 @@ const AddRecipe = () => {
 
   const handleChangeIngredientsFive = (e) => {
     setInputRecipe({ ...inputRecipe, ingredients_five: e.target.value });
+  }
+
+  const handleChangeAmountOne = (e) => {
+    setInputRecipe({ ...inputRecipe, amount_one: e.target.value });
+  }
+
+  const handleChangeAmountTwo = (e) => {
+    setInputRecipe({ ...inputRecipe, amount_two: e.target.value });
+  }
+
+  const handleChangeAmountThree = (e) => {
+    setInputRecipe({ ...inputRecipe, amount_three: e.target.value });
+  }
+  
+  const handleChangeAmountFour = (e) => {
+    setInputRecipe({ ...inputRecipe, amount_four: e.target.value });
+  }
+
+  const handleChangeAmountFive = (e) => {
+    setInputRecipe({ ...inputRecipe, amount_five: e.target.value });
+  }
+
+  const handleChangeUnitOne = (e) => {
+    setInputRecipe({ ...inputRecipe, unit_one: e.target.value });
+  }
+
+  const handleChangeUnitTwo = (e) => {
+    setInputRecipe({ ...inputRecipe, unit_two: e.target.value });
+  }
+
+  const handleChangeUnitThree = (e) => {
+    setInputRecipe({ ...inputRecipe, unit_three: e.target.value });
+  }
+  
+  const handleChangeUnitFour = (e) => {
+    setInputRecipe({ ...inputRecipe, unit_four: e.target.value });
+  }
+
+  const handleChangeUnitFive = (e) => {
+    setInputRecipe({ ...inputRecipe, unit_five: e.target.value });
   }
 
   const handleChangeDirectionsOne = (e) => {
@@ -401,10 +437,10 @@ const AddRecipe = () => {
         />
 
         <div>
+          <div>
        {/* INGREDIENTS */}
        <TextField onChange={handleChangeIngredientsOne}
           value={inputRecipe.ingredients_one}
-          // label="Password"
           id="outlined-margin-normal"
           placeholder="Ingredient 1"
           className={classes.textField}
@@ -414,48 +450,73 @@ const AddRecipe = () => {
             style: { color: 'orange' },
           }}
         />
-        <FormControl variant="outlined" >
+
+  
+      <FormControl   className={classes.textField} variant="outlined">
         <Select
-    
-        color='secondary'
-        placeholder="Unit"
-          native
-          value={state.age}
-          onChange={handleChange}
-     
-          inputProps={{
-            name: 'unit',
-            id: 'filled-age-native-simple',
-          }}
+          labelId="demo-simple-select-outlined-label"
+          id="demo-simple-select-outlined"
+          value={props.unit}
+          onChange={handleChangeUnit}
+          label="Unit"
+          name='unit'
         >
-          <option aria-label="None" value="" />
-          <option value={"tsp"}>tsp</option>
-          <option value={"tbsp"}>tbsp</option>
-          <option value={'cup'}>cup</option>
-          <option value={'oz'}>oz</option>
-          <option value={'g'}>g</option>
-          <option value={'lb'}>lb</option>
-          <option value={'can'}>can</option>
-          <option value={'package'}>package</option>
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={'tbsp'}>tbsp</MenuItem>
+          <MenuItem value={'tsp'}>tsp</MenuItem>
+          <MenuItem value={'cup'}>cup</MenuItem>
+          <MenuItem value={'oz'}>oz</MenuItem>
+          <MenuItem value={'lb'}>lb</MenuItem>
+          <MenuItem value={'g'}>g</MenuItem>
+          <MenuItem value={'clove'}>clove</MenuItem>
+          <MenuItem value={'package'}>package</MenuItem>
+          <MenuItem value={'can'}>can</MenuItem>
         </Select>
       </FormControl>
-  
+    </div>
 
-        <TextField onChange={handleChangeIngredientsTwo}
-          value={inputRecipe.ingredients_two}
-          // label="Password"
-          id="outlined-margin-normal"
-          placeholder="Ingredient 2"
-          className={classes.textField}
-          margin="normal"
-          variant="outlined"
-          InputLabelProps={{
-            style: { color: 'orange' },
-          }}
-        /> 
+    <div>
+      <TextField onChange={handleChangeIngredientsTwo}
+        value={inputRecipe.ingredients_two}
+        // label="Password"
+        id="outlined-margin-normal"
+        placeholder="Ingredient 2"
+        className={classes.textField}
+        margin="normal"
+        variant="outlined"
+        InputLabelProps={{
+          style: { color: 'orange' },
+        }}
+      /> 
+      <FormControl   className={classes.textField} variant="outlined">
+        <Select
+          labelId="demo-simple-select-outlined-label"
+          id="demo-simple-select-outlined"
+          value={props.unit}
+          onChange={handleChangeUnit}
+          label="Unit"
+          name='unit'
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={'tbsp'}>tbsp</MenuItem>
+          <MenuItem value={'tsp'}>tsp</MenuItem>
+          <MenuItem value={'cup'}>cup</MenuItem>
+          <MenuItem value={'oz'}>oz</MenuItem>
+          <MenuItem value={'lb'}>lb</MenuItem>
+          <MenuItem value={'g'}>g</MenuItem>
+          <MenuItem value={'clove'}>clove</MenuItem>
+          <MenuItem value={'package'}>package</MenuItem>
+          <MenuItem value={'can'}>can</MenuItem>
+        </Select>
+      </FormControl>
+     </div>
 
-
-        <TextField onChange={handleChangeIngredientsThree}
+     <div>
+      <TextField onChange={handleChangeIngredientsThree}
         value={inputRecipe.ingredients_three}
         // label="Password"
         id="outlined-margin-normal"
@@ -468,33 +529,109 @@ const AddRecipe = () => {
         }}
       /> 
 
+      <FormControl   className={classes.textField} variant="outlined">
+        <Select
+         
+         labelId="demo-simple-select-outlined-label"
+         id="demo-simple-select-outlined"
+         value={props.unit}
+         onChange={handleChangeUnit}
+         label="Unit"
+         name='unit'
+        >
+         <MenuItem value="">
+           <em>None</em>
+         </MenuItem>
+         <MenuItem value={'tbsp'}>tbsp</MenuItem>
+         <MenuItem value={'tsp'}>tsp</MenuItem>
+         <MenuItem value={'cup'}>cup</MenuItem>
+         <MenuItem value={'oz'}>oz</MenuItem>
+         <MenuItem value={'lb'}>lb</MenuItem>
+         <MenuItem value={'g'}>g</MenuItem>
+         <MenuItem value={'clove'}>clove</MenuItem>
+         <MenuItem value={'package'}>package</MenuItem>
+         <MenuItem value={'can'}>can</MenuItem>
+        </Select>
+     </FormControl>
+    </div>
 
+    <div>
       <TextField onChange={handleChangeIngredientsFour}
-      value={inputRecipe.ingredients_four}
-      // label="Password"
-      id="outlined-margin-normal"
-      placeholder="Ingredient 4"
-      className={classes.textField}
-      margin="normal"
-      variant="outlined"
-      InputLabelProps={{
-        style: { color: 'orange' },
+        value={inputRecipe.ingredients_four}
+        // label="Password"
+        id="outlined-margin-normal"
+        placeholder="Ingredient 4"
+        className={classes.textField}
+        margin="normal"
+        variant="outlined"
+        InputLabelProps={{
+          style: { color: 'orange' },
+        }}
+      /> 
+
+      <FormControl   className={classes.textField} variant="outlined">
+        <Select
+         
+         labelId="demo-simple-select-outlined-label"
+         id="demo-simple-select-outlined"
+         value={props.unit}
+         onChange={handleChangeUnit}
+         label="Unit"
+         name='unit'
+        >
+        <MenuItem value="">
+          <em>None</em>
+        </MenuItem>
+        <MenuItem value={'tbsp'}>tbsp</MenuItem>
+        <MenuItem value={'tsp'}>tsp</MenuItem>
+        <MenuItem value={'cup'}>cup</MenuItem>
+        <MenuItem value={'oz'}>oz</MenuItem>
+        <MenuItem value={'lb'}>lb</MenuItem>
+        <MenuItem value={'g'}>g</MenuItem>
+        <MenuItem value={'clove'}>clove</MenuItem>
+        <MenuItem value={'package'}>package</MenuItem>
+        <MenuItem value={'can'}>can</MenuItem>
+       </Select>
+     </FormControl>
+    </div>
+
+    <div>
+      <TextField onChange={handleChangeIngredientsFive}
+        value={inputRecipe.ingredients_five}
+        // label="Password"
+        id="outlined-margin-normal"
+        placeholder="Ingredient 5"
+        className={classes.textField}
+        margin="normal"
+        variant="outlined"
+        InputLabelProps={{
+          style: { color: 'orange' },
       }}
-    /> 
-
-    <TextField onChange={handleChangeIngredientsFive}
-    value={inputRecipe.ingredients_five}
-    // label="Password"
-    id="outlined-margin-normal"
-    placeholder="Ingredient 5"
-    className={classes.textField}
-    margin="normal"
-    variant="outlined"
-    InputLabelProps={{
-      style: { color: 'orange' },
-    }}
-  /> 
-
+      /> 
+      <FormControl   className={classes.textField} variant="outlined">
+        <Select
+        labelId="demo-simple-select-outlined-label"
+        id="demo-simple-select-outlined"
+        value={props.unit}
+        onChange={handleChangeUnit}
+        label="Unit"
+        name='unit'
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={'tbsp'}>tbsp</MenuItem>
+          <MenuItem value={'tsp'}>tsp</MenuItem>
+          <MenuItem value={'cup'}>cup</MenuItem>
+          <MenuItem value={'oz'}>oz</MenuItem>
+          <MenuItem value={'lb'}>lb</MenuItem>
+          <MenuItem value={'g'}>g</MenuItem>
+          <MenuItem value={'clove'}>clove</MenuItem>
+          <MenuItem value={'package'}>package</MenuItem>
+          <MenuItem value={'can'}>can</MenuItem>
+        </Select>
+      </FormControl>
+     </div>
   </div>
 
   <div>

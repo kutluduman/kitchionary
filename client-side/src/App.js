@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useCookies } from "react-cookie";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Door from "./components/Door.jsx";
@@ -34,12 +35,14 @@ import SimpleGlobe from './components/GlobeFeature';
 import OverlayGlobe from './components/OverlayGlobe';
 import "./styles/globefeature.css";
 import QuizForm from "./components/QuizForm";
+import Favorite from "./components/Favorite";
 
 
 function App() {
   const [matchingRecipes, setMatchingRecipes] = useState({});
   // const [matchingQuiz, setMatchingQuiz] = useState({});
   const [recipeData, setRecipeData] = useState({});
+  const [cookies, setCookie, removeCookie] = useCookies(["name"]);
   const [inputState, setInputState] = useState({
     name: '',
     breakfast: false,
@@ -79,12 +82,12 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
+        <Navbar cookies={cookies} setCookie={setCookie} removeCookie={removeCookie} />
           <dialog role="alertdialog" id="login" open>
-            <LoginTemplate />
+            <LoginTemplate cookies={cookies} setCookie={setCookie} />
           </dialog>
           <dialog role="alertdialog" id="register">
-            <RegisterTemplate />
+            <RegisterTemplate cookies={cookies} setCookie={setCookie} />
           </dialog>
           <main role="main">
             <Switch>
@@ -154,7 +157,10 @@ function App() {
               </Route>
 
               <Route path="/add">
-                <AddRecipe />
+                <AddRecipe cookies={cookies} />
+              </Route>
+              <Route path="/favorite">
+                <Favorite />
               </Route>
             </Switch>
           </main>
