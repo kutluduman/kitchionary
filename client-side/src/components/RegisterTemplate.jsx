@@ -170,7 +170,7 @@ const RegisterTemplate = () => {
 
         <TextField onChange={handleChangeFirstName}
           value={firstName}
-          label="First Name"
+          // label="First Name"
           id="outlined-margin-normal"
           placeholder="First Name"
           className={classes.textField}
@@ -183,7 +183,7 @@ const RegisterTemplate = () => {
         />
          <TextField onChange={handleChangeLastName}
           value={lastName}
-          label="Last Name"
+          // label="Last Name"
           id="outlined-margin-normal"
           placeholder="Last Name"
           className={classes.textField}
@@ -196,7 +196,7 @@ const RegisterTemplate = () => {
         <div>
         <TextField onChange={handleChangeEmail}
           value={email}
-          label="Email"
+          // label="Email"
           id="outlined-margin-normal"
           placeholder="Email"
           className={classes.textField}
@@ -208,7 +208,7 @@ const RegisterTemplate = () => {
         />
          <TextField onChange={handleChangePassword}
           value={password}
-          label="Password"
+          // label="Password"
           id="outlined-margin-normal"
           placeholder="Password"
           className={classes.textField}
@@ -222,7 +222,7 @@ const RegisterTemplate = () => {
         <div>
         <TextField onChange={handleChangePhoneNumber}
           value={phoneNumber}
-          label="Phone Number"
+          // label="Phone Number"
           id="outlined-margin-normal"
           placeholder="Phone Number"
           className={classes.phoneNumber}

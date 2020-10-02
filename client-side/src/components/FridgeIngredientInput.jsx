@@ -40,8 +40,9 @@ export default function IngredientForm(props) {
 
  <form>
  <TextField
-          label="Name"
+          // label="Name"
           onChange={handleChange}
+          placeholder= "Ingredients"
           id=""
           defaultValue=""
           className={classes.textField}
