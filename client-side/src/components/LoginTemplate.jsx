@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     marginLeft: theme.spacing(5),
     marginRight: theme.spacing(5),
+    height: '70px',
     width: '25ch',
      "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
       borderColor: "orange",
@@ -127,7 +128,7 @@ const LoginTemplate = () => {
         {error && <p>{error}</p>}
         <form onSubmit={handleSubmit}>
         <TextField onChange={handleChangeEmail}
-          label="Email"
+          // label="Email"
           value={email}
           id="outlined-margin-normal"
           placeholder="Email"
@@ -141,7 +142,7 @@ const LoginTemplate = () => {
          
         <div>
         <TextField onChange={handleChangePassword}
-          label="Password"
+          // label="Password"
           value={password}
           id="outlined-margin-normal"
           placeholder="Password"

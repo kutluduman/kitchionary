@@ -14,7 +14,7 @@ const QuizButton = (props) => {
   // console.log("state from button", props.inputState);
 
   return (
-  <label >
+  <label>
     <input onClick={handleChange} name={props.name} className="input" type="checkbox" />
     <Button  className="button" variant="outlined" size="large" color="secondary">
          {props.attribute}
