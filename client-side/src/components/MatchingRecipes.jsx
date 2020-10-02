@@ -14,7 +14,6 @@ import RecipeCard from './RecipeCard';
 
 
 
-
 const MatchingRecipes = (props) => {
 
   console.log("from matchingrecipes", props.matchingRecipes);
@@ -45,3 +44,5 @@ const MatchingRecipes = (props) => {
 
 
 export default MatchingRecipes;
+            
+            

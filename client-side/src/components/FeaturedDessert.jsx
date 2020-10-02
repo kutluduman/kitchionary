@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -14,7 +14,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import Button from '@material-ui/core/Button';
 import imageCoconutSorbet from "../docs/CoconutSorbet.jpg";
-
+import axios from "axios";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,6 +34,36 @@ const useStyles = makeStyles((theme) => ({
 const  FeaturedDessert = () => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+
+
+
+
+
+
+    // axios.post(`/`, { recipe })     .then(res => {
+    //     console.log("resss", res.data.info)
+    //     props.setRecipeData(res.data.info)
+    //     if (res.status === 200) {
+    //       setRedirect(true)
+    //     }
+    //   })
+    //   .catch(err => {
+    //     // setError("Incorrect Email or Password!");
+    //   })
+ 
+
+
+  
+      
+
+
+
+
+
+
+
+
+
 
   const handleExpandClick = () => {
     setExpanded(!expanded);

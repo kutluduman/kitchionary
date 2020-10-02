@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import { height } from '@material-ui/system';
 import axios from 'axios';
 import { ReactComponent as Logo } from '../docs/breakfast.jpg'
+import RecipeCard from './RecipeCard';
+import Grid from '@material-ui/core/Grid';
 
 //door
 
@@ -192,8 +194,8 @@ axios.post(`http://localhost:8080/${category}`, {category})
       // console.log("outside if statement")
       if (res.status === 200) {
         // console.log("inside if statement")
-        setRedirect(true);
-        console.log("redirect??", redirect)
+        // setRedirect(true);
+        // console.log("redirect??", redirect)
       }
     })
     .catch(err => {
@@ -201,6 +203,20 @@ axios.post(`http://localhost:8080/${category}`, {category})
       // or set error state
     });
 }
+
+axios.get("http://localhost:8080/recipes")
+.then(res => {
+  console.log("resss", res.data.recipes)
+  props.setMatchingRecipes(res.data.recipes)
+  // if (res.status === 200) {
+  //   setRedirect(true)
+  // }
+})
+.catch(err => {
+  // setError("Incorrect Email or Password!");
+});
+
+// console.log('matching', props.matchingRecipes)
 
 if (!redirect) {
   return (
@@ -253,9 +269,27 @@ if (!redirect) {
     </div>
     <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2>
     <div className="featured">
-      <FeaturedSalad/>
+      {/* <FeaturedSalad/>
       <FeaturedPasta/>
-      <FeaturedDessert/>
+      <FeaturedDessert/> */}
+
+          {/* <Grid container direction="row" justify="center">
+            {props.matchingRecipes.map(recipe => {
+              return (
+                <RecipeCard 
+                id={recipe.id}
+                name={recipe.name}
+                description={recipe.description}
+                image={recipe.img_url}
+                setRecipeData={props.setRecipeData}
+                />
+              );
+              })
+              }
+
+
+        </Grid> */}
+
       
     </div>
     

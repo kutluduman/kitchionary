@@ -14,6 +14,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import Button from '@material-ui/core/Button';
 import imagePerfectGuacamole from "../docs/Perfect_Guacamole.jpg";
+import axios from 'axios';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -30,13 +31,43 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const  FeaturedSalad = () => {
+const  FeaturedSalad = (props) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+
+  // axios.get("http://localhost:8080/recipes")
+  // .then(res => {
+  //   console.log("resss", res.data)
+  //   // props.setRecipeData(res.data.info)
+  //   // if (res.status === 200) {
+  //   //   setRedirect(true)
+  //   // }
+  // })
+  // .catch(err => {
+  //   // setError("Incorrect Email or Password!");
+  // })
+
+
+  // const recipes = { name: 'Perfect Guacamole' }
+  // axios.post(`http://localhost:8080/features`, {recipes})
+  // .then(res => {
+  //   console.log("resss", res.data.recipes)
+  //   props.setMatchingRecipes(res.data.recipes)
+  //   if (res.status === 200) {
+  //     // setRedirect(true)
+  //     // console.log("redirect??", redirect)
+  //   }
+  // })
+  // .catch(err => {
+  //   // res.status(500).json({ error: err.message });
+  //   // or set error state
+  // });
+
 
   return (
     <Card className={classes.root}>
@@ -54,11 +85,11 @@ const  FeaturedSalad = () => {
       <CardMedia
         className={classes.media}
         image={imagePerfectGuacamole}
-        title="Perfect Guacamole"
+        title="name"
       />
       <CardContent>
         <Typography variant="h6" color="textSecondary" component="p">
-        The perfect guacamole!
+       name
         </Typography>
       </CardContent>
       <Button size="large" color="primary">
