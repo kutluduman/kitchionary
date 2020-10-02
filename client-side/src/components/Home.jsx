@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Redirect } from "react-router-dom";
 import {createMuiTheme, makeStyles, withStyles, MuiThemeProvider, ThemeProvider, styled } from '@material-ui/core/styles';
 import {lightBlue,red } from "@material-ui/core/colors";
@@ -11,6 +11,13 @@ import { ReactComponent as Logo } from '../docs/breakfast.jpg'
 import RecipeCard from './RecipeCard';
 import Grid from '@material-ui/core/Grid';
 
+
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
 //door
 
 // import "./door.css";
@@ -179,15 +186,28 @@ const Home = (props) => {
   const [redirect, setRedirect] = useState(false);
   const [meal, setMeal] = useState('');
 
+  const [matchingRec, setMatchingRec] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:8080/recipes")
+    .then(res => {
+      console.log("resss", res.data)
+      setMatchingRec(res.data.recipes)
+    })
+    .catch(err => {
+      // setError("Incorrect Email or Password!");
+    });
+  }, []);
+
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
   
-const handleClick = (category) => {
-setMeal(category)
+  const handleClick = (category) => {
+  setMeal(category)
 
-axios.post(`http://localhost:8080/${category}`, {category})
+  axios.post(`http://localhost:8080/${category}`, {category})
     .then(res => {
       console.log("resss", res.data.recipes)
       props.setMatchingRecipes(res.data.recipes)
@@ -202,118 +222,95 @@ axios.post(`http://localhost:8080/${category}`, {category})
       // res.status(500).json({ error: err.message });
       // or set error state
     });
-}
-
-axios.get("http://localhost:8080/recipes")
-.then(res => {
-  console.log("resss", res.data.recipes)
-  props.setMatchingRecipes(res.data.recipes)
-  // if (res.status === 200) {
-  //   setRedirect(true)
-  // }
-})
-.catch(err => {
-  // setError("Incorrect Email or Password!");
-});
-
-// console.log('matching', props.matchingRecipes)
-
-if (!redirect) {
-  return (
-
-    <div className={classes.root}>
-        <Helmet>
-           <style>{'body { background-color: #e0e9f1; }'}</style>
-         </Helmet>
-    {images.map((image) => (
-      <ButtonBase
-      onClick={() => handleClick(image.title)}
-        // value={image.title}
-        // href={image.href}
-        focusRipple
-        key={image.title}
-        
-        className={classes.image}
-        focusVisibleClassName={classes.focusVisible}
-        style={{
-          width: image.width,
-        }}
-      >
-        <span
-          className={classes.imageSrc}
-        
-          style={{
-            backgroundImage: `url(${image.url})`,
-          }}
-        />
-        <span className={classes.imageBackdrop}    />
-        <span className={classes.imageButton}   >
-          <Typography
-            component="span"
-            variant="subtitle1"
-            color="inherit"
-            className={classes.imageTitle}
-          >
-           
-            {image.title}
-            <span className={classes.imageMarked} />
-          </Typography>
-        </span>
-      </ButtonBase>
-   
-    ))}
-    <div className="mode"> 
-      <Door/> 
-      <Question/> 
-      <Globe/> 
-    </div>
-    <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2>
-    <div className="featured">
-      {/* <FeaturedSalad/>
-      <FeaturedPasta/>
-      <FeaturedDessert/> */}
-
-          {/* <Grid container direction="row" justify="center">
-            {props.matchingRecipes.map(recipe => {
-              return (
-                <RecipeCard 
-                id={recipe.id}
-                name={recipe.name}
-                description={recipe.description}
-                image={recipe.img_url}
-                setRecipeData={props.setRecipeData}
-                />
-              );
-              })
-              }
-
-
-        </Grid> */}
-
-      
-    </div>
-    
-  </div>
-
-  
-);
-} else {
-  console.log('meal', meal);
-  if (meal === 'breakfast') {
-    return <Redirect to = {{ pathname: "/breakfast" }} />;
-  } else if (meal === 'lunch') {
-    return <Redirect to = {{ pathname: "/lunch" }} />;
-  } else if (meal === 'appetizer') {
-    return <Redirect to = {{ pathname: "/appetizer" }} />;
-  } else if (meal === 'dinner') {
-    return <Redirect to = {{ pathname: "/dinner" }} />;
-  } else {
-    return <Redirect to = {{ pathname: "/dessert" }} />;
   }
-}
 
 
-  
-}
+
+  if (!redirect) {
+    return (
+
+      <div className={classes.root}>
+          <Helmet>
+            <style>{'body { background-color: #e0e9f1; }'}</style>
+          </Helmet>
+      {images.map((image) => (
+        <ButtonBase
+        onClick={() => handleClick(image.title)}
+          // value={image.title}
+          // href={image.href}
+          focusRipple
+          key={image.title}
+          
+          className={classes.image}
+          focusVisibleClassName={classes.focusVisible}
+          style={{
+            width: image.width,
+          }}
+        >
+          <span
+            className={classes.imageSrc}
+          
+            style={{
+              backgroundImage: `url(${image.url})`,
+            }}
+          />
+          <span className={classes.imageBackdrop}    />
+          <span className={classes.imageButton}   >
+            <Typography
+              component="span"
+              variant="subtitle1"
+              color="inherit"
+              className={classes.imageTitle}
+            >
+              {image.title}
+              <span className={classes.imageMarked} />
+            </Typography>
+          </span>
+        </ButtonBase>
+    
+      ))}
+      <div className="mode"> 
+        <Door/> 
+        <Question/> 
+        <Globe/> 
+      </div>
+      <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2>
+      <div className="featured">
+        {/* <FeaturedSalad/>
+        <FeaturedPasta/>
+        <FeaturedDessert/> */}
+              <Grid container direction="row" justify="center">
+                {matchingRec.map(recipe => {
+                  return (
+                    <RecipeCard 
+                    id={recipe.id}
+                    name={recipe.name}
+                    description={recipe.description}
+                    image={recipe.img_url}
+                    setRecipeData={props.setRecipeData}
+                    />
+                  );
+                  })
+                  }
+            </Grid>   
+        </div>
+      
+      </div>
+    );
+  } else {
+    console.log('meal', meal);
+    if (meal === 'breakfast') {
+      return <Redirect to = {{ pathname: "/breakfast" }} />;
+    } else if (meal === 'lunch') {
+      return <Redirect to = {{ pathname: "/lunch" }} />;
+    } else if (meal === 'appetizer') {
+      return <Redirect to = {{ pathname: "/appetizer" }} />;
+    } else if (meal === 'dinner') {
+      return <Redirect to = {{ pathname: "/dinner" }} />;
+    } else {
+      return <Redirect to = {{ pathname: "/dessert" }} />;
+    }
+  }
+};
 
 export default Home;
