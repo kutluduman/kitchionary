@@ -9,7 +9,7 @@ module.exports = (db) => {
     const first_name = user.first_name;
     const last_name = user.last_name;
     const email = user.email;
-    const password = user.password;
+    const password = bcrypt.hashSync(user.password,10);
     const phone_number = user.phone_number;
 
     return db.query(`
