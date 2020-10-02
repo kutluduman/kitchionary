@@ -192,6 +192,7 @@ function GlobeFeature(props) {
     axios.post(`http://localhost:8080/${cuisine}`, {cuisine})
         .then(res => {
           console.log("resss", res.data.recipes)
+          console.log("ressstatus", res.status)
           props.setMatchingRecipes(res.data.recipes)
           if (res.status === 200) {
             setRedirect(true);
@@ -221,6 +222,8 @@ function GlobeFeature(props) {
     }
     console.log('cuisine', cuisine)
     console.log(typeof cuisine)
+    console.log('matchingrecipesfromglobe?', props.matchingRecipes)
+    console.log('redirect?', redirect)
   
 if (!redirect) {
   return (
@@ -774,50 +777,53 @@ if (!redirect) {
       
     </div>
   )
-} else if (cuisine === 'american') {
-    return <Redirect to = {{ pathname: "/american" }} />;
-  } else if (cuisine === 'chinese') {
-    return <Redirect to = {{ pathname: "/chinese" }} />;
-  } else if (cuisine === 'indian') {
-    return <Redirect to = {{ pathname: "/indian" }} />;
-  } else if (cuisine === 'japanese') {
-    return <Redirect to = {{ pathname: "/japanese" }} />;
-  } else if (cuisine === 'korean') {
-    return <Redirect to = {{ pathname: "/korean" }} />;
-  } else if (cuisine === 'italian') {
-    return <Redirect to = {{ pathname: "/italian" }} />;
-  } else if (cuisine === 'turkish') {
-    return <Redirect to = {{ pathname: "/turkish" }} />;
-  } else if (cuisine === 'spanish') {
-    return <Redirect to = {{ pathname: "/spanish" }} />;
-  } else if (cuisine === 'mexican') {
-    return <Redirect to = {{ pathname: "/mexican" }} />;
-  } else if (cuisine === 'mediterranean') {
-    return <Redirect to = {{ pathname: "/mediterranean" }} />;
-  } else if (cuisine === 'greek') {
-    return <Redirect to = {{ pathname: "/greek" }} />;
-  } else if (cuisine === '12') {
-    return <Redirect to = {{ pathname: "/recipes/12" }} />;
-  } else if (cuisine === '4') {
-    return <Redirect to = {{ pathname: "/recipes/4" }} />;
-  } else if (cuisine === '13') {
-    return <Redirect to = {{ pathname: "/recipes/13" }} />;
-  } else if (cuisine === '3') {
-    return <Redirect to = {{ pathname: "/recipes/3" }} />;
-  } else if (cuisine === '16') {
-    return <Redirect to = {{ pathname: "/recipes/16" }} />;
-  } else if (cuisine === '11') {
-    return <Redirect to = {{ pathname: "/recipes/11" }} />;
-  } else if (cuisine === '7') {
-    return <Redirect to = {{ pathname: "/recipes/7" }} />;
-  } else if (cuisine === '9') {
-    return <Redirect to = {{ pathname: "/recipes/9" }} />;
-  } else if (cuisine === '1') {
-    return <Redirect to = {{ pathname: "/recipes/1" }} />;
-  } else if (cuisine === '10') {
-    return <Redirect to = {{ pathname: "/recipes/10" }} />;
-  } else if (cuisine === '17') {
-    return <Redirect to = {{ pathname: "/recipes/17" }} />; 
+} else {
+  console.log('routepath', cuisine)
+    if (cuisine === 'american') {
+      return <Redirect to = {{ pathname: "/american" }} />;
+    } else if (cuisine === 'chinese') {
+      return <Redirect to = {{ pathname: "/chinese" }} />;
+    } else if (cuisine === 'indian') {
+      return <Redirect to = {{ pathname: "/indian" }} />;
+    } else if (cuisine === 'japanese') {
+      return <Redirect to = {{ pathname: "/japanese" }} />;
+    } else if (cuisine === 'korean') {
+      return <Redirect to = {{ pathname: "/korean" }} />;
+    } else if (cuisine === 'italian') {
+      return <Redirect to = {{ pathname: "/italian" }} />;
+    } else if (cuisine === 'turkish') {
+      return <Redirect to = {{ pathname: "/turkish" }} />;
+    } else if (cuisine === 'spanish') {
+      return <Redirect to = {{ pathname: "/spanish" }} />;
+    } else if (cuisine === 'mexican') {
+      return <Redirect to = {{ pathname: "/mexican" }} />;
+    } else if (cuisine === 'mediterranean') {
+      return <Redirect to = {{ pathname: "/mediterranean" }} />;
+    } else if (cuisine === 'greek') {
+      return <Redirect to = {{ pathname: "/greek" }} />;
+    } else if (cuisine === '12') {
+      return <Redirect to = {{ pathname: "/recipes/12" }} />;
+    } else if (cuisine === '4') {
+      return <Redirect to = {{ pathname: "/recipes/4" }} />;
+    } else if (cuisine === '13') {
+      return <Redirect to = {{ pathname: "/recipes/13" }} />;
+    } else if (cuisine === '3') {
+      return <Redirect to = {{ pathname: "/recipes/3" }} />;
+    } else if (cuisine === '16') {
+      return <Redirect to = {{ pathname: "/recipes/16" }} />;
+    } else if (cuisine === '11') {
+      return <Redirect to = {{ pathname: "/recipes/11" }} />;
+    } else if (cuisine === '7') {
+      return <Redirect to = {{ pathname: "/recipes/7" }} />;
+    } else if (cuisine === '9') {
+      return <Redirect to = {{ pathname: "/recipes/9" }} />;
+    } else if (cuisine === '1') {
+      return <Redirect to = {{ pathname: "/recipes/1" }} />;
+    } else if (cuisine === '10') {
+      return <Redirect to = {{ pathname: "/recipes/10" }} />;
+    } else if (cuisine === '17') {
+      return <Redirect to = {{ pathname: "/recipes/17" }} />; 
+    }
   }
 }
 
