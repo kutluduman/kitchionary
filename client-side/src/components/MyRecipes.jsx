@@ -69,11 +69,11 @@ const MyRecipe = (props) => {
                 {matchingRec.map(recipe => {
                   return (
                     <RecipeCard 
-                    id={recipe.id}
+                    // id={recipe.id}
                     name={recipe.name}
                     description={recipe.description}
                     image={recipe.img_url}
-                    setRecipeData={props.setRecipeData}
+                    // setRecipeData={props.setRecipeData}
                     />
                   );
                   })
@@ -105,4 +105,4 @@ const MyRecipe = (props) => {
 
 }
 
-export default MyRecipe;;;;;
+export default MyRecipe;;;;;;;;;;;;;;;;

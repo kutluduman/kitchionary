@@ -158,14 +158,14 @@ function App() {
                 <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
 
-              <Route path="/add">
-                <AddRecipe cookies={cookies} />
+              <Route path="/myrecipes">
+                <MyRecipes cookies={cookies} />
               </Route>
               <Route path="/favorite">
                 <Favorite />
               </Route>
               <Route path="/add">
-                <MyRecipes cookies={cookies} />
+                <AddRecipe cookies={cookies} />
               </Route>
             </Switch>
           </main>

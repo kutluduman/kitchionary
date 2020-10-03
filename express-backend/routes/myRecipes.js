@@ -5,6 +5,7 @@ module.exports = (db) => {
 
   router.post("/", (req,res) => {
     console.log("REQ", req.body)
+    const email = req.body.name
 
     return db.query(`SELECT DISTINCT user_id, recipes.name, recipes.description, recipes.img_url
     FROM recipes
