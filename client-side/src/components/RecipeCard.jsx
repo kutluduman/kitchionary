@@ -11,6 +11,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import sample from '../docs/sample.jpg';
 import axios from "axios";
+import IconButton from '@material-ui/core/IconButton';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 
 
 
@@ -83,6 +85,9 @@ const RecipeCard = (props) => {
         <Button onClick= {handleClick} size="large" color="primary">
             Cook This!
         </Button>
+        <IconButton   aria-label="add to favorites" color='secondary'>
+          <FavoriteIcon  />
+        </IconButton>
         </CardActions>
       </Card>
       )
