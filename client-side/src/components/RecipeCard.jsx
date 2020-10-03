@@ -39,6 +39,7 @@ const RecipeCard = (props) => {
 
   const handleClick = (e) => {
     e.preventDefault();
+    console.log("can i find id?", e.target)
     console.log('props', props.name)
     const recipe = props.name;
     const recipe_id = props.id;
