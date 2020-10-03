@@ -165,7 +165,6 @@ const RecipeCard = (props) => {
       setLike('secondary');
       setRed(false)
 
-
       axios.post(`http://localhost:8080/favorite/${recipe_id}/favourites`, { favourite })
       .then(res => {
         console.log("resssfromrebder", res.data.favourited)

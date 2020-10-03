@@ -48,7 +48,7 @@ function RecipeDetail(props) {
     axios.post("http://localhost:8080/rating", {recipe_id})
     .then(res => {
       console.log("response for rating", res.data.rating[0].round)
-
+      setRating(res.data.rating[0].round);
     })
     .catch(err => {
       console.log('err', err);
@@ -60,9 +60,14 @@ function RecipeDetail(props) {
 
     const handleChange = (event, newValue) => {
       setValue(newValue);
-
-      axios.post(`http://localhost:8080/rating/new`, {})
+      const rating = {
+        user_id: props.cookies,
+        recipe_id: info[0].id,
+        rating: newValue,
+      }
+      axios.post(`http://localhost:8080/rating/new`, {rating})
       .then(res => {
+        console.log("rating", res.data.rating)
      
       })
       .catch(err => {
@@ -83,19 +88,25 @@ function RecipeDetail(props) {
       <Col span={6}>
 
         <Col  className={classes.cont} span={3}>
+        
         <Box className="rating" component="fieldset" mb={3} borderColor="transparent">
           {/* INSERT RECIPE OWNER */}
          <h3><FaceIcon fontSize="medium" color="primary"/> {info[0].first_name} {info[0].last_name}</h3> 
           {/* INSERT RECIPE TIME */}
             <h3><AccessTimeIcon fontSize="medium" color="secondary"/> {info[0].time} min</h3> 
-            {/* <Rating name="read-only" value={rating} readOnly></Rating> */}
-
-             
+            <Box component="fieldset" mb={3} borderColor="transparent">
+              <h3>Rating:</h3>
+             <Rating name="read-only" value={rating} readOnly />
+           </Box>
+           
+           <Box component="fieldset" mb={3} borderColor="transparent">
+             <h3>Your Rating:</h3>
               <Rating
                 name="simple-controlled"
                 value={value}
                 onChange={handleChange}
               />
+              </Box>
 
         </Box>
         <Typography variant="h5" color="textSecondary">
