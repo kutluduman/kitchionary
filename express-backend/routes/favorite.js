@@ -14,7 +14,7 @@ module.exports = (db) => {
     .then((data) => {
         const favourites = data.rows;
         console.log('fav', favourites);
-        res.json({ recipes });
+        res.json({ favourites });
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
