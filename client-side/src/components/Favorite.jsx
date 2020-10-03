@@ -12,6 +12,8 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import axios from 'axios';
+import Grid from '@material-ui/core/Grid';
+import RecipeCard from './RecipeCard';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,24 +36,17 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-
-
-
-
-
 const Favorite = (props) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  const [like, setLike] = useState('default');
-  const [red, setRed] = useState(false);
 
   const [matchingRec, setMatchingRec] = useState([]);
 
   useEffect(() => {
     axios.post("http://localhost:8080/favorite", props.cookies)
     .then(res => {
-      console.log("resss", res.data)
-      setMatchingRec(res.data.recipes)
+      console.log("resssfromfav", res.data)
+      setMatchingRec(res.data.favourites)
     })
     .catch(err => {
       // setError("Incorrect Email or Password!");
@@ -62,49 +57,24 @@ const Favorite = (props) => {
     setExpanded(!expanded);
   };
 
-  const handleLike = () => {
-    // if grey
-    if(like === 'default') {
-      setLike('secondary');
-      setRed(true)
-      axios.post(`http://localhost:8080/favorite`, {  })
-      .then(res => {
-        // console.log("resss", res.data.info)
-        // props.setRecipeData(res.data.info)
-        // if (res.status === 200) {
-        //   console.log('redirect?fromabove', redirect)
-        //   setRedirect(true)
-        //   console.log('redirect?frombelow', redirect)
-        // }
-      })
-      .catch(err => {
-        // setError("Incorrect Email or Password!");
-      })
-    } else {
-      // if red
-      setLike('default');
-      setRed(false);
-      axios.post(`http://localhost:8080/recipes/favorite`, {  })
-      .then(res => {
-        // console.log("resss", res.data.info)
-        // props.setRecipeData(res.data.info)
-        // if (res.status === 200) {
-        //   console.log('redirect?fromabove', redirect)
-        //   setRedirect(true)
-        //   console.log('redirect?frombelow', redirect)
-        // }
-      })
-      .catch(err => {
-        // setError("Incorrect Email or Password!");
-      })
-    }
-    
-  }
-
 
   return(
     <div>
-     <Card className={classes.root}>
+            <Grid container direction="row" justify="center">
+                {matchingRec.map(recipe => {
+                  return (
+                    <RecipeCard 
+                    // id={recipe.id}
+                    name={recipe.name}
+                    description={recipe.description}
+                    image={recipe.img_url}
+                    setRecipeData={props.setRecipeData}
+                    />
+                  );
+                  })
+                  }
+            </Grid>   
+     {/* <Card className={classes.root}>
       <CardHeader
         title="Shrimp and Chorizo Paella"
       />
@@ -126,7 +96,7 @@ const Favorite = (props) => {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
       </Collapse>
-    </Card>
+    </Card> */}
     </div>
   )
 

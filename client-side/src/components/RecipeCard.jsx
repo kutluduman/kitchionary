@@ -36,10 +36,11 @@ const RecipeCard = (props) => {
 
   const classes = useStyles();
   const [redirect, setRedirect] = useState(false);
+  const [like, setLike] = useState('default');
+  const [red, setRed] = useState(false);
 
-  const handleClick = (e) => {
+  const handleLink = (e) => {
     e.preventDefault();
-    console.log("can i find id?", e.target)
     console.log('props', props.name)
     const recipe = props.name;
     const recipe_id = props.id;
@@ -60,7 +61,53 @@ const RecipeCard = (props) => {
       })
   };
 
-      console.log('redirect?', redirect)
+  const handleLike = () => {
+    // if grey
+    const recipe_id = props.id
+    const favourite = {
+      user_id: props.cookies,
+      recipe_id,
+      is_favourite: red,
+    }
+
+    if(like === 'default') {
+      setLike('secondary');
+      setRed(true)
+
+      axios.post(`http://localhost:8080/favorite/${recipe_id}`, { favourite })
+      .then(res => {
+        console.log("resssfromrecipecard", res.data.favourites)
+        // props.setRecipeData(res.data.info)
+        // if (res.status === 200) {
+        //   console.log('redirect?fromabove', redirect)
+        //   setRedirect(true)
+        //   console.log('redirect?frombelow', redirect)
+        // }
+      })
+      .catch(err => {
+        // setError("Incorrect Email or Password!");
+      })
+    } else {
+      // if red
+      setLike('default');
+      setRed(false);
+      axios.post(`http://localhost:8080/recipes/favorite/${recipe_id}`, { favourite })
+      .then(res => {
+        console.log("resssfromrecipecard", res.data.info)
+        // props.setRecipeData(res.data.info)
+        // if (res.status === 200) {
+        //   console.log('redirect?fromabove', redirect)
+        //   setRedirect(true)
+        //   console.log('redirect?frombelow', redirect)
+        // }
+      })
+      .catch(err => {
+        // setError("Incorrect Email or Password!");
+      })
+    }
+    
+  }
+
   
   if (!redirect) {
   return (
@@ -83,10 +130,10 @@ const RecipeCard = (props) => {
           </CardContent>
         </CardActionArea>
         <CardActions>
-        <Button onClick= {handleClick} size="large" color="primary">
+        <Button onClick= {handleLink} size="large" color="primary">
             Cook This!
         </Button>
-        <IconButton   aria-label="add to favorites" color='secondary'>
+        <IconButton  onClick={handleLike} aria-label="add to favorites" color={like}>
           <FavoriteIcon  />
         </IconButton>
         </CardActions>

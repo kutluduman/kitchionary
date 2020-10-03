@@ -105,4 +105,4 @@ const MyRecipe = (props) => {
 
 }
 
-export default MyRecipe;;;;;;;;;;;;;;;;
+export default MyRecipe;

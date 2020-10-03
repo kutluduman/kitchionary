@@ -162,7 +162,7 @@ function App() {
                 <MyRecipes cookies={cookies} setRecipeData={setRecipeData}/>
               </Route>
               <Route path="/favorite">
-                <Favorite cookies={cookies} />
+                <Favorite cookies={cookies} setRecipeData={setRecipeData}/>
               </Route>
               <Route path="/add">
                 <AddRecipe cookies={cookies} />
