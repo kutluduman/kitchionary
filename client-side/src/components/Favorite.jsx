@@ -64,7 +64,7 @@ const Favorite = (props) => {
                 {matchingRec.map(recipe => {
                   return (
                     <RecipeCard 
-                    // id={recipe.id}
+                    id={recipe.id}
                     name={recipe.name}
                     description={recipe.description}
                     image={recipe.img_url}

@@ -37,7 +37,7 @@ const RecipeCard = (props) => {
   const classes = useStyles();
   const [redirect, setRedirect] = useState(false);
   const [like, setLike] = useState('default');
-  const [red, setRed] = useState(false);
+  const [red, setRed] = useState(true);
 
   const handleLink = (e) => {
     e.preventDefault();
@@ -69,15 +69,15 @@ const RecipeCard = (props) => {
       recipe_id: recipe_id,
       is_favourite: red,
     }
-    console.log('userid', props.cookies)
 
     if(like === 'default') {
       setLike('secondary');
-      setRed(true)
+      setRed(false)
+
 
       axios.post(`http://localhost:8080/favorite/${recipe_id}`, { favourite })
       .then(res => {
-        console.log("resssfromrecipecard", res.data.favourites)
+        console.log("resssfromrecipecardlike", res.data.favourited)
         // props.setRecipeData(res.data.info)
         // if (res.status === 200) {
         //   console.log('redirect?fromabove', redirect)
@@ -91,10 +91,10 @@ const RecipeCard = (props) => {
     } else {
       // if red
       setLike('default');
-      setRed(false);
-      axios.post(`http://localhost:8080/recipes/favorite/${recipe_id}`, { favourite })
+      setRed(true);
+      axios.post(`http://localhost:8080/favorite/${recipe_id}`, { favourite })
       .then(res => {
-        console.log("resssfromrecipecard", res.data.info)
+        console.log("resssfromrecipecardunlike", res.data.favourited)
         // props.setRecipeData(res.data.info)
         // if (res.status === 200) {
         //   console.log('redirect?fromabove', redirect)
@@ -109,7 +109,7 @@ const RecipeCard = (props) => {
     
   }
 
-  
+  console.log('whta color', red)
   if (!redirect) {
   return (
         <Card className={classes.root}>
