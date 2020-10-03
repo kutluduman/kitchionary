@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CardMedia from '@material-ui/core/CardMedia';
 import sample from '../docs/sample.jpg';
@@ -12,6 +12,7 @@ import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 import FaceIcon from '@material-ui/icons/Face';
 import IngredientDetails from './IngredientDetails';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,20 +39,41 @@ const useStyles = makeStyles((theme) => ({
 
 function RecipeDetail(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(4);
+  const [rating, setRating] = React.useState(5);
   const info = props.recipeData;
+  const [value, setValue] = React.useState(0);
 
+  useEffect(() => {
+    const recipe_id = info[0].id;
+    axios.post("http://localhost:8080/rating", {recipe_id})
+    .then(res => {
+      console.log("response for rating", res.data.rating[0].round)
+      setRating(res.data.rating[0].round);
+    })
+    .catch(err => {
+      console.log('err', err);
+    });
+  }, []);
 
   console.log("PROPS recipeData", props.recipeData);
   console.log("INFO", info[0])
 
-
-//  info.map(data => {
-//     ingredient = data.ingredient;
-//     amount = data.amount;
-//     unit = data.unit
-//   })
-
+    const handleChange = (event, newValue) => {
+      setValue(newValue);
+      const rating = {
+        user_id: props.cookies,
+        recipe_id: info[0].id,
+        rating: newValue,
+      }
+      axios.post(`http://localhost:8080/rating/new`, {rating})
+      .then(res => {
+        console.log("rating", res.data.rating)
+     
+      })
+      .catch(err => {
+       
+      })
+    }
 
   return (
     <Row>
@@ -66,12 +88,26 @@ function RecipeDetail(props) {
       <Col span={6}>
 
         <Col  className={classes.cont} span={3}>
+        
         <Box className="rating" component="fieldset" mb={3} borderColor="transparent">
           {/* INSERT RECIPE OWNER */}
          <h3><FaceIcon fontSize="medium" color="primary"/> {info[0].first_name} {info[0].last_name}</h3> 
           {/* INSERT RECIPE TIME */}
             <h3><AccessTimeIcon fontSize="medium" color="secondary"/> {info[0].time} min</h3> 
-            <Rating name="read-only" value={value} readOnly></Rating>
+            <Box component="fieldset" mb={3} borderColor="transparent">
+              <h3>Rating:</h3>
+             <Rating name="read-only" value={rating} readOnly />
+           </Box>
+           
+           <Box component="fieldset" mb={3} borderColor="transparent">
+             <h3>Your Rating:</h3>
+              <Rating
+                name="simple-controlled"
+                value={value}
+                onChange={handleChange}
+              />
+              </Box>
+
         </Box>
         <Typography variant="h5" color="textSecondary">
           {/* INSERT RECIPE INGREDIENTS */}
