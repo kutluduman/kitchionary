@@ -27,7 +27,7 @@ import "./fridgeMealCheck.css";
 
 const ColorButton = withStyles((theme) => ({
   root: {
-    backgroundColor: orange[400],
+    backgroundColor: orange[300],
     "&:hover": {
       backgroundColor: orange[500],
     },
@@ -46,8 +46,9 @@ const useStyles = makeStyles((theme: Theme) =>
       marginTop: theme.spacing(5),
       marginRight: theme.spacing(1),
       height: '50px',
-      width: '100px',
-      fontSize: 15
+      width: '125px',
+      fontSize: 15,
+      color: "white"
     },
     actionsContainer: {
       marginBottom: theme.spacing(2),
@@ -80,7 +81,9 @@ const useStyles = makeStyles((theme: Theme) =>
     quiz : {
       fontSize: "30px",
     },
-
+    generate: {
+      width: "60px"
+    },
   })
 );
 
@@ -155,7 +158,7 @@ const FridgeForm = (props) => {
           <h1 className={classes.fridgeHeader}> Fridge Mode</h1> 
           </div>
           <div>
-          <Stepper activeStep={activeStep} color="primary" orientation="vertical">
+          <Stepper activeStep={activeStep} orientation="vertical">
             <Step className={classes.stepper} key="key">
               <StepLabel>
                 <h2 className={classes.quiz}>What meal are you cooking?</h2>
@@ -179,8 +182,8 @@ const FridgeForm = (props) => {
                       Back
                     </Button>
                     <ColorButton
-                      variant="contained"
-                      color="primary"
+                      // variant=""
+                      // // color="primary"
                       onClick={handleNext}
                       className={classes.button}
                     >
@@ -214,8 +217,8 @@ const FridgeForm = (props) => {
                       Back
                     </ColorButton>
                     <ColorButton
-                      variant="contained"
-                      color="primary"
+                      // variant="contained"
+                      // color="primary"
                       onClick={handleNext}
                       className={classes.button}
                     >
@@ -234,6 +237,7 @@ const FridgeForm = (props) => {
               </StepLabel>
               <StepContent>
                 <IngredientForm
+              
                   setInput={props.setInputState}
                   inputState={props.inputState}
                 />
@@ -247,8 +251,8 @@ const FridgeForm = (props) => {
                       Back
                     </ColorButton>
                     <ColorButton
-                      variant="contained"
-                      color="primary"
+                      // variant="contained"
+                      // color="primary"
                       onClick={handleSubmit}
                       className={classes.button}
                     >
@@ -271,7 +275,7 @@ const FridgeForm = (props) => {
                 onClick={handleSubmit}
                 size="large"
                 type="submit"
-                variant="contained"
+                variant="outlined"
               >
                 Generate Recipes
               </ColorButton>
