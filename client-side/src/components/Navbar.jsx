@@ -35,7 +35,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   menuButton: {
-    margin: theme.spacing(5),
+    marginLeft: theme.spacing(2),
+    marginRight: "25%",
     color: "orange",
   },
   search: {
@@ -52,15 +53,30 @@ const useStyles = makeStyles((theme) => ({
       width: "auto",
     },
   },
+  search2: {
+    //font color: #37ade0
+    marginLeft: '500px',
+    position: "relative",
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: fade(theme.palette.common.white, 0.15),
+    "&:hover": {
+      backgroundColor: fade(theme.palette.common.black, 0.05),
+    },
+
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
+      width: "auto",
+    },
+  },
   searchIcon: {
-    padding: theme.spacing(0, 9),
+    padding: theme.spacing(0,1),
     height: "100%",
     position: "absolute",
     pointerEvents: "none",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    color: "#37ade0",
+    color: "orange",
   },
   inputRoot: {
     color: "black",
@@ -74,7 +90,15 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       width: "50ch",
     },
+    // backgroundColor: "white"
   },
+
+  name :{
+    fontFamily: 'Roboto',
+    color: "black",
+    fontSize: '18px',
+    padding: "30px"
+  }
 }));
 
 const ColorButton = withStyles((theme) => ({
@@ -117,7 +141,7 @@ function Navbar(props) {
                 </Button>
               </Typography>
               {/* </IconButton> */}
-              <div className={classes.search}>
+              <div className={classes.search2}>
                 <div className={classes.searchIcon}>
                   <SearchIcon />
                 </div>
@@ -199,6 +223,25 @@ function Navbar(props) {
                   >
                     <MenuItem onClick={handleClose}>New Recipe</MenuItem>
                   </Link>
+                  <Link
+                    to="/fridge"
+                    style={{ textDecoration: "none", display: "block", color: "black" }}
+                  >
+                    <MenuItem onClick={handleClose}>Fridge Mode</MenuItem>
+                  </Link>
+                  <Link
+                    to="/quiz"
+                    style={{ textDecoration: "none", display: "block", color: "black" }}
+                  >
+                    <MenuItem onClick={handleClose}>Quiz Mode</MenuItem>
+                  </Link>
+                  <Link
+                    to="/globe"
+                    style={{ textDecoration: "none", display: "block", color: "black" }}
+                  >
+                    <MenuItem onClick={handleClose}>Globe Mode</MenuItem>
+                  </Link>
+
                 </Menu>
               </IconButton>
               <div className={classes.search}>
@@ -215,7 +258,8 @@ function Navbar(props) {
                 />
               </div>
               <div className={classes.root}>
-                <p className="Name">Logged in as {props.cookies.name}!</p>
+               
+                <h2 className={classes.name}> Logged in as {props.cookies.name}!</h2>
                 <ColorButton onClick={handleRemoveCookie}>
                   {" "}
                   Logout

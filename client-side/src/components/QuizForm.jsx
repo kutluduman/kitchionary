@@ -86,7 +86,8 @@ const useStyles = makeStyles((theme) => ({
   align: {
     display: "flex",
     justifyContent: 'center',
-  }
+  },
+  
 
 
 }));
