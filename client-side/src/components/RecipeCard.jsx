@@ -47,11 +47,19 @@ const RecipeCard = (props) => {
     const favourite = {
       user_id: props.cookies,
       recipe_id: props.id,
+      // is_favourite: red,
     }
-    axios.get(`http://localhost:8080/favorite/${recipe_id}`, { favourite })
+    axios.post(`http://localhost:8080/favorite/${recipe_id}`, { favourite })
     .then(res => {
-      console.log("resssfromfav", res.data)
-      setMatchingRec(res.data.favourites)
+      console.log("resssfromfav", res.data.favourited)
+      if (res.data.favourited.length === 0 || (res.data.favourited.length === 1 && res.data.favourited.is_favourite === false)) {
+        setLike('default')
+        setRed(true)
+      } else {
+        setLike('secondary')
+        setRed(false)
+      }
+      // setMatchingRec(res.data.favourited)
     })
     .catch(err => {
       // setError("Incorrect Email or Password!");
@@ -94,9 +102,10 @@ const RecipeCard = (props) => {
       setRed(false)
 
 
-      axios.post(`http://localhost:8080/favorite/${recipe_id}`, { favourite })
+      axios.post(`http://localhost:8080/favorite/${recipe_id}/favourites`, { favourite })
       .then(res => {
-        console.log("resssfromrecipecardlike", res.data.favourited)
+        console.log("resssfromrebder", res.data.favourited)
+        // if ()
         // props.setRecipeData(res.data.info)
         // if (res.status === 200) {
         //   console.log('redirect?fromabove', redirect)
@@ -111,7 +120,7 @@ const RecipeCard = (props) => {
       // if red
       setLike('default');
       setRed(true);
-      axios.post(`http://localhost:8080/favorite/${recipe_id}`, { favourite })
+      axios.post(`http://localhost:8080/favorite/${recipe_id}/favourites`, { favourite })
       .then(res => {
         console.log("resssfromrecipecardunlike", res.data.favourited)
         // props.setRecipeData(res.data.info)
