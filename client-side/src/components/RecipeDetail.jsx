@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 
 function RecipeDetail(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(4);
+  const [value, setValue] = React.useState(5);
   const info = props.recipeData;
 
 

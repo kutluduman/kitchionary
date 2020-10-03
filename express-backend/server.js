@@ -52,6 +52,7 @@ const turkishRoutes = require("./routes/turkish");
 const addRoutes = require("./routes/add");
 const favoriteRoutes = require("./routes/favorite");
 const myRecipesRoutes = require("./routes/myRecipes");
+const ratingRoutes = require("./routes/rating");
 
 
 
@@ -86,6 +87,7 @@ app.use("/turkish", turkishRoutes(db));
 app.use("/add", addRoutes(db));
 app.use("/favorite",favoriteRoutes(db));
 app.use("/myrecipes",myRecipesRoutes(db));
+app.use("/rating",ratingRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
