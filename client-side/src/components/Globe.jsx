@@ -15,6 +15,15 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
+  button: {
+    color: 'orange',
+    borderColor: 'orange',
+    "&:hover": {
+      backgroundColor: "orange[500]"
+    },
+    fontSize: '15px'
+
+  }
 }));
 
 
@@ -32,8 +41,8 @@ const Globe = (props) =>  {
     return (
       <div>
         <div className="container">
-          <img className='background image' src={background} alt="dessert" width="450" height="825" />
-          <img className="globe image" src={imageQuestion} alt="globe" width="300" height="325"/>
+          <img className='background image' src={background} alt="dessert" width="450" height="725" />
+          <img className="globe image" src={imageQuestion} alt="globe" width="275" height="275"/>
         </div>
         <div className="descriptionGlobe">  
           <h1 className="titleGlobe"> GLOBE MODE</h1>
@@ -46,7 +55,7 @@ const Globe = (props) =>  {
     <br/>
           <div className="globeButton">
             
-            <Button variant="outlined" color="primary" onClick={handleClick}>
+            <Button variant="outlined" className={classes.button} onClick={handleClick}>
               Explore
             </Button>
             </div>

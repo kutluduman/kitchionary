@@ -5,8 +5,28 @@ import imageQuestion from "../docs/question_white.jpg";
 import background from "../docs/white_back.jpg"
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+  button: {
+    color: 'orange',
+    borderColor: 'orange',
+    "&:hover": {
+      backgroundColor: "orange[500]"
+    },
+    fontSize: '15px'
+
+  },
+ 
+}));
 
 const Question = (props) =>  {
+  const classes = useStyles();
   const [redirect, setRedirect] = useState(false);
 
   const handleClick = (e) => {
@@ -18,8 +38,8 @@ const Question = (props) =>  {
   if (!redirect) {
   return (
     <div className="container1">
-      <img className='background1 image1' src={background} alt="dessert" width="450" height="825px" />
-      <img className='question1 image1' src={imageQuestion} alt="question" width="300" height="300" />
+      <img className='background1 image1' src={background} alt="dessert" width="450" height="725px" />
+      <img className='question1 image1' src={imageQuestion} alt="question" width="250" height="250" />
     <div >
       <h1 className="titleQuiz"> QUIZ MODE</h1>
       <div className="description">
@@ -29,7 +49,7 @@ const Question = (props) =>  {
            </div>
             <br/>
             <div className="quizButton">      
-          <Button onClick={handleClick} variant="outlined" color="primary">Explore</Button>
+          <Button onClick={handleClick} className={classes.button} variant="outlined" color="primary">Explore</Button>
         </div>
       </div>
     </div>

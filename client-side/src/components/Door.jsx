@@ -13,6 +13,21 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
+  button: {
+    color: 'orange',
+    borderColor: 'orange',
+    "&:hover": {
+      backgroundColor: "orange[500]"
+    },
+    fontSize: '15px'
+  },
+  description: {
+    width: "235px",
+    display: "flex",
+    justifyContent: "center",
+    marginLeft: "-10px"
+
+  }
 }));
 
 const Door = (props) => {
@@ -34,19 +49,19 @@ const Door = (props) => {
   if (!redirect) {
   return (
     <div className="container">
-      <img className='background image' src={background} alt="dessert" width="450" height="825" />
+      <img className='background image' src={background} alt="dessert" width="450" height="725" />
         <div className="backDoor" onMouseOver={hover} >
           <div className="door"> 
-            <img  src={fridge} alt="question" width="250" height="400" />
+            <img  src={fridge} alt="question" width="200" height="270" />
             </div>
         <div> 
-          <h1 className="titleFridge"> FRIDGE MODE</h1>
-            <Typography variant="h5" align="center" color="textSecondary" component="h3">
+        <h1 className="titleFridge"> FRIDGE MODE</h1>
+            <Typography  className={classes.description} variant="h5" align="center" color="textSecondary" component="h3">
             Explore recipes to make with ingredients you already have at home!
             </Typography>
             <br/>
             <div className="fridgeButton">
-              <Button onClick={handleClick} size="large" variant="outlined" color="primary">Explore</Button>
+              <Button onClick={handleClick} size="large" className={classes.button} variant="outlined" color="primary">Explore</Button>
             </div>
           </div>
         </div>

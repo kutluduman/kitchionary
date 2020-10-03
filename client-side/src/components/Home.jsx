@@ -5,7 +5,7 @@ import {lightBlue,red } from "@material-ui/core/colors";
 import {Helmet} from 'react-helmet';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
-import { height } from '@material-ui/system';
+import { height, width } from '@material-ui/system';
 import axios from 'axios';
 import { ReactComponent as Logo } from '../docs/breakfast.jpg'
 import RecipeCard from './RecipeCard';
@@ -51,31 +51,31 @@ import FeaturedSalad from "./FeaturedSalad";
 const images = [
   {
     url: breakfast,
-    title:'breakfast',
+    title:'Breakfast',
     width: '20%',
     href: '/breakfast'
   },
   {
     url: lunch,
-    title:'lunch',
+    title:'Lunch',
     width: '20%',
     href: '/breakfast'
   },
   {
     url: appetizer,
-    title:'appetizer',
+    title:'Appetizer',
     width: '20%',
     href: '/appetizer'
   },
   {
     url: dinner,
-    title:'dinner',
+    title:'Dinner',
     width: '20%',
     href: '/dinner'
   },
   {
     url: dessert,
-    title:'dessert',
+    title:'Dessert',
     width: '20%',
     href: '/dessert'
   }
@@ -109,6 +109,7 @@ const useStyles = makeStyles((theme) => ({
       },
       '& $imageTitle': {
         border: '4px solid currentColor',
+        width: '120px'
       },
     },
   },
@@ -146,6 +147,8 @@ const useStyles = makeStyles((theme) => ({
   imageTitle: {
     position: 'relative',
     padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
+    fontSize: '28px',
+    fontFamily: 'Roboto'
   },
   imageMarked: {
     height: 3,
@@ -229,7 +232,7 @@ const Home = (props) => {
 
       <div className={classes.root}>
           <Helmet>
-            <style>{'body { background-color: #e0e9f1; }'}</style>
+            <style>{'body { background-color: #f3f3f3; }'}</style>
           </Helmet>
       {images.map((image) => (
         <ButtonBase
@@ -274,9 +277,6 @@ const Home = (props) => {
       </div>
       <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2>
       <div className="featured">
-        {/* <FeaturedSalad/>
-        <FeaturedPasta/>
-        <FeaturedDessert/> */}
               <Grid container direction="row" justify="center">
                 {matchingRec.map(recipe => {
                   return (

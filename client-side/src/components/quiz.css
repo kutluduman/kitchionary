@@ -21,7 +21,7 @@
   justify-content: center; 
 
   position: relative;
-  margin-top: 16.5em;
+  margin-top: 12.5em;
   z-index: 5;
 }
 
@@ -47,7 +47,7 @@ justify-content: center;
 }
 .background1 {
 
-  border: #53a5dc solid 0.3em; 
+  /* border: #53a5dc solid 0.3em;  */
   /* border-radius: 50px; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19);
 
