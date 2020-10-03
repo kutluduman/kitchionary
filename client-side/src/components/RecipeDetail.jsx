@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CardMedia from '@material-ui/core/CardMedia';
 import sample from '../docs/sample.jpg';
@@ -38,8 +38,30 @@ const useStyles = makeStyles((theme) => ({
 
 function RecipeDetail(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(5);
+  const [rating, setRating] = React.useState(5);
   const info = props.recipeData;
+
+
+
+  useEffect(() => {
+    axios.get("http://localhost:8080/rating")
+    .then(res => {
+      console.log("response for rating", res.data)
+    })
+    .catch(err => {
+      console.log('err', err);
+    });
+  }, []);
+
+
+  axios.post(`http://localhost:8080/rating`, user)
+      .then(res => {
+     
+      })
+      .catch(err => {
+       
+      })
+
 
 
   console.log("PROPS recipeData", props.recipeData);
@@ -71,7 +93,7 @@ function RecipeDetail(props) {
          <h3><FaceIcon fontSize="medium" color="primary"/> {info[0].first_name} {info[0].last_name}</h3> 
           {/* INSERT RECIPE TIME */}
             <h3><AccessTimeIcon fontSize="medium" color="secondary"/> {info[0].time} min</h3> 
-            <Rating name="read-only" value={value} readOnly></Rating>
+            <Rating name="read-only" value={rating} readOnly></Rating>
         </Box>
         <Typography variant="h5" color="textSecondary">
           {/* INSERT RECIPE INGREDIENTS */}
