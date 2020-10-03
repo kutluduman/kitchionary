@@ -12,6 +12,7 @@ import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 import FaceIcon from '@material-ui/icons/Face';
 import IngredientDetails from './IngredientDetails';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,13 +41,16 @@ function RecipeDetail(props) {
   const classes = useStyles();
   const [rating, setRating] = React.useState(5);
   const info = props.recipeData;
+  // console.log('info from recipedetail', info[0].id)
 
 
 
   useEffect(() => {
-    axios.get("http://localhost:8080/rating")
+    const recipe_id = info[0].id;
+    axios.post("http://localhost:8080/rating", {recipe_id})
     .then(res => {
-      console.log("response for rating", res.data)
+      console.log("response for rating", res.data.rating[0].round)
+      setRating(res.data.rating[0].round);
     })
     .catch(err => {
       console.log('err', err);
@@ -54,7 +58,7 @@ function RecipeDetail(props) {
   }, []);
 
 
-  axios.post(`http://localhost:8080/rating`, user)
+  axios.post(`http://localhost:8080/rating/new`)
       .then(res => {
      
       })
