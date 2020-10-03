@@ -1,7 +1,6 @@
 const express = require('express');
 const router  = express.Router();
 
-
 module.exports = (db) => {
 
   router.post('/', (req,res) => {
@@ -38,10 +37,6 @@ module.exports = (db) => {
     const isCold = req.body.isCold;
     const isHot = req.body.isHot;
     const time = req.body.time;
-
-    console.log("before queries", ingredients)
-    console.log("unit before queries", typeof unit)
-    console.log("unit before queries", unit)
 
     return db.query(`SELECT id
     FROM users
@@ -154,32 +149,12 @@ module.exports = (db) => {
             res.status(500)
             // .json({ error: err.message });
           });
-
-
     })
     .catch((err) => {
       res.status(500)
       // .json({ error: err.message });
     });
-
-
-
   })
 
   return router;
-
 };
-
-// return db.query(`INSERT INTO recipes (user_id, name, description, directions_one, directions_two, directions_three, directions_four, directions_five, directions_six, img_url, time, is_gluten_free, is_dairy_free, is_vegan, is_vegetarian, is_nut_free, is_salty, is_greasy, is_sweet, is_fruity, is_healthy, is_spicy, is_hot, is_cold, is_breakfast, is_lunch, is_appetizer, is_dinner, is_dessert)
-// VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $22, $23, $24, $25, %26, $27, $28, $29)
-// RETURNING *;
-// `, [user_id, name, description, directions_one, directions_two, directions_three, directions_four, directions_five, directions_six, img_url, time, glutenFree, dairyFree, vegan, vegetarian, nutFree, isSalty, isGreasy, isSweet, isFruity, isHealthy, isSpicy, isHot, isCold, breakfast, lunch, appetizer, dinner, dessert])
-//   .then(data => {
-//       const recipe = data.rows;
-//       res.json({ users });
-//     })
-//   .catch(err => {
-//     res
-//       .status(500)
-//       .json({ error: err.message });
-//   });

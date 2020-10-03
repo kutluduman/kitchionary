@@ -23,10 +23,10 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     flexDirection: "row",
-  
+
   },
   textField: {
-    
+
     width: '60ch',
     "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
       borderColor: "orange",
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
    marginRight: '400px',
    marginLeft:'25%'
-    
+
   },
 
   directions: {
@@ -63,16 +63,16 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: 'center',
     alignItems: 'center',
- 
+
   },
 
   ingredients:{
     display: "flex",
     flexDirection: "row",
-  
+
 
   },
- 
+
   description: {
     width: "800px",
     marginLeft: '45px',
@@ -87,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
  "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
   borderColor: "orange",
 },
- 
+
   },
 
   form: {
@@ -104,7 +104,7 @@ const useStyles = makeStyles((theme) => ({
   subheading: {
     fontSize: '15px',
     marginLeft: '40px'
- 
+
   },
 
   unit: {
@@ -143,7 +143,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "40px",
     marginTop: "40px"
   },
-  
+
   time: {
     width: "150px",
  marginLeft: '45px',
@@ -202,7 +202,7 @@ const AddRecipe = (props) => {
     four: [],
     five: [],
   })
-  
+
   const [inputRecipe, setInputRecipe] = useState({
     user: props.cookies,
     name: '',
@@ -235,6 +235,17 @@ const AddRecipe = (props) => {
     isHealthy: false,
     isCold: false,
     isHot: false,
+    american: false,
+    mexican: false,
+    italian: false,
+    indian: false,
+    chinese: false,
+    korean: false,
+    japanese: false,
+    mediterranean: false,
+    spanish: false,
+    greek: false,
+    turkish: false,
     time: null,
   });
 
@@ -317,7 +328,7 @@ const AddRecipe = (props) => {
       setError("Amount is required!");
       return;
     }
-    
+
     const newRecipe = {
       user: inputRecipe.user,
       name: inputRecipe.name,
@@ -350,6 +361,17 @@ const AddRecipe = (props) => {
       isHealthy: inputRecipe.isHealthy,
       isCold: inputRecipe.isCold,
       isHot: inputRecipe.isHot,
+      american: inputRecipe.american,
+      mexican: inputRecipe.mexican,
+      italian: inputRecipe.italian,
+      indian: inputRecipe.indian,
+      chinese: inputRecipe.chinese,
+      korean: inputRecipe.korean,
+      japanese: inputRecipe.japanese,
+      mediterranean: inputRecipe.mediterranean,
+      spanish: inputRecipe.spanish,
+      greek: inputRecipe.greek,
+      turkish: inputRecipe.turkish,
       time: inputRecipe.time,
     }
 
@@ -372,7 +394,7 @@ const AddRecipe = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     validate();
-    
+
     setInputRecipe({
       name: '',
       img_url: '',
@@ -404,16 +426,20 @@ const AddRecipe = (props) => {
       isHealthy: false,
       isCold: false,
       isHot: false,
+      american: false,
+      mexican: false,
+      italian: false,
+      indian: false,
+      chinese: false,
+      korean: false,
+      japanese: false,
+      mediterranean: false,
+      spanish: false,
+      greek: false,
+      turkish: false,
       time: null,
     })
   };
-
-
-  const handleChangeUnit = (event) => {
-    console.log("UNIT", event.target.value)
-    setInputRecipe({ ...inputRecipe, [event.target.name]: event.target.value });
-  };
-
 
   const handleChangeName = (e) => {
     console.log("NAME", e.target.value)
@@ -435,115 +461,87 @@ const AddRecipe = (props) => {
   }
 
   const handleChangeIngredientsTwo = (e) => {
-    // setInputRecipe({ ...inputRecipe, ingredients_two: e.target.value });
     ingredient.two.push(e.target.value);
   }
 
   const handleChangeIngredientsThree = (e) => {
-    // setInputRecipe({ ...inputRecipe, ingredients_three: e.target.value });
     ingredient.three.push(e.target.value);
   }
-  
+
   const handleChangeIngredientsFour = (e) => {
-    // setInputRecipe({ ...inputRecipe, ingredients_four: e.target.value });
     ingredient.four.push(e.target.value);
   }
 
   const handleChangeIngredientsFive = (e) => {
-    // setInputRecipe({ ...inputRecipe, ingredients_five: e.target.value });
     ingredient.five.push(e.target.value);
   }
-  
+
     const handleChangeTime = (e) => {
-      console.log("Time", e.target.value)
       setInputRecipe({ ...inputRecipe, time: e.target.value });
-      // inputRecipe.amount.push(e.target.value)
     }
 
   const handleChangeAmountOne = (e) => {
-    console.log("AMOUT", e.target.value)
-    // setInputRecipe({ ...inputRecipe, amount_one: e.target.value });
-    // inputRecipe.amount.push(e.target.value)
     amount.one.push(e.target.value);
   }
 
   const handleChangeAmountTwo = (e) => {
-    // setInputRecipe({ ...inputRecipe, amount_two: e.target.value });
     amount.two.push(e.target.value);
   }
 
   const handleChangeAmountThree = (e) => {
-    // setInputRecipe({ ...inputRecipe, amount_three: e.target.value });
     amount.three.push(e.target.value);
   }
-  
+
   const handleChangeAmountFour = (e) => {
-    // setInputRecipe({ ...inputRecipe, amount_four: e.target.value });
     amount.four.push(e.target.value);
   }
 
   const handleChangeAmountFive = (e) => {
-    // setInputRecipe({ ...inputRecipe, amount_five: e.target.value });
     amount.five.push(e.target.value);
   }
 
   const handleChangeUnitOne = (e) => {
-    console.log("UNIT 1", e.target.value)
-    // setInputRecipe({ ...inputRecipe, unit_one: e.target.value });
     inputRecipe.unit.push({0: e.target.value});
   }
 
   const handleChangeUnitTwo = (e) => {
-    // setInputRecipe({ ...inputRecipe, unit_two: e.target.value });
     console.log('unit 2 ', e.target.value)
     inputRecipe.unit.push({1: e.target.value});
   }
 
   const handleChangeUnitThree = (e) => {
-    // setInputRecipe({ ...inputRecipe, unit_three: e.target.value });
-    console.log('unit 3 ', e.target.value)
     inputRecipe.unit.push({2: e.target.value});
   }
-  
+
   const handleChangeUnitFour = (e) => {
-    console.log("UNIT 4", e.target.value)
-    // setInputRecipe({ ...inputRecipe, unit_four: e.target.value });
     inputRecipe.unit.push({3: e.target.value});
   }
 
   const handleChangeUnitFive = (e) => {
-    // setInputRecipe({ ...inputRecipe, unit_five: e.target.value });
-    console.log('unit 5 ', e.target.value)
     inputRecipe.unit.push({4: e.target.value});
   }
 
   const handleChangeDirectionsOne = (e) => {
-    console.log("DIR 1", e.target.value)
     setInputRecipe({ ...inputRecipe, directions_one: e.target.value });
   }
 
   const handleChangeDirectionsTwo = (e) => {
-    console.log('direc 2 ', e.target.value)
     setInputRecipe({ ...inputRecipe, directions_two: e.target.value });
   }
 
   const handleChangeDirectionsThree = (e) => {
-    console.log('direc 3 ', e.target.value)
     setInputRecipe({ ...inputRecipe, directions_three: e.target.value });
   }
-  
+
   const handleChangeDirectionsFour = (e) => {
-    console.log('direc 4 ', e.target.value)
     setInputRecipe({ ...inputRecipe, directions_four: e.target.value });
   }
 
   const handleChangeDirectionsFive = (e) => {
-    console.log('direc 5 ', e.target.value)
     setInputRecipe({ ...inputRecipe, directions_five: e.target.value });
   }
-  
+
   const handleChangeDirectionsSix = (e) => {
-    console.log("DIR 6", e.target.value)
     setInputRecipe({ ...inputRecipe, directions_six: e.target.value });
   }
 
@@ -582,7 +580,7 @@ const AddRecipe = (props) => {
   //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
   //   //checked
   // };
-  
+
   // const handleChangeIsGreasy = (e) => {
   //   console.log("is_greasy", e.target.value)
   //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
@@ -626,39 +624,14 @@ const AddRecipe = (props) => {
   // };
 
   const handleChange = (event) => {
-    console.log(event.target);
-    setState({ ...state, [event.target.name]: event.target.checked });
+    console.log(event.target.name);
+    console.log(event.target.checked);
+    // setState({ ...state, [event.target.name]: event.target.checked });
     setInputRecipe({ ...inputRecipe, [event.target.name]: event.target.checked });
   };
+
+  console.log(inputRecipe)
   
-  const [state, setState] = React.useState({
-    gluten_free : false,
-    nut_free : false,
-    dairy_free : false,
-    vegetarian : false,
-    vegan : false,
-    is_salty: false,
-    is_greasy: false,
-    is_spicy: false,
-    is_sweet: false,
-    is_fruity:false,
-    is_healthy: false,
-    is_hot: false,
-    is_cold: false,
-    american: false,
-    mexican: false,
-    italian: false,
-    indian: false,
-    chinese: false,
-    korean: false,
-    japanese: false,
-    mediterranean: false,
-    spanish: false,
-    greek: false,
-    turkish: false
-  });
-
-
   if (!redirect){
   return (
     <section>
@@ -716,47 +689,107 @@ const AddRecipe = (props) => {
                   />
                 </div>
                 <div  className={classes.cont}>
+                <h1 className={classes.subheading}>Meal Type: </h1>
+                <div className={classes.check}>
+                <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={inputRecipe.breakfast}
+                        onClick={handleChange}
+                        name="breakfast"
+                        color="primary"
+                      />
+                    }
+                    label="Breakfast"
+                  />
+                    <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={inputRecipe.lunch}
+                        onClick={handleChange}
+                        name="lunch"
+                        color="primary"
+                      />
+                    }
+                    label="Lunch"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={inputRecipe.appetizer}
+                        onClick={handleChange}
+                        name="appetizer"
+                        color="primary"
+                      />
+                    }
+                    label="Appetizer"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={inputRecipe.dinner}
+                        onClick={handleChange}
+                        name="dinner"
+                        color="primary"
+                      />
+                    }
+                    label="Dinner"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={inputRecipe.dessert}
+                        onClick={handleChange}
+                        name="dessert"
+                        color="primary"
+                      />
+                    }
+                    label="Dessert"
+                  />
+                  </div>
+
+
                 <h1 className={classes.subheading}>Dietary Restrictations: </h1>
                 <div className={classes.check}>
-                
+
                     <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.gluten_free}
-                        onChange={handleChange}
-                        name="gluten_free"
+                        checked={inputRecipe.glutenFree}
+                        onClick={handleChange}
+                        name="glutenFree"
                         color="primary"
                       />
                     }
-                    label="GlutenFree"
+                    label="Gluten Free"
                   />
                     <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.dairy_free}
-                        onChange={handleChange}
-                        name="dairy_free"
+                        checked={inputRecipe.dairyFree}
+                        onClick={handleChange}
+                        name="dairyFree"
                         color="primary"
                       />
                     }
-                    label="DairyFree"
+                    label="Dairy Free"
                   />
                     <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.nut_free}
-                        onChange={handleChange}
-                        name="nut_free"
+                        checked={inputRecipe.nutFree}
+                        onClick={handleChange}
+                        name="nutFree"
                         color="primary"
                       />
                     }
-                    label="NutFree"
+                    label="Nut Free"
                   />
                      <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.vegan}
-                        onChange={handleChange}
+                        checked={inputRecipe.vegan}
+                        onClick={handleChange}
                         name="vegan"
                         color="primary"
                       />
@@ -767,8 +800,8 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.vegetarian}
-                        onChange={handleChange}
+                        checked={inputRecipe.vegetarian}
+                        onClick={handleChange}
                         name="vegetarian"
                         color="primary"
                       />
@@ -783,9 +816,9 @@ const AddRecipe = (props) => {
                 <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.is_salty}
-                        onChange={handleChange}
-                        name="is_salty"
+                        checked={inputRecipe.isSalty}
+                        onClick={handleChange}
+                        name="isSalty"
                         color="primary"
                       />
                     }
@@ -794,9 +827,9 @@ const AddRecipe = (props) => {
                     <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.is_greasy}
-                        onChange={handleChange}
-                        name="is_greasy"
+                        checked={inputRecipe.isGreasy}
+                        onClick={handleChange}
+                        name="isGreasy"
                         color="primary"
                       />
                     }
@@ -805,9 +838,9 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.is_spicy}
-                        onChange={handleChange}
-                        name="is_spicy"
+                        checked={inputRecipe.isSpicy}
+                        onClick={handleChange}
+                        name="isSpicy"
                         color="primary"
                       />
                     }
@@ -816,9 +849,9 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.is_sweet}
-                        onChange={handleChange}
-                        name="is_sweet"
+                        checked={inputRecipe.isSweet}
+                        onClick={handleChange}
+                        name="isSweet"
                         color="primary"
                       />
                     }
@@ -827,9 +860,9 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.is_fruity}
-                        onChange={handleChange}
-                        name="is_fruity"
+                        checked={inputRecipe.isFruity}
+                        onClick={handleChange}
+                        name="isFruity"
                         color="primary"
                       />
                     }
@@ -838,9 +871,9 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.is_healthy}
-                        onChange={handleChange}
-                        name="is_healthy"
+                        checked={inputRecipe.isHealthy}
+                        onClick={handleChange}
+                        name="isHealthy"
                         color="primary"
                       />
                     }
@@ -849,9 +882,9 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.is_hot}
-                        onChange={handleChange}
-                        name="is_hot"
+                        checked={inputRecipe.isHot}
+                        onClick={handleChange}
+                        name="isHot"
                         color="primary"
                       />
                     }
@@ -860,9 +893,9 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.is_cold}
-                        onChange={handleChange}
-                        name="is_cold"
+                        checked={inputRecipe.isCold}
+                        onClick={handleChange}
+                        name="isCold"
                         color="primary"
                       />
                     }
@@ -874,9 +907,9 @@ const AddRecipe = (props) => {
                 <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.american}
-                        onChange={handleChange}
-                        name="American"
+                        checked={inputRecipe.american}
+                        onClick={handleChange}
+                        name="american"
                         color="primary"
                       />
                     }
@@ -885,9 +918,9 @@ const AddRecipe = (props) => {
                     <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.mexican}
-                        onChange={handleChange}
-                        name="Mexican"
+                        checked={inputRecipe.mexican}
+                        onClick={handleChange}
+                        name="mexican"
                         color="primary"
                       />
                     }
@@ -896,9 +929,9 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.italian}
-                        onChange={handleChange}
-                        name="Italian"
+                        checked={inputRecipe.italian}
+                        onClick={handleChange}
+                        name="italian"
                         color="primary"
                       />
                     }
@@ -907,9 +940,9 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.indian}
-                        onChange={handleChange}
-                        name="Indian"
+                        checked={inputRecipe.indian}
+                        onClick={handleChange}
+                        name="indian"
                         color="primary"
                       />
                     }
@@ -918,9 +951,9 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.chinese}
+                        checked={inputRecipe.chinese}
                         onChange={handleChange}
-                        name="Chinese"
+                        name="chinese"
                         color="primary"
                       />
                     }
@@ -929,9 +962,9 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.korean}
-                        onChange={handleChange}
-                        name="Korean"
+                        checked={inputRecipe.korean}
+                        onClick={handleChange}
+                        name="korean"
                         color="primary"
                       />
                     }
@@ -940,9 +973,9 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.japanese}
-                        onChange={handleChange}
-                        name="Japanese"
+                        checked={inputRecipe.japanese}
+                        onClick={handleChange}
+                        name="japanese"
                         color="primary"
                       />
                     }
@@ -953,9 +986,9 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.mediterranean}
-                        onChange={handleChange}
-                        name="Mediterranean"
+                        checked={inputRecipe.mediterranean}
+                        onClick={handleChange}
+                        name="mediterranean"
                         color="primary"
                       />
                     }
@@ -964,9 +997,9 @@ const AddRecipe = (props) => {
                     <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.spanish}
-                        onChange={handleChange}
-                        name="Spanish"
+                        checked={inputRecipe.spanish}
+                        onClick={handleChange}
+                        name="spanish"
                         color="primary"
                       />
                     }
@@ -975,9 +1008,9 @@ const AddRecipe = (props) => {
                     <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.greek}
-                        onChange={handleChange}
-                        name="Greek"
+                        checked={inputRecipe.greek}
+                        onClick={handleChange}
+                        name="greek"
                         color="primary"
                       />
                     }
@@ -986,9 +1019,9 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={state.turkish}
-                        onChange={handleChange}
-                        name="Turkish"
+                        checked={inputRecipe.turkish}
+                        onClick={handleChange}
+                        name="turkish"
                         color="primary"
                       />
                     }
@@ -1012,7 +1045,7 @@ const AddRecipe = (props) => {
                   </div>
                   <div className={classes.cont}>
                   <h1 className={classes.subheading}>Ingredients:</h1>
-                    <div className={classes.ingredients}> 
+                    <div className={classes.ingredients}>
                       <TextField onChange={handleChangeIngredientsOne}
                         value={inputRecipe.ingredients[0]}
                         id="outlined-margin-normal"
@@ -1036,7 +1069,7 @@ const AddRecipe = (props) => {
                         }}
                       />
                       <FormControl  className={classes.textField} variant="outlined">
-                        <Select 
+                        <Select
                           className={classes.unit}
                           labelId="demo-simple-select-outlined-label"
                           id="demo-simple-select-outlined"
@@ -1073,7 +1106,7 @@ const AddRecipe = (props) => {
                         InputLabelProps={{
                           style: { color: 'orange' },
                         }}
-                      /> 
+                      />
 
                       <TextField onChange={handleChangeAmountTwo}
                         value={inputRecipe.amount[1]}
@@ -1124,7 +1157,7 @@ const AddRecipe = (props) => {
                         InputLabelProps={{
                           style: { color: 'orange' },
                         }}
-                      /> 
+                      />
 
                       <TextField onChange={handleChangeAmountThree}
                         value={inputRecipe.amount[2]}
@@ -1176,7 +1209,7 @@ const AddRecipe = (props) => {
                         InputLabelProps={{
                           style: { color: 'orange' },
                         }}
-                      /> 
+                      />
 
                       <TextField onChange={handleChangeAmountFour}
                         value={inputRecipe.amount[3]}
@@ -1294,7 +1327,7 @@ const AddRecipe = (props) => {
                       InputLabelProps={{
                         style: { color: 'orange' },
                       }}
-                    /> 
+                    />
 
                     <TextField onChange={handleChangeDirectionsThree}
                       value={inputRecipe.directions_three}
@@ -1306,7 +1339,7 @@ const AddRecipe = (props) => {
                       InputLabelProps={{
                         style: { color: 'orange' },
                       }}
-                    /> 
+                    />
 
                     <TextField onChange={handleChangeDirectionsFour}
                       value={inputRecipe.directions_four}
@@ -1319,7 +1352,7 @@ const AddRecipe = (props) => {
                       InputLabelProps={{
                         style: { color: 'orange' },
                       }}
-                    /> 
+                    />
 
                     <TextField onChange={handleChangeDirectionsFive}
                       value={inputRecipe.directions_five}
@@ -1331,7 +1364,7 @@ const AddRecipe = (props) => {
                       InputLabelProps={{
                         style: { color: 'orange' },
                       }}
-                    /> 
+                    />
 
                     <TextField onChange={handleChangeDirectionsSix}
                       value={inputRecipe.directions_six}
@@ -1343,9 +1376,9 @@ const AddRecipe = (props) => {
                       InputLabelProps={{
                         style: { color: 'orange' },
                       }}
-                    /> 
+                    />
                   </div>
-               
+
                   <br/>
                     <div className={classes.button}>
                       <ColorButton type='submit' variant="contained" color="primary">Add</ColorButton>
