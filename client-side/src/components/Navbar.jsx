@@ -182,7 +182,7 @@ function Navbar(props) {
                   onClose={handleClose}
                 >
                   <Link
-                    to="/fridge"
+                    to="/myrecipes"
                     style={{ textDecoration: "none", display: "block", color: "black" }}
                   >
                     <MenuItem onClick={handleClose}>My Recipes</MenuItem>

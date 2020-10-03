@@ -65,10 +65,10 @@ const RecipeCard = (props) => {
         <CardActionArea>
           <CardMedia className={classes.media}
             component="img"
-            alt="Shrimp and Chorizo Paella"
+            // alt="Shrimp and Chorizo Paella"
             height="140"
             image={props.image}
-            title="Shrimp and Chorizo Paella"
+            title={props.name}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
