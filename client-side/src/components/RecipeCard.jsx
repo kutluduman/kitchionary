@@ -29,6 +29,54 @@ const useStyles = makeStyles({
     weight: 250,
 
   },
+  name: {
+  display: "flex",
+  justifyContent: "center",
+  fontFamily: "Roboto"
+  },
+
+  description: {
+    marginLeft: '20px',
+    marginRight: '20px',
+    fontSize: '17px'
+  },
+
+  cook: {
+    marginLeft: '20px',
+    // marginBottom: '5px',
+    fontSize: '19px',
+    color: 'orange',
+    borderColor: 'orange',
+    "&:hover": {
+      backgroundColor: "orange[500]"
+    },
+    fontSize: '15px',
+    // marginTop: '20px'
+    display:'flex',
+    alignSelf: 'flex-end'
+  },
+  button: {
+marginTop: "2.5%",
+display: "flex",
+justifyContent: "space-between"
+
+  },
+   like: {
+    position: "absolute",
+marginLeft: "400px",
+marginTop: "40px",
+backgroundColor: "white",
+
+  transform: "translate(-50%, -50%)"
+  // -ms-transform: translate(-50%, -50%);
+  // background-color: #555;
+  // color: white;
+  // font-size: 16px;
+  // padding: 12px 24px;
+  // border: none;
+  // cursor: pointer;
+  // border-radius: 5px;
+   }
 
 });
 
@@ -142,6 +190,9 @@ const RecipeCard = (props) => {
   return (
         <Card className={classes.root}>
         <CardActionArea>
+        <IconButton onClick={handleLike} size="large" className={classes.like} aria-label="add to favorites" color={like}>
+          <FavoriteIcon  />
+        </IconButton>
           <CardMedia className={classes.media}
             component="img"
             // alt="Shrimp and Chorizo Paella"
@@ -150,22 +201,21 @@ const RecipeCard = (props) => {
             title={props.name}
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography className={classes.name} gutterBottom variant="h5" component="h2">
             {props.name}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography variant="body2" className={classes.description} color="textSecondary" component="p">
             {props.description}
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions>
-        <Button onClick= {handleLink} size="large" color="primary">
+        
+        <CardActions className={classes.button}>
+        <Button className={classes.cook} onClick= {handleLink} size="large" >
             Cook This!
         </Button>
-        <IconButton  onClick={handleLike} aria-label="add to favorites" color={like}>
-          <FavoriteIcon  />
-        </IconButton>
         </CardActions>
+     
       </Card>
       )
     } else {
