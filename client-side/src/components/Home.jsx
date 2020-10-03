@@ -5,7 +5,7 @@ import {lightBlue,red } from "@material-ui/core/colors";
 import {Helmet} from 'react-helmet';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
-import { height } from '@material-ui/system';
+import { height, width } from '@material-ui/system';
 import axios from 'axios';
 import { ReactComponent as Logo } from '../docs/breakfast.jpg'
 import RecipeCard from './RecipeCard';
@@ -51,44 +51,38 @@ import FeaturedSalad from "./FeaturedSalad";
 const images = [
   {
     url: breakfast,
-    title:'breakfast',
+    title:'Breakfast',
     width: '20%',
     href: '/breakfast'
   },
   {
     url: lunch,
-    title:'lunch',
+    title:'Lunch',
     width: '20%',
     href: '/breakfast'
   },
   {
     url: appetizer,
-    title:'appetizer',
+    title:'Appetizer',
     width: '20%',
     href: '/appetizer'
   },
   {
     url: dinner,
-    title:'dinner',
+    title:'Dinner',
     width: '20%',
     href: '/dinner'
   },
   {
     url: dessert,
-    title:'dessert',
+    title:'Dessert',
     width: '20%',
     href: '/dessert'
   }
 ]
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    // display: 'flex',
-    // flexWrap: 'wrap',
-    // // minWidth: 300,
-    // width: '100%',
-    // justifyContent: 'center'
-  },
+ 
   image: {
 
     // margin:'.9%',
@@ -109,6 +103,7 @@ const useStyles = makeStyles((theme) => ({
       },
       '& $imageTitle': {
         border: '4px solid currentColor',
+        width: '120px'
       },
     },
   },
@@ -146,6 +141,8 @@ const useStyles = makeStyles((theme) => ({
   imageTitle: {
     position: 'relative',
     padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
+    fontSize: '28px',
+    fontFamily: 'Roboto'
   },
   imageMarked: {
     height: 3,
@@ -176,6 +173,13 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: red[500],
   },
+
+  recipes: {
+    backgroundColor: "orange",
+    marginLeft: "4.75%",
+    marginRight: "4.75%",
+    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)',
+  }
 }));
 
 
@@ -229,7 +233,7 @@ const Home = (props) => {
 
       <div className={classes.root}>
           <Helmet>
-            <style>{'body { background-color: #e0e9f1; }'}</style>
+            <style>{'body { background-color: #fafafa; }'}</style>
           </Helmet>
       {images.map((image) => (
         <ButtonBase
@@ -272,11 +276,12 @@ const Home = (props) => {
         <Question cookies={props.cookies}/> 
         <Globe cookies={props.cookies}/> 
       </div>
-      <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2>
+
+          {/* <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2> */}
+      <div className={classes.recipes}>
+
+          <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2>
       <div className="featured">
-        {/* <FeaturedSalad/>
-        <FeaturedPasta/>
-        <FeaturedDessert/> */}
               <Grid container direction="row" justify="center">
                 {matchingRec.map(recipe => {
                   return (
@@ -293,7 +298,7 @@ const Home = (props) => {
                   }
             </Grid>   
         </div>
-      
+        </div>
       </div>
     );
   } else {
