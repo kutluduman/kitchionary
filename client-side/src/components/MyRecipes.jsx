@@ -73,7 +73,7 @@ const MyRecipe = (props) => {
                     name={recipe.name}
                     description={recipe.description}
                     image={recipe.img_url}
-                    // setRecipeData={props.setRecipeData}
+                    setRecipeData={props.setRecipeData}
                     />
                   );
                   })

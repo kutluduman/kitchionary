@@ -159,7 +159,7 @@ function App() {
               </Route>
 
               <Route path="/myrecipes">
-                <MyRecipes cookies={cookies} />
+                <MyRecipes cookies={cookies} setRecipeData={setRecipeData}/>
               </Route>
               <Route path="/favorite">
                 <Favorite />
