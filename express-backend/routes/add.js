@@ -19,24 +19,8 @@ module.exports = (db) => {
     const directions_five = req.body.directions_five;
     const directions_six = req.body.directions_six;
     const ingredients = req.body.ingredients;
-    // const ingredients_one = req.body.ingredients_one;
-    // const ingredients_two = req.body.ingredients_two;
-    // const ingredients_three = req.body.ingredients_three;
-    // const ingredients_four = req.body.ingredients_four;
-    // const ingredients_five = req.body.ingredients_five;
-    // const amount = [1, 2]
     const amount = req.body.amount;
-    // const amount_one = req.body.amount_one;
-    // const amount_two = req.body.amount_two;
-    // const amount_three = req.body.amount_three;
-    // const amount_four = req.body.amount_four;
-    // const amount_five = req.body.amount_five;
     const unit = req.body.unit;
-    // const unit_one = req.body.unit_one;
-    // const unit_two = req.body.unit_two;
-    // const unit_three = req.body.unit_three;
-    // const unit_four = req.body.unit_four;
-    // const unit_five = req.body.unit_five;
     const breakfast = req.body.breakfast;
     const lunch = req.body.lunch;
     const appetizer = req.body.appetizer;
@@ -55,7 +39,6 @@ module.exports = (db) => {
     const isHealthy = req.body.isHealthy;
     const isCold = req.body.isCold;
     const isHot = req.body.isHot;
-    // const time = 30;
     const time = req.body.time;
 
     console.log("before queries", ingredients)

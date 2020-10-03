@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import { Redirect } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -36,8 +36,29 @@ const RecipeCard = (props) => {
 
   const classes = useStyles();
   const [redirect, setRedirect] = useState(false);
+  const [like, setLike] = useState('default');
+  const [red, setRed] = useState(true);
 
-  const handleClick = (e) => {
+  const [matchingRec, setMatchingRec] = useState([]);
+
+  useEffect(() => {
+    const recipe_id = props.id;
+    console.log(recipe_id, "hello")
+    const favourite = {
+      user_id: props.cookies,
+      recipe_id: props.id,
+    }
+    axios.get(`http://localhost:8080/favorite/${recipe_id}`, { favourite })
+    .then(res => {
+      console.log("resssfromfav", res.data)
+      setMatchingRec(res.data.favourites)
+    })
+    .catch(err => {
+      // setError("Incorrect Email or Password!");
+    });
+  }, []);
+
+  const handleLink = (e) => {
     e.preventDefault();
     console.log('props', props.name)
     const recipe = props.name;
@@ -59,8 +80,55 @@ const RecipeCard = (props) => {
       })
   };
 
-      console.log('redirect?', redirect)
-  
+  const handleLike = () => {
+    // if grey
+    const recipe_id = props.id;
+    const favourite = {
+      user_id: props.cookies,
+      recipe_id: props.id,
+      is_favourite: red,
+    }
+
+    if(like === 'default') {
+      setLike('secondary');
+      setRed(false)
+
+
+      axios.post(`http://localhost:8080/favorite/${recipe_id}`, { favourite })
+      .then(res => {
+        console.log("resssfromrecipecardlike", res.data.favourited)
+        // props.setRecipeData(res.data.info)
+        // if (res.status === 200) {
+        //   console.log('redirect?fromabove', redirect)
+        //   setRedirect(true)
+        //   console.log('redirect?frombelow', redirect)
+        // }
+      })
+      .catch(err => {
+        // setError("Incorrect Email or Password!");
+      })
+    } else {
+      // if red
+      setLike('default');
+      setRed(true);
+      axios.post(`http://localhost:8080/favorite/${recipe_id}`, { favourite })
+      .then(res => {
+        console.log("resssfromrecipecardunlike", res.data.favourited)
+        // props.setRecipeData(res.data.info)
+        // if (res.status === 200) {
+        //   console.log('redirect?fromabove', redirect)
+        //   setRedirect(true)
+        //   console.log('redirect?frombelow', redirect)
+        // }
+      })
+      .catch(err => {
+        // setError("Incorrect Email or Password!");
+      })
+    }
+    
+  }
+
+  console.log('whta color', red)
   if (!redirect) {
   return (
         <Card className={classes.root}>
@@ -82,10 +150,10 @@ const RecipeCard = (props) => {
           </CardContent>
         </CardActionArea>
         <CardActions>
-        <Button onClick= {handleClick} size="large" color="primary">
+        <Button onClick= {handleLink} size="large" color="primary">
             Cook This!
         </Button>
-        <IconButton   aria-label="add to favorites" color='secondary'>
+        <IconButton  onClick={handleLike} aria-label="add to favorites" color={like}>
           <FavoriteIcon  />
         </IconButton>
         </CardActions>
