@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useCookies } from "react-cookie";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Door from "./components/Door.jsx";
@@ -14,7 +15,9 @@ import FridgeForm from "./components/FridgeForm";
 import RecipeDetail from "./components/RecipeDetail";
 import MatchingRecipes from "./components/MatchingRecipes";
 import GlobeFeature from "./components/GlobeFeature";
+import AddRecipe from "./components/AddRecipe";
 import axios from 'axios';
+
 
 import {
   BrowserRouter as Router,
@@ -33,12 +36,15 @@ import SimpleGlobe from './components/GlobeFeature';
 import OverlayGlobe from './components/OverlayGlobe';
 import "./styles/globefeature.css";
 import QuizForm from "./components/QuizForm";
+import Favorite from "./components/Favorite";
+import MyRecipes from "./components/MyRecipes";
 
 
 function App() {
   const [matchingRecipes, setMatchingRecipes] = useState({});
   // const [matchingQuiz, setMatchingQuiz] = useState({});
   const [recipeData, setRecipeData] = useState({});
+  const [cookies, setCookie, removeCookie] = useCookies(["name"]);
   const [inputState, setInputState] = useState({
     name: '',
     breakfast: false,
@@ -78,17 +84,17 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
+        <Navbar cookies={cookies} setCookie={setCookie} removeCookie={removeCookie} />
           <dialog role="alertdialog" id="login" open>
-            <LoginTemplate />
+            <LoginTemplate cookies={cookies} setCookie={setCookie} />
           </dialog>
           <dialog role="alertdialog" id="register">
-            <RegisterTemplate />
+            <RegisterTemplate cookies={cookies} setCookie={setCookie} />
           </dialog>
           <main role="main">
             <Switch>
               <Route exact path="/">
-                <Home setMatchingRecipes={setMatchingRecipes} setRecipeData={setRecipeData} />
+                <Home setMatchingRecipes={setMatchingRecipes} setRecipeData={setRecipeData} cookies={cookies} />
               </Route>
               <Route exact path="/breakfast">
                 <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
@@ -150,6 +156,16 @@ function App() {
               <Route path="/recipes/:id" render={(props) => <RecipeDetail {...props} recipeData={recipeData} />} />
               <Route path="/recipes">
                 <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
+              </Route>
+
+              <Route path="/myrecipes">
+                <MyRecipes cookies={cookies} />
+              </Route>
+              <Route path="/favorite">
+                <Favorite />
+              </Route>
+              <Route path="/add">
+                <AddRecipe cookies={cookies} />
               </Route>
             </Switch>
           </main>

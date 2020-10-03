@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import { Redirect } from "react-router-dom";
-import { useCookies } from 'react-cookie';
+// import { useCookies } from 'react-cookie';
 import {createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -58,7 +58,7 @@ const theme = createMuiTheme({
 
 
 
-const RegisterTemplate = () => {
+const RegisterTemplate = (props) => {
   const classes = useStyles();
 
   const [error, setError] = useState('');
@@ -67,12 +67,11 @@ const RegisterTemplate = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [cookies, setCookie] = useCookies(['name']);
+  // const [cookies, setCookie] = useCookies(['name']);
 
   // const {loginShowing, toggleLogin} = useLogin();
   // const {registerShowing, toggleRegister} = useRegister();
   
-
   function validate() {
     if(!firstName){
       setError("First Name is required!");
@@ -95,7 +94,6 @@ const RegisterTemplate = () => {
       return false;
     }
 
-    
     const user = {
       first_name: firstName,
       last_name: lastName,
@@ -104,14 +102,12 @@ const RegisterTemplate = () => {
       phone_number: phoneNumber
     };
 
-    
-
     axios.post(`http://localhost:8080/register`, user)
       .then(res => {
         console.log(res);
         console.log(res.data);
         if (res.status === 200) {
-          setCookie('name', user.email, {path: '/'});
+          props.setCookie('name', user.email, {path: '/'});
         }
       })
       .catch(err => {
@@ -152,7 +148,7 @@ const RegisterTemplate = () => {
     setPassword(e.target.value);
   }
   
-  if (!cookies.name){
+  if (!props.cookies.name){
   return (
     <section>
       <div className="modal-overlay"/>

@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import { Redirect } from "react-router-dom";
-import { useCookies } from 'react-cookie';
+// import { useCookies } from 'react-cookie';
 import { createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -52,20 +52,13 @@ const theme = createMuiTheme({
   },
 });
 
-
-
-
-
-const LoginTemplate = () => {
+const LoginTemplate = (props) => {
   const classes = useStyles();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [cookies, setCookie] = useCookies(['name']);
-
-  // const {registerShowing, toggleRegister} = useRegister();
-  // const {loginShowing, toggleLogin} = useLogin();
+  // const [cookies, setCookie] = useCookies(['name']);
 
   const validate = () => {
     if (!email) {
@@ -82,11 +75,10 @@ const LoginTemplate = () => {
        password
       }
   
-  
     axios.post(`http://localhost:8080/login`, { user })
       .then(res => {
         if (res.status === 200) {
-          setCookie('name', user.email, {path: '/'});
+          props.setCookie('name', user.email, {path: '/'});
         }
       })
       .catch(err => {
@@ -111,7 +103,7 @@ const LoginTemplate = () => {
     setPassword(e.target.value);
   }
 
-  if (!cookies.name){
+  if (!props.cookies.name){
 
   return (
     <section>

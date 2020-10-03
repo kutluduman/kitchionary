@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { Redirect } from "react-router-dom";
 import "./door.css";
 import background from "../docs/white_back.jpg"
 import fridge from "../docs/fridge.jpg";
@@ -14,8 +15,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Door = () => {
+const Door = (props) => {
   const classes = useStyles();
+  const [redirect, setRedirect] = useState(false);
 
   const hover = e => {
     const element = document.querySelector(".door");
@@ -23,6 +25,13 @@ const Door = () => {
     element.classList.toggle("doorOpen");
   }
 
+  const handleClick = (e) => {
+    // if (props.cookies.name) {
+      setRedirect(true);
+    // }
+  };
+
+  if (!redirect) {
   return (
     <div className="container">
       <img className='background image' src={background} alt="dessert" width="450" height="825" />
@@ -37,13 +46,20 @@ const Door = () => {
             </Typography>
             <br/>
             <div className="fridgeButton">
-              <Button href="/fridge" size="large" variant="outlined" color="primary">Explore</Button>
+              <Button onClick={handleClick} size="large" variant="outlined" color="primary">Explore</Button>
             </div>
           </div>
         </div>
     </div>
   
   )
+  } else {
+    if (!props.cookies.name) {
+      return <Redirect to = {{ pathname: "#login" }} />;
+    } else {
+      return <Redirect to = {{ pathname: "/fridge" }} />;
+    }
+  }
 };
 
 export default Door;
