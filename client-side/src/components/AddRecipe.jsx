@@ -8,13 +8,8 @@ import axios from 'axios';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
-
 import InputLabel from '@material-ui/core/InputLabel';
-// import Login from "./Login";
-// import  useLogin from './useLogin';
-// import  toggle from './useLogin';
-// import  useRegister from './useRegister';
-// import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
 
 
 
@@ -22,16 +17,13 @@ import InputLabel from '@material-ui/core/InputLabel';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    flexWrap: 'wrap',
-    alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: 'column'
-    
+    flexDirection: "row",
+  
   },
   textField: {
-    marginLeft: theme.spacing(4),
-    marginRight: theme.spacing(4),
-    width: '25ch',
+
+    width: '60ch',
     "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
       borderColor: "orange",
     },
@@ -47,7 +39,66 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: "40px"
+    fontSize: "40px",
+  },
+
+  cont: {
+    display: 'flex',
+    flexDirection: "column",
+    justifyContent: 'center',
+   marginRight: '400px',
+   marginLeft:'400px'
+    
+  },
+
+  directions: {
+    display: 'flex',
+    flexDirection: "column",
+    justifyContent: 'center',
+    alignItems: 'center',
+ 
+  },
+
+  ingredients:{
+    display: "flex",
+    flexDirection: "row",
+    marginLeft: '30px'
+
+  },
+
+  form: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: "column",
+    border: "black solid",
+    width: '1000px',
+  },
+
+  subheading: {
+    fontSize: '15px',
+    marginLeft: '400px'
+ 
+  },
+
+  unit: {
+    marginTop: "15px",
+    width: "120px"
+  },
+
+  step: {
+    width: "750px",
+  },
+
+  ingredient: {
+    width: "550px",
+    marginLeft: '400px'
+  },
+
+  amount: {
+    marginLeft: '20px',
+    marginRight: '20px',
+    width: "120px"
   }
 
 }));
@@ -80,7 +131,7 @@ const AddRecipe = (props) => {
 
   const [error, setError] = useState('');
   const [inputRecipe, setInputRecipe] = useState({
-    user_id: props.cookies,
+    user: props.cookies,
     name: '',
     img_url: '',
     description: '',
@@ -90,21 +141,9 @@ const AddRecipe = (props) => {
     directions_four: '',
     directions_five: '',
     directions_six: '',
-    ingredients_one: '',
-    ingredients_two: '',
-    ingredients_three: '',
-    ingredients_four: '',
-    ingredients_five: '',
-    amount_one: null,
-    amount_two: null,
-    amount_three: null,
-    amount_four: null,
-    amount_five: null,
-    unit_one: null,
-    unit_two: null,
-    unit_three: null,
-    unit_four: null,
-    unit_five: null,
+    ingredients: [],
+    amount: [],
+    unit: [],
     breakfast: false,
     lunch: false,
     appetizer: false,
@@ -126,58 +165,11 @@ const AddRecipe = (props) => {
     time: 0,
   });
 
-  // const {loginShowing, toggleLogin} = useLogin();
-  // const {registerShowing, toggleRegister} = useRegister();
-  
-
-  // function validate() {
-  //   if(!firstName){
-  //     setError("First Name is required!");
-  //     return false;
-  //   }
-  //   if(!lastName){
-  //     setError("Last Name is required!");
-  //     return false;
-  //   }
-  //   if(!email){
-  //     setError("Email is required!");
-  //     return false;
-  //   }
-  //   if(!password){
-  //     setError("Password is required!");
-  //     return false;
-  //   }
-  //   if(!phoneNumber){
-  //     setError("Phone Number is required!");
-  //     return false;
-  //   }
-
-    
-  //   const user = {
-  //     first_name: firstName,
-  //     last_name: lastName,
-  //     email: email,
-  //     password: password,
-  //     phone_number: phoneNumber
-  //   };
-
-  //   axios.post(`http://localhost:8080/register`, user)
-  //     .then(res => {
-  //       console.log(res);
-  //       console.log(res.data);
-  //       if (res.status === 200) {
-  //         setCookie('name', user.email, {path: '/'});
-  //       }
-  //     })
-  //     .catch(err => {
-  //       setError("Account already exists!");
-  //     })
-  // }
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newRecipe = {
+      user: props.cookies,
       name: '',
       img_url: '',
       description: '',
@@ -187,21 +179,9 @@ const AddRecipe = (props) => {
       directions_four: '',
       directions_five: '',
       directions_six: '',
-      ingredients_one: '',
-      ingredients_two: '',
-      ingredients_three: '',
-      ingredients_four: '',
-      ingredients_five: '',
-      amount_one: null,
-      amount_two: null,
-      amount_three: null,
-      amount_four: null,
-      amount_five: null,
-      unit_one: null,
-      unit_two: null,
-      unit_three: null,
-      unit_four: null,
-      unit_five: null,
+      ingredients: [],
+      amount: [],
+      unit: [],
       breakfast: false,
       lunch: false,
       appetizer: false,
@@ -234,7 +214,6 @@ const AddRecipe = (props) => {
       .catch(err => {
         // setError("Account already exists!");
       })
-  // }
 
     setInputRecipe({
       name: '',
@@ -246,21 +225,9 @@ const AddRecipe = (props) => {
       directions_four: '',
       directions_five: '',
       directions_six: '',
-      ingredients_one: '',
-      ingredients_two: '',
-      ingredients_three: '',
-      ingredients_four: '',
-      ingredients_five: '',
-      amount_one: null,
-      amount_two: null,
-      amount_three: null,
-      amount_four: null,
-      amount_five: null,
-      unit_one: null,
-      unit_two: null,
-      unit_three: null,
-      unit_four: null,
-      unit_five: null,
+      ingredients: [],
+      amount: [],
+      unit: [],
       breakfast: false,
       lunch: false,
       appetizer: false,
@@ -300,64 +267,71 @@ const AddRecipe = (props) => {
   const handleChangeImg = (e) => {
     setInputRecipe({ ...inputRecipe, img_url: e.target.value });
   }
-  const handleChangeIngredientsOne = (e) => {
-    setInputRecipe({ ...inputRecipe, ingredients_one: e.target.value });
+  const handleChangeIngredients = (e) => {
+    // setInputRecipe({ ...inputRecipe, ingredients_one: e.target.value });
+    inputRecipe.ingredients.push(e.target.value)
   }
 
-  const handleChangeIngredientsTwo = (e) => {
-    setInputRecipe({ ...inputRecipe, ingredients_two: e.target.value });
-  }
+  // const handleChangeIngredientsTwo = (e) => {
+  //   setInputRecipe({ ...inputRecipe, ingredients_two: e.target.value });
+  // }
 
-  const handleChangeIngredientsThree = (e) => {
-    setInputRecipe({ ...inputRecipe, ingredients_three: e.target.value });
-  }
+  // const handleChangeIngredientsThree = (e) => {
+  //   setInputRecipe({ ...inputRecipe, ingredients_three: e.target.value });
+  // }
   
-  const handleChangeIngredientsFour = (e) => {
-    setInputRecipe({ ...inputRecipe, ingredients_four: e.target.value });
+  // const handleChangeIngredientsFour = (e) => {
+  //   setInputRecipe({ ...inputRecipe, ingredients_four: e.target.value });
+  // }
+
+  // const handleChangeIngredientsFive = (e) => {
+  //   setInputRecipe({ ...inputRecipe, ingredients_five: e.target.value });
+  // }
+
+  const handleChangeAmount = (e) => {
+    // setInputRecipe({ ...inputRecipe, amount_one: e.target.value });
+    inputRecipe.amount.push(e.target.value)
   }
 
-  const handleChangeIngredientsFive = (e) => {
-    setInputRecipe({ ...inputRecipe, ingredients_five: e.target.value });
-  }
+  // const handleChangeAmountTwo = (e) => {
+  //   setInputRecipe({ ...inputRecipe, amount_two: e.target.value });
+  // }
 
-  const handleChangeAmountOne = (e) => {
-    setInputRecipe({ ...inputRecipe, amount_one: e.target.value });
-  }
-
-  const handleChangeAmountTwo = (e) => {
-    setInputRecipe({ ...inputRecipe, amount_two: e.target.value });
-  }
-
-  const handleChangeAmountThree = (e) => {
-    setInputRecipe({ ...inputRecipe, amount_three: e.target.value });
-  }
+  // const handleChangeAmountThree = (e) => {
+  //   setInputRecipe({ ...inputRecipe, amount_three: e.target.value });
+  // }
   
-  const handleChangeAmountFour = (e) => {
-    setInputRecipe({ ...inputRecipe, amount_four: e.target.value });
-  }
+  // const handleChangeAmountFour = (e) => {
+  //   setInputRecipe({ ...inputRecipe, amount_four: e.target.value });
+  // }
 
-  const handleChangeAmountFive = (e) => {
-    setInputRecipe({ ...inputRecipe, amount_five: e.target.value });
-  }
+  // const handleChangeAmountFive = (e) => {
+  //   setInputRecipe({ ...inputRecipe, amount_five: e.target.value });
+  // }
 
   const handleChangeUnitOne = (e) => {
-    setInputRecipe({ ...inputRecipe, unit_one: e.target.value });
+    // setInputRecipe({ ...inputRecipe, unit_one: e.target.value });
+    inputRecipe.unit.push({0: e.target.value});
   }
 
   const handleChangeUnitTwo = (e) => {
-    setInputRecipe({ ...inputRecipe, unit_two: e.target.value });
+    // setInputRecipe({ ...inputRecipe, unit_two: e.target.value });
+    inputRecipe.unit.push({1: e.target.value});
   }
 
   const handleChangeUnitThree = (e) => {
-    setInputRecipe({ ...inputRecipe, unit_three: e.target.value });
+    // setInputRecipe({ ...inputRecipe, unit_three: e.target.value });
+    inputRecipe.unit.push({2: e.target.value});
   }
   
   const handleChangeUnitFour = (e) => {
-    setInputRecipe({ ...inputRecipe, unit_four: e.target.value });
+    // setInputRecipe({ ...inputRecipe, unit_four: e.target.value });
+    inputRecipe.unit.push({3: e.target.value});
   }
 
   const handleChangeUnitFive = (e) => {
-    setInputRecipe({ ...inputRecipe, unit_five: e.target.value });
+    // setInputRecipe({ ...inputRecipe, unit_five: e.target.value });
+    inputRecipe.unit.push({4: e.target.value});
   }
 
   const handleChangeDirectionsOne = (e) => {
@@ -387,350 +361,405 @@ const AddRecipe = (props) => {
   // if (!cookies.name){
   return (
     <section>
-    <div role="dialog">
-      <div>
-     
-      <h2 className={classes.addTitle}>Add New Recipe</h2>
-    <div className={classes.root}>
-      <div>
-        <br/>
-        {error && <p>{error}</p>}
-      <form onSubmit={handleSubmit}>
-      {/* NAME */}
-        <TextField onChange={handleChangeName}
-          value={inputRecipe.name}
-          id="outlined-margin-normal"
-          placeholder="Name"
-          className={classes.textField}
-          margin="normal"
-          variant="outlined"
-          InputLabelProps={{
-            style: { color: 'orange' },
-          }  
-        }
-        />
-
-        {/* Description */}
-         <TextField onChange={handleChangeDescription}
-          value={inputRecipe.description}
-          id="outlined-margin-normal"
-          placeholder="Description"
-          className={classes.textField}
-          margin="normal"
-          variant="outlined"
-          InputLabelProps={{
-            style: { color: 'orange' },
-          }}
-        />
-        {/* Image */}
+      <div role="dialog">
         <div>
-        <TextField onChange={handleChangeImg}
-          value={inputRecipe.img_url}
-          id="outlined-margin-normal"
-          placeholder="Image URL"
-          className={classes.textField}
-          margin="normal"
-          variant="outlined"
-          InputLabelProps={{
-            style: { color: 'orange' },
-          }}
-        />
+            <div className={classes.cont}>
+              <div className={classes.form}>
+              <h2 className={classes.addTitle}>Add New Recipe</h2>
+                <br/>
+                {error && <p>{error}</p>}
+                <form onSubmit={handleSubmit}>
+                  {/* NAME */}
+                <div className={classes.cont}>
+                <h1 className={classes.subheading}>Recipe Name:</h1>
+                  <TextField onChange={handleChangeName}
+                    value={inputRecipe.name}
+                    id="outlined-margin-normal"
+                    placeholder="Name"
+                    className={classes.textField}
+                    margin="normal"
+                    variant="outlined"
+                    InputLabelProps={{
+                      style: { color: 'orange' },
+                    }}
+                  />
+                  </div>
+                  <div className={classes.cont}>
+                  <h1 className={classes.subheading}>Recipe Description:</h1>
+                  <TextField onChange={handleChangeDescription}
+                    value={inputRecipe.description}
+                    id="outlined-margin-normal"
+                    placeholder="Description"
+                    className={classes.textField}
+                    margin="normal"
+                    variant="outlined"
+                    InputLabelProps={{
+                      style: { color: 'orange' },
+                    }}
+                  />
+                  </div>
+                  {/* Image */}
+                  <div className={classes.cont}>
+                  <h1 className={classes.subheading}>Image URL:</h1>
+                  <TextField onChange={handleChangeImg}
+                    value={inputRecipe.img_url}
+                    id="outlined-margin-normal"
+                    placeholder="Image URL"
+                    className={classes.textField}
+                    margin="normal"
+                    variant="outlined"
+                    InputLabelProps={{
+                      style: { color: 'orange' },
+                    }}
+                  />
+                </div>
+                  <div className={classes.cont}>
+                  <h1 className={classes.subheading}>Ingredients:</h1>
+                    <div className={classes.ingredients}> 
+                      <TextField onChange={handleChangeIngredients}
+                        value={inputRecipe.ingredients[0]}
+                        id="outlined-margin-normal"
+                        placeholder="Ingredient 1"
+                        className={classes.ingredient}
+                        margin="normal"
+                        variant="outlined"
+                        InputLabelProps={{
+                          style: { color: 'orange' },
+                        }}
+                      />
+                         <TextField onChange={handleChangeAmount}
+                        value={inputRecipe.amount[0]}
+                        id="outlined-margin-normal"
+                        placeholder="Quantity"
+                        className={classes.amount}
+                        margin="normal"
+                        variant="outlined"
+                        InputLabelProps={{
+                          style: { color: 'orange' },
+                        }}
+                      />
+                      <FormControl  className={classes.textField} variant="outlined">
+                        <Select 
+                          className={classes.unit}
+                          labelId="demo-simple-select-outlined-label"
+                          id="demo-simple-select-outlined"
+                          value={props.unit}
+                          onChange={handleChangeUnitOne}
+                          label="Unit"
+                          name='unit'
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={'tbsp'}>tbsp</MenuItem>
+                          <MenuItem value={'tsp'}>tsp</MenuItem>
+                          <MenuItem value={'cup'}>cup</MenuItem>
+                          <MenuItem value={'oz'}>oz</MenuItem>
+                          <MenuItem value={'lb'}>lb</MenuItem>
+                          <MenuItem value={'g'}>g</MenuItem>
+                          <MenuItem value={'clove'}>clove</MenuItem>
+                          <MenuItem value={'package'}>package</MenuItem>
+                          <MenuItem value={'can'}>can</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </div>
 
-        <div>
-          <div>
-       {/* INGREDIENTS */}
-       <TextField onChange={handleChangeIngredientsOne}
-          value={inputRecipe.ingredients_one}
-          id="outlined-margin-normal"
-          placeholder="Ingredient 1"
-          className={classes.textField}
-          margin="normal"
-          variant="outlined"
-          InputLabelProps={{
-            style: { color: 'orange' },
-          }}
-        />
+                    <div className={classes.ingredients}>
+                      <TextField onChange={handleChangeIngredients}
+                        value={inputRecipe.ingredients[1]}
+                        // label="Password"
+                        id="outlined-margin-normal"
+                        placeholder="Ingredient 2"
+                        className={classes.ingredient}
+                        margin="normal"
+                        variant="outlined"
+                        InputLabelProps={{
+                          style: { color: 'orange' },
+                        }}
+                      /> 
 
-  
-      <FormControl   className={classes.textField} variant="outlined">
-        <Select
-          labelId="demo-simple-select-outlined-label"
-          id="demo-simple-select-outlined"
-          value={props.unit}
-          onChange={handleChangeUnit}
-          label="Unit"
-          name='unit'
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={'tbsp'}>tbsp</MenuItem>
-          <MenuItem value={'tsp'}>tsp</MenuItem>
-          <MenuItem value={'cup'}>cup</MenuItem>
-          <MenuItem value={'oz'}>oz</MenuItem>
-          <MenuItem value={'lb'}>lb</MenuItem>
-          <MenuItem value={'g'}>g</MenuItem>
-          <MenuItem value={'clove'}>clove</MenuItem>
-          <MenuItem value={'package'}>package</MenuItem>
-          <MenuItem value={'can'}>can</MenuItem>
-        </Select>
-      </FormControl>
-    </div>
+                      <TextField onChange={handleChangeAmount}
+                        value={inputRecipe.amount[1]}
+                        id="outlined-margin-normal"
+                        placeholder="Quantity"
+                        className={classes.amount}
+                        margin="normal"
+                        variant="outlined"
+                        InputLabelProps={{
+                          style: { color: 'orange' },
+                        }}
+                      />
+                      <FormControl   className={classes.textField} variant="outlined">
+                        <Select
+                          className={classes.unit}
+                          labelId="demo-simple-select-outlined-label"
+                          id="demo-simple-select-outlined"
+                          value={props.unit}
+                          onChange={handleChangeUnitTwo}
+                          label="Unit"
+                          name='unit'
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={'tbsp'}>tbsp</MenuItem>
+                          <MenuItem value={'tsp'}>tsp</MenuItem>
+                          <MenuItem value={'cup'}>cup</MenuItem>
+                          <MenuItem value={'oz'}>oz</MenuItem>
+                          <MenuItem value={'lb'}>lb</MenuItem>
+                          <MenuItem value={'g'}>g</MenuItem>
+                          <MenuItem value={'clove'}>clove</MenuItem>
+                          <MenuItem value={'package'}>package</MenuItem>
+                          <MenuItem value={'can'}>can</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </div>
 
-    <div>
-      <TextField onChange={handleChangeIngredientsTwo}
-        value={inputRecipe.ingredients_two}
-        // label="Password"
-        id="outlined-margin-normal"
-        placeholder="Ingredient 2"
-        className={classes.textField}
-        margin="normal"
-        variant="outlined"
-        InputLabelProps={{
-          style: { color: 'orange' },
-        }}
-      /> 
-      <FormControl   className={classes.textField} variant="outlined">
-        <Select
-          labelId="demo-simple-select-outlined-label"
-          id="demo-simple-select-outlined"
-          value={props.unit}
-          onChange={handleChangeUnit}
-          label="Unit"
-          name='unit'
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={'tbsp'}>tbsp</MenuItem>
-          <MenuItem value={'tsp'}>tsp</MenuItem>
-          <MenuItem value={'cup'}>cup</MenuItem>
-          <MenuItem value={'oz'}>oz</MenuItem>
-          <MenuItem value={'lb'}>lb</MenuItem>
-          <MenuItem value={'g'}>g</MenuItem>
-          <MenuItem value={'clove'}>clove</MenuItem>
-          <MenuItem value={'package'}>package</MenuItem>
-          <MenuItem value={'can'}>can</MenuItem>
-        </Select>
-      </FormControl>
-     </div>
+                    <div className={classes.ingredients}>
+                      <TextField onChange={handleChangeIngredients}
+                        value={inputRecipe.ingredients[2]}
+                        // label="Password"
+                        id="outlined-margin-normal"
+                        placeholder="Ingredient 3"
+                        className={classes.ingredient}
+                        margin="normal"
+                        variant="outlined"
+                        InputLabelProps={{
+                          style: { color: 'orange' },
+                        }}
+                      /> 
 
-     <div>
-      <TextField onChange={handleChangeIngredientsThree}
-        value={inputRecipe.ingredients_three}
-        // label="Password"
-        id="outlined-margin-normal"
-        placeholder="Ingredient 3"
-        className={classes.textField}
-        margin="normal"
-        variant="outlined"
-        InputLabelProps={{
-          style: { color: 'orange' },
-        }}
-      /> 
+                      <TextField onChange={handleChangeAmount}
+                        value={inputRecipe.amount[2]}
+                        id="outlined-margin-normal"
+                        placeholder="Quantity"
+                        className={classes.amount}
+                        margin="normal"
+                        variant="outlined"
+                        InputLabelProps={{
+                          style: { color: 'orange' },
+                        }}
+                      />
+                      <FormControl   className={classes.textField} variant="outlined">
+                        <Select
+                        className={classes.unit}
+                        labelId="demo-simple-select-outlined-label"
+                        id="demo-simple-select-outlined"
+                        value={props.unit}
+                        onChange={handleChangeUnitThree}
+                        label="Unit"
+                        name='unit'
+                        >
 
-      <FormControl   className={classes.textField} variant="outlined">
-        <Select
-         
-         labelId="demo-simple-select-outlined-label"
-         id="demo-simple-select-outlined"
-         value={props.unit}
-         onChange={handleChangeUnit}
-         label="Unit"
-         name='unit'
-        >
-         <MenuItem value="">
-           <em>None</em>
-         </MenuItem>
-         <MenuItem value={'tbsp'}>tbsp</MenuItem>
-         <MenuItem value={'tsp'}>tsp</MenuItem>
-         <MenuItem value={'cup'}>cup</MenuItem>
-         <MenuItem value={'oz'}>oz</MenuItem>
-         <MenuItem value={'lb'}>lb</MenuItem>
-         <MenuItem value={'g'}>g</MenuItem>
-         <MenuItem value={'clove'}>clove</MenuItem>
-         <MenuItem value={'package'}>package</MenuItem>
-         <MenuItem value={'can'}>can</MenuItem>
-        </Select>
-     </FormControl>
-    </div>
+                        <MenuItem value="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem value={'tbsp'}>tbsp</MenuItem>
+                        <MenuItem value={'tsp'}>tsp</MenuItem>
+                        <MenuItem value={'cup'}>cup</MenuItem>
+                        <MenuItem value={'oz'}>oz</MenuItem>
+                        <MenuItem value={'lb'}>lb</MenuItem>
+                        <MenuItem value={'g'}>g</MenuItem>
+                        <MenuItem value={'clove'}>clove</MenuItem>
+                        <MenuItem value={'package'}>package</MenuItem>
+                        <MenuItem value={'can'}>can</MenuItem>
+                        </Select>
+                    </FormControl>
+                    </div>
 
-    <div>
-      <TextField onChange={handleChangeIngredientsFour}
-        value={inputRecipe.ingredients_four}
-        // label="Password"
-        id="outlined-margin-normal"
-        placeholder="Ingredient 4"
-        className={classes.textField}
-        margin="normal"
-        variant="outlined"
-        InputLabelProps={{
-          style: { color: 'orange' },
-        }}
-      /> 
+                    <div className={classes.ingredients}>
+                      <TextField onChange={handleChangeIngredients}
+                        value={inputRecipe.ingredients[3]}
+                        // label="Password"
+                        id="outlined-margin-normal"
+                        placeholder="Ingredient 4"
+                        className={classes.ingredient}
+                        margin="normal"
+                        variant="outlined"
+                        InputLabelProps={{
+                          style: { color: 'orange' },
+                        }}
+                      /> 
 
-      <FormControl   className={classes.textField} variant="outlined">
-        <Select
-         
-         labelId="demo-simple-select-outlined-label"
-         id="demo-simple-select-outlined"
-         value={props.unit}
-         onChange={handleChangeUnit}
-         label="Unit"
-         name='unit'
-        >
-        <MenuItem value="">
-          <em>None</em>
-        </MenuItem>
-        <MenuItem value={'tbsp'}>tbsp</MenuItem>
-        <MenuItem value={'tsp'}>tsp</MenuItem>
-        <MenuItem value={'cup'}>cup</MenuItem>
-        <MenuItem value={'oz'}>oz</MenuItem>
-        <MenuItem value={'lb'}>lb</MenuItem>
-        <MenuItem value={'g'}>g</MenuItem>
-        <MenuItem value={'clove'}>clove</MenuItem>
-        <MenuItem value={'package'}>package</MenuItem>
-        <MenuItem value={'can'}>can</MenuItem>
-       </Select>
-     </FormControl>
-    </div>
+                      <TextField onChange={handleChangeAmount}
+                        value={inputRecipe.amount[3]}
+                        id="outlined-margin-normal"
+                        placeholder="Quantity"
+                        className={classes.amount}
+                        margin="normal"
+                        variant="outlined"
+                        InputLabelProps={{
+                          style: { color: 'orange' },
+                        }}
+                      />
+                      <FormControl   className={classes.textField} variant="outlined">
+                        <Select
+                          className={classes.unit}
+                          labelId="demo-simple-select-outlined-label"
+                          id="demo-simple-select-outlined"
+                          value={props.unit}
+                          onChange={handleChangeUnitFour}
+                          label="Unit"
+                          name='unit'
+                          >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={'tbsp'}>tbsp</MenuItem>
+                          <MenuItem value={'tsp'}>tsp</MenuItem>
+                          <MenuItem value={'cup'}>cup</MenuItem>
+                          <MenuItem value={'oz'}>oz</MenuItem>
+                          <MenuItem value={'lb'}>lb</MenuItem>
+                          <MenuItem value={'g'}>g</MenuItem>
+                          <MenuItem value={'clove'}>clove</MenuItem>
+                          <MenuItem value={'package'}>package</MenuItem>
+                          <MenuItem value={'can'}>can</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </div>
 
-    <div>
-      <TextField onChange={handleChangeIngredientsFive}
-        value={inputRecipe.ingredients_five}
-        // label="Password"
-        id="outlined-margin-normal"
-        placeholder="Ingredient 5"
-        className={classes.textField}
-        margin="normal"
-        variant="outlined"
-        InputLabelProps={{
-          style: { color: 'orange' },
-      }}
-      /> 
-      <FormControl   className={classes.textField} variant="outlined">
-        <Select
-        labelId="demo-simple-select-outlined-label"
-        id="demo-simple-select-outlined"
-        value={props.unit}
-        onChange={handleChangeUnit}
-        label="Unit"
-        name='unit'
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={'tbsp'}>tbsp</MenuItem>
-          <MenuItem value={'tsp'}>tsp</MenuItem>
-          <MenuItem value={'cup'}>cup</MenuItem>
-          <MenuItem value={'oz'}>oz</MenuItem>
-          <MenuItem value={'lb'}>lb</MenuItem>
-          <MenuItem value={'g'}>g</MenuItem>
-          <MenuItem value={'clove'}>clove</MenuItem>
-          <MenuItem value={'package'}>package</MenuItem>
-          <MenuItem value={'can'}>can</MenuItem>
-        </Select>
-      </FormControl>
-     </div>
-  </div>
+                    <div className={classes.ingredients}>
+                      <TextField onChange={handleChangeIngredients}
+                        value={inputRecipe.ingredients[4]}
+                        // label="Password"
+                        id="outlined-margin-normal"
+                        placeholder="Ingredient 5"
+                        className={classes.ingredient}
+                        margin="normal"
+                        variant="outlined"
+                        InputLabelProps={{
+                          style: { color: 'orange' },
+                      }}
+                      />
 
-  <div>
-        {/* DIRECTIONS */}
-         <TextField onChange={handleChangeDirectionsOne}
-          value={inputRecipe.directions_one}
-          // label="Password"
-          id="outlined-margin-normal"
-          placeholder="Direction 1"
-          className={classes.textField}
-          margin="normal"
-          variant="outlined"
-          InputLabelProps={{
-            style: { color: 'orange' },
-          }}
-        />
+                      <TextField onChange={handleChangeAmount}
+                        value={inputRecipe.amount[4]}
+                        id="outlined-margin-normal"
+                        placeholder="Quantity"
+                        className={classes.amount}
+                        margin="normal"
+                        variant="outlined"
+                        InputLabelProps={{
+                          style: { color: 'orange' },
+                        }}
+                      />
 
-        <TextField onChange={handleChangeDirectionsTwo}
-          value={inputRecipe.directions_two}
-          // label="Password"
-          id="outlined-margin-normal"
-          placeholder="Direction 2"
-          className={classes.textField}
-          margin="normal"
-          variant="outlined"
-          InputLabelProps={{
-            style: { color: 'orange' },
-          }}
-        /> 
+                      <FormControl   className={classes.textField} variant="outlined">
+                        <Select
+                        className={classes.unit}
+                        labelId="demo-simple-select-outlined-label"
+                        id="demo-simple-select-outlined"
+                        value={props.unit}
+                        onChange={handleChangeUnitFive}
+                        label="Unit"
+                        name='unit'
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={'tbsp'}>tbsp</MenuItem>
+                          <MenuItem value={'tsp'}>tsp</MenuItem>
+                          <MenuItem value={'cup'}>cup</MenuItem>
+                          <MenuItem value={'oz'}>oz</MenuItem>
+                          <MenuItem value={'lb'}>lb</MenuItem>
+                          <MenuItem value={'g'}>g</MenuItem>
+                          <MenuItem value={'clove'}>clove</MenuItem>
+                          <MenuItem value={'package'}>package</MenuItem>
+                          <MenuItem value={'can'}>can</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </div>
+                    </div>
 
+                <h1 className={classes.subheading}>Directions:</h1>
 
-        <TextField onChange={handleChangeDirectionsThree}
-        value={inputRecipe.directions_three}
-        // label="Password"
-        id="outlined-margin-normal"
-        placeholder="Direction 3"
-        className={classes.textField}
-        margin="normal"
-        variant="outlined"
-        InputLabelProps={{
-          style: { color: 'orange' },
-        }}
-      /> 
+                  <div className={classes.directions}>
+                    {/* DIRECTIONS */}
+                    <TextField onChange={handleChangeDirectionsOne}
+                      value={inputRecipe.directions_one}
+                      id="outlined-margin-normal"
+                      placeholder="Direction 1"
+                      className={classes.step}
+                      margin="normal"
+                      variant="outlined"
+                      InputLabelProps={{
+                        style: { color: 'orange' },
+                      }}
+                    />
 
+                    <TextField onChange={handleChangeDirectionsTwo}
+                      value={inputRecipe.directions_two}
+                      id="outlined-margin-normal"
+                      placeholder="Direction 2"
+                      className={classes.step}
+                      margin="normal"
+                      variant="outlined"
+                      InputLabelProps={{
+                        style: { color: 'orange' },
+                      }}
+                    /> 
 
-      <TextField onChange={handleChangeDirectionsFour}
-      value={inputRecipe.directions_four}
-      // label="Password"
-      id="outlined-margin-normal"
-      placeholder="Direction 4"
-      className={classes.textField}
-      margin="normal"
-      variant="outlined"
-      InputLabelProps={{
-        style: { color: 'orange' },
-      }}
-    /> 
+                    <TextField onChange={handleChangeDirectionsThree}
+                      value={inputRecipe.directions_three}
+                      id="outlined-margin-normal"
+                      placeholder="Direction 3"
+                      className={classes.step}
+                      margin="normal"
+                      variant="outlined"
+                      InputLabelProps={{
+                        style: { color: 'orange' },
+                      }}
+                    /> 
 
-    <TextField onChange={handleChangeDirectionsFive}
-    value={inputRecipe.directions_five}
-    // label="Password"
-    id="outlined-margin-normal"
-    placeholder="Direction 5"
-    className={classes.textField}
-    margin="normal"
-    variant="outlined"
-    InputLabelProps={{
-      style: { color: 'orange' },
-    }}
-  /> 
+                    <TextField onChange={handleChangeDirectionsFour}
+                      value={inputRecipe.directions_four}
+                      // label="Password"
+                      id="outlined-margin-normal"
+                      placeholder="Direction 4"
+                      className={classes.step}
+                      margin="normal"
+                      variant="outlined"
+                      InputLabelProps={{
+                        style: { color: 'orange' },
+                      }}
+                    /> 
 
-  <TextField onChange={handleChangeDirectionsSix}
-  value={inputRecipe.directions_six}
-  // label="Password"
-  id="outlined-margin-normal"
-  placeholder="Direction 6"
-  className={classes.textField}
-  margin="normal"
-  variant="outlined"
-  InputLabelProps={{
-    style: { color: 'orange' },
-  }}
-  /> 
-  </div>
+                    <TextField onChange={handleChangeDirectionsFive}
+                      value={inputRecipe.directions_five}
+                      id="outlined-margin-normal"
+                      placeholder="Direction 5"
+                      className={classes.step}
+                      margin="normal"
+                      variant="outlined"
+                      InputLabelProps={{
+                        style: { color: 'orange' },
+                      }}
+                    /> 
 
+                    <TextField onChange={handleChangeDirectionsSix}
+                      value={inputRecipe.directions_six}
+                      id="outlined-margin-normal"
+                      placeholder="Direction 6"
+                      className={classes.step}
+                      margin="normal"
+                      variant="outlined"
+                      InputLabelProps={{
+                        style: { color: 'orange' },
+                      }}
+                    /> 
+                  </div>
+               
+                  <br/>
+                    <div className={classes.root}>
+                      <ColorButton type='submit' variant="contained" color="primary">Add</ColorButton>
+                    </div>
 
-        </div>
-       
-        <br/>
-        <div className={classes.root}>
-        <ColorButton type='submit' variant="contained" color="primary">Add</ColorButton>
-        </div>
-
-      </form>
-        </div>
+                </form>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    </section>
+  </section>
   )
 //   } else {
 //     return <Redirect to = {{ pathname: "/" }} />;
