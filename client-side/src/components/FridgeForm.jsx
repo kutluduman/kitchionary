@@ -27,7 +27,7 @@ import "./fridgeMealCheck.css";
 
 const ColorButton = withStyles((theme) => ({
   root: {
-    backgroundColor: orange[200],
+    backgroundColor: orange[300],
     "&:hover": {
       backgroundColor: orange[500],
     },
@@ -83,7 +83,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     generate: {
       width: "60px"
-    }
+    },
   })
 );
 
@@ -237,6 +237,7 @@ const FridgeForm = (props) => {
               </StepLabel>
               <StepContent>
                 <IngredientForm
+              
                   setInput={props.setInputState}
                   inputState={props.inputState}
                 />
