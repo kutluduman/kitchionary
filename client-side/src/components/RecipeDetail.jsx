@@ -41,43 +41,34 @@ function RecipeDetail(props) {
   const classes = useStyles();
   const [rating, setRating] = React.useState(5);
   const info = props.recipeData;
-  // console.log('info from recipedetail', info[0].id)
-
-
+  const [value, setValue] = React.useState(0);
 
   useEffect(() => {
     const recipe_id = info[0].id;
     axios.post("http://localhost:8080/rating", {recipe_id})
     .then(res => {
       console.log("response for rating", res.data.rating[0].round)
-      setRating(res.data.rating[0].round);
+
     })
     .catch(err => {
       console.log('err', err);
     });
   }, []);
 
+  console.log("PROPS recipeData", props.recipeData);
+  console.log("INFO", info[0])
 
-  axios.post(`http://localhost:8080/rating/new`)
+    const handleChange = (event, newValue) => {
+      setValue(newValue);
+
+      axios.post(`http://localhost:8080/rating/new`, {})
       .then(res => {
      
       })
       .catch(err => {
        
       })
-
-
-
-  console.log("PROPS recipeData", props.recipeData);
-  console.log("INFO", info[0])
-
-
-//  info.map(data => {
-//     ingredient = data.ingredient;
-//     amount = data.amount;
-//     unit = data.unit
-//   })
-
+    }
 
   return (
     <Row>
@@ -97,7 +88,15 @@ function RecipeDetail(props) {
          <h3><FaceIcon fontSize="medium" color="primary"/> {info[0].first_name} {info[0].last_name}</h3> 
           {/* INSERT RECIPE TIME */}
             <h3><AccessTimeIcon fontSize="medium" color="secondary"/> {info[0].time} min</h3> 
-            <Rating name="read-only" value={rating} readOnly></Rating>
+            {/* <Rating name="read-only" value={rating} readOnly></Rating> */}
+
+             
+              <Rating
+                name="simple-controlled"
+                value={value}
+                onChange={handleChange}
+              />
+
         </Box>
         <Typography variant="h5" color="textSecondary">
           {/* INSERT RECIPE INGREDIENTS */}
