@@ -19,13 +19,15 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: "orange[500]"
     },
-    fontSize: '15px'
+    fontSize: '15px',
+    marginTop: '20px'
   },
   description: {
     width: "235px",
     display: "flex",
     justifyContent: "center",
-    marginLeft: "-10px"
+    marginLeft: "-10px",
+    fontFamily: "Roboto"
 
   }
 }));
@@ -49,7 +51,7 @@ const Door = (props) => {
   if (!redirect) {
   return (
     <div className="container">
-      <img className='background image' src={background} alt="dessert" width="450" height="725" />
+      <img className='background image' src={background} alt="dessert" width="450" height="650" />
         <div className="backDoor" onMouseOver={hover} >
           <div className="door"> 
             <img  src={fridge} alt="question" width="200" height="270" />
@@ -61,7 +63,7 @@ const Door = (props) => {
             </Typography>
             <br/>
             <div className="fridgeButton">
-              <Button onClick={handleClick} size="large" className={classes.button} variant="outlined" color="primary">Explore</Button>
+              <Button onClick={handleClick} size="large" className={classes.button} variant="outlined" >Explore</Button>
             </div>
           </div>
         </div>

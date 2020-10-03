@@ -41,7 +41,7 @@ const Globe = (props) =>  {
     return (
       <div>
         <div className="container">
-          <img className='background image' src={background} alt="dessert" width="450" height="725" />
+          <img className='background image' src={background} alt="dessert" width="450" height="650" />
           <img className="globe image" src={imageQuestion} alt="globe" width="275" height="275"/>
         </div>
         <div className="descriptionGlobe">  
@@ -49,14 +49,14 @@ const Globe = (props) =>  {
         
         <div className="globeText">
           <Typography variant="h5" align="center" color="textSecondary" component="h3">
-                Explore recipes to make with ingredients you already have at home!
+                No need to get on a plane to try international cuisines! Discover recipes from around the world!
                 </Typography>  
     </div>
     <br/>
           <div className="globeButton">
             
             <Button variant="outlined" className={classes.button} onClick={handleClick}>
-              Explore
+              Discover
             </Button>
             </div>
           </div>
