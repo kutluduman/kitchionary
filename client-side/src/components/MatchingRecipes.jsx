@@ -29,6 +29,7 @@ const MatchingRecipes = (props) => {
             description={recipe.description}
             image={recipe.img_url}
             setRecipeData={props.setRecipeData}
+            cookies={props.cookies}
             />
           );
           })

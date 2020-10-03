@@ -66,9 +66,10 @@ const RecipeCard = (props) => {
     const recipe_id = props.id
     const favourite = {
       user_id: props.cookies,
-      recipe_id,
+      recipe_id: recipe_id,
       is_favourite: red,
     }
+    console.log('userid', props.cookies)
 
     if(like === 'default') {
       setLike('secondary');
