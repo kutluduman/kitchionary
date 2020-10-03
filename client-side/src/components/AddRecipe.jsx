@@ -261,7 +261,7 @@ const AddRecipe = (props) => {
       setError("Time is required!");
       return;
     }
-
+  
     const ingredientOne = ingredient.one[ingredient.one.length-1];
     const ingredientTwo = ingredient.two[ingredient.two.length-1];
     const ingredientThree = ingredient.three[ingredient.three.length-1];
@@ -323,8 +323,23 @@ const AddRecipe = (props) => {
     if (unitFive) {
       inputRecipe.unit.push(unitFive);
     }
-
     if (ingredientOne && !amountOne) {
+      setError("Amount is required!");
+      return;
+    }
+    if (ingredientTwo && !amountTwo) {
+      setError("Amount is required!");
+      return;
+    }
+    if (ingredientThree && !amountThree) {
+      setError("Amount is required!");
+      return;
+    }
+    if (ingredientFour && !amountFour) {
+      setError("Amount is required!");
+      return;
+    }
+    if (ingredientFive && !amountFive) {
       setError("Amount is required!");
       return;
     }
@@ -437,8 +452,30 @@ const AddRecipe = (props) => {
       spanish: false,
       greek: false,
       turkish: false,
-      time: null,
+      time: 0,
     })
+    setIngredient({
+      one: [],
+      two: [],
+      three: [],
+      four: [],
+      five: [],
+    });
+    setAmount({
+      one: [],
+      two: [],
+      three: [],
+      four: [],
+      five: [],
+    })
+    setUnit({
+      one: [],
+      two: [],
+      three: [],
+      four: [],
+      five: [],
+    })
+
   };
 
   const handleChangeName = (e) => {
@@ -544,84 +581,6 @@ const AddRecipe = (props) => {
   const handleChangeDirectionsSix = (e) => {
     setInputRecipe({ ...inputRecipe, directions_six: e.target.value });
   }
-
-  // const handleChangeGlutenFree = (e) => {
-  //   console.log("glutenFree", e.target.value)
-  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
-  //   //checked
-  // };
-
-  // const handleChangeDairyFree = (e) => {
-  //   console.log("dairyFree", e.target.value)
-  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
-  //   //checked
-  // };
-
-  // const handleChangeVegan = (e) => {
-  //   console.log("vegan", e.target.value)
-  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
-  //   //checked
-  // };
-
-  // const handleChangeVegetarian = (e) => {
-  //   console.log("vegetarian", e.target.value)
-  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
-  //   //checked
-  // };
-
-  // const handleChangeNutFree = (e) => {
-  //   console.log("nutFree", e.target.value)
-  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
-  //   //checked
-  // };
-
-  // const handleChangeIsSalty = (e) => {
-  //   console.log("is_salty", e.target.value)
-  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
-  //   //checked
-  // };
-
-  // const handleChangeIsGreasy = (e) => {
-  //   console.log("is_greasy", e.target.value)
-  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
-  //   //checked
-  // };
-
-  // const handleChangeIsSpicy = (e) => {
-  //   console.log("is_spicy", e.target.value)
-  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
-  //   //checked
-  // };
-
-  // const handleChangeIsSweet = (e) => {
-  //   console.log("is_sweet", e.target.value)
-  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
-  //   //checked
-  // };
-
-  // const handleChangeIsFruity = (e) => {
-  //   console.log("is_fruity", e.target.value)
-  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
-  //   //checked
-  // };
-
-  // const handleChangeHealthy = (e) => {
-  //   console.log("is_healthy", e.target.value)
-  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
-  //   //checked
-  // };
-
-  // const handleChangeIsCold = (e) => {
-  //   console.log("is_cold", e.target.value)
-  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
-  //   //checked
-  // };
-
-  // const handleChangeIsHot = (e) => {
-  //   console.log("is_hot", e.target.value)
-  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
-  //   //checked
-  // };
 
   const handleChange = (event) => {
     console.log(event.target.name);
@@ -747,8 +706,6 @@ const AddRecipe = (props) => {
                     label="Dessert"
                   />
                   </div>
-
-
                 <h1 className={classes.subheading}>Dietary Restrictations: </h1>
                 <div className={classes.check}>
 
@@ -1047,7 +1004,7 @@ const AddRecipe = (props) => {
                   <h1 className={classes.subheading}>Ingredients:</h1>
                     <div className={classes.ingredients}>
                       <TextField onChange={handleChangeIngredientsOne}
-                        value={inputRecipe.ingredients[0]}
+                        value={ingredient.one}
                         id="outlined-margin-normal"
                         placeholder="Ingredient 1"
                         className={classes.ingredient}
@@ -1058,7 +1015,7 @@ const AddRecipe = (props) => {
                         }}
                       />
                          <TextField onChange={handleChangeAmountOne}
-                        value={inputRecipe.amount[0]}
+                        value={amount.one}
                         id="outlined-margin-normal"
                         placeholder="Quantity"
                         className={classes.amount}
@@ -1096,7 +1053,7 @@ const AddRecipe = (props) => {
 
                     <div className={classes.ingredients}>
                       <TextField onChange={handleChangeIngredientsTwo}
-                        value={inputRecipe.ingredients[1]}
+                        value={ingredient.two}
                         // label="Password"
                         id="outlined-margin-normal"
                         placeholder="Ingredient 2"
@@ -1109,7 +1066,7 @@ const AddRecipe = (props) => {
                       />
 
                       <TextField onChange={handleChangeAmountTwo}
-                        value={inputRecipe.amount[1]}
+                        value={amount.two}
                         id="outlined-margin-normal"
                         placeholder="Quantity"
                         className={classes.amount}
@@ -1147,7 +1104,7 @@ const AddRecipe = (props) => {
 
                     <div className={classes.ingredients}>
                       <TextField onChange={handleChangeIngredientsThree}
-                        value={inputRecipe.ingredients[2]}
+                        value={ingredient.three}
                         // label="Password"
                         id="outlined-margin-normal"
                         placeholder="Ingredient 3"
@@ -1160,7 +1117,7 @@ const AddRecipe = (props) => {
                       />
 
                       <TextField onChange={handleChangeAmountThree}
-                        value={inputRecipe.amount[2]}
+                        value={amount.three}
                         id="outlined-margin-normal"
                         placeholder="Quantity"
                         className={classes.amount}
@@ -1199,7 +1156,7 @@ const AddRecipe = (props) => {
 
                     <div className={classes.ingredients}>
                       <TextField onChange={handleChangeIngredientsFour}
-                        value={inputRecipe.ingredients[3]}
+                        value={ingredient.four}
                         // label="Password"
                         id="outlined-margin-normal"
                         placeholder="Ingredient 4"
@@ -1212,7 +1169,7 @@ const AddRecipe = (props) => {
                       />
 
                       <TextField onChange={handleChangeAmountFour}
-                        value={inputRecipe.amount[3]}
+                        value={amount.four}
                         id="outlined-margin-normal"
                         placeholder="Quantity"
                         className={classes.amount}
@@ -1250,7 +1207,7 @@ const AddRecipe = (props) => {
 
                     <div className={classes.ingredients}>
                       <TextField onChange={handleChangeIngredientsFive}
-                        value={inputRecipe.ingredients[4]}
+                        value={ingredient.five}
                         // label="Password"
                         id="outlined-margin-normal"
                         placeholder="Ingredient 5"
@@ -1263,7 +1220,7 @@ const AddRecipe = (props) => {
                       />
 
                       <TextField onChange={handleChangeAmountFive}
-                        value={inputRecipe.amount[4]}
+                        value={amount.five}
                         id="outlined-margin-normal"
                         placeholder="Quantity"
                         className={classes.amount}
