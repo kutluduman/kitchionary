@@ -75,7 +75,7 @@ const Favorite = () => {
         </Typography>
       </CardContent>
       <CardActions disableSpacing >
-        <IconButton size= 'medium' onClick={handleLike} aria-label="add to favorites" color={like}>
+        <IconButton  onClick={handleLike} aria-label="add to favorites" color={like}>
           <FavoriteIcon  />
         </IconButton>
       </CardActions>
