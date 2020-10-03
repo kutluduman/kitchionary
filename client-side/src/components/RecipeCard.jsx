@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import { Redirect } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -39,6 +39,25 @@ const RecipeCard = (props) => {
   const [like, setLike] = useState('default');
   const [red, setRed] = useState(true);
 
+  const [matchingRec, setMatchingRec] = useState([]);
+
+  useEffect(() => {
+    const recipe_id = props.id;
+    console.log(recipe_id, "hello")
+    const favourite = {
+      user_id: props.cookies,
+      recipe_id: props.id,
+    }
+    axios.get(`http://localhost:8080/favorite/${recipe_id}`, { favourite })
+    .then(res => {
+      console.log("resssfromfav", res.data)
+      setMatchingRec(res.data.favourites)
+    })
+    .catch(err => {
+      // setError("Incorrect Email or Password!");
+    });
+  }, []);
+
   const handleLink = (e) => {
     e.preventDefault();
     console.log('props', props.name)
@@ -63,10 +82,10 @@ const RecipeCard = (props) => {
 
   const handleLike = () => {
     // if grey
-    const recipe_id = props.id
+    const recipe_id = props.id;
     const favourite = {
       user_id: props.cookies,
-      recipe_id: recipe_id,
+      recipe_id: props.id,
       is_favourite: red,
     }
 
