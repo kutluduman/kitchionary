@@ -9,6 +9,9 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 
 
@@ -138,7 +141,21 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     marginBottom: "40px",
     marginTop: "40px"
-  }
+  },
+  
+  time: {
+    width: "150px",
+ marginLeft: '45px',
+ "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+  borderColor: "orange",
+    },
+  },
+
+  check: {
+    display: "flex",
+    flexDirection: "row",
+    marginLeft: "50px"
+  },
 
 }));
 
@@ -165,10 +182,16 @@ const AddRecipe = (props) => {
   const classes = useStyles();
 
   // DROPDOWN
-
-
-
   const [error, setError] = useState('');
+  // const [checked, setChecked] = useState(false);
+  const [ingredient, setIngredient] = useState({
+    one: [],
+    two: [],
+    three: [],
+    four: [],
+    five: [],
+  });
+  
   const [inputRecipe, setInputRecipe] = useState({
     user: props.cookies,
     name: '',
@@ -201,45 +224,56 @@ const AddRecipe = (props) => {
     isHealthy: false,
     isCold: false,
     isHot: false,
-    time: 0,
+    time: null,
   });
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const ingredientOne = ingredient.one[ingredient.one.length-1];
+    const ingredientTwo = ingredient.two[ingredient.two.length-1];
+    const ingredientThree = ingredient.three[ingredient.three.length-1];
+    const ingredientFour = ingredient.four[ingredient.four.length-1];
+    const ingredientFive = ingredient.five[ingredient.five.length-1];
+    inputRecipe.ingredients.push(ingredientOne);
+    inputRecipe.ingredients.push(ingredientTwo);
+    inputRecipe.ingredients.push(ingredientThree);
+    inputRecipe.ingredients.push(ingredientFour);
+    inputRecipe.ingredients.push(ingredientFive);
+    
     const newRecipe = {
-      user: props.cookies,
-      name: '',
-      img_url: '',
-      description: '',
-      directions_one: '',
-      directions_two: '',
-      directions_three: '',
-      directions_four: '',
-      directions_five: '',
-      directions_six: '',
-      ingredients: [],
-      amount: [],
-      unit: [],
-      breakfast: false,
-      lunch: false,
-      appetizer: false,
-      dinner: false,
-      dessert: false,
-      glutenFree: false,
-      nutFree: false,
-      dairyFree: false,
-      vegetarian: false,
-      vegan: false,
-      isSalty: false,
-      isGreasy: false,
-      isSpicy: false,
-      isSweet: false,
-      isFruity: false,
-      isHealthy: false,
-      isCold: false,
-      isHot: false,
-      time: 0,
+      user: inputRecipe.user,
+      name: inputRecipe.name,
+      img_url: inputRecipe.img_url,
+      description: inputRecipe.description,
+      directions_one: inputRecipe.directions_one,
+      directions_two: inputRecipe.directions_two,
+      directions_three: inputRecipe.directions_three,
+      directions_four: inputRecipe.directions_four,
+      directions_five: inputRecipe.directions_five,
+      directions_six: inputRecipe.directions_six,
+      ingredients: inputRecipe.ingredients,
+      amount: inputRecipe.amount,
+      unit: inputRecipe.unit,
+      breakfast: inputRecipe.breakfast,
+      lunch: inputRecipe.lunch,
+      appetizer: inputRecipe.appetizer,
+      dinner: inputRecipe.dinner,
+      dessert: inputRecipe.dessert,
+      glutenFree: inputRecipe.glutenFree,
+      nutFree: inputRecipe.nutFree,
+      dairyFree: inputRecipe.dairyFree,
+      vegetarian: inputRecipe.vegetarian,
+      vegan: inputRecipe.vegan,
+      isSalty: inputRecipe.isSalty,
+      isGreasy: inputRecipe.isGreasy,
+      isSpicy: inputRecipe.isSpicy,
+      isSweet: inputRecipe.isSweet,
+      isFruity: inputRecipe.isFruity,
+      isHealthy: inputRecipe.isHealthy,
+      isCold: inputRecipe.isCold,
+      isHot: inputRecipe.isHot,
+      time: inputRecipe.time,
     }
 
       axios.post(`http://localhost:8080/add`, newRecipe)
@@ -285,51 +319,66 @@ const AddRecipe = (props) => {
       isHealthy: false,
       isCold: false,
       isHot: false,
-      time: 0,
+      time: null,
     })
   };
 
 
   const handleChangeUnit = (event) => {
+    console.log("UNIT", event.target.value)
     setInputRecipe({ ...inputRecipe, [event.target.name]: event.target.value });
   };
 
 
   const handleChangeName = (e) => {
+    console.log("NAME", e.target.value)
     setInputRecipe({ ...inputRecipe, name: e.target.value });
   }
 
   const handleChangeDescription = (e) => {
+    console.log('Des', e.target.value)
     setInputRecipe({ ...inputRecipe, description: e.target.value });
   }
 
   const handleChangeImg = (e) => {
+    console.log("IMAGE", e.target.value)
     setInputRecipe({ ...inputRecipe, img_url: e.target.value });
   }
-  const handleChangeIngredients = (e) => {
-    // setInputRecipe({ ...inputRecipe, ingredients_one: e.target.value });
-    inputRecipe.ingredients.push(e.target.value)
+  const handleChangeIngredientsOne = (e) => {
+    console.log("INGRED", e.target.value)
+    ingredient.one.push(e.target.value);
   }
 
-  // const handleChangeIngredientsTwo = (e) => {
-  //   setInputRecipe({ ...inputRecipe, ingredients_two: e.target.value });
-  // }
+  const handleChangeIngredientsTwo = (e) => {
+    // setInputRecipe({ ...inputRecipe, ingredients_two: e.target.value });
+    ingredient.two.push(e.target.value);
+  }
 
-  // const handleChangeIngredientsThree = (e) => {
-  //   setInputRecipe({ ...inputRecipe, ingredients_three: e.target.value });
-  // }
+  const handleChangeIngredientsThree = (e) => {
+    // setInputRecipe({ ...inputRecipe, ingredients_three: e.target.value });
+    ingredient.three.push(e.target.value);
+  }
   
-  // const handleChangeIngredientsFour = (e) => {
-  //   setInputRecipe({ ...inputRecipe, ingredients_four: e.target.value });
-  // }
+  const handleChangeIngredientsFour = (e) => {
+    // setInputRecipe({ ...inputRecipe, ingredients_four: e.target.value });
+    ingredient.four.push(e.target.value);
+  }
 
-  // const handleChangeIngredientsFive = (e) => {
-  //   setInputRecipe({ ...inputRecipe, ingredients_five: e.target.value });
-  // }
+  const handleChangeIngredientsFive = (e) => {
+    // setInputRecipe({ ...inputRecipe, ingredients_five: e.target.value });
+    ingredient.five.push(e.target.value);
+  }
 
   const handleChangeAmount = (e) => {
+    console.log("AMOUT", e.target.value)
     // setInputRecipe({ ...inputRecipe, amount_one: e.target.value });
     inputRecipe.amount.push(e.target.value)
+  }
+
+  const handleChangeTime = (e) => {
+    console.log("Time", e.target.value)
+    setInputRecipe({ ...inputRecipe, time: e.target.value });
+    // inputRecipe.amount.push(e.target.value)
   }
 
   // const handleChangeAmountTwo = (e) => {
@@ -349,53 +398,150 @@ const AddRecipe = (props) => {
   // }
 
   const handleChangeUnitOne = (e) => {
+    console.log("UNIT 1", e.target.value)
     // setInputRecipe({ ...inputRecipe, unit_one: e.target.value });
     inputRecipe.unit.push({0: e.target.value});
   }
 
   const handleChangeUnitTwo = (e) => {
     // setInputRecipe({ ...inputRecipe, unit_two: e.target.value });
+    console.log('unit 2 ', e.target.value)
     inputRecipe.unit.push({1: e.target.value});
   }
 
   const handleChangeUnitThree = (e) => {
     // setInputRecipe({ ...inputRecipe, unit_three: e.target.value });
+    console.log('unit 3 ', e.target.value)
     inputRecipe.unit.push({2: e.target.value});
   }
   
   const handleChangeUnitFour = (e) => {
+    console.log("UNIT 4", e.target.value)
     // setInputRecipe({ ...inputRecipe, unit_four: e.target.value });
     inputRecipe.unit.push({3: e.target.value});
   }
 
   const handleChangeUnitFive = (e) => {
     // setInputRecipe({ ...inputRecipe, unit_five: e.target.value });
+    console.log('unit 5 ', e.target.value)
     inputRecipe.unit.push({4: e.target.value});
   }
 
   const handleChangeDirectionsOne = (e) => {
+    console.log("DIR 1", e.target.value)
     setInputRecipe({ ...inputRecipe, directions_one: e.target.value });
   }
 
   const handleChangeDirectionsTwo = (e) => {
+    console.log('direc 2 ', e.target.value)
     setInputRecipe({ ...inputRecipe, directions_two: e.target.value });
   }
 
   const handleChangeDirectionsThree = (e) => {
+    console.log('direc 3 ', e.target.value)
     setInputRecipe({ ...inputRecipe, directions_three: e.target.value });
   }
   
   const handleChangeDirectionsFour = (e) => {
+    console.log('direc 4 ', e.target.value)
     setInputRecipe({ ...inputRecipe, directions_four: e.target.value });
   }
 
   const handleChangeDirectionsFive = (e) => {
+    console.log('direc 5 ', e.target.value)
     setInputRecipe({ ...inputRecipe, directions_five: e.target.value });
   }
   
   const handleChangeDirectionsSix = (e) => {
+    console.log("DIR 6", e.target.value)
     setInputRecipe({ ...inputRecipe, directions_six: e.target.value });
   }
+
+  // const handleChangeGlutenFree = (e) => {
+  //   console.log("glutenFree", e.target.value)
+  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
+  //   //checked
+  // };
+
+  // const handleChangeDairyFree = (e) => {
+  //   console.log("dairyFree", e.target.value)
+  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
+  //   //checked
+  // };
+
+  // const handleChangeVegan = (e) => {
+  //   console.log("vegan", e.target.value)
+  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
+  //   //checked
+  // };
+
+  // const handleChangeVegetarian = (e) => {
+  //   console.log("vegetarian", e.target.value)
+  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
+  //   //checked
+  // };
+
+  // const handleChangeNutFree = (e) => {
+  //   console.log("nutFree", e.target.value)
+  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
+  //   //checked
+  // };
+
+  // const handleChangeIsSalty = (e) => {
+  //   console.log("is_salty", e.target.value)
+  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
+  //   //checked
+  // };
+  
+  // const handleChangeIsGreasy = (e) => {
+  //   console.log("is_greasy", e.target.value)
+  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
+  //   //checked
+  // };
+
+  // const handleChangeIsSpicy = (e) => {
+  //   console.log("is_spicy", e.target.value)
+  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
+  //   //checked
+  // };
+
+  // const handleChangeIsSweet = (e) => {
+  //   console.log("is_sweet", e.target.value)
+  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
+  //   //checked
+  // };
+
+  // const handleChangeIsFruity = (e) => {
+  //   console.log("is_fruity", e.target.value)
+  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
+  //   //checked
+  // };
+
+  // const handleChangeHealthy = (e) => {
+  //   console.log("is_healthy", e.target.value)
+  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
+  //   //checked
+  // };
+
+  // const handleChangeIsCold = (e) => {
+  //   console.log("is_cold", e.target.value)
+  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
+  //   //checked
+  // };
+
+  // const handleChangeIsHot = (e) => {
+  //   console.log("is_hot", e.target.value)
+  //   setInputRecipe({ ...inputRecipe, directions_six: e.target })
+  //   //checked
+  // };
+
+  const handleChange = (event) => {
+    console.log(event.target);
+    setChecked(true);
+    setInputRecipe({ ...inputRecipe, [event.target.name]: event.target.checked });
+  };
+
+
 
   // if (!cookies.name){
   return (
@@ -438,6 +584,311 @@ const AddRecipe = (props) => {
                       style: { color: 'orange' },
                     }}
                   />
+                  </div>
+                  <div className={classes.cont}>
+                  <h1 className={classes.subheading}>Time:</h1>
+                  <TextField onChange={handleChangeTime}
+                    value={inputRecipe.time}
+                    id="outlined-margin-normal"
+                    placeholder="Minutes"
+                    className={classes.time}
+                    margin="normal"
+                    variant="outlined"
+                    InputLabelProps={{
+                      style: { color: 'orange' },
+                    }}
+                  />
+                </div>
+                <div  className={classes.cont}>
+                <h1 className={classes.subheading}>Dietary Restrictations: </h1>
+                <div className={classes.check}>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="gluten_free"
+                        color="primary"
+                      />
+                    }
+                    label="GlutenFree"
+                  />
+                    <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="gluten_free"
+                        color="primary"
+                      />
+                    }
+                    label="GlutenFree"
+                  />
+                    <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="dairy_free"
+                        color="primary"
+                      />
+                    }
+                    label="DairyFree"
+                  />
+                    <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="nut_free"
+                        color="primary"
+                      />
+                    }
+                    label="NutFree"
+                  />
+                     <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="vegan"
+                        color="primary"
+                      />
+                    }
+                    label="Vegan"
+                  />
+
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="vegetarian"
+                        color="primary"
+                      />
+                    }
+                    label="Vegetarian"
+                  />
+                  </div>
+                </div>
+                <div  className={classes.cont}>
+                <h1 className={classes.subheading}>Attributes: </h1>
+                <div className={classes.check}>
+                <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="is_salty"
+                        color="primary"
+                      />
+                    }
+                    label="Salty"
+                  />
+                    <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="is_greasy"
+                        color="primary"
+                      />
+                    }
+                    label="Greasy"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="is_spicy"
+                        color="primary"
+                      />
+                    }
+                    label="Spicy"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="is_sweet"
+                        color="primary"
+                      />
+                    }
+                    label="Sweet"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="is_fruity"
+                        color="primary"
+                      />
+                    }
+                    label="Fruity"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="is_healthy"
+                        color="primary"
+                      />
+                    }
+                    label="Healthy"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="is_hot"
+                        color="primary"
+                      />
+                    }
+                    label="Hot"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="is_cold"
+                        color="primary"
+                      />
+                    }
+                    label="Cold"
+                  />
+                  </div>
+                  <h1 className={classes.subheading}>Cultures: </h1>
+                <div className={classes.check}>
+                <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="American"
+                        color="primary"
+                      />
+                    }
+                    label="American"
+                  />
+                    <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="Mexican"
+                        color="primary"
+                      />
+                    }
+                    label="Mexican"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="Italian"
+                        color="primary"
+                      />
+                    }
+                    label="Italian"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="Indian"
+                        color="primary"
+                      />
+                    }
+                    label="Indian"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="Chinese"
+                        color="primary"
+                      />
+                    }
+                    label="Chinese"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="Korean"
+                        color="primary"
+                      />
+                    }
+                    label="Korean"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="Japanese"
+                        color="primary"
+                      />
+                    }
+                    label="Japanese"
+                  />
+                  </div>
+                  <div className={classes.check}>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="Mediterranean"
+                        color="primary"
+                      />
+                    }
+                    label="Mediterranean"
+                  />
+                    <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="Spanish"
+                        color="primary"
+                      />
+                    }
+                    label="Spanish"
+                  />
+                    <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="Greek"
+                        color="primary"
+                      />
+                    }
+                    label="Greek"
+                  />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                        name="Turkish"
+                        color="primary"
+                      />
+                    }
+                    label="Turkish"
+                  />
+                  </div>
                 </div>
                   <div className={classes.cont}>
                   <h1 className={classes.subheading}>Recipe Description:</h1>
@@ -456,7 +907,7 @@ const AddRecipe = (props) => {
                   <div className={classes.cont}>
                   <h1 className={classes.subheading}>Ingredients:</h1>
                     <div className={classes.ingredients}> 
-                      <TextField onChange={handleChangeIngredients}
+                      <TextField onChange={handleChangeIngredientsOne}
                         value={inputRecipe.ingredients[0]}
                         id="outlined-margin-normal"
                         placeholder="Ingredient 1"
@@ -505,7 +956,7 @@ const AddRecipe = (props) => {
                     </div>
 
                     <div className={classes.ingredients}>
-                      <TextField onChange={handleChangeIngredients}
+                      <TextField onChange={handleChangeIngredientsTwo}
                         value={inputRecipe.ingredients[1]}
                         // label="Password"
                         id="outlined-margin-normal"
@@ -556,7 +1007,7 @@ const AddRecipe = (props) => {
                     </div>
 
                     <div className={classes.ingredients}>
-                      <TextField onChange={handleChangeIngredients}
+                      <TextField onChange={handleChangeIngredientsThree}
                         value={inputRecipe.ingredients[2]}
                         // label="Password"
                         id="outlined-margin-normal"
@@ -608,7 +1059,7 @@ const AddRecipe = (props) => {
                     </div>
 
                     <div className={classes.ingredients}>
-                      <TextField onChange={handleChangeIngredients}
+                      <TextField onChange={handleChangeIngredientsFour}
                         value={inputRecipe.ingredients[3]}
                         // label="Password"
                         id="outlined-margin-normal"
@@ -659,7 +1110,7 @@ const AddRecipe = (props) => {
                     </div>
 
                     <div className={classes.ingredients}>
-                      <TextField onChange={handleChangeIngredients}
+                      <TextField onChange={handleChangeIngredientsFive}
                         value={inputRecipe.ingredients[4]}
                         // label="Password"
                         id="outlined-margin-normal"
