@@ -13,6 +13,8 @@ import sample from '../docs/sample.jpg';
 import axios from "axios";
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import Rating from '@material-ui/lab/Rating';
+import Box from '@material-ui/core/Box';
 
 
 
@@ -86,6 +88,7 @@ const RecipeCard = (props) => {
   const [redirect, setRedirect] = useState(false);
   const [like, setLike] = useState('default');
   const [red, setRed] = useState(true);
+  const [rating, setRating] = React.useState(5);
 
   const [matchingRec, setMatchingRec] = useState([]);
 
@@ -112,7 +115,20 @@ const RecipeCard = (props) => {
     .catch(err => {
       // setError("Incorrect Email or Password!");
     });
+    
+    // const recipe_id = info[0].id;
+    axios.post("http://localhost:8080/rating", {recipe_id})
+    .then(res => {
+      console.log("response for rating", res.data.rating[0].round)
+      setRating(res.data.rating[0].round);
+    })
+    .catch(err => {
+      console.log('err', err);
+    });
+
   }, []);
+
+
 
   const handleLink = (e) => {
     e.preventDefault();
@@ -148,7 +164,6 @@ const RecipeCard = (props) => {
     if(like === 'default') {
       setLike('secondary');
       setRed(false)
-
 
       axios.post(`http://localhost:8080/favorite/${recipe_id}/favourites`, { favourite })
       .then(res => {
@@ -214,6 +229,9 @@ const RecipeCard = (props) => {
         <Button className={classes.cook} onClick= {handleLink} size="large" >
             Cook This!
         </Button>
+        <Box component="fieldset" mb={3} borderColor="transparent">
+        <Rating name="read-only" value={rating} readOnly />
+      </Box>
         </CardActions>
      
       </Card>
