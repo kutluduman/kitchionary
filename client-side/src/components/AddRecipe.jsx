@@ -12,6 +12,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import greek from '../../../express-backend/routes/greek';
 
 
 
@@ -537,10 +538,36 @@ const AddRecipe = (props) => {
 
   const handleChange = (event) => {
     console.log(event.target);
-    setChecked(true);
+    setState({ ...state, [event.target.name]: event.target.checked });
     setInputRecipe({ ...inputRecipe, [event.target.name]: event.target.checked });
   };
-
+  
+  const [state, setState] = React.useState({
+    gluten_free : false,
+    nut_free : false,
+    dairy_free : false,
+    vegetarian : false,
+    vegan : false,
+    is_salty: false,
+    is_greasy: false,
+    is_spicy: false,
+    is_sweet: false,
+    is_fruity:false,
+    is_healthy: false,
+    is_hot: false,
+    is_cold: false,
+    american: false,
+    mexican: false,
+    italian: false,
+    indian: false,
+    chinese: false,
+    korean: false,
+    japanese: false,
+    mediterranean: false,
+    spanish: false,
+    greek: false,
+    turkish: false
+  });
 
 
   // if (!cookies.name){
@@ -602,10 +629,11 @@ const AddRecipe = (props) => {
                 <div  className={classes.cont}>
                 <h1 className={classes.subheading}>Dietary Restrictations: </h1>
                 <div className={classes.check}>
-                  <FormControlLabel
+                
+                    <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.gluten_free}
                         onChange={handleChange}
                         name="gluten_free"
                         color="primary"
@@ -616,18 +644,7 @@ const AddRecipe = (props) => {
                     <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
-                        onChange={handleChange}
-                        name="gluten_free"
-                        color="primary"
-                      />
-                    }
-                    label="GlutenFree"
-                  />
-                    <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={checked}
+                        checked={state.dairy_free}
                         onChange={handleChange}
                         name="dairy_free"
                         color="primary"
@@ -638,7 +655,7 @@ const AddRecipe = (props) => {
                     <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.nut_free}
                         onChange={handleChange}
                         name="nut_free"
                         color="primary"
@@ -649,7 +666,7 @@ const AddRecipe = (props) => {
                      <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.vegan}
                         onChange={handleChange}
                         name="vegan"
                         color="primary"
@@ -661,7 +678,7 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.vegetarian}
                         onChange={handleChange}
                         name="vegetarian"
                         color="primary"
@@ -677,7 +694,7 @@ const AddRecipe = (props) => {
                 <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.is_salty}
                         onChange={handleChange}
                         name="is_salty"
                         color="primary"
@@ -688,7 +705,7 @@ const AddRecipe = (props) => {
                     <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.is_greasy}
                         onChange={handleChange}
                         name="is_greasy"
                         color="primary"
@@ -699,7 +716,7 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.is_spicy}
                         onChange={handleChange}
                         name="is_spicy"
                         color="primary"
@@ -710,7 +727,7 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.is_sweet}
                         onChange={handleChange}
                         name="is_sweet"
                         color="primary"
@@ -721,7 +738,7 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.is_fruity}
                         onChange={handleChange}
                         name="is_fruity"
                         color="primary"
@@ -732,7 +749,7 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.is_healthy}
                         onChange={handleChange}
                         name="is_healthy"
                         color="primary"
@@ -743,7 +760,7 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.is_hot}
                         onChange={handleChange}
                         name="is_hot"
                         color="primary"
@@ -754,7 +771,7 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.is_cold}
                         onChange={handleChange}
                         name="is_cold"
                         color="primary"
@@ -768,7 +785,7 @@ const AddRecipe = (props) => {
                 <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.american}
                         onChange={handleChange}
                         name="American"
                         color="primary"
@@ -779,7 +796,7 @@ const AddRecipe = (props) => {
                     <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.mexican}
                         onChange={handleChange}
                         name="Mexican"
                         color="primary"
@@ -790,7 +807,7 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.italian}
                         onChange={handleChange}
                         name="Italian"
                         color="primary"
@@ -801,7 +818,7 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.indian}
                         onChange={handleChange}
                         name="Indian"
                         color="primary"
@@ -812,7 +829,7 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.chinese}
                         onChange={handleChange}
                         name="Chinese"
                         color="primary"
@@ -823,7 +840,7 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.korean}
                         onChange={handleChange}
                         name="Korean"
                         color="primary"
@@ -834,7 +851,7 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.japanese}
                         onChange={handleChange}
                         name="Japanese"
                         color="primary"
@@ -847,7 +864,7 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.mediterranean}
                         onChange={handleChange}
                         name="Mediterranean"
                         color="primary"
@@ -858,7 +875,7 @@ const AddRecipe = (props) => {
                     <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.spanish}
                         onChange={handleChange}
                         name="Spanish"
                         color="primary"
@@ -869,7 +886,7 @@ const AddRecipe = (props) => {
                     <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.greek}
                         onChange={handleChange}
                         name="Greek"
                         color="primary"
@@ -880,7 +897,7 @@ const AddRecipe = (props) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={checked}
+                        checked={state.turkish}
                         onChange={handleChange}
                         name="Turkish"
                         color="primary"

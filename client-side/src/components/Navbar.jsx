@@ -116,50 +116,7 @@ function Navbar(props) {
                   <img src={logo} className="logo" alt="logo"></img>{" "}
                 </Button>
               </Typography>
-              <IconButton
-                edge="start"
-                className={classes.menuButton}
-                color="inherit"
-                aria-label="menu"
-              >
-                <MenuIcon />
-              {/* <IconButton
-                className={classes.menuButton}
-                color="inherit"
-                aria-label="menu"
-              >
-                <MenuIcon
-                  aria-controls="simple-menu"
-                  aria-haspopup="true"
-                  onClick={handleClick}
-                /> */}
-                {/* <Menu
-                  id="simple-menu"
-                  anchorEl={anchorEl}
-                  keepMounted
-                  open={Boolean(anchorEl)}
-                  onClose={handleClose}
-                >
-                  <Link
-                    to="/fridge"
-                    style={{ textDecoration: "none", display: "block", color: "black" }}
-                  >
-                    <MenuItem onClick={handleClose}>My Recipes</MenuItem>
-                  </Link>
-                  <Link
-                    to="/favorite"
-                    style={{ textDecoration: "none", display: "block", color: "black" }}
-                  >
-                    <MenuItem onClick={handleClose}>Favorites</MenuItem>
-                  </Link>
-                  <Link
-                    to="/add"
-                    style={{ textDecoration: "none", display: "block", color: "black" }}
-                  >
-                    <MenuItem onClick={handleClose}>New Recipe</MenuItem>
-                  </Link>
-                </Menu> */}
-              </IconButton>
+              {/* </IconButton> */}
               <div className={classes.search}>
                 <div className={classes.searchIcon}>
                   <SearchIcon />
@@ -195,7 +152,10 @@ function Navbar(props) {
           <main className="banner">
             <Toolbar>
               <Typography variant="h6">
-                <img src={logo} className="logo" alt="logo"></img>
+                <Button href="http://localhost:3000/">
+                  {" "}
+                  <img src={logo} className="logo" alt="logo"></img>{" "}
+                </Button>
               </Typography>
               {/* <IconButton
                 edge="start"

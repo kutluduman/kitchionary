@@ -18,6 +18,7 @@ import GlobeFeature from "./components/GlobeFeature";
 import AddRecipe from "./components/AddRecipe";
 import axios from 'axios';
 
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -36,6 +37,7 @@ import OverlayGlobe from './components/OverlayGlobe';
 import "./styles/globefeature.css";
 import QuizForm from "./components/QuizForm";
 import Favorite from "./components/Favorite";
+import MyRecipes from "./components/MyRecipes";
 
 
 function App() {
@@ -92,7 +94,7 @@ function App() {
           <main role="main">
             <Switch>
               <Route exact path="/">
-                <Home setMatchingRecipes={setMatchingRecipes} setRecipeData={setRecipeData} />
+                <Home setMatchingRecipes={setMatchingRecipes} setRecipeData={setRecipeData} cookies={cookies} />
               </Route>
               <Route exact path="/breakfast">
                 <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
@@ -161,6 +163,9 @@ function App() {
               </Route>
               <Route path="/favorite">
                 <Favorite />
+              </Route>
+              <Route path="/add">
+                <MyRecipes cookies={cookies} />
               </Route>
             </Switch>
           </main>

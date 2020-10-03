@@ -214,7 +214,7 @@ const Home = (props) => {
       // console.log("outside if statement")
       if (res.status === 200) {
         // console.log("inside if statement")
-        // setRedirect(true);
+        setRedirect(true);
         // console.log("redirect??", redirect)
       }
     })
@@ -223,8 +223,6 @@ const Home = (props) => {
       // or set error state
     });
   }
-
-
 
   if (!redirect) {
     return (
@@ -270,9 +268,9 @@ const Home = (props) => {
     
       ))}
       <div className="mode"> 
-        <Door/> 
-        <Question/> 
-        <Globe/> 
+        <Door cookies={props.cookies}/> 
+        <Question cookies={props.cookies}/> 
+        <Globe cookies={props.cookies}/> 
       </div>
       <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2>
       <div className="featured">

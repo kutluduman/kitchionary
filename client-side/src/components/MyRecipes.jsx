@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -11,6 +11,9 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import axios from 'axios';
+import Grid from '@material-ui/core/Grid';
+import RecipeCard from './RecipeCard';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,10 +38,8 @@ const useStyles = makeStyles((theme) => ({
 
 
 
+const MyRecipe = (props) => {
 
-
-
-const Favorite = () => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const [like, setLike] = useState('default');
@@ -47,19 +48,38 @@ const Favorite = () => {
     setExpanded(!expanded);
   };
 
-  const handleLike = () => {
-    if(like === 'default') {
-      setLike('secondary');
-    } else {
-      setLike('default');
-    }
-    
-  }
+  const [matchingRec, setMatchingRec] = useState([]);
+
+  useEffect(() => {
+    axios.post("http://localhost:8080/myrecipes", props.cookies)
+    .then(res => {
+      console.log("resss", res.data)
+      setMatchingRec(res.data.recipes)
+    })
+    .catch(err => {
+      // setError("Incorrect Email or Password!");
+    });
+  }, []);
 
 
-  return(
+
+  return (
     <div>
-     <Card className={classes.root}>
+      <Grid container direction="row" justify="center">
+                {matchingRec.map(recipe => {
+                  return (
+                    <RecipeCard 
+                    id={recipe.id}
+                    name={recipe.name}
+                    description={recipe.description}
+                    image={recipe.img_url}
+                    setRecipeData={props.setRecipeData}
+                    />
+                  );
+                  })
+                  }
+            </Grid>   
+{/* <Card className={classes.root}>
       <CardHeader
         title="Shrimp and Chorizo Paella"
       />
@@ -75,17 +95,14 @@ const Favorite = () => {
         </Typography>
       </CardContent>
       <CardActions disableSpacing >
-        <IconButton onClick={handleLike} aria-label="add to favorites" color={like}>
-          <FavoriteIcon  />
-        </IconButton>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
       </Collapse>
-    </Card>
+    </Card> */}
     </div>
   )
 
+
 }
 
-
-export default Favorite;
+export default MyRecipe;;;;;

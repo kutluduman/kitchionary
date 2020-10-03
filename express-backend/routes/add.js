@@ -76,44 +76,71 @@ module.exports = (db) => {
               for(let index in ingredients) {
                 const eachIngredient = ingredients[index];
                 console.log("eachIngredient", eachIngredient);
-               return db.query(`SELECT id FROM ingredients WHERE name = $1;`, [eachIngredient])
+               db.query(`SELECT id FROM ingredients WHERE name = $1;`, [eachIngredient])
                .then(ingredientIdData => {
-                 console.log('ingredientID rows', ingredientIdData.rows[0]);
-                 console.log('ingredientIDRows', ingredientIdData.rows[0].id);
+                 console.log('ingredientID rows', ingredientIdData.rows);
+                //  console.log('ingredientIDRows', ingredientIdData.rows[0].id);
                  if (ingredientIdData.rows.length === 0) {
-                   return db.query(`INSERT INTO ingredients (name) VALUES ($1) RETURNING *;`,[eachIngredient])
+                   db.query(`INSERT INTO ingredients (name) VALUES ($1) RETURNING *;`,[eachIngredient])
                    .then(ingredientId => {
                     //  console.log('ingredient id', ingredientId.rows);
                     //  console.log('ingredient id with rows', ingredientId.rows[0]);
                      console.log("amount element", amount[index]);
                      console.log('unit element', unit[index][index]);
-                     return db.query(`INSERT INTO measurements (ingredient_id,recipe_id,amount,unit) VALUES($1,$2,$3,$4) RETURNING *;`, [ingredientId.rows[0].id, recipe_id, amount[index], unit[index][index]])
+                     db.query(`INSERT INTO measurements (ingredient_id,recipe_id,amount,unit) VALUES($1,$2,$3,$4) RETURNING *;`, [ingredientId.rows[0].id, recipe_id, amount[index], unit[index][index]])
                      .then (measurement => {
                        console.log("measurement", measurement.rows);
+                       const recipes = { name, description, img_url }
+                      //  res.json({ recipes });
+                       res.json({ name, description, img_url }).status(200);
                      })
+                     .catch(err => {
+                      res
+                        .status(500)
+                        // .json({ error: err.message });
+                    });
                    })
+                   .catch(err => {
+                    res
+                      .status(500)
+                      // .json({ error: err.message });
+                  });
                  } else {
-                  return db.query(`INSERT INTO measurements (ingredient_id,recipe_id,amount,unit) VALUES($1,$2,$3,$4) RETURNING *;`, [ingredientIdData.rows[0].id, recipe_id, amount[index], unit[index][index]])
+                  db.query(`INSERT INTO measurements (ingredient_id,recipe_id,amount,unit) VALUES($1,$2,$3,$4) RETURNING *;`, [ingredientIdData.rows[0].id, recipe_id, amount[index], unit[index][index]])
                   .then (measurements => {
                     console.log("measurementsssss", measurements.rows);
-                    const recipes = { name, description, img_url }
-                    res.json({ recipes });
+                    // const recipes = { name, description, img_url }
+                    res.json({ name, description, img_url }).status(200);
                   })
+                  .catch(err => {
+                    res
+                      .status(500)
+                      // .json({ error: err.message });
+                  });
                  }
                })
+               .catch((err) => {
+                res.status(500)
+                // .json({ error: err.message });
+              });
               }
 
             })
           .catch(err => {
             res
               .status(500)
-              .json({ error: err.message });
+              // .json({ error: err.message });
+          })
+          .catch((err) => {
+            res.status(500)
+            // .json({ error: err.message });
           });
 
 
     })
     .catch((err) => {
-      res.status(500).json({ error: err.message });
+      res.status(500)
+      // .json({ error: err.message });
     });
 
 

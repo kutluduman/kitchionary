@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { Redirect } from "react-router-dom";
 import "./globe.css";
 import imageQuestion from "../docs/world_white.jpg";
 import { makeStyles } from '@material-ui/core/styles';
@@ -17,32 +18,47 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const Globe = () =>  {
+const Globe = (props) =>  {
   const classes = useStyles();
-  return (
-  <div>
-    <div className="container">
-      <img className='background image' src={background} alt="dessert" width="450" height="825" />
-      <img className="globe image" src={imageQuestion} alt="globe" width="300" height="325"/>
-    </div>
-    <div className="descriptionGlobe">  
-      <h1 className="titleGlobe"> GLOBE MODE</h1>
-    
-    <div className="globeText">
-      <Typography variant="h5" align="center" color="textSecondary" component="h3">
-            Explore recipes to make with ingredients you already have at home!
-            </Typography>  
-</div>
-<br/>
-      <div className="globeButton">
-        
-        <Button variant="outlined" color="primary" href="/globe">
-          Explore
-        </Button>
+  const [redirect,setRedirect]= useState(false);
+  
+  const handleClick = (e) => {
+    if (props.cookies.name) {
+      setRedirect(true);
+    }
+  };
+  
+  if (!redirect) {
+    return (
+      <div>
+        <div className="container">
+          <img className='background image' src={background} alt="dessert" width="450" height="825" />
+          <img className="globe image" src={imageQuestion} alt="globe" width="300" height="325"/>
         </div>
+        <div className="descriptionGlobe">  
+          <h1 className="titleGlobe"> GLOBE MODE</h1>
+        
+        <div className="globeText">
+          <Typography variant="h5" align="center" color="textSecondary" component="h3">
+                Explore recipes to make with ingredients you already have at home!
+                </Typography>  
+    </div>
+    <br/>
+          <div className="globeButton">
+            
+            <Button variant="outlined" color="primary" onClick={handleClick}>
+              Explore
+            </Button>
+            </div>
+          </div>
       </div>
-  </div>
-  )
+      )
+
+
+} else {
+    return <Redirect to = {{ pathname: "/globe" }} />;
+  }
 }
+
 
 export default Globe;
