@@ -175,16 +175,12 @@ const theme = createMuiTheme({
   },
 });
 
-
-
-
-
 const AddRecipe = (props) => {
   const classes = useStyles();
 
   // DROPDOWN
   const [error, setError] = useState('');
-  // const [checked, setChecked] = useState(false);
+  const [redirect, setRedirect] = useState(false);
   const [ingredient, setIngredient] = useState({
     one: [],
     two: [],
@@ -281,6 +277,7 @@ const AddRecipe = (props) => {
       .then(res => {
         console.log(res);
         console.log("resfromadd", res.data);
+        setRedirect(true)
         if (res.status === 200) {
           // setCookie('name', user.email, {path: '/'});
         }
@@ -570,7 +567,7 @@ const AddRecipe = (props) => {
   });
 
 
-  // if (!cookies.name){
+  if (!redirect){
   return (
     <section>
       <div>
@@ -1269,9 +1266,9 @@ const AddRecipe = (props) => {
       </div>
   </section>
   )
-//   } else {
-//     return <Redirect to = {{ pathname: "/" }} />;
-//   }
+  } else {
+    return <Redirect to = {{ pathname: "/myrecipes" }} />;
+  }
 }
 
 export default AddRecipe;
