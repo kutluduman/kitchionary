@@ -188,6 +188,20 @@ const AddRecipe = (props) => {
     four: [],
     five: [],
   });
+  const [amount, setAmount] = useState({
+    one: [],
+    two: [],
+    three: [],
+    four: [],
+    five: [],
+  })
+  const [unit, setUnit] = useState({
+    one: [],
+    two: [],
+    three: [],
+    four: [],
+    five: [],
+  })
   
   const [inputRecipe, setInputRecipe] = useState({
     user: props.cookies,
@@ -225,18 +239,84 @@ const AddRecipe = (props) => {
   });
 
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const validate = () => {
+    if (!inputRecipe.name) {
+      setError("Recipe name is required!");
+      return;
+    } else if (!inputRecipe.description) {
+      setError("Description is required!");
+      return;
+    } else if (!inputRecipe.time) {
+      setError("Time is required!");
+      return;
+    }
+
     const ingredientOne = ingredient.one[ingredient.one.length-1];
     const ingredientTwo = ingredient.two[ingredient.two.length-1];
     const ingredientThree = ingredient.three[ingredient.three.length-1];
     const ingredientFour = ingredient.four[ingredient.four.length-1];
     const ingredientFive = ingredient.five[ingredient.five.length-1];
-    inputRecipe.ingredients.push(ingredientOne);
-    inputRecipe.ingredients.push(ingredientTwo);
-    inputRecipe.ingredients.push(ingredientThree);
-    inputRecipe.ingredients.push(ingredientFour);
-    inputRecipe.ingredients.push(ingredientFive);
+    const amountOne = amount.one[amount.one.length-1];
+    const amountTwo = amount.two[amount.two.length-1];
+    const amountThree = amount.three[amount.three.length-1];
+    const amountFour = amount.four[amount.four.length-1];
+    const amountFive = amount.five[amount.five.length-1];
+    const unitOne = unit.one[unit.one.length-1];
+    const unitTwo = unit.two[unit.two.length-1];
+    const unitThree = unit.three[unit.three.length-1];
+    const unitFour = unit.four[unit.four.length-1];
+    const unitFive = unit.five[unit.five.length-1];
+
+    if (ingredientOne) {
+      inputRecipe.ingredients.push(ingredientOne);
+    };
+    if (ingredientTwo) {
+      inputRecipe.ingredients.push(ingredientTwo);
+    }
+    if (ingredientThree) {
+      inputRecipe.ingredients.push(ingredientThree);
+    }
+    if (ingredientFour) {
+      inputRecipe.ingredients.push(ingredientFour);
+    }
+    if (ingredientFive) {
+      inputRecipe.ingredients.push(ingredientFive);
+    }
+    if (amountOne) {
+      inputRecipe.amount.push(amountOne);
+    };
+    if (amountTwo) {
+      inputRecipe.amount.push(amountTwo);
+    }
+    if (amountThree) {
+      inputRecipe.amount.push(amountThree);
+    }
+    if (amountFour) {
+      inputRecipe.amounts.push(amountFour);
+    }
+    if (amountFive) {
+      inputRecipe.amount.push(amountFive);
+    }
+    if (unitOne) {
+      inputRecipe.unit.push(unitOne);
+    };
+    if (unitTwo) {
+      inputRecipe.unit.push(unitTwo);
+    }
+    if (unitThree) {
+      inputRecipe.unit.push(unitThree);
+    }
+    if (unitFour) {
+      inputRecipe.unit.push(unitFour);
+    }
+    if (unitFive) {
+      inputRecipe.unit.push(unitFive);
+    }
+
+    if (ingredientOne && !amountOne) {
+      setError("Amount is required!");
+      return;
+    }
     
     const newRecipe = {
       user: inputRecipe.user,
@@ -286,6 +366,13 @@ const AddRecipe = (props) => {
         // setError("Account already exists!");
       })
 
+
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    validate();
+    
     setInputRecipe({
       name: '',
       img_url: '',
@@ -366,34 +453,39 @@ const AddRecipe = (props) => {
     // setInputRecipe({ ...inputRecipe, ingredients_five: e.target.value });
     ingredient.five.push(e.target.value);
   }
+  
+    const handleChangeTime = (e) => {
+      console.log("Time", e.target.value)
+      setInputRecipe({ ...inputRecipe, time: e.target.value });
+      // inputRecipe.amount.push(e.target.value)
+    }
 
-  const handleChangeAmount = (e) => {
+  const handleChangeAmountOne = (e) => {
     console.log("AMOUT", e.target.value)
     // setInputRecipe({ ...inputRecipe, amount_one: e.target.value });
-    inputRecipe.amount.push(e.target.value)
-  }
-
-  const handleChangeTime = (e) => {
-    console.log("Time", e.target.value)
-    setInputRecipe({ ...inputRecipe, time: e.target.value });
     // inputRecipe.amount.push(e.target.value)
+    amount.one.push(e.target.value);
   }
 
-  // const handleChangeAmountTwo = (e) => {
-  //   setInputRecipe({ ...inputRecipe, amount_two: e.target.value });
-  // }
+  const handleChangeAmountTwo = (e) => {
+    // setInputRecipe({ ...inputRecipe, amount_two: e.target.value });
+    amount.two.push(e.target.value);
+  }
 
-  // const handleChangeAmountThree = (e) => {
-  //   setInputRecipe({ ...inputRecipe, amount_three: e.target.value });
-  // }
+  const handleChangeAmountThree = (e) => {
+    // setInputRecipe({ ...inputRecipe, amount_three: e.target.value });
+    amount.three.push(e.target.value);
+  }
   
-  // const handleChangeAmountFour = (e) => {
-  //   setInputRecipe({ ...inputRecipe, amount_four: e.target.value });
-  // }
+  const handleChangeAmountFour = (e) => {
+    // setInputRecipe({ ...inputRecipe, amount_four: e.target.value });
+    amount.four.push(e.target.value);
+  }
 
-  // const handleChangeAmountFive = (e) => {
-  //   setInputRecipe({ ...inputRecipe, amount_five: e.target.value });
-  // }
+  const handleChangeAmountFive = (e) => {
+    // setInputRecipe({ ...inputRecipe, amount_five: e.target.value });
+    amount.five.push(e.target.value);
+  }
 
   const handleChangeUnitOne = (e) => {
     console.log("UNIT 1", e.target.value)
@@ -932,7 +1024,7 @@ const AddRecipe = (props) => {
                           style: { color: 'orange' },
                         }}
                       />
-                         <TextField onChange={handleChangeAmount}
+                         <TextField onChange={handleChangeAmountOne}
                         value={inputRecipe.amount[0]}
                         id="outlined-margin-normal"
                         placeholder="Quantity"
@@ -983,7 +1075,7 @@ const AddRecipe = (props) => {
                         }}
                       /> 
 
-                      <TextField onChange={handleChangeAmount}
+                      <TextField onChange={handleChangeAmountTwo}
                         value={inputRecipe.amount[1]}
                         id="outlined-margin-normal"
                         placeholder="Quantity"
@@ -1034,7 +1126,7 @@ const AddRecipe = (props) => {
                         }}
                       /> 
 
-                      <TextField onChange={handleChangeAmount}
+                      <TextField onChange={handleChangeAmountThree}
                         value={inputRecipe.amount[2]}
                         id="outlined-margin-normal"
                         placeholder="Quantity"
@@ -1086,7 +1178,7 @@ const AddRecipe = (props) => {
                         }}
                       /> 
 
-                      <TextField onChange={handleChangeAmount}
+                      <TextField onChange={handleChangeAmountFour}
                         value={inputRecipe.amount[3]}
                         id="outlined-margin-normal"
                         placeholder="Quantity"
@@ -1137,7 +1229,7 @@ const AddRecipe = (props) => {
                       }}
                       />
 
-                      <TextField onChange={handleChangeAmount}
+                      <TextField onChange={handleChangeAmountFive}
                         value={inputRecipe.amount[4]}
                         id="outlined-margin-normal"
                         placeholder="Quantity"

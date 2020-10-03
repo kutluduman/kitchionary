@@ -7,10 +7,8 @@ module.exports = (db) => {
   router.post('/', (req,res) => {
     console.log('req', req.body)
     const user = req.body.user.name;
-    // const name = req.body.name;
     const name = req.body.name;
     const img_url = req.body.img_url;
-    // const description = 'yum';
     const description = req.body.description;
     const directions_one = req.body.directions_one;
     const directions_two = req.body.directions_two;
@@ -42,6 +40,8 @@ module.exports = (db) => {
     const time = req.body.time;
 
     console.log("before queries", ingredients)
+    console.log("unit before queries", typeof unit)
+    console.log("unit before queries", unit)
 
     return db.query(`SELECT id
     FROM users
@@ -68,8 +68,10 @@ module.exports = (db) => {
                    .then(ingredientId => {
                     //  console.log('ingredient id', ingredientId.rows);
                     //  console.log('ingredient id with rows', ingredientId.rows[0]);
+                    console.log('length', unit.length)
+                    if (unit.length > 0) {
                      console.log("amount element", amount[index]);
-                     console.log('unit element', unit[index][index]);
+                    //  console.log('unit element', unit[index][index]);
                      db.query(`INSERT INTO measurements (ingredient_id,recipe_id,amount,unit) VALUES($1,$2,$3,$4) RETURNING *;`, [ingredientId.rows[0].id, recipe_id, amount[index], unit[index][index]])
                      .then (measurement => {
                        console.log("measurement", measurement.rows);
@@ -82,6 +84,21 @@ module.exports = (db) => {
                         .status(500)
                         // .json({ error: err.message });
                     });
+                    } else {
+                      console.log("if no unit")
+                      db.query(`INSERT INTO measurements (ingredient_id,recipe_id,amount) VALUES($1,$2,$3) RETURNING *;`, [ingredientId.rows[0].id, recipe_id, amount[index]])
+                      .then (measurement => {
+                        console.log("measurement", measurement.rows);
+                        const recipes = { name, description, img_url }
+                        //  res.json({ recipes });
+                        res.json({ name, description, img_url }).status(200);
+                      })
+                      .catch(err => {
+                        res
+                          .status(500)
+                          // .json({ error: err.message });
+                      });
+                    }
                    })
                    .catch(err => {
                     res
@@ -89,17 +106,36 @@ module.exports = (db) => {
                       // .json({ error: err.message });
                   });
                  } else {
-                  db.query(`INSERT INTO measurements (ingredient_id,recipe_id,amount,unit) VALUES($1,$2,$3,$4) RETURNING *;`, [ingredientIdData.rows[0].id, recipe_id, amount[index], unit[index][index]])
-                  .then (measurements => {
-                    console.log("measurementsssss", measurements.rows);
-                    // const recipes = { name, description, img_url }
-                    res.json({ name, description, img_url }).status(200);
-                  })
-                  .catch(err => {
-                    res
-                      .status(500)
-                      // .json({ error: err.message });
-                  });
+                  if (unit.length > 0) {
+                    console.log("amount element", amount[index]);
+                   //  console.log('unit element', unit[index][index]);
+                    db.query(`INSERT INTO measurements (ingredient_id,recipe_id,amount,unit) VALUES($1,$2,$3,$4) RETURNING *;`, [ingredientIdData.rows[0].id, recipe_id, amount[index], unit[index][index]])
+                    .then (measurement => {
+                      console.log("measurement", measurement.rows);
+                      const recipes = { name, description, img_url }
+                     //  res.json({ recipes });
+                      res.json({ name, description, img_url }).status(200);
+                    })
+                    .catch(err => {
+                     res
+                       .status(500)
+                       // .json({ error: err.message });
+                   });
+                   } else {
+                     console.log("if no unit")
+                     db.query(`INSERT INTO measurements (ingredient_id,recipe_id,amount) VALUES($1,$2,$3) RETURNING *;`, [ingredientIdData.rows[0].id, recipe_id, amount[index]])
+                     .then (measurement => {
+                       console.log("measurement", measurement.rows);
+                       const recipes = { name, description, img_url }
+                       //  res.json({ recipes });
+                       res.json({ name, description, img_url }).status(200);
+                     })
+                     .catch(err => {
+                       res
+                         .status(500)
+                         // .json({ error: err.message });
+                     });
+                   }
                  }
                })
                .catch((err) => {
