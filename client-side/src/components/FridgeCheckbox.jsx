@@ -39,12 +39,13 @@ const useStyles = makeStyles((theme) =>
     marginBottom: '15px',
     marginTop: '25px',
     color: 'black',
-    backgroundColor: '#ffcc80',
+    backgroundColor: '#f3f3f3',
     "&:hover": {
       backgroundColor: 'orange',
     },
     "&.Mui-selected": {
       backgroundColor: "orange",
+      color: "black",
       "&:hover": {
         backgroundColor: '#ffcc80',
       }
