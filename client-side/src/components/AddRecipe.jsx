@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   
   },
   textField: {
-
+    
     width: '60ch',
     "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
       borderColor: "orange",
@@ -39,7 +39,10 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: "40px",
+    fontSize: "30px",
+    width: '100%',
+    paddingBottom: '15px',
+    borderBottom: "#8080801c solid"
   },
 
   cont: {
@@ -47,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     justifyContent: 'center',
    marginRight: '400px',
-   marginLeft:'400px'
+   marginLeft:'25%'
     
   },
 
@@ -62,8 +65,25 @@ const useStyles = makeStyles((theme) => ({
   ingredients:{
     display: "flex",
     flexDirection: "row",
-    marginLeft: '30px'
+  
 
+  },
+ 
+  description: {
+    width: "800px",
+    marginLeft: '45px',
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "orange",
+    },
+  },
+
+  name: {
+    width: "550px",
+ marginLeft: '45px',
+ "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+  borderColor: "orange",
+},
+ 
   },
 
   form: {
@@ -71,13 +91,15 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: "column",
-    border: "black solid",
+    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)',
     width: '1000px',
+    marginTop: '30px',
+    marginBottom: '30px'
   },
 
   subheading: {
     fontSize: '15px',
-    marginLeft: '400px'
+    marginLeft: '40px'
  
   },
 
@@ -88,17 +110,34 @@ const useStyles = makeStyles((theme) => ({
 
   step: {
     width: "750px",
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "orange",
+    },
   },
 
   ingredient: {
     width: "550px",
-    marginLeft: '400px'
+    marginLeft: '150px',
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "orange",
+    },
   },
 
   amount: {
     marginLeft: '20px',
     marginRight: '20px',
-    width: "120px"
+    width: "140px",
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "orange",
+    },
+  },
+
+  button: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: "row",
+    marginBottom: "40px",
+    marginTop: "40px"
   }
 
 }));
@@ -361,7 +400,7 @@ const AddRecipe = (props) => {
   // if (!cookies.name){
   return (
     <section>
-      <div role="dialog">
+      <div>
         <div>
             <div className={classes.cont}>
               <div className={classes.form}>
@@ -376,7 +415,7 @@ const AddRecipe = (props) => {
                     value={inputRecipe.name}
                     id="outlined-margin-normal"
                     placeholder="Name"
-                    className={classes.textField}
+                    className={classes.name}
                     margin="normal"
                     variant="outlined"
                     InputLabelProps={{
@@ -384,28 +423,15 @@ const AddRecipe = (props) => {
                     }}
                   />
                   </div>
-                  <div className={classes.cont}>
-                  <h1 className={classes.subheading}>Recipe Description:</h1>
-                  <TextField onChange={handleChangeDescription}
-                    value={inputRecipe.description}
-                    id="outlined-margin-normal"
-                    placeholder="Description"
-                    className={classes.textField}
-                    margin="normal"
-                    variant="outlined"
-                    InputLabelProps={{
-                      style: { color: 'orange' },
-                    }}
-                  />
-                  </div>
-                  {/* Image */}
-                  <div className={classes.cont}>
+
+                    {/* Image */}
+                    <div className={classes.cont}>
                   <h1 className={classes.subheading}>Image URL:</h1>
                   <TextField onChange={handleChangeImg}
                     value={inputRecipe.img_url}
                     id="outlined-margin-normal"
                     placeholder="Image URL"
-                    className={classes.textField}
+                    className={classes.name}
                     margin="normal"
                     variant="outlined"
                     InputLabelProps={{
@@ -413,6 +439,20 @@ const AddRecipe = (props) => {
                     }}
                   />
                 </div>
+                  <div className={classes.cont}>
+                  <h1 className={classes.subheading}>Recipe Description:</h1>
+                  <TextField onChange={handleChangeDescription}
+                    value={inputRecipe.description}
+                    id="outlined-margin-normal"
+                    placeholder="Description"
+                    className={classes.description}
+                    margin="normal"
+                    variant="outlined"
+                    InputLabelProps={{
+                      style: { color: 'orange' },
+                    }}
+                  />
+                  </div>
                   <div className={classes.cont}>
                   <h1 className={classes.subheading}>Ingredients:</h1>
                     <div className={classes.ingredients}> 
@@ -669,9 +709,9 @@ const AddRecipe = (props) => {
                         </Select>
                       </FormControl>
                     </div>
-                    </div>
 
                 <h1 className={classes.subheading}>Directions:</h1>
+                    </div>
 
                   <div className={classes.directions}>
                     {/* DIRECTIONS */}
@@ -750,7 +790,7 @@ const AddRecipe = (props) => {
                   </div>
                
                   <br/>
-                    <div className={classes.root}>
+                    <div className={classes.button}>
                       <ColorButton type='submit' variant="contained" color="primary">Add</ColorButton>
                     </div>
 
