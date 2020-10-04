@@ -42,7 +42,7 @@ const Globe = (props) =>  {
       <div>
         <div className="container">
           <img className='background image' src={background} alt="dessert" width="450" height="650" />
-          <img className="globe image" src={imageQuestion} alt="globe" width="250" height="250"/>
+          <img className="globe image" src={imageQuestion} alt="globe" width="260" height="260"/>
         </div>
         <br/>
         <div className="descriptionGlobe">  
