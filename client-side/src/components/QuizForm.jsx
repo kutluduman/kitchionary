@@ -16,6 +16,7 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import axios from 'axios';
 
 
+
 // import IngredientForm from "./FridgeIngredientInput"
 
 import "./QuizMealCheck.css"
@@ -40,9 +41,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: theme.spacing(5),
+   
   },
   avatar: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(5),
   },
   submit: {
     marginTop: theme.spacing(5),
@@ -62,14 +64,16 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px"
   },
   slider: {
-   width:"900px",
+   width:"800px",
     display: "flex",
     justifyContent: 'center',
+    color: "orange",
+    
   },
 
   craving: {
-    marginLeft: "100px",
-    marginRight: "100px",
+    marginLeft: "300px",
+    marginRight: "300px",
     display: "flex",
     justifyContent: "center",
     flexWrap: "wrap"
@@ -81,13 +85,34 @@ const useStyles = makeStyles((theme) => ({
     // marginLeft: theme.spacing(5),
     marginBottom: theme.spacing(4),
     display: "Flex",
-    justifyContent: "center"
+    justifyContent: "center",
+  
   },
   align: {
     display: "flex",
     justifyContent: 'center',
   },
-  
+  header : {
+    padding: 50,
+    paddingTop: 30,
+    paddingBottom: 30,
+    fontSize: 50,
+    height: 50,
+    display: 'flex',
+    justifyContent: 'center',
+     backgroundColor: 'orange',
+     boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)",
+    // marginBottom: 100,
+    width: '1200px', 
+    // marginLeft: "35%"
+    // zIndex: 2,
+    
+  }, 
+  min: {
+    marginBottom: "40px",
+    fontSize: "18px",
+
+  }
 
 
 }));
@@ -196,14 +221,12 @@ if (!redirect) {
            <style>{'body { background-color: #f3f3f3; }'}</style>
          </Helmet>
       <form onSubmit={handleSubmit}>
-        <h1>Quiz Mode</h1>
+        <h1 className= {classes.header}>Quiz Mode</h1>
         <h2 className='quizSubtitle'>I'm cooking...</h2>
         <div className={classes.avatar}>
           <QuizAvatar setInput={props.setInputState} inputState={props.inputState}/>
         </div>
         <h2 className='quizSubtitle'>I need it to be...</h2>
-        
-      
         
         <div className={classes.checkbox}>
 
@@ -235,13 +258,13 @@ if (!redirect) {
           <QuizButton setInput={props.setInputState} inputState={props.inputState} name="notCold" attribute="Cold"/>  
           <QuizButton setInput={props.setInputState} inputState={props.inputState}  name="notHot" attribute="Hot"/>  
          </div>
-        <h2 className='quizTime'> Time </h2> 
+        <h2  className='quizSubtitle'> I only have... </h2> 
         <div className={classes.align}>
         <div>
 
       <Grid container spacing={2} alignItems="center">
         <Grid item>
-        <AccessTimeIcon fontSize="medium" color="secondary"/>
+        <AccessTimeIcon fontSize="medium" colorName={classes.min}/>
         </Grid>
         <Grid item xs>
           <Slider
@@ -251,7 +274,8 @@ if (!redirect) {
             name="time"
             aria-labelledby="input-slider"
             max="200"
-          />
+            
+          /> 
         </Grid>
         <Grid item>
           <Input1
@@ -269,6 +293,7 @@ if (!redirect) {
             }}
           />
         </Grid>
+        <p className={classes.min}>minutes</p>
       </Grid>
     </div>
 
