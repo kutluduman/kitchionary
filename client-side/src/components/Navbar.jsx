@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
   menuButton: {
     marginLeft: theme.spacing(2),
-    marginRight: "25%",
+    // marginRight: "25%",
     color: "orange",
   },
   search: {
@@ -123,7 +123,6 @@ const ColorButton = withStyles((theme) => ({
 
 function Navbar(props) {
   const classes = useStyles();
-  // const [cookies, setCookie, removeCookie] = useCookies(["name"]);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [redirect,setRedirect] = useState('false');
 
@@ -138,11 +137,6 @@ function Navbar(props) {
   const handleRemoveCookie = () => {
     props.removeCookie("name");
   };
-
-  // const handleChange = (value) => {
-  //   setSearch(value);
-  // }
-
 
   if (!props.cookies.name) {
 
@@ -186,14 +180,6 @@ function Navbar(props) {
                   <img src={logo} className="logo" alt="logo"></img>{" "}
                 </Button>
               </Typography>
-              {/* <IconButton
-                edge="start"
-                className={classes.menuButton}
-                color="inherit"
-                aria-label="menu"
-              >
-                <MenuIcon /> */}
-               
                 <IconButton
                 className={classes.menuButton}
                 color="inherit"
@@ -229,58 +215,37 @@ function Navbar(props) {
                   >
                     <MenuItem onClick={handleClose}>New Recipe</MenuItem>
                   </Link>
-                  <Link
-                    to="/fridge"
-                    style={{ textDecoration: "none", display: "block", color: "black" }}
-                  >
-                    <MenuItem onClick={handleClose}>Fridge Mode</MenuItem>
-                  </Link>
-                  <Link
-                    to="/quiz"
-                    style={{ textDecoration: "none", display: "block", color: "black" }}
-                  >
-                    <MenuItem onClick={handleClose}>Quiz Mode</MenuItem>
-                  </Link>
-                  <Link
-                    to="/globe"
-                    style={{ textDecoration: "none", display: "block", color: "black" }}
-                  >
-                    <MenuItem onClick={handleClose}>Globe Mode</MenuItem>
-                  </Link>
-                
-    
+                  
                 </Menu>
+                </IconButton>
     
-
                 <div className={classes.navIcon}>
                   <Link to='/fridge'>
                   <IconButton>
                     <MeetingRoomIcon fontSize="medium" style={{ color: orange[400] }}  />            
                   </IconButton>
                   </Link>
-              </div>
+                  </div>
 
-              <div className={classes.navIcon}>
-              <Link to='/quiz'>
+                  <div className={classes.navIcon}>
+                  <Link to='/quiz'>
                   <IconButton>
                     <HelpIcon fontSize="medium" style={{ color: orange[400] }}/>            
                   </IconButton>
                   </Link>
-              </div>
-      
+                  </div>
 
-              <div className={classes.navIcon}>
-              <Link to='/globe'>
+                  <div className={classes.navIcon}>
+                  <Link to='/globe'>
                   <IconButton>
                     <PublicIcon fontSize="medium" style={{ color: orange[400] }}/>            
                   </IconButton>
-                </Link>
-              </div>
+                  </Link>
+                  </div>
+           
+               
 
-              </IconButton>
-
-    
-              <div className={classes.root}
+              <div className={classes.root}>
                 <h2 className={classes.name}> Logged in as {props.cookies.name}!</h2>
                 <ColorButton onClick={handleRemoveCookie} href="/">
                   {" "}
