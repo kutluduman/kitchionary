@@ -13,6 +13,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import FaceIcon from '@material-ui/icons/Face';
 import IngredientDetails from './IngredientDetails';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee, faBreadSlice,faCheese,faLeaf, faSeedling } from '@fortawesome/free-solid-svg-icons';
+import SpaIcon from '@material-ui/icons/Spa';
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -107,8 +112,60 @@ function RecipeDetail(props) {
                 onChange={handleChange}
               />
               </Box>
-
         </Box>
+
+
+<div>
+{info[0].is_gluten_free && <div>
+<FontAwesomeIcon className="fa.fa-signal" icon={faBreadSlice} />
+<span>  Gluten Free</span>
+<br/>
+</div>}
+</div>
+
+<br/>
+
+<div>
+{info[0].is_dairy_free && <div>
+<FontAwesomeIcon className="fa.fa-signal" icon={faCheese} />
+<span>  Dairy Free</span>
+<br/>
+</div>}
+</div>
+
+<br/>
+
+<div>
+{info[0].is_nut_free && <div>
+<SpaIcon/>
+<span>  Nut Free</span>
+<br/>
+</div>}
+</div>
+
+<br/>
+
+<div>
+{info[0].vegan && <div>
+<br/>
+<FontAwesomeIcon className="fa.fa-signal" icon={faLeaf} />
+<span>  Vegan</span>
+<br/>
+</div>}
+</div>
+
+<br/>
+
+<div>
+{info[0].vegetarian && <div>
+<FontAwesomeIcon className="fa.fa-signal" icon={faSeedling} />
+<span>  Vegetarian</span>
+<br/>
+</div>}
+</div>
+
+
+        
         <Typography variant="h5" color="textSecondary">
           {/* INSERT RECIPE INGREDIENTS */}
           <h3>Ingredients</h3>
