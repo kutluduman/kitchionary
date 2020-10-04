@@ -55,7 +55,7 @@ const ColorButton = withStyles((theme) => ({
 
 const theme = createMuiTheme({
   palette: {
-    primary: lightBlue,
+    primary: orange,
   },
 });
 
@@ -177,7 +177,7 @@ const LoginTemplate = (props) => {
         </div>
         <ThemeProvider theme={theme}>
         <div className={classes.root}>
-        <Button href="#register" variant="outlined" color="primary">Register</Button>
+        <Button href="#register"  color="primary">Register</Button>
           
         </div>
         </ThemeProvider>
