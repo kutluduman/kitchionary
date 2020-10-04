@@ -58,7 +58,7 @@ const useStyles = makeStyles({
     alignSelf: 'flex-end'
   },
   button: {
-marginTop: "2.5%",
+marginBottom: "2.5%",
 display: "flex",
 justifyContent: "space-between"
 
@@ -128,8 +128,15 @@ const RecipeCard = (props) => {
 
   }, []);
 
+function truncate(selector) {
+console.log("HFDSOFIISOD", selector.length)
+if (selector.length > 100) {
+    return selector.slice(0,150) + "..."
+  } else {
+    return selector
+  }
 
-
+}
   const handleLink = (e) => {
     e.preventDefault();
     console.log('props', props.name)
@@ -220,7 +227,7 @@ const RecipeCard = (props) => {
             {props.name}
             </Typography>
             <Typography variant="body2" className={classes.description} color="textSecondary" component="p">
-            {props.description}
+            {truncate(props.description)}
             </Typography>
           </CardContent>
         </CardActionArea>

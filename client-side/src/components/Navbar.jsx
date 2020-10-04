@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Redirect } from "react-router-dom";
 // import { useCookies } from "react-cookie";
 import AppBar from "@material-ui/core/AppBar";
@@ -19,6 +19,8 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Link } from "react-router-dom";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import axios from 'axios';
+import SearchBar from "material-ui-search-bar";
 
 //popout
 
@@ -115,6 +117,8 @@ function Navbar(props) {
   const classes = useStyles();
   // const [cookies, setCookie, removeCookie] = useCookies(["name"]);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [search, setSearch] = useState('');
+  const [redirect,setRedirect] = useState('false');
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -128,7 +132,63 @@ function Navbar(props) {
     props.removeCookie("name");
   };
 
+  const handleChange = (value) => {
+    setSearch(value);
+  }
+
+//   const onKeyUpValue = (e) => {
+
+//     if (e.charCode === 13) {
+//       axios
+//       .post(`http://localhost:8080/search`, { search })
+//       .then((res) => {
+//         // console.log("resss", res.data.recipes);
+//         props.setMatchingRecipes(res.data.recipes);
+//         if (res.status === 200) {
+//           setRedirect(true);
+//         }
+//       })
+//       .catch((err) => {
+//         // res.status(500).json({ error: err.message });
+//       });
+//   }
+// }
+const onSubmit = (e) => {
+
+
+  const working = () => {
+    setRedirect(true)
+    setfalse()
+  }
+
+  const setfalse =() => {
+    setRedirect(false)
+  }
+
+    axios
+    .post(`http://localhost:8080/search`, { search })
+    .then((res) => {
+      console.log("resss from nav bar", res.data);
+      // setRedirect(true);
+      props.setMatchingRecipes(res.data.recipes);
+      // setRedirect(false);
+
+      // if(redirect) {
+      //   setRedirect(false)
+      // }
+   
+
+    })
+    .catch((err) => {
+      // res.status(500).json({ error: err.message });
+    });
+}
+
+  
+  console.log('search', search);
+
   if (!props.cookies.name) {
+
     return (
       <div>
         <AppBar position="static">
@@ -142,17 +202,42 @@ function Navbar(props) {
               </Typography>
               {/* </IconButton> */}
               <div className={classes.search2}>
+                
                 <div className={classes.searchIcon}>
                   <SearchIcon />
                 </div>
-                <InputBase
+                {/* <InputBase
+                  // onKeyUp={onKeyUpValue}
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
                   placeholder="Search…"
-                  classes={{
+                  classes={{2
                     root: classes.inputRoot,
                     input: classes.inputInput,
                   }}
                   inputProps={{ "aria-label": "search" }}
-                />
+                /> */}
+              <form onSubmit={onSubmit} >
+                <SearchBar
+                    value={search}
+                    onChange={handleChange}
+                  placeholder="Search…"
+                    // onChange={(s) => this.setState({ value: newValue })}
+                    onRequestSearch={onSubmit}
+                  /> 
+                {/* <input
+                    value={search}
+                    onChange={handleChange}
+                  placeholder="Search…"
+                />*/}
+
+                </form> 
+                    {/* <form className="App" onSubmit={onSubmit}>
+                      <input
+                        value={search}
+                        onChange={e => handleChange(e.target.value)}
+                      />
+                    </form> */}
               </div>
               <div className={classes.root}>
                 <ColorButton href="#login" startIcon={<ExitToAppIcon />}>
@@ -169,6 +254,11 @@ function Navbar(props) {
         </AppBar>
       </div>
     );
+    // } else if (!props.cookies.name && redirect || props.cookies.name && redirect) {
+    //   //  return <Redirect to = {{ pathname: "/quiz" }} />;        
+    //   return (
+    //     <h1> ITS NOT WORKING</h1>
+    //   )     
   } else {
     return (
       <div>
@@ -272,6 +362,7 @@ function Navbar(props) {
       </div>
     );
   }
+
 }
 
 export default Navbar;

@@ -84,7 +84,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar cookies={cookies} setCookie={setCookie} removeCookie={removeCookie} />
+        <Navbar cookies={cookies} setCookie={setCookie} removeCookie={removeCookie} setMatchingRecipes={setMatchingRecipes} />
           <dialog role="alertdialog" id="login" open>
             <LoginTemplate cookies={cookies} setCookie={setCookie} />
           </dialog>
@@ -166,6 +166,9 @@ function App() {
               </Route>
               <Route path="/add">
                 <AddRecipe cookies={cookies} />
+              </Route>
+              <Route path="/search">
+              <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
             </Switch>
           </main>
