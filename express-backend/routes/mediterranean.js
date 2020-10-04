@@ -1,23 +1,28 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 
+
+// This route is for getting Mediterranean cuisine recipes
 
 module.exports = (db) => {
 
-  router.post("/", (req,res) => {
+  router.post("/", (req, res) => {
 
     return db.query(`SELECT DISTINCT recipes.id, recipes.name, recipes.description, recipes.img_url
     FROM recipes
     FULL JOIN cultures ON recipes.id = recipe_id
     WHERE cultures.name = 'Mediterranean'`)
-    .then((data) => {
+      .then((data) => {
         const recipes = data.rows;
-        console.log('user', recipes);
-        res.json({ recipes });
-    })
-    .catch((err) => {
-      res.status(500).json({ error: err.message });
-    });
+        res.json({
+          recipes
+        });
+      })
+      .catch((err) => {
+        res.status(500).json({
+          error: err.message
+        });
+      });
   });
 
   return router;

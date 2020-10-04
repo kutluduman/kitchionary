@@ -1,51 +1,52 @@
 const express = require("express");
 const router = express.Router();
 
-module.exports = (db) => {
+// This route is used to display the recipe
 
-  router.get('/', (req,res) => {
-    return db.query(`SELECT DISTINCT recipes.id, recipes.name, recipes.description, recipes.img_url
+module.exports = (db) => {
+  router.get("/", (req, res) => {
+    return db
+      .query(
+        `SELECT DISTINCT recipes.id, recipes.name, recipes.description, recipes.img_url
     FROM recipes
     LIMIT 6;
-    `)
-    .then((data) => {
-      console.log("DATA", data);
-      const recipes = data.rows;
-      console.log("RECIPES", recipes);
-      res.json({ recipes });
-    })
-    .catch((err) => {
-      res.status(500).json({ error: err.message });
-    });
-  })
+    `
+      )
+      .then((data) => {
+        const recipes = data.rows;
 
-  router.post('/:id', (req,res) => {
-    // console.log('req', req.body)
+        res.json({ recipes });
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
+
+  router.post("/:id", (req, res) => {
     const name = req.body.recipe;
-    console.log('name', name)
 
-    return db.query(`SELECT DISTINCT recipes.id, ingredients.name AS ingredient, measurements.amount, measurements.unit, users.first_name, users.last_name, recipes.directions_one, recipes.directions_two, recipes.directions_three, recipes.directions_four, recipes.directions_five, recipes.directions_six,recipes.name, recipes.description, recipes.img_url, recipes.time, recipes.is_gluten_free, recipes.is_dairy_free, recipes.is_vegan, recipes.is_vegetarian, recipes.is_nut_free
+    return db
+      .query(
+        `SELECT DISTINCT recipes.id, ingredients.name AS ingredient, measurements.amount, measurements.unit, users.first_name, users.last_name, recipes.directions_one, recipes.directions_two, recipes.directions_three, recipes.directions_four, recipes.directions_five, recipes.directions_six,recipes.name, recipes.description, recipes.img_url, recipes.time, recipes.is_gluten_free, recipes.is_dairy_free, recipes.is_vegan, recipes.is_vegetarian, recipes.is_nut_free
     FROM ingredients
     JOIN measurements ON ingredients.id = ingredient_id
     JOIN recipes ON recipes.id = recipe_id
     JOIN users ON users.id = user_id
-    WHERE recipes.name = $1;`,[name])
+    WHERE recipes.name = $1;`,
+        [name]
+      )
 
-    .then((data) => {
-      // console.log('data', data.rows)
+      .then((data) => {
         const info = data.rows;
-        console.log('everything', info);
+
         res.json({ info });
-    })
-    .catch((err) => {
-      res.status(500).json({ error: err.message });
-    });
-
-  })
-
+      })
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
 
   router.post("/", (req, res) => {
-    console.log("reqqq", req.body);
     const recipes = req.body.recipes;
     const breakfast = recipes.breakfast;
     const lunch = recipes.lunch;
@@ -84,7 +85,6 @@ module.exports = (db) => {
         queryString += `WHERE ingredients.name = '${ingredient_one}'`;
       }
     }
-
 
     if (breakfast) {
       queryParams.push(breakfast);
@@ -177,15 +177,12 @@ module.exports = (db) => {
     }
 
     queryString += `;`;
-    console.log("QUERY", queryString)
-
 
     return db
       .query(queryString)
       .then((data) => {
-        // console.log("DATA", data);
         const recipes = data.rows;
-        console.log("RECIPES", recipes);
+
         res.json({ recipes });
       })
       .catch((err) => {
@@ -193,7 +190,5 @@ module.exports = (db) => {
       });
   });
 
-
   return router;
-
 };

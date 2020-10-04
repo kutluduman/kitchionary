@@ -1,12 +1,10 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
+// This route is used for finding the recipes that matches with user's quiz answers
 
 module.exports = (db) => {
-
-
   router.post("/", (req, res) => {
-    console.log("REQ", req.body.quizInfo);
     const quiz = req.body.quizInfo;
     const breakfast = quiz.breakfast;
     const lunch = quiz.lunch;
@@ -211,7 +209,7 @@ module.exports = (db) => {
     if (notSalty) {
       queryNotParams.push(notSalty);
       if (queryParams.length > 1) {
-      queryString += ` AND NOT recipes.is_salty = ${notSalty}`;
+        queryString += ` AND NOT recipes.is_salty = ${notSalty}`;
       } else {
         queryString += ` WHERE NOT recipes.is_greasy = ${notGreasy}`;
       }
@@ -280,26 +278,19 @@ module.exports = (db) => {
       }
     }
 
-
     queryString += `;`;
-    console.log("QUERY", queryString)
-
 
     return db
       .query(queryString)
       .then((data) => {
-        console.log("DATA", data);
         const recipes = data.rows;
-        console.log("RECIPES", recipes);
+
         res.json({ recipes });
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
       });
-
-  })
-
+  });
 
   return router;
-
-}
+};
