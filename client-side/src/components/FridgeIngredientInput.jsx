@@ -19,8 +19,7 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    marginTop: theme.spacing(5),
-    width: '25ch',
+    width: '40ch',
       "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
         borderColor: "orange",
       }

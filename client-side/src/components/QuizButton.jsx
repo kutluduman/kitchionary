@@ -16,7 +16,7 @@ const QuizButton = (props) => {
   return (
   <label>
     <input onClick={handleChange} name={props.name} className="input" type="checkbox" />
-    <Button  className="button" variant="outlined" size="large" color="secondary">
+    <Button  className="button" variant="outlined" size="large">
          {props.attribute}
     </Button>
   </label>
