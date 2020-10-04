@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Redirect } from "react-router-dom";
-import "./globe.css";
+import "../styles/globe.css";
 import imageQuestion from "../docs/world_white.jpg";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
