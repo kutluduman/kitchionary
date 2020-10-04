@@ -7,8 +7,8 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import logo from "../docs/Kitchionary_logo_white.jpg";
-import "../styles/navbar.css";
+import logo from "../../docs/Kitchionary_logo_white.jpg";
+import "../../styles/navbar.css";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import { orange, lightBlue } from "@material-ui/core/colors";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
@@ -18,10 +18,11 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import HelpIcon from '@material-ui/icons/Help';
-import Login from "./Login";
+import Login from "../Users/Login";
 import useLogin from "../Users/useLogin";
 import Register from "../Users/Register";
 import useRegister from "../Users/useRegister";
+import PublicIcon from '@material-ui/icons/Public';
 
 const useStyles = makeStyles((theme) => ({
   root: {

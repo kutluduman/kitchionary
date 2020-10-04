@@ -24,12 +24,13 @@ const useStyles = makeStyles((theme) => ({
 
 function IngredientDetail(props) {
   const classes = useStyles();
-  const ingredient = capitalize(props.ingredient);
-
+  
   const capitalize = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
   
+  const ingredient = capitalize(props.ingredient);
+
   let amount = `${props.amount}`
   if (props.unit) {
     amount += ` ${props.unit}`

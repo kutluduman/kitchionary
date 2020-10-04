@@ -1,11 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import breakfast from "../docs/breakfast3.jpg";
-import lunch from "../docs/lunch2.jpg";
-import appetizer from "../docs/appetizer2.jpg";
-import dinner from "../docs/dinner2.jpg";
-import dessert from "../docs/dessert2.jpg";
-import "../styles/fridgeMealCheck.css"
+import breakfast from "../../docs/breakfast3.jpg";
+import lunch from "../../docs/lunch2.jpg";
+import appetizer from "../../docs/appetizer2.jpg";
+import dinner from "../../docs/dinner2.jpg";
+import dessert from "../../docs/dessert2.jpg";
+import "../../styles/fridgeMealCheck.css"
 
 const useStyles = makeStyles((theme) => ({
   root: {

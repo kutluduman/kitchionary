@@ -11,27 +11,27 @@ import dessert from "../docs/dessert.jpg";
 const images = [
   {
     url: breakfast,
-    title:'Breakfast',
+    title: 'Breakfast',
     width: '20%'
   },
   {
     url: lunch,
-    title:'Lunch',
+    title: 'Lunch',
     width: '20%'
   },
   {
     url: appetizer,
-    title:'Appetizers',
+    title: 'Appetizers',
     width: '20%'
   },
   {
     url: dinner,
-    title:'Dinner',
+    title: 'Dinner',
     width: '20%'
   },
   {
     url: dessert,
-    title:'Desserts',
+    title: 'Desserts',
     width: '20%'
   }
 ]

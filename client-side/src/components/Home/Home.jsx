@@ -7,21 +7,21 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import { height, width } from '@material-ui/system';
 import axios from 'axios';
-import { ReactComponent as Logo } from '../docs/breakfast.jpg'
+import { ReactComponent as Logo } from '../../docs/breakfast.jpg'
 import RecipeCard from '../Recipes/RecipeCard';
 import Grid from '@material-ui/core/Grid';
-import "../styles/quiz.css"
+import "../../styles/quiz.css"
 
-import breakfast from "../docs/breakfast.jpg";
-import lunch from "../docs/lunch.jpg";
-import appetizer from "../docs/appetizer.jpg";
-import dinner from "../docs/dinner.jpg";
-import dessert from "../docs/dessert.jpg";
+import breakfast from "../../docs/breakfast.jpg";
+import lunch from "../../docs/lunch.jpg";
+import appetizer from "../../docs/appetizer.jpg";
+import dinner from "../../docs/dinner.jpg";
+import dessert from "../../docs/dessert.jpg";
 
 import Door from "./Door.jsx";
 import Question from "./Question";
 import Globe from "./Globe.jsx"
-import "../styles/mode.css";
+import "../../styles/mode.css";
 
 const images = [
   {
@@ -176,7 +176,6 @@ const Home = (props) => {
     setExpanded(!expanded);
   };
 
-  
   const handleClick = (category) => {
   setMeal(category)
 

@@ -18,7 +18,7 @@ import StepContent from "@material-ui/core/StepContent";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import IngredientForm from "./FridgeIngredientInput";
-import "../styles/fridgeMealCheck.css";
+import "../../styles/fridgeMealCheck.css";
 
 const ColorButton = withStyles((theme) => ({
   root: {
@@ -53,8 +53,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     stepper : {
       width:"1800px",
-      // display:'flex',
-      // justifyContent: 'center',
       marginLeft: '10%',
 
     },
@@ -67,11 +65,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       justifyContent: 'center',
        backgroundColor: 'orange',
-      // marginBottom: 100,
-      width: '1200px', 
-      // marginLeft: "35%"
-      // zIndex: 2,
-      
+      width: '1200px',      
     }, 
     quiz : {
       fontSize: "30px",

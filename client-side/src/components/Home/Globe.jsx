@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import { Redirect } from "react-router-dom";
-import "../styles/globe.css";
-import imageQuestion from "../docs/world_white.jpg";
+import "../../styles/globe.css";
+import imageQuestion from "../../docs/world_white.jpg";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import background from "../docs/white_back.jpg"
+import background from "../../docs/white_back.jpg"
 
 const useStyles = makeStyles((theme) => ({
   root: {

@@ -1,43 +1,24 @@
 import React, { useState } from 'react';
 import { useCookies } from "react-cookie";
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Door from "./components/Door.jsx";
-import Question from "./components/Question";
-import Globe from "./components/Globe.jsx"
-import FeaturedDessert from "./components/FeaturedDessert"
-import FeaturedPasta from "./components/FeaturedPasta";
-import FeaturedSalad from "./components/FeaturedSalad";
-import FridgeBoxImage from "./components/FridgeBoxImage";
-import FridgeCheckbox from "./components/FridgeCheckbox";
-import FridgeAvatar from "./components/FridgeAvatar";
-import FridgeForm from "./components/FridgeForm";
-import RecipeDetail from "./components/RecipeDetail";
-import MatchingRecipes from "./components/MatchingRecipes";
-import GlobeFeature from "./components/GlobeFeature";
-import AddRecipe from "./components/AddRecipe";
-import axios from 'axios';
-
-
+import Navbar from "./components/Home/Navbar";
+import Home from "./components/Home/Home";
+import FridgeForm from "./components/Fridge/FridgeForm";
+import RecipeDetail from "./components/Recipes/RecipeDetail";
+import MatchingRecipes from "./components/Recipes/MatchingRecipes";
+import GlobeFeature from "./components/Globe/GlobeFeature";
+import AddRecipe from "./components/Recipes/AddRecipe";
+import LoginTemplate from "./components/Users/LoginTemplate";
+import RegisterTemplate from "./components/Users/RegisterTemplate";
+import "./styles/mode.css";
+import "./styles/globefeature.css";
+import QuizForm from "./components/Quiz/QuizForm";
+import Favorite from "./components/Recipes/Favorite";
+import MyRecipes from "./components/Recipes/MyRecipes";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  HashRouter
 } from "react-router-dom";
-
-import Login from "./components/Users/Login";
-import LoginTemplate from "./components/Users/LoginTemplate";
-import RegisterTemplate from "./components/Users/RegisterTemplate";
-import Register from "./components/Register";
-import "./styles/mode.css";
-import SimpleGlobe from './components/GlobeFeature';
-import OverlayGlobe from './components/OverlayGlobe';
-import "./styles/globefeature.css";
-import QuizForm from "./components/QuizForm";
-import Favorite from "./components/Favorite";
-import MyRecipes from "./components/MyRecipes";
 
 
 function App() {
@@ -75,11 +56,6 @@ function App() {
     notHot: false,
     time: 0,
   });
-
-  console.log('matching', matchingRecipes);
-  console.log('RECIPEDATA', recipeData);
-  // const { id } = matchingRecipes.id;
-
 
   return (
     <Router>
@@ -174,9 +150,7 @@ function App() {
           </main>
           </div>
     </Router>
-
-  )  
-      
+  )   
 }
 export default App;
 

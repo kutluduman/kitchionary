@@ -5,14 +5,14 @@ import Button from '@material-ui/core/Button';
 import { orange, black, lightBlue} from "@material-ui/core/colors";
 import {Helmet} from 'react-helmet';
 import QuizAvatar from './QuizAvatar';
-import FridgeCheckbox from './FridgeCheckbox';
+import FridgeCheckbox from '../Fridge/FridgeCheckbox';
 import {Select,MenuItem, FormControl, InputLabel} from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Slider from '@material-ui/core/Slider';
 import Input1 from '@material-ui/core/Input';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import axios from 'axios';
-import "../styles/QuizMealCheck.css"
+import "../../styles/QuizMealCheck.css"
 import QuizButton from './QuizButton';
 
 const useStyles = makeStyles((theme) => ({

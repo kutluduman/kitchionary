@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CardMedia from '@material-ui/core/CardMedia';
-import sample from '../docs/sample.jpg';
 import Typography from '@material-ui/core/Typography';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
@@ -16,7 +15,7 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee, faBreadSlice,faCheese,faLeaf, faSeedling } from '@fortawesome/free-solid-svg-icons';
 import SpaIcon from '@material-ui/icons/Spa';
-import '../styles/detail.css'
+import '../../styles/detail.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {

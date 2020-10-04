@@ -12,8 +12,8 @@ import {
   orange, lightBlue, green, blueGrey
 } from "@material-ui/core/colors";
 import axios from 'axios';
-import americanAll from '../docs/AmericanAll.jpg';
-import chineseAll from '../docs/chineseAll.jpg'
+import americanAll from '../../docs/AmericanAll.jpg';
+import chineseAll from '../../docs/chineseAll.jpg'
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
 

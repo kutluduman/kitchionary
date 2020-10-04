@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { Redirect } from "react-router-dom";
-import "../styles/quiz.css";
-import imageQuestion from "../docs/question_white.jpg";
-import background from "../docs/white_back.jpg"
+import "../../styles/quiz.css";
+import imageQuestion from "../../docs/question_white.jpg";
+import background from "../../docs/white_back.jpg"
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
