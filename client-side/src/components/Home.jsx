@@ -26,7 +26,7 @@ import Button from '@material-ui/core/Button';
 
 
 //quiz
-import "./quiz.css"
+import "../styles/quiz.css"
 
 // food images
 import breakfast from "../docs/breakfast.jpg";

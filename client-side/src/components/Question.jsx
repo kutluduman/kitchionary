@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { Redirect, Link } from "react-router-dom";
-import "./quiz.css";
+import "../styles/quiz.css";
 import imageQuestion from "../docs/question_white.jpg";
 import background from "../docs/white_back.jpg"
 import Button from '@material-ui/core/Button';
