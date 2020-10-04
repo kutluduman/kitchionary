@@ -55,11 +55,13 @@ const useStyles = makeStyles((theme) => ({
     
   },
   stars: {
-    display:"flex"
+    display:"flex",
+    marginLeft: "40px"
+
   },
   col1: {
-    marginLeft: "85px",
-    marginTop: "50px"
+    marginLeft: "55px",
+    marginTop: "30px"
   },
   col2: {
     width: "72%",
@@ -94,6 +96,9 @@ const useStyles = makeStyles((theme) => ({
   },
   dir: {
    fontSize: "20px"
+  },
+  ingredients: {
+    marginBottom: "30px"
   }
   
 
@@ -147,13 +152,34 @@ function RecipeDetail(props) {
           title={info[0].name}
          />
     </Row>
+   
     <Row  className={classes.row2}>
       <Col className={classes.col1}>
+      <h3><FaceIcon fontSize="medium" color="primary"/> {info[0].first_name} {info[0].last_name}</h3> 
       <h3><AccessTimeIcon fontSize="medium" color="secondary"/> {info[0].time} min</h3>
             <Box  component="fieldset" mb={3} borderColor="transparent">
             <Rating name="read-only" value={rating} readOnly />
         
          </Box>
+
+<div className={classes.ingredients}>
+         <Typography variant="h5" color="textSecondary">
+          {/* INSERT RECIPE INGREDIENTS */}
+          <h3 className={classes.ingredientsTitle} >Ingredients</h3>
+          {props.recipeData.map(ingredient => {
+          return (
+            <IngredientDetails
+            ingredient={ingredient.ingredient}
+            amount={ingredient.amount}
+            unit={ingredient.unit}
+            />
+          );
+          })
+         }
+  
+        </Typography>
+        
+        </div>
          <div>
       <div>
 {info[0].is_gluten_free && <div>
@@ -201,26 +227,6 @@ function RecipeDetail(props) {
 </div>
          
 
-
-
-<Typography variant="h5" color="textSecondary">
-          {/* INSERT RECIPE INGREDIENTS */}
-          <h3 className={classes.ingredientsTitle} >Ingredients</h3>
-          {props.recipeData.map(ingredient => {
-          return (
-            <IngredientDetails
-            ingredient={ingredient.ingredient}
-            amount={ingredient.amount}
-            unit={ingredient.unit}
-            />
-          );
-          })
-         }
- 
-        </Typography>
-        
-       
-
       </Col>
 
 
@@ -262,13 +268,13 @@ function RecipeDetail(props) {
         </Typography>
         </div>
 
-        <Box component="fieldset" mb={3} borderColor="transparent">
+        <Box component="fieldset" mb={3}    className={classes.stars} borderColor="transparent">
              <h3>Your Rating:</h3>
               <Rating
                 name="simple-controlled"
                 value={value}
                 onChange={handleChange}
-                className={classes.stars}
+             
               />
               
               </Box>
