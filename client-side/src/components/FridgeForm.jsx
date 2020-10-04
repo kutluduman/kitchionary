@@ -23,7 +23,7 @@ import StepContent from "@material-ui/core/StepContent";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import IngredientForm from "./FridgeIngredientInput";
-import "./fridgeMealCheck.css";
+import "../styles/fridgeMealCheck.css";
 
 const ColorButton = withStyles((theme) => ({
   root: {
