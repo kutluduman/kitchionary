@@ -57,7 +57,9 @@ module.exports = (db) => {
     const dairyFree = recipes.dairyFree;
     const vegetarian = recipes.vegetarian;
     const vegan = recipes.vegan;
-    const name = recipes.name;
+    const ingredient_one = recipes.ingredient_one;
+    const ingredient_two = recipes.ingredient_two;
+    const ingredient_three = recipes.ingredient_three;
 
     const queryParams = [];
 
@@ -67,10 +69,22 @@ module.exports = (db) => {
     FULL JOIN recipes ON recipes.id = recipe_id
     `;
 
-    if (name) {
-      queryParams.push(name);
-      queryString += `WHERE ingredients.name = '${name}'`;
+    if (ingredient_one && ingredient_two && ingredient_three) {
+      queryParams.push(ingredient_one);
+      queryParams.push(ingredient_two);
+      queryParams.push(ingredient_three);
+      queryString += `WHERE ingredients.name IN ('${ingredient_one}', '${ingredient_two}', '${ingredient_three}')`;
+    } else if (ingredient_one && ingredient_two) {
+      queryParams.push(ingredient_one);
+      queryParams.push(ingredient_two);
+      queryString += `WHERE ingredients.name IN ('${ingredient_one}', '${ingredient_two}')`;
+    } else {
+      if (ingredient_one) {
+        queryParams.push(ingredient_one);
+        queryString += `WHERE ingredients.name = '${ingredient_one}'`;
+      }
     }
+
 
     if (breakfast) {
       queryParams.push(breakfast);
@@ -169,7 +183,7 @@ module.exports = (db) => {
     return db
       .query(queryString)
       .then((data) => {
-        console.log("DATA", data);
+        // console.log("DATA", data);
         const recipes = data.rows;
         console.log("RECIPES", recipes);
         res.json({ recipes });

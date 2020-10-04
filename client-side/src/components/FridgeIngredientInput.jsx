@@ -33,7 +33,7 @@ export default function IngredientForm(props) {
   const classes = useStyles(); 
 
   const handleChange = (event) => {
-    props.setInput({ ...props.inputState, [event.target.name]: event.target.value });
+    props.setIngredient({ ...props.ingredient, [event.target.name]: event.target.value });
   };
 
 
@@ -42,7 +42,7 @@ export default function IngredientForm(props) {
     <div>
 
  <form>
- <TextField
+        <TextField
           // label="Name"
           onChange={handleChange}
           placeholder= "Ingredients"
@@ -51,7 +51,29 @@ export default function IngredientForm(props) {
           className={classes.textField}
           margin="normal"
           variant="outlined"
-          name= "name"
+          name= "one"
+        />
+        <TextField
+          // label="Name"
+          onChange={handleChange}
+          placeholder= "Ingredients"
+          id=""
+          defaultValue=""
+          className={classes.textField}
+          margin="normal"
+          variant="outlined"
+          name= "two"
+        />
+        <TextField
+          // label="Name"
+          onChange={handleChange}
+          placeholder= "Ingredients"
+          id=""
+          defaultValue=""
+          className={classes.textField}
+          margin="normal"
+          variant="outlined"
+          name= "three"
         />
       </form>   
 

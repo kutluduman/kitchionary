@@ -101,6 +101,11 @@ const FridgeForm = (props) => {
     vegetarian: false,
     vegan: false
   });
+  const [ingredient, setIngredient] = useState({
+    one: '',
+    two: '',
+    three: '',
+  })
 
   const steps = getSteps();
 
@@ -132,9 +137,12 @@ const FridgeForm = (props) => {
       dairyFree: props.inputState.dairyFree,
       vegetarian: props.inputState.vegetarian,
       vegan: props.inputState.vegan,
-      name: props.inputState.name,
-      quantity: props.inputState.quantity,
-      unit: props.inputState.unit,
+      ingredient_one: ingredient.one,
+      ingredient_two: ingredient.two,
+      ingredient_three: ingredient.three,
+      // name: props.inputState.name,
+      // quantity: props.inputState.quantity,
+      // unit: props.inputState.unit,
     };
 
     axios
@@ -237,9 +245,10 @@ const FridgeForm = (props) => {
               </StepLabel>
               <StepContent>
                 <IngredientForm
-              
                   setInput={props.setInputState}
                   inputState={props.inputState}
+                  ingredient={ingredient}
+                  setIngredient={setIngredient}
                 />
                 <div className={classes.actionsContainer}>
                   <div>
