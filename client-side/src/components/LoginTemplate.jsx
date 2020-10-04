@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
-    
   },
   textField: {
     marginLeft: theme.spacing(5),
@@ -31,10 +30,17 @@ const useStyles = makeStyles((theme) => ({
     },
     buttonColor: {
       backgroundColor: '#0063cc',
-    }
+    },
 
-  }
-  
+  },
+  iconButton: {
+    color: "orange",
+    backgroundColor: "orange",
+  },    
+  icon: {
+    color: "orange",
+    backgroundColor: "orange",
+  }, 
 
 }));
 
@@ -152,9 +158,13 @@ const LoginTemplate = (props) => {
         <PasswordField
         onChange={handleChangePassword}
         value={password}
+        className={classes.textField}
           hintText="At least 8 characters"
           floatingLabelText="Enter your password"
           errorText="Your password is too short"
+          iconButton={{
+            style: { color: 'orange' },
+          }}
         />
         </div>
         <br/>
