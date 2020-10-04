@@ -14,10 +14,6 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 // import greek from '../../../express-backend/routes/greek';
 
-
-
-
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -182,11 +178,11 @@ const AddRecipe = (props) => {
   const [error, setError] = useState('');
   const [redirect, setRedirect] = useState(false);
   const [ingredient, setIngredient] = useState({
-    one: [],
-    two: [],
-    three: [],
-    four: [],
-    five: [],
+    one: '',
+    two: '',
+    three: '',
+    four: '',
+    five: '',
   });
   const [amount, setAmount] = useState({
     one: [],
@@ -262,11 +258,11 @@ const AddRecipe = (props) => {
       return;
     }
   
-    const ingredientOne = ingredient.one[ingredient.one.length-1];
-    const ingredientTwo = ingredient.two[ingredient.two.length-1];
-    const ingredientThree = ingredient.three[ingredient.three.length-1];
-    const ingredientFour = ingredient.four[ingredient.four.length-1];
-    const ingredientFive = ingredient.five[ingredient.five.length-1];
+    // const ingredientOne = ingredient.one[ingredient.one.length-1];
+    // const ingredientTwo = ingredient.two[ingredient.two.length-1];
+    // const ingredientThree = ingredient.three[ingredient.three.length-1];
+    // const ingredientFour = ingredient.four[ingredient.four.length-1];
+    // const ingredientFive = ingredient.five[ingredient.five.length-1];
     const amountOne = amount.one[amount.one.length-1];
     const amountTwo = amount.two[amount.two.length-1];
     const amountThree = amount.three[amount.three.length-1];
@@ -278,20 +274,20 @@ const AddRecipe = (props) => {
     const unitFour = unit.four[unit.four.length-1];
     const unitFive = unit.five[unit.five.length-1];
 
-    if (ingredientOne) {
-      inputRecipe.ingredients.push(ingredientOne);
+    if (ingredient.one) {
+      inputRecipe.ingredients.push(ingredient.one);
     };
-    if (ingredientTwo) {
-      inputRecipe.ingredients.push(ingredientTwo);
+    if (ingredient.two) {
+      inputRecipe.ingredients.push(ingredient.two);
     }
-    if (ingredientThree) {
-      inputRecipe.ingredients.push(ingredientThree);
+    if (ingredient.three) {
+      inputRecipe.ingredients.push(ingredient.three);
     }
-    if (ingredientFour) {
-      inputRecipe.ingredients.push(ingredientFour);
+    if (ingredient.four) {
+      inputRecipe.ingredients.push(ingredient.four);
     }
-    if (ingredientFive) {
-      inputRecipe.ingredients.push(ingredientFive);
+    if (ingredient.five) {
+      inputRecipe.ingredients.push(ingredient.five);
     }
     if (amountOne) {
       inputRecipe.amount.push(amountOne);
@@ -303,7 +299,7 @@ const AddRecipe = (props) => {
       inputRecipe.amount.push(amountThree);
     }
     if (amountFour) {
-      inputRecipe.amounts.push(amountFour);
+      inputRecipe.amount.push(amountFour);
     }
     if (amountFive) {
       inputRecipe.amount.push(amountFive);
@@ -323,26 +319,27 @@ const AddRecipe = (props) => {
     if (unitFive) {
       inputRecipe.unit.push(unitFive);
     }
-    if (ingredientOne && !amountOne) {
+    if (ingredient.one && !amountOne) {
       setError("Amount is required!");
       return;
     }
-    if (ingredientTwo && !amountTwo) {
+    if (ingredient.two && !amountTwo) {
       setError("Amount is required!");
       return;
     }
-    if (ingredientThree && !amountThree) {
+    if (ingredient.three && !amountThree) {
       setError("Amount is required!");
       return;
     }
-    if (ingredientFour && !amountFour) {
+    if (ingredient.four && !amountFour) {
       setError("Amount is required!");
       return;
     }
-    if (ingredientFive && !amountFive) {
+    if (ingredient.five && !amountFive) {
       setError("Amount is required!");
       return;
     }
+    console.log("ingredients before send", inputRecipe.ingredients)
 
     const newRecipe = {
       user: inputRecipe.user,
@@ -455,11 +452,11 @@ const AddRecipe = (props) => {
       time: 0,
     })
     setIngredient({
-      one: [],
-      two: [],
-      three: [],
-      four: [],
-      five: [],
+      one: '',
+      two: '',
+      three: '',
+      four: '',
+      five: '',
     });
     setAmount({
       one: [],
@@ -494,23 +491,24 @@ const AddRecipe = (props) => {
   }
   const handleChangeIngredientsOne = (e) => {
     console.log("INGRED", e.target.value)
-    ingredient.one.push(e.target.value);
+    // ingredient.one.push(e.target.value);
+    setIngredient({...ingredient, one: e.target.value});
   }
 
   const handleChangeIngredientsTwo = (e) => {
-    ingredient.two.push(e.target.value);
+    setIngredient({...ingredient, two: e.target.value});
   }
 
   const handleChangeIngredientsThree = (e) => {
-    ingredient.three.push(e.target.value);
+    setIngredient({...ingredient, three: e.target.value});
   }
 
   const handleChangeIngredientsFour = (e) => {
-    ingredient.four.push(e.target.value);
+    setIngredient({...ingredient, four: e.target.value});
   }
 
   const handleChangeIngredientsFive = (e) => {
-    ingredient.five.push(e.target.value);
+    setIngredient({...ingredient, five: e.target.value});
   }
 
     const handleChangeTime = (e) => {
@@ -590,6 +588,7 @@ const AddRecipe = (props) => {
   };
 
   console.log(inputRecipe)
+  console.log("INGREDIENT.ONE", ingredient.one)
   
   if (!redirect){
   return (

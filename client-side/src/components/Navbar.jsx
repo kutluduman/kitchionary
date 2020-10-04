@@ -350,7 +350,7 @@ const onSubmit = (e) => {
               <div className={classes.root}>
                
                 <h2 className={classes.name}> Logged in as {props.cookies.name}!</h2>
-                <ColorButton onClick={handleRemoveCookie}>
+                <ColorButton onClick={handleRemoveCookie} href="/">
                   {" "}
                   Logout
                   <Redirect to={{ pathname: "/" }} />

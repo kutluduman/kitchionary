@@ -24,7 +24,7 @@ module.exports = (db) => {
     const name = req.body.recipe;
     console.log('name', name)
 
-    return db.query(`SELECT DISTINCT recipes.id, ingredients.name AS ingredient, measurements.amount, measurements.unit, users.first_name, users.last_name, recipes.directions_one, recipes.directions_two, recipes.directions_three, recipes.directions_four, recipes.directions_five, recipes.directions_six,recipes.name, recipes.description, recipes.img_url, recipes.time
+    return db.query(`SELECT DISTINCT recipes.id, ingredients.name AS ingredient, measurements.amount, measurements.unit, users.first_name, users.last_name, recipes.directions_one, recipes.directions_two, recipes.directions_three, recipes.directions_four, recipes.directions_five, recipes.directions_six,recipes.name, recipes.description, recipes.img_url, recipes.time, recipes.is_gluten_free, recipes.is_dairy_free, recipes.is_vegan, recipes.is_vegetarian, recipes.is_nut_free
     FROM ingredients
     JOIN measurements ON ingredients.id = ingredient_id
     JOIN recipes ON recipes.id = recipe_id
