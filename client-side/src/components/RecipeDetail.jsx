@@ -20,10 +20,12 @@ const useStyles = makeStyles((theme) => ({
   },
   
   media: {
-        width: 700,
-        height: 700,
+        width: 1300,
+        height: 300,
         marginTop: 30,
         marginLeft: 45,
+        justifyContent: 'center',
+        display:'flex'
         
       },
   cont: {
@@ -33,6 +35,16 @@ const useStyles = makeStyles((theme) => ({
 
   title:{
     marginTop: 110,
+  },
+  row: {
+    display: "flex",
+    justifyContent: "space-evenly"
+  },
+  stars: {
+    display:"flex"
+  },
+  col1: {
+    marginLeft: "50px"
   }
 
 }));
@@ -76,90 +88,65 @@ function RecipeDetail(props) {
     }
 
   return (
-    <Row>
-      <Col span={5}>
-        <CardMedia
-        // INSERT RECIPE IMAGE
+<div>
+   <Row className={classes.row}>
+      <CardMedia
+         // INSERT RECIPE IMAGE
           className={classes.media}
-          image={info[0].img_url}
+           image={info[0].img_url}
           title={info[0].name}
-        />
-      </Col>
-      <Col span={6}>
-
-        <Col  className={classes.cont} span={3}>
-        
-        <Box className="rating" component="fieldset" mb={3} borderColor="transparent">
-          {/* INSERT RECIPE OWNER */}
-         <h3><FaceIcon fontSize="medium" color="primary"/> {info[0].first_name} {info[0].last_name}</h3> 
-          {/* INSERT RECIPE TIME */}
-            <h3><AccessTimeIcon fontSize="medium" color="secondary"/> {info[0].time} min</h3> 
+         />
+    </Row>
+    <Row>
+      <Col className={classes.col1}>
+      <h3><AccessTimeIcon fontSize="medium" color="secondary"/> {info[0].time} min</h3>
             <Box component="fieldset" mb={3} borderColor="transparent">
               <h3>Rating:</h3>
-             <Rating name="read-only" value={rating} readOnly />
-           </Box>
-           
+            <Rating name="read-only" value={rating} readOnly />
+        
+         </Box>
            <Box component="fieldset" mb={3} borderColor="transparent">
              <h3>Your Rating:</h3>
               <Rating
                 name="simple-controlled"
                 value={value}
                 onChange={handleChange}
+                className={classes.stars}
               />
+              
               </Box>
-
-        </Box>
+ 
         <Typography variant="h5" color="textSecondary">
           {/* INSERT RECIPE INGREDIENTS */}
           <h3>Ingredients</h3>
           {props.recipeData.map(ingredient => {
           return (
-            <IngredientDetails 
+            <IngredientDetails
             ingredient={ingredient.ingredient}
             amount={ingredient.amount}
             unit={ingredient.unit}
             />
           );
           })
-          }
+         }
+ 
+        </Typography>
 
-        </Typography>
-        </Col>
-        <Col span={9}>
-          
-        <Typography className={classes.title} variant="h3" component="h2" align="center">
-            {/* INSERT RECIPE NAME */}
-          {info[0].name}
-        </Typography>
-        <br/>
-        <Typography >
-            {/* INSERT RECIPE DESCRIPTION */}
-            {info[0].description_one}
-        </Typography>
-            <Typography variant="h5" color="textSecondary">
-          {/* INSERT DIRECTIONS */}
-          <p>
-            {info[0].directions_one}
-          </p>      
-          <p>
-            {info[0].directions_two}
-          </p>  
-          <p>
-            {info[0].directions_three}
-          </p>  
-          <p>
-            {info[0].directions_four}
-          </p>  
-          <p>
-            {info[0].directions_five}
-          </p>  
-          <p>
-            {info[0].directions_six}
-          </p>     
-        </Typography>
-        </Col>
+      </Col>
+
+
+      <Col>
+
+
       </Col>
     </Row>
+
+
+
+
+
+    </div>
+
   );
 }
 
