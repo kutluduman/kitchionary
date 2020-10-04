@@ -1,7 +1,7 @@
 import React, {useState, useReducer} from 'react';
 import Button from '@material-ui/core/Button';
 
-import "./QuizButton.css"
+import "../styles/QuizButton.css"
 import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 
 
