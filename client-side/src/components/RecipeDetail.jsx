@@ -20,9 +20,8 @@ const useStyles = makeStyles((theme) => ({
   },
   
   media: {
-        width: 1300,
-        height: 300,
-        marginTop: 30,
+        width: "1528px",
+        height: 360,
         
         justifyContent: 'center',
         display:'flex'
@@ -32,8 +31,8 @@ const useStyles = makeStyles((theme) => ({
    marginTop: 30,
    border: "solid black",
    width: "80%",
-  marginLeft: 200
-
+  marginLeft: 200,
+  marginBottom: 30,
    
   },
 
@@ -59,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
   },
   col2: {
     width: "72%",
-    marginLeft: "48px"
+    marginLeft: "55px"
   },
 
   
