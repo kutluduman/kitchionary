@@ -61,7 +61,7 @@ const useStyles = makeStyles({
   button: {
     position: "absolute",
     transform: "translate(-50%, -50%)",
-    marginTop: '650px',
+    marginTop: '635px',
     marginLeft: "75px",
     fontSize: '19px',
     color: 'orange',
@@ -79,14 +79,14 @@ backgroundColor: "white",
 
 
   transform: "translate(-50%, -50%)"
-  // -ms-transform: translate(-50%, -50%);
-  // background-color: #555;
-  // color: white;
-  // font-size: 16px;
-  // padding: 12px 24px;
-  // border: none;
-  // cursor: pointer;
-  // border-radius: 5px;
+   },
+   star: {
+  position: "absolute",
+   transform: "translate(-50%, -50%)",
+   marginTop: '635px',
+   marginLeft: "350px",
+   fontSize: '15px',
+
    }
 
 });
@@ -226,6 +226,10 @@ if (selector.length > 100) {
         <Button className={classes.button} onClick= {handleLink} size="large" >
             Cook This!
         </Button>
+            
+        <Box component="fieldset" className={classes.star}  mb={3} borderColor="transparent">
+        <Rating name="read-only" value={rating} readOnly />
+      </Box>
           <CardMedia className={classes.media}
             component="img"
             // alt="Shrimp and Chorizo Paella"
@@ -245,10 +249,6 @@ if (selector.length > 100) {
         
         {/* <CardActions> */}
         {/* <div > */}
-        
-        <Box component="fieldset" mb={3} borderColor="transparent">
-        <Rating name="read-only" value={rating} readOnly />
-      </Box>
       {/* </div> */}
         {/* </CardActions> */}
      
