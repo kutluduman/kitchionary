@@ -23,18 +23,24 @@ const useStyles = makeStyles((theme) => ({
         width: 1300,
         height: 300,
         marginTop: 30,
-        marginLeft: 45,
+        
         justifyContent: 'center',
         display:'flex'
         
       },
   cont: {
    marginTop: 30,
+   border: "solid black",
+   width: "80%",
+  marginLeft: 200
+
    
   },
 
   title:{
-    marginTop: 110,
+    marginTop: 57,
+    fontFamily: "Roboto",
+    backgroundColor: "orange"
   },
   row: {
     display: "flex",
@@ -48,11 +54,11 @@ const useStyles = makeStyles((theme) => ({
     display:"flex"
   },
   col1: {
-    marginLeft: "219px",
+    marginLeft: "85px",
     marginTop: "50px"
   },
   col2: {
-    width: "70%",
+    width: "72%",
     marginLeft: "48px"
   },
 
@@ -99,7 +105,7 @@ function RecipeDetail(props) {
     }
 
   return (
-<div>
+<div className={classes.cont}>
    <Row className={classes.row}>
       <CardMedia
           INSERT RECIPE IMAGE
