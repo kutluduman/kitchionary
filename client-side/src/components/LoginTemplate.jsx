@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { orange, lightBlue} from "@material-ui/core/colors";
 import axios from 'axios';
+import PasswordField from 'material-ui-password-field'
 
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Register from "./Register";
@@ -18,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
-    
   },
   textField: {
     marginLeft: theme.spacing(5),
@@ -30,10 +30,17 @@ const useStyles = makeStyles((theme) => ({
     },
     buttonColor: {
       backgroundColor: '#0063cc',
-    }
+    },
 
-  }
-  
+  },
+  iconButton: {
+    color: "orange",
+    backgroundColor: "orange",
+  },    
+  icon: {
+    color: "orange",
+    backgroundColor: "orange",
+  }, 
 
 }));
 
@@ -48,7 +55,7 @@ const ColorButton = withStyles((theme) => ({
 
 const theme = createMuiTheme({
   palette: {
-    primary: lightBlue,
+    primary: orange,
   },
 });
 
@@ -136,7 +143,7 @@ const LoginTemplate = (props) => {
         />
          
         <div>
-        <TextField onChange={handleChangePassword}
+        {/* <TextField onChange={handleChangePassword}
           // label="Password"
           value={password}
           id="outlined-margin-normal"
@@ -145,6 +152,17 @@ const LoginTemplate = (props) => {
           margin="normal"
           variant="outlined"
           InputLabelProps={{
+            style: { color: 'orange' },
+          }}
+        /> */}
+        <PasswordField
+        onChange={handleChangePassword}
+        value={password}
+        className={classes.textField}
+          hintText="At least 8 characters"
+          floatingLabelText="Enter your password"
+          errorText="Your password is too short"
+          iconButton={{
             style: { color: 'orange' },
           }}
         />
@@ -159,7 +177,7 @@ const LoginTemplate = (props) => {
         </div>
         <ThemeProvider theme={theme}>
         <div className={classes.root}>
-        <Button href="#register" variant="outlined" color="primary">Register</Button>
+        <Button href="#register"  color="primary">Register</Button>
           
         </div>
         </ThemeProvider>

@@ -655,7 +655,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.breakfast}
                         onClick={handleChange}
                         name="breakfast"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Breakfast"
@@ -666,7 +668,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.lunch}
                         onClick={handleChange}
                         name="lunch"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Lunch"
@@ -677,7 +681,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.appetizer}
                         onClick={handleChange}
                         name="appetizer"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Appetizer"
@@ -688,7 +694,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.dinner}
                         onClick={handleChange}
                         name="dinner"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Dinner"
@@ -699,7 +707,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.dessert}
                         onClick={handleChange}
                         name="dessert"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Dessert"
@@ -714,7 +724,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.glutenFree}
                         onClick={handleChange}
                         name="glutenFree"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Gluten Free"
@@ -725,7 +737,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.dairyFree}
                         onClick={handleChange}
                         name="dairyFree"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Dairy Free"
@@ -736,7 +750,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.nutFree}
                         onClick={handleChange}
                         name="nutFree"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Nut Free"
@@ -747,7 +763,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.vegan}
                         onClick={handleChange}
                         name="vegan"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Vegan"
@@ -759,7 +777,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.vegetarian}
                         onClick={handleChange}
                         name="vegetarian"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Vegetarian"
@@ -775,7 +795,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.isSalty}
                         onClick={handleChange}
                         name="isSalty"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Salty"
@@ -786,7 +808,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.isGreasy}
                         onClick={handleChange}
                         name="isGreasy"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Greasy"
@@ -797,7 +821,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.isSpicy}
                         onClick={handleChange}
                         name="isSpicy"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Spicy"
@@ -808,7 +834,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.isSweet}
                         onClick={handleChange}
                         name="isSweet"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Sweet"
@@ -819,7 +847,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.isFruity}
                         onClick={handleChange}
                         name="isFruity"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Fruity"
@@ -830,7 +860,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.isHealthy}
                         onClick={handleChange}
                         name="isHealthy"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Healthy"
@@ -841,7 +873,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.isHot}
                         onClick={handleChange}
                         name="isHot"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Hot"
@@ -852,7 +886,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.isCold}
                         onClick={handleChange}
                         name="isCold"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Cold"
@@ -866,7 +902,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.american}
                         onClick={handleChange}
                         name="american"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="American"
@@ -877,7 +915,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.mexican}
                         onClick={handleChange}
                         name="mexican"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Mexican"
@@ -888,7 +928,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.italian}
                         onClick={handleChange}
                         name="italian"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Italian"
@@ -899,7 +941,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.indian}
                         onClick={handleChange}
                         name="indian"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Indian"
@@ -910,7 +954,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.chinese}
                         onChange={handleChange}
                         name="chinese"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Chinese"
@@ -921,7 +967,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.korean}
                         onClick={handleChange}
                         name="korean"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Korean"
@@ -932,7 +980,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.japanese}
                         onClick={handleChange}
                         name="japanese"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Japanese"
@@ -945,7 +995,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.mediterranean}
                         onClick={handleChange}
                         name="mediterranean"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Mediterranean"
@@ -956,7 +1008,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.spanish}
                         onClick={handleChange}
                         name="spanish"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Spanish"
@@ -967,7 +1021,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.greek}
                         onClick={handleChange}
                         name="greek"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Greek"
@@ -978,7 +1034,9 @@ const AddRecipe = (props) => {
                         checked={inputRecipe.turkish}
                         onClick={handleChange}
                         name="turkish"
-                        color="primary"
+                        style ={{
+                          color: "orange",
+                        }}
                       />
                     }
                     label="Turkish"

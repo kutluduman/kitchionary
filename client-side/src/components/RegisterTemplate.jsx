@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import { orange, lightBlue } from "@material-ui/core/colors";
 import axios from 'axios';
 
+
 // import Login from "./Login";
 // import  useLogin from './useLogin';
 // import  toggle from './useLogin';
@@ -52,7 +53,7 @@ const ColorButton = withStyles((theme) => ({
 
 const theme = createMuiTheme({
   palette: {
-    primary: lightBlue,
+    primary: orange,
   },
 });
 
@@ -242,7 +243,7 @@ const RegisterTemplate = (props) => {
         </div>
         <ThemeProvider theme={theme}>
         <div className={classes.root}>
-        <Button href="#login" variant="outlined" color="primary">Login</Button>
+        <Button href="#login"  color="primary">Login</Button>
         </div>
         </ThemeProvider>
         </div>
