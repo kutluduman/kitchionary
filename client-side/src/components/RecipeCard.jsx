@@ -153,6 +153,7 @@ const RecipeCard = (props) => {
   };
 
   const handleLike = () => {
+    if (props.cookies.name) {
     // if grey
     const recipe_id = props.id;
     const favourite = {
@@ -197,7 +198,7 @@ const RecipeCard = (props) => {
         // setError("Incorrect Email or Password!");
       })
     }
-    
+  }
   }
 
   console.log('whta color', red)
