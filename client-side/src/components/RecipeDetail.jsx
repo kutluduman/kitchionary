@@ -40,12 +40,23 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-evenly"
   },
+  row2: {
+    display: "flex",
+    
+  },
   stars: {
     display:"flex"
   },
   col1: {
-    marginLeft: "50px"
-  }
+    marginLeft: "219px",
+    marginTop: "50px"
+  },
+  col2: {
+    width: "70%",
+    marginLeft: "48px"
+  },
+
+  
 
 }));
 
@@ -57,7 +68,7 @@ function RecipeDetail(props) {
 
   useEffect(() => {
     const recipe_id = info[0].id;
-    axios.post("http://localhost:8080/rating", {recipe_id})
+    axios.post("http:localhost:8080/rating", {recipe_id})
     .then(res => {
       console.log("response for rating", res.data.rating[0].round)
       setRating(res.data.rating[0].round);
@@ -77,7 +88,7 @@ function RecipeDetail(props) {
         recipe_id: info[0].id,
         rating: newValue,
       }
-      axios.post(`http://localhost:8080/rating/new`, {rating})
+      axios.post(`http:localhost:8080/rating/new`, {rating})
       .then(res => {
         console.log("rating", res.data.rating)
      
@@ -91,13 +102,13 @@ function RecipeDetail(props) {
 <div>
    <Row className={classes.row}>
       <CardMedia
-         // INSERT RECIPE IMAGE
+          INSERT RECIPE IMAGE
           className={classes.media}
            image={info[0].img_url}
           title={info[0].name}
          />
     </Row>
-    <Row>
+    <Row  className={classes.row2}>
       <Col className={classes.col1}>
       <h3><AccessTimeIcon fontSize="medium" color="secondary"/> {info[0].time} min</h3>
             <Box component="fieldset" mb={3} borderColor="transparent">
@@ -135,9 +146,39 @@ function RecipeDetail(props) {
       </Col>
 
 
-      <Col>
-
-
+      <Col className={classes.col2}>
+        <div className={classes.col2}>
+           <Typography className={classes.title} variant="h3" component="h2" align="center">
+            {/* INSERT RECIPE NAME */}
+          {info[0].name}
+        </Typography>
+        <br/>
+        <Typography >
+            {/* INSERT RECIPE DESCRIPTION */}
+            {info[0].description_one}
+        </Typography>
+            <Typography variant="h5" color="textSecondary">
+          {/* INSERT DIRECTIONS */}
+          <p>
+            {info[0].directions_one}
+          </p>     
+          <p>
+            {info[0].directions_two}
+          </p> 
+          <p>
+            {info[0].directions_three}
+          </p> 
+          <p>
+            {info[0].directions_four}
+          </p> 
+          <p>
+            {info[0].directions_five}
+          </p> 
+          <p>
+            {info[0].directions_six}
+          </p>    
+        </Typography>
+        </div>
       </Col>
     </Row>
 
