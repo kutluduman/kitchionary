@@ -27,9 +27,9 @@ import {
   HashRouter
 } from "react-router-dom";
 
-import Login from "./components/Login";
-import LoginTemplate from "./components/LoginTemplate";
-import RegisterTemplate from "./components/RegisterTemplate";
+import Login from "./components/Users/Login";
+import LoginTemplate from "./components/Users/LoginTemplate";
+import RegisterTemplate from "./components/Users/RegisterTemplate";
 import Register from "./components/Register";
 import "./styles/mode.css";
 import SimpleGlobe from './components/GlobeFeature';

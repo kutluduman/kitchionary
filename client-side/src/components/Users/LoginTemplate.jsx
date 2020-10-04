@@ -9,7 +9,7 @@ import axios from 'axios';
 import PasswordField from 'material-ui-password-field'
 
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import Register from "./Register";
+import Register from "../Register";
 import  useRegister from './useRegister';
 import  useLogin from './useLogin';
 

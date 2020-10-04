@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { height, width } from '@material-ui/system';
 import axios from 'axios';
 import { ReactComponent as Logo } from '../docs/breakfast.jpg'
-import RecipeCard from './RecipeCard';
+import RecipeCard from '../Recipes/RecipeCard';
 import Grid from '@material-ui/core/Grid';
 
 

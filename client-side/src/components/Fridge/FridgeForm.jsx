@@ -22,7 +22,7 @@ import StepLabel from "@material-ui/core/StepLabel";
 import StepContent from "@material-ui/core/StepContent";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import IngredientForm from "./FridgeIngredientInput";
+import IngredientForm from "../FridgeIngredientInput";
 import "../styles/fridgeMealCheck.css";
 
 const ColorButton = withStyles((theme) => ({

@@ -1,6 +1,6 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { Redirect } from "react-router-dom";
-import {createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { orange, lightBlue } from "@material-ui/core/colors";
@@ -10,9 +10,8 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import greek from '../../../express-backend/routes/greek';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   phoneNumber: {
     marginLeft: theme.spacing(22),
-      "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
       borderColor: "orange",
     },
   },
@@ -49,8 +48,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: "column",
     justifyContent: 'center',
-   marginRight: '400px',
-   marginLeft:'25%'
+    marginRight: '400px',
+    marginLeft: '25%'
 
   },
 
@@ -62,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
 
   },
 
-  ingredients:{
+  ingredients: {
     display: "flex",
     flexDirection: "row",
 
@@ -79,10 +78,10 @@ const useStyles = makeStyles((theme) => ({
 
   name: {
     width: "550px",
- marginLeft: '45px',
- "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-  borderColor: "orange",
-},
+    marginLeft: '45px',
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "orange",
+    },
 
   },
 
@@ -142,9 +141,9 @@ const useStyles = makeStyles((theme) => ({
 
   time: {
     width: "150px",
- marginLeft: '45px',
- "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-  borderColor: "orange",
+    marginLeft: '45px',
+    "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+      borderColor: "orange",
     },
   },
 
@@ -257,22 +256,17 @@ const AddRecipe = (props) => {
       setError("Time is required!");
       return;
     }
-  
-    // const ingredientOne = ingredient.one[ingredient.one.length-1];
-    // const ingredientTwo = ingredient.two[ingredient.two.length-1];
-    // const ingredientThree = ingredient.three[ingredient.three.length-1];
-    // const ingredientFour = ingredient.four[ingredient.four.length-1];
-    // const ingredientFive = ingredient.five[ingredient.five.length-1];
-    const amountOne = amount.one[amount.one.length-1];
-    const amountTwo = amount.two[amount.two.length-1];
-    const amountThree = amount.three[amount.three.length-1];
-    const amountFour = amount.four[amount.four.length-1];
-    const amountFive = amount.five[amount.five.length-1];
-    const unitOne = unit.one[unit.one.length-1];
-    const unitTwo = unit.two[unit.two.length-1];
-    const unitThree = unit.three[unit.three.length-1];
-    const unitFour = unit.four[unit.four.length-1];
-    const unitFive = unit.five[unit.five.length-1];
+
+    const amountOne = amount.one[amount.one.length - 1];
+    const amountTwo = amount.two[amount.two.length - 1];
+    const amountThree = amount.three[amount.three.length - 1];
+    const amountFour = amount.four[amount.four.length - 1];
+    const amountFive = amount.five[amount.five.length - 1];
+    const unitOne = unit.one[unit.one.length - 1];
+    const unitTwo = unit.two[unit.two.length - 1];
+    const unitThree = unit.three[unit.three.length - 1];
+    const unitFour = unit.four[unit.four.length - 1];
+    const unitFive = unit.five[unit.five.length - 1];
 
     if (ingredient.one) {
       inputRecipe.ingredients.push(ingredient.one);
@@ -387,17 +381,17 @@ const AddRecipe = (props) => {
       time: inputRecipe.time,
     }
 
-      axios.post(`http://localhost:8080/add`, newRecipe)
+    axios.post(`http://localhost:8080/add`, newRecipe)
       .then(res => {
         console.log(res);
         console.log("resfromadd", res.data);
         setRedirect(true)
         if (res.status === 200) {
-          // setCookie('name', user.email, {path: '/'});
+
         }
       })
       .catch(err => {
-        // setError("Account already exists!");
+
       })
 
 
@@ -491,29 +485,29 @@ const AddRecipe = (props) => {
   }
   const handleChangeIngredientsOne = (e) => {
     console.log("INGRED", e.target.value)
-    // ingredient.one.push(e.target.value);
-    setIngredient({...ingredient, one: e.target.value});
+
+    setIngredient({ ...ingredient, one: e.target.value });
   }
 
   const handleChangeIngredientsTwo = (e) => {
-    setIngredient({...ingredient, two: e.target.value});
+    setIngredient({ ...ingredient, two: e.target.value });
   }
 
   const handleChangeIngredientsThree = (e) => {
-    setIngredient({...ingredient, three: e.target.value});
+    setIngredient({ ...ingredient, three: e.target.value });
   }
 
   const handleChangeIngredientsFour = (e) => {
-    setIngredient({...ingredient, four: e.target.value});
+    setIngredient({ ...ingredient, four: e.target.value });
   }
 
   const handleChangeIngredientsFive = (e) => {
-    setIngredient({...ingredient, five: e.target.value});
+    setIngredient({ ...ingredient, five: e.target.value });
   }
 
-    const handleChangeTime = (e) => {
-      setInputRecipe({ ...inputRecipe, time: e.target.value });
-    }
+  const handleChangeTime = (e) => {
+    setInputRecipe({ ...inputRecipe, time: e.target.value });
+  }
 
   const handleChangeAmountOne = (e) => {
     amount.one.push(e.target.value);
@@ -536,24 +530,24 @@ const AddRecipe = (props) => {
   }
 
   const handleChangeUnitOne = (e) => {
-    inputRecipe.unit.push({0: e.target.value});
+    inputRecipe.unit.push({ 0: e.target.value });
   }
 
   const handleChangeUnitTwo = (e) => {
     console.log('unit 2 ', e.target.value)
-    inputRecipe.unit.push({1: e.target.value});
+    inputRecipe.unit.push({ 1: e.target.value });
   }
 
   const handleChangeUnitThree = (e) => {
-    inputRecipe.unit.push({2: e.target.value});
+    inputRecipe.unit.push({ 2: e.target.value });
   }
 
   const handleChangeUnitFour = (e) => {
-    inputRecipe.unit.push({3: e.target.value});
+    inputRecipe.unit.push({ 3: e.target.value });
   }
 
   const handleChangeUnitFive = (e) => {
-    inputRecipe.unit.push({4: e.target.value});
+    inputRecipe.unit.push({ 4: e.target.value });
   }
 
   const handleChangeDirectionsOne = (e) => {
@@ -583,482 +577,478 @@ const AddRecipe = (props) => {
   const handleChange = (event) => {
     console.log(event.target.name);
     console.log(event.target.checked);
-    // setState({ ...state, [event.target.name]: event.target.checked });
     setInputRecipe({ ...inputRecipe, [event.target.name]: event.target.checked });
   };
 
   console.log(inputRecipe)
   console.log("INGREDIENT.ONE", ingredient.one)
-  
-  if (!redirect){
-  return (
-    <section>
-      <div>
+
+  if (!redirect) {
+    return (
+      <section>
         <div>
+          <div>
             <div className={classes.cont}>
               <div className={classes.form}>
-              <h2 className={classes.addTitle}>Add New Recipe</h2>
-                <br/>
+                <h2 className={classes.addTitle}>Add New Recipe</h2>
+                <br />
                 {error && <p>{error}</p>}
                 <form onSubmit={handleSubmit}>
-                  {/* NAME */}
-                <div className={classes.cont}>
-                <h1 className={classes.subheading}>Recipe Name:</h1>
-                  <TextField onChange={handleChangeName}
-                    value={inputRecipe.name}
-                    id="outlined-margin-normal"
-                    placeholder="Name"
-                    className={classes.name}
-                    margin="normal"
-                    variant="outlined"
-                    InputLabelProps={{
-                      style: { color: 'orange' },
-                    }}
-                  />
-                  </div>
-
-                    {/* Image */}
-                    <div className={classes.cont}>
-                  <h1 className={classes.subheading}>Image URL:</h1>
-                  <TextField onChange={handleChangeImg}
-                    value={inputRecipe.img_url}
-                    id="outlined-margin-normal"
-                    placeholder="Image URL"
-                    className={classes.name}
-                    margin="normal"
-                    variant="outlined"
-                    InputLabelProps={{
-                      style: { color: 'orange' },
-                    }}
-                  />
+                  <div className={classes.cont}>
+                    <h1 className={classes.subheading}>Recipe Name:</h1>
+                    <TextField onChange={handleChangeName}
+                      value={inputRecipe.name}
+                      id="outlined-margin-normal"
+                      placeholder="Name"
+                      className={classes.name}
+                      margin="normal"
+                      variant="outlined"
+                      InputLabelProps={{
+                        style: { color: 'orange' },
+                      }}
+                    />
                   </div>
                   <div className={classes.cont}>
-                  <h1 className={classes.subheading}>Time:</h1>
-                  <TextField onChange={handleChangeTime}
-                    value={inputRecipe.time}
-                    id="outlined-margin-normal"
-                    placeholder="Minutes"
-                    className={classes.time}
-                    margin="normal"
-                    variant="outlined"
-                    InputLabelProps={{
-                      style: { color: 'orange' },
-                    }}
-                  />
-                </div>
-                <div  className={classes.cont}>
-                <h1 className={classes.subheading}>Meal Type: </h1>
-                <div className={classes.check}>
-                <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.breakfast}
-                        onClick={handleChange}
-                        name="breakfast"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Breakfast"
-                  />
-                    <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.lunch}
-                        onClick={handleChange}
-                        name="lunch"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Lunch"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.appetizer}
-                        onClick={handleChange}
-                        name="appetizer"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Appetizer"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.dinner}
-                        onClick={handleChange}
-                        name="dinner"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Dinner"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.dessert}
-                        onClick={handleChange}
-                        name="dessert"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Dessert"
-                  />
-                  </div>
-                <h1 className={classes.subheading}>Dietary Restrictations: </h1>
-                <div className={classes.check}>
-
-                    <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.glutenFree}
-                        onClick={handleChange}
-                        name="glutenFree"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Gluten Free"
-                  />
-                    <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.dairyFree}
-                        onClick={handleChange}
-                        name="dairyFree"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Dairy Free"
-                  />
-                    <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.nutFree}
-                        onClick={handleChange}
-                        name="nutFree"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Nut Free"
-                  />
-                     <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.vegan}
-                        onClick={handleChange}
-                        name="vegan"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Vegan"
-                  />
-
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.vegetarian}
-                        onClick={handleChange}
-                        name="vegetarian"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Vegetarian"
-                  />
-                  </div>
-                </div>
-                <div  className={classes.cont}>
-                <h1 className={classes.subheading}>Attributes: </h1>
-                <div className={classes.check}>
-                <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.isSalty}
-                        onClick={handleChange}
-                        name="isSalty"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Salty"
-                  />
-                    <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.isGreasy}
-                        onClick={handleChange}
-                        name="isGreasy"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Greasy"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.isSpicy}
-                        onClick={handleChange}
-                        name="isSpicy"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Spicy"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.isSweet}
-                        onClick={handleChange}
-                        name="isSweet"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Sweet"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.isFruity}
-                        onClick={handleChange}
-                        name="isFruity"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Fruity"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.isHealthy}
-                        onClick={handleChange}
-                        name="isHealthy"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Healthy"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.isHot}
-                        onClick={handleChange}
-                        name="isHot"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Hot"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.isCold}
-                        onClick={handleChange}
-                        name="isCold"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Cold"
-                  />
-                  </div>
-                  <h1 className={classes.subheading}>Cultures: </h1>
-                <div className={classes.check}>
-                <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.american}
-                        onClick={handleChange}
-                        name="american"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="American"
-                  />
-                    <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.mexican}
-                        onClick={handleChange}
-                        name="mexican"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Mexican"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.italian}
-                        onClick={handleChange}
-                        name="italian"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Italian"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.indian}
-                        onClick={handleChange}
-                        name="indian"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Indian"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.chinese}
-                        onChange={handleChange}
-                        name="chinese"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Chinese"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.korean}
-                        onClick={handleChange}
-                        name="korean"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Korean"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.japanese}
-                        onClick={handleChange}
-                        name="japanese"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Japanese"
-                  />
-                  </div>
-                  <div className={classes.check}>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.mediterranean}
-                        onClick={handleChange}
-                        name="mediterranean"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Mediterranean"
-                  />
-                    <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.spanish}
-                        onClick={handleChange}
-                        name="spanish"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Spanish"
-                  />
-                    <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.greek}
-                        onClick={handleChange}
-                        name="greek"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Greek"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={inputRecipe.turkish}
-                        onClick={handleChange}
-                        name="turkish"
-                        style ={{
-                          color: "orange",
-                        }}
-                      />
-                    }
-                    label="Turkish"
-                  />
-                  </div>
-                </div>
-                  <div className={classes.cont}>
-                  <h1 className={classes.subheading}>Recipe Description:</h1>
-                  <TextField onChange={handleChangeDescription}
-                    value={inputRecipe.description}
-                    id="outlined-margin-normal"
-                    placeholder="Description"
-                    className={classes.description}
-                    margin="normal"
-                    variant="outlined"
-                    InputLabelProps={{
-                      style: { color: 'orange' },
-                    }}
-                  />
+                    <h1 className={classes.subheading}>Image URL:</h1>
+                    <TextField onChange={handleChangeImg}
+                      value={inputRecipe.img_url}
+                      id="outlined-margin-normal"
+                      placeholder="Image URL"
+                      className={classes.name}
+                      margin="normal"
+                      variant="outlined"
+                      InputLabelProps={{
+                        style: { color: 'orange' },
+                      }}
+                    />
                   </div>
                   <div className={classes.cont}>
-                  <h1 className={classes.subheading}>Ingredients:</h1>
+                    <h1 className={classes.subheading}>Time:</h1>
+                    <TextField onChange={handleChangeTime}
+                      value={inputRecipe.time}
+                      id="outlined-margin-normal"
+                      placeholder="Minutes"
+                      className={classes.time}
+                      margin="normal"
+                      variant="outlined"
+                      InputLabelProps={{
+                        style: { color: 'orange' },
+                      }}
+                    />
+                  </div>
+                  <div className={classes.cont}>
+                    <h1 className={classes.subheading}>Meal Type: </h1>
+                    <div className={classes.check}>
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.breakfast}
+                            onClick={handleChange}
+                            name="breakfast"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Breakfast"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.lunch}
+                            onClick={handleChange}
+                            name="lunch"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Lunch"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.appetizer}
+                            onClick={handleChange}
+                            name="appetizer"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Appetizer"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.dinner}
+                            onClick={handleChange}
+                            name="dinner"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Dinner"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.dessert}
+                            onClick={handleChange}
+                            name="dessert"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Dessert"
+                      />
+                    </div>
+                    <h1 className={classes.subheading}>Dietary Restrictations: </h1>
+                    <div className={classes.check}>
+
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.glutenFree}
+                            onClick={handleChange}
+                            name="glutenFree"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Gluten Free"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.dairyFree}
+                            onClick={handleChange}
+                            name="dairyFree"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Dairy Free"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.nutFree}
+                            onClick={handleChange}
+                            name="nutFree"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Nut Free"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.vegan}
+                            onClick={handleChange}
+                            name="vegan"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Vegan"
+                      />
+
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.vegetarian}
+                            onClick={handleChange}
+                            name="vegetarian"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Vegetarian"
+                      />
+                    </div>
+                  </div>
+                  <div className={classes.cont}>
+                    <h1 className={classes.subheading}>Attributes: </h1>
+                    <div className={classes.check}>
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.isSalty}
+                            onClick={handleChange}
+                            name="isSalty"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Salty"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.isGreasy}
+                            onClick={handleChange}
+                            name="isGreasy"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Greasy"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.isSpicy}
+                            onClick={handleChange}
+                            name="isSpicy"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Spicy"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.isSweet}
+                            onClick={handleChange}
+                            name="isSweet"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Sweet"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.isFruity}
+                            onClick={handleChange}
+                            name="isFruity"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Fruity"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.isHealthy}
+                            onClick={handleChange}
+                            name="isHealthy"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Healthy"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.isHot}
+                            onClick={handleChange}
+                            name="isHot"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Hot"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.isCold}
+                            onClick={handleChange}
+                            name="isCold"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Cold"
+                      />
+                    </div>
+                    <h1 className={classes.subheading}>Cultures: </h1>
+                    <div className={classes.check}>
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.american}
+                            onClick={handleChange}
+                            name="american"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="American"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.mexican}
+                            onClick={handleChange}
+                            name="mexican"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Mexican"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.italian}
+                            onClick={handleChange}
+                            name="italian"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Italian"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.indian}
+                            onClick={handleChange}
+                            name="indian"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Indian"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.chinese}
+                            onChange={handleChange}
+                            name="chinese"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Chinese"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.korean}
+                            onClick={handleChange}
+                            name="korean"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Korean"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.japanese}
+                            onClick={handleChange}
+                            name="japanese"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Japanese"
+                      />
+                    </div>
+                    <div className={classes.check}>
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.mediterranean}
+                            onClick={handleChange}
+                            name="mediterranean"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Mediterranean"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.spanish}
+                            onClick={handleChange}
+                            name="spanish"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Spanish"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.greek}
+                            onClick={handleChange}
+                            name="greek"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Greek"
+                      />
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={inputRecipe.turkish}
+                            onClick={handleChange}
+                            name="turkish"
+                            style={{
+                              color: "orange",
+                            }}
+                          />
+                        }
+                        label="Turkish"
+                      />
+                    </div>
+                  </div>
+                  <div className={classes.cont}>
+                    <h1 className={classes.subheading}>Recipe Description:</h1>
+                    <TextField onChange={handleChangeDescription}
+                      value={inputRecipe.description}
+                      id="outlined-margin-normal"
+                      placeholder="Description"
+                      className={classes.description}
+                      margin="normal"
+                      variant="outlined"
+                      InputLabelProps={{
+                        style: { color: 'orange' },
+                      }}
+                    />
+                  </div>
+                  <div className={classes.cont}>
+                    <h1 className={classes.subheading}>Ingredients:</h1>
                     <div className={classes.ingredients}>
                       <TextField onChange={handleChangeIngredientsOne}
                         value={ingredient.one}
@@ -1071,7 +1061,7 @@ const AddRecipe = (props) => {
                           style: { color: 'orange' },
                         }}
                       />
-                         <TextField onChange={handleChangeAmountOne}
+                      <TextField onChange={handleChangeAmountOne}
                         value={amount.one}
                         id="outlined-margin-normal"
                         placeholder="Quantity"
@@ -1082,7 +1072,7 @@ const AddRecipe = (props) => {
                           style: { color: 'orange' },
                         }}
                       />
-                      <FormControl  className={classes.textField} variant="outlined">
+                      <FormControl className={classes.textField} variant="outlined">
                         <Select
                           className={classes.unit}
                           labelId="demo-simple-select-outlined-label"
@@ -1133,7 +1123,7 @@ const AddRecipe = (props) => {
                           style: { color: 'orange' },
                         }}
                       />
-                      <FormControl   className={classes.textField} variant="outlined">
+                      <FormControl className={classes.textField} variant="outlined">
                         <Select
                           className={classes.unit}
                           labelId="demo-simple-select-outlined-label"
@@ -1184,37 +1174,36 @@ const AddRecipe = (props) => {
                           style: { color: 'orange' },
                         }}
                       />
-                      <FormControl   className={classes.textField} variant="outlined">
+                      <FormControl className={classes.textField} variant="outlined">
                         <Select
-                        className={classes.unit}
-                        labelId="demo-simple-select-outlined-label"
-                        id="demo-simple-select-outlined"
-                        value={props.unit}
-                        onChange={handleChangeUnitThree}
-                        label="Unit"
-                        name='unit'
+                          className={classes.unit}
+                          labelId="demo-simple-select-outlined-label"
+                          id="demo-simple-select-outlined"
+                          value={props.unit}
+                          onChange={handleChangeUnitThree}
+                          label="Unit"
+                          name='unit'
                         >
 
-                        <MenuItem value="">
-                          <em>None</em>
-                        </MenuItem>
-                        <MenuItem value={'tbsp'}>tbsp</MenuItem>
-                        <MenuItem value={'tsp'}>tsp</MenuItem>
-                        <MenuItem value={'cup'}>cup</MenuItem>
-                        <MenuItem value={'oz'}>oz</MenuItem>
-                        <MenuItem value={'lb'}>lb</MenuItem>
-                        <MenuItem value={'g'}>g</MenuItem>
-                        <MenuItem value={'clove'}>clove</MenuItem>
-                        <MenuItem value={'package'}>package</MenuItem>
-                        <MenuItem value={'can'}>can</MenuItem>
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={'tbsp'}>tbsp</MenuItem>
+                          <MenuItem value={'tsp'}>tsp</MenuItem>
+                          <MenuItem value={'cup'}>cup</MenuItem>
+                          <MenuItem value={'oz'}>oz</MenuItem>
+                          <MenuItem value={'lb'}>lb</MenuItem>
+                          <MenuItem value={'g'}>g</MenuItem>
+                          <MenuItem value={'clove'}>clove</MenuItem>
+                          <MenuItem value={'package'}>package</MenuItem>
+                          <MenuItem value={'can'}>can</MenuItem>
                         </Select>
-                    </FormControl>
+                      </FormControl>
                     </div>
 
                     <div className={classes.ingredients}>
                       <TextField onChange={handleChangeIngredientsFour}
                         value={ingredient.four}
-                        // label="Password"
                         id="outlined-margin-normal"
                         placeholder="Ingredient 4"
                         className={classes.ingredient}
@@ -1236,7 +1225,7 @@ const AddRecipe = (props) => {
                           style: { color: 'orange' },
                         }}
                       />
-                      <FormControl   className={classes.textField} variant="outlined">
+                      <FormControl className={classes.textField} variant="outlined">
                         <Select
                           className={classes.unit}
                           labelId="demo-simple-select-outlined-label"
@@ -1245,7 +1234,7 @@ const AddRecipe = (props) => {
                           onChange={handleChangeUnitFour}
                           label="Unit"
                           name='unit'
-                          >
+                        >
                           <MenuItem value="">
                             <em>None</em>
                           </MenuItem>
@@ -1265,7 +1254,6 @@ const AddRecipe = (props) => {
                     <div className={classes.ingredients}>
                       <TextField onChange={handleChangeIngredientsFive}
                         value={ingredient.five}
-                        // label="Password"
                         id="outlined-margin-normal"
                         placeholder="Ingredient 5"
                         className={classes.ingredient}
@@ -1273,7 +1261,7 @@ const AddRecipe = (props) => {
                         variant="outlined"
                         InputLabelProps={{
                           style: { color: 'orange' },
-                      }}
+                        }}
                       />
 
                       <TextField onChange={handleChangeAmountFive}
@@ -1288,15 +1276,15 @@ const AddRecipe = (props) => {
                         }}
                       />
 
-                      <FormControl   className={classes.textField} variant="outlined">
+                      <FormControl className={classes.textField} variant="outlined">
                         <Select
-                        className={classes.unit}
-                        labelId="demo-simple-select-outlined-label"
-                        id="demo-simple-select-outlined"
-                        value={props.unit}
-                        onChange={handleChangeUnitFive}
-                        label="Unit"
-                        name='unit'
+                          className={classes.unit}
+                          labelId="demo-simple-select-outlined-label"
+                          id="demo-simple-select-outlined"
+                          value={props.unit}
+                          onChange={handleChangeUnitFive}
+                          label="Unit"
+                          name='unit'
                         >
                           <MenuItem value="">
                             <em>None</em>
@@ -1314,11 +1302,10 @@ const AddRecipe = (props) => {
                       </FormControl>
                     </div>
 
-                <h1 className={classes.subheading}>Directions:</h1>
-                    </div>
+                    <h1 className={classes.subheading}>Directions:</h1>
+                  </div>
 
                   <div className={classes.directions}>
-                    {/* DIRECTIONS */}
                     <TextField onChange={handleChangeDirectionsOne}
                       value={inputRecipe.directions_one}
                       id="outlined-margin-normal"
@@ -1357,7 +1344,6 @@ const AddRecipe = (props) => {
 
                     <TextField onChange={handleChangeDirectionsFour}
                       value={inputRecipe.directions_four}
-                      // label="Password"
                       id="outlined-margin-normal"
                       placeholder="Direction 4"
                       className={classes.step}
@@ -1393,20 +1379,20 @@ const AddRecipe = (props) => {
                     />
                   </div>
 
-                  <br/>
-                    <div className={classes.button}>
-                      <ColorButton type='submit' variant="contained" color="primary">Add</ColorButton>
-                    </div>
+                  <br />
+                  <div className={classes.button}>
+                    <ColorButton type='submit' variant="contained" color="primary">Add</ColorButton>
+                  </div>
 
                 </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-  </section>
-  )
+      </section>
+    )
   } else {
-    return <Redirect to = {{ pathname: "/myrecipes" }} />;
+    return <Redirect to={{ pathname: "/myrecipes" }} />;
   }
 }
 
