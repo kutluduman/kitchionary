@@ -17,7 +17,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee, faBreadSlice,faCheese,faLeaf, faSeedling } from '@fortawesome/free-solid-svg-icons';
 import SpaIcon from '@material-ui/icons/Spa';
 
-import './detail.css'
+import '../styles/detail.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
