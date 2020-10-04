@@ -69,28 +69,22 @@ module.exports = (db) => {
     FULL JOIN recipes ON recipes.id = recipe_id
     `;
 
-    if (ingredient_one) {
+    if (ingredient_one && ingredient_two && ingredient_three) {
       queryParams.push(ingredient_one);
-      queryString += `WHERE ingredients.name = '${ingredient_one}'`;
-    }
-
-    if (ingredient_two) {
       queryParams.push(ingredient_two);
-      if (queryParams.length > 1) {
-        queryString += ` AND ingredients.name = ${ingredient_two}`;
-      } else {
-        queryString += `WHERE ingredients.name = ${ingredient_two}`;
+      queryParams.push(ingredient_three);
+      queryString += `WHERE ingredients.name IN ('${ingredient_one}', '${ingredient_two}', '${ingredient_three}')`;
+    } else if (ingredient_one && ingredient_two) {
+      queryParams.push(ingredient_one);
+      queryParams.push(ingredient_two);
+      queryString += `WHERE ingredients.name IN ('${ingredient_one}', '${ingredient_two}')`;
+    } else {
+      if (ingredient_one) {
+        queryParams.push(ingredient_one);
+        queryString += `WHERE ingredients.name = '${ingredient_one}'`;
       }
     }
 
-    if (ingredient_three) {
-      queryParams.push(ingredient_three);
-      if (queryParams.length > 1) {
-        queryString += ` AND ingredients.name = ${ingredient_three}`;
-      } else {
-        queryString += `WHERE ingredients.name = ${ingredient_three}`;
-      }
-    }
 
     if (breakfast) {
       queryParams.push(breakfast);
@@ -189,7 +183,7 @@ module.exports = (db) => {
     return db
       .query(queryString)
       .then((data) => {
-        console.log("DATA", data);
+        // console.log("DATA", data);
         const recipes = data.rows;
         console.log("RECIPES", recipes);
         res.json({ recipes });
