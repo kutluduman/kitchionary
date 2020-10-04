@@ -1,17 +1,15 @@
 import React,{useState} from 'react';
 import { Redirect } from "react-router-dom";
-// import { useCookies } from 'react-cookie';
 import { createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { orange, lightBlue} from "@material-ui/core/colors";
+import { orange} from "@material-ui/core/colors";
 import axios from 'axios';
 import PasswordField from 'material-ui-password-field'
-
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import Register from "../Register";
-import  useRegister from './useRegister';
-import  useLogin from './useLogin';
+import Register from "./Register";
+import useRegister from './useRegister';
+import useLogin from './useLogin';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -66,7 +64,7 @@ const LoginTemplate = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  // const [cookies, setCookie] = useCookies(['name']);
+ 
 
   const validate = () => {
     if (!email) {
@@ -113,11 +111,9 @@ const LoginTemplate = (props) => {
   }
 
   if (!redirect){
-
   return (
     <section>
       <div className="modal-overlay"/>
-      
     <div className="modal-wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
       <div className="modal">
       <div className="modal-header">
@@ -130,7 +126,6 @@ const LoginTemplate = (props) => {
         {error && <p>{error}</p>}
         <form onSubmit={handleSubmit}>
         <TextField onChange={handleChangeEmail}
-          // label="Email"
           value={email}
           id="outlined-margin-normal"
           placeholder="Email"
@@ -141,20 +136,7 @@ const LoginTemplate = (props) => {
             style: { color: 'orange' },
           }}
         />
-         
         <div>
-        {/* <TextField onChange={handleChangePassword}
-          // label="Password"
-          value={password}
-          id="outlined-margin-normal"
-          placeholder="Password"
-          className={classes.textField}
-          margin="normal"
-          variant="outlined"
-          InputLabelProps={{
-            style: { color: 'orange' },
-          }}
-        /> */}
         <PasswordField
         onChange={handleChangePassword}
         value={password}
@@ -178,7 +160,6 @@ const LoginTemplate = (props) => {
         <ThemeProvider theme={theme}>
         <div className={classes.root}>
         <Button href="#register"  color="primary">Register</Button>
-          
         </div>
         </ThemeProvider>
       </div>
@@ -187,7 +168,6 @@ const LoginTemplate = (props) => {
     </div>
     </section>
   )
-
   } else {
     return <Redirect to = {{ pathname: "/" }} />;
   }

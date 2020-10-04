@@ -1,21 +1,10 @@
 import React,{useState} from 'react';
 import { Redirect } from "react-router-dom";
-// import { useCookies } from 'react-cookie';
 import {createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { orange, lightBlue } from "@material-ui/core/colors";
 import axios from 'axios';
-
-
-// import Login from "./Login";
-// import  useLogin from './useLogin';
-// import  toggle from './useLogin';
-// import  useRegister from './useRegister';
-// import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-
-
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
-    
   },
   textField: {
     marginLeft: theme.spacing(4),
@@ -39,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
       borderColor: "orange",
     },
   }
-
 }));
 
 const ColorButton = withStyles((theme) => ({
@@ -57,8 +44,6 @@ const theme = createMuiTheme({
   },
 });
 
-
-
 const RegisterTemplate = (props) => {
   const classes = useStyles();
   const [redirect, setRedirect] = useState(false);
@@ -68,11 +53,7 @@ const RegisterTemplate = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  // const [cookies, setCookie] = useCookies(['name']);
 
-  // const {loginShowing, toggleLogin} = useLogin();
-  // const {registerShowing, toggleRegister} = useRegister();
-  
   function validate() {
     if(!firstName){
       setError("First Name is required!");
@@ -105,8 +86,6 @@ const RegisterTemplate = (props) => {
 
     axios.post(`http://localhost:8080/register`, user)
       .then(res => {
-        console.log(res);
-        console.log(res.data);
         if (res.status === 200) {
           props.setCookie('name', user.email, {path: '/'});
           setRedirect(true);
@@ -116,7 +95,6 @@ const RegisterTemplate = (props) => {
         setError("Account already exists!");
       })
   }
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -165,10 +143,8 @@ const RegisterTemplate = (props) => {
         <br/>
         {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>
-
         <TextField onChange={handleChangeFirstName}
           value={firstName}
-          // label="First Name"
           id="outlined-margin-normal"
           placeholder="First Name"
           className={classes.textField}
@@ -181,7 +157,6 @@ const RegisterTemplate = (props) => {
         />
          <TextField onChange={handleChangeLastName}
           value={lastName}
-          // label="Last Name"
           id="outlined-margin-normal"
           placeholder="Last Name"
           className={classes.textField}
@@ -194,7 +169,6 @@ const RegisterTemplate = (props) => {
         <div>
         <TextField onChange={handleChangeEmail}
           value={email}
-          // label="Email"
           id="outlined-margin-normal"
           placeholder="Email"
           className={classes.textField}
@@ -206,7 +180,6 @@ const RegisterTemplate = (props) => {
         />
          <TextField onChange={handleChangePassword}
           value={password}
-          // label="Password"
           id="outlined-margin-normal"
           placeholder="Password"
           className={classes.textField}
@@ -220,7 +193,6 @@ const RegisterTemplate = (props) => {
         <div>
         <TextField onChange={handleChangePhoneNumber}
           value={phoneNumber}
-          // label="Phone Number"
           id="outlined-margin-normal"
           placeholder="Phone Number"
           className={classes.phoneNumber}
@@ -231,12 +203,10 @@ const RegisterTemplate = (props) => {
           }}
         />
         </div>
-       
         <br/>
         <div className={classes.root}>
         <ColorButton type='submit' variant="contained" color="primary">Register</ColorButton>
         </div>
-
       </form>
         <div className={classes.root}>
           <p>Already have an Account?</p>

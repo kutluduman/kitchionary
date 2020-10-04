@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 
 const useRegister = () => {
@@ -14,10 +13,8 @@ const useRegister = () => {
 
   return {
     registerShowing,
-    // setRegisterShowing,
     toggleRegister,
   }
 };
-
 
 export default useRegister
