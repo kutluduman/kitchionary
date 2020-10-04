@@ -29,15 +29,17 @@ const useStyles = makeStyles((theme) => ({
         height: 360,
         
         justifyContent: 'center',
-        display:'flex'
+        display:'flex',
+        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)',
         
       },
   cont: {
    marginTop: 30,
-   border: "solid black",
-   width: "80%",
-  marginLeft: 200,
+  marginLeft: "300px",
+   width: "70%",
+ 
   marginBottom: 30,
+  boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)',
    
   },
 
