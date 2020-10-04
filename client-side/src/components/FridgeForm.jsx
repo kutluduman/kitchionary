@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(3),
     },
     stepper : {
-      width:"2000px",
+      width:"1800px",
       // display:'flex',
       // justifyContent: 'center',
       marginLeft: '10%',
