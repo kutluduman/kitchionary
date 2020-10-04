@@ -116,30 +116,54 @@ function RecipeDetail(props) {
 
 
 <div>
+{info[0].is_gluten_free && <div>
 <FontAwesomeIcon className="fa.fa-signal" icon={faBreadSlice} />
-<span>Gluten Free</span>
-</div>
+<span>  Gluten Free</span>
 <br/>
+</div>}
+</div>
+
+<br/>
+
 <div>
+{info[0].is_dairy_free && <div>
 <FontAwesomeIcon className="fa.fa-signal" icon={faCheese} />
-<span>Dairy Free</span>
-</div>
+<span>  Dairy Free</span>
 <br/>
+</div>}
+</div>
+
+<br/>
+
 <div>
+{info[0].is_nut_free && <div>
 <SpaIcon/>
-<span>Nut Free</span>
+<span>  Nut Free</span>
 <br/>
+</div>}
 </div>
+
+<br/>
+
 <div>
+{info[0].vegan && <div>
 <br/>
 <FontAwesomeIcon className="fa.fa-signal" icon={faLeaf} />
-<span>Vegan</span>
-</div>
+<span>  Vegan</span>
 <br/>
-<div>
-<FontAwesomeIcon className="fa.fa-signal" icon={faSeedling} />
-<span>Vegetarian</span>
+</div>}
 </div>
+
+<br/>
+
+<div>
+{info[0].vegetarian && <div>
+<FontAwesomeIcon className="fa.fa-signal" icon={faSeedling} />
+<span>  Vegetarian</span>
+<br/>
+</div>}
+</div>
+
 
         
         <Typography variant="h5" color="textSecondary">
