@@ -12,7 +12,7 @@ import {lightBlue,red } from "@material-ui/core/colors";
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 
-import"./QuizMealCheck.css";
+import"../styles/QuizMealCheck.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {

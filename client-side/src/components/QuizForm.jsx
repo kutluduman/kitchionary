@@ -19,7 +19,7 @@ import axios from 'axios';
 
 // import IngredientForm from "./FridgeIngredientInput"
 
-import "./QuizMealCheck.css"
+import "../styles/QuizMealCheck.css"
 import { fontSize } from '@material-ui/system';
 import QuizButton from './QuizButton';
 
