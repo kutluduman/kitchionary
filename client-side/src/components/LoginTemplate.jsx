@@ -54,6 +54,7 @@ const theme = createMuiTheme({
 
 const LoginTemplate = (props) => {
   const classes = useStyles();
+  const [redirect, setRedirect] = useState(false);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

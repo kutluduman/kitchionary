@@ -38,6 +38,8 @@ module.exports = (db) => {
     const isHot = req.body.isHot;
     const time = req.body.time;
 
+    console.log("is something wrong with ingredients", ingredients)
+
     return db.query(`SELECT id
     FROM users
     WHERE email = $1;`, [user])
@@ -50,6 +52,7 @@ module.exports = (db) => {
         RETURNING *;
         `, [user_id, name, description, directions_one, directions_two, directions_three, directions_four, directions_five, directions_six, img_url, time, glutenFree, dairyFree, vegan, vegetarian, nutFree, isSalty, isGreasy, isSweet, isFruity, isHealthy, isSpicy, isHot, isCold, breakfast, lunch, appetizer, dinner, dessert])
           .then(data => {
+            console.log("data after second query", data.rows);
               const recipe_id = data.rows[0].id;
               for(let index in ingredients) {
                 const eachIngredient = ingredients[index];
