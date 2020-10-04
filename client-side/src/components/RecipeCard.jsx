@@ -54,20 +54,29 @@ const useStyles = makeStyles({
     },
     fontSize: '15px',
     // marginTop: '20px'
-    display:'flex',
-    alignSelf: 'flex-end'
+    // display:'flex',
+    // alignSelf: 'flex-end',
+    height: "120px"
   },
   button: {
-marginBottom: "2.5%",
-display: "flex",
-justifyContent: "space-between"
-
+    position: "absolute",
+    transform: "translate(-50%, -50%)",
+    marginTop: '650px',
+    marginLeft: "75px",
+    fontSize: '19px',
+    color: 'orange',
+    borderColor: 'orange',
+    "&:hover": {
+      backgroundColor: "orange[500]"
+    },
+    fontSize: '15px',
   },
    like: {
     position: "absolute",
 marginLeft: "400px",
 marginTop: "40px",
 backgroundColor: "white",
+
 
   transform: "translate(-50%, -50%)"
   // -ms-transform: translate(-50%, -50%);
@@ -129,9 +138,8 @@ const RecipeCard = (props) => {
   }, []);
 
 function truncate(selector) {
-console.log("HFDSOFIISOD", selector.length)
 if (selector.length > 100) {
-    return selector.slice(0,150) + "..."
+    return selector.slice(0,125) + "..."
   } else {
     return selector
   }
@@ -215,6 +223,9 @@ if (selector.length > 100) {
         <IconButton onClick={handleLike} size="large" className={classes.like} aria-label="add to favorites" color={like}>
           <FavoriteIcon  />
         </IconButton>
+        <Button className={classes.button} onClick= {handleLink} size="large" >
+            Cook This!
+        </Button>
           <CardMedia className={classes.media}
             component="img"
             // alt="Shrimp and Chorizo Paella"
@@ -232,14 +243,14 @@ if (selector.length > 100) {
           </CardContent>
         </CardActionArea>
         
-        <CardActions className={classes.button}>
-        <Button className={classes.cook} onClick= {handleLink} size="large" >
-            Cook This!
-        </Button>
+        {/* <CardActions> */}
+        {/* <div > */}
+        
         <Box component="fieldset" mb={3} borderColor="transparent">
         <Rating name="read-only" value={rating} readOnly />
       </Box>
-        </CardActions>
+      {/* </div> */}
+        {/* </CardActions> */}
      
       </Card>
       )
