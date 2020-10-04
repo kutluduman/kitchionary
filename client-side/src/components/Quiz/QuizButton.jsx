@@ -4,14 +4,11 @@ import Button from '@material-ui/core/Button';
 import "../styles/QuizButton.css"
 import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 
-
 const QuizButton = (props) => {
  
   const handleChange = (event) => {
     props.setInput({ ...props.inputState, [event.target.name]: event.target.checked });
   };
-
-  // console.log("state from button", props.inputState);
 
   return (
   <label>

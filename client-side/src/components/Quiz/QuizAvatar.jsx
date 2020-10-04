@@ -7,8 +7,6 @@ import lunch from "../docs/lunch3.jpg";
 import appetizer from "../docs/appetizer3.jpg";
 import dinner from "../docs/dinner3.jpg";
 import dessert from "../docs/dessert3.jpg";
-
-import {lightBlue,red } from "@material-ui/core/colors";
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 
@@ -24,15 +22,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-
-
 const QuizAvatar = (props) => {
   const classes = useStyles();
 
   const handleChange = (event) => {
     props.setInput({ ...props.inputState, [event.target.name]: event.target.checked });
   };
-
 
   return(
   <div className={classes.root}>
@@ -53,7 +48,6 @@ const QuizAvatar = (props) => {
         <label for="cb5"><img className="mealPic"  src={dessert} /></label>
       </li>
     </ul>
-
   </div>
   )
 }

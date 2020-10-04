@@ -1,7 +1,6 @@
-import React, {useState, useReducer} from 'react';
+import React, {useState} from 'react';
 import { Redirect } from "react-router-dom";
 import { createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { orange, black, lightBlue} from "@material-ui/core/colors";
 import {Helmet} from 'react-helmet';
@@ -9,18 +8,11 @@ import QuizAvatar from './QuizAvatar';
 import FridgeCheckbox from './FridgeCheckbox';
 import {Select,MenuItem, FormControl, InputLabel} from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 import Input1 from '@material-ui/core/Input';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import axios from 'axios';
-
-
-
-// import IngredientForm from "./FridgeIngredientInput"
-
 import "../styles/QuizMealCheck.css"
-import { fontSize } from '@material-ui/system';
 import QuizButton from './QuizButton';
 
 const useStyles = makeStyles((theme) => ({
@@ -68,9 +60,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: 'center',
     color: "orange",
-    
   },
-
   craving: {
     marginLeft: "300px",
     marginRight: "300px",
@@ -78,15 +68,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     flexWrap: "wrap"
   },
-
   valueHolder: {
     width: 50,
     height: 30,
-    // marginLeft: theme.spacing(5),
     marginBottom: theme.spacing(4),
     display: "Flex",
     justifyContent: "center",
-  
   },
   align: {
     display: "flex",
@@ -102,19 +89,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
      backgroundColor: 'orange',
      boxShadow:" 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)",
-    // marginBottom: 100,
     width: '1200px', 
-    // marginLeft: "35%"
-    // zIndex: 2,
-    
   }, 
   min: {
     marginBottom: "40px",
     fontSize: "18px",
-
   }
-
-
 }));
 
 const ColorButton = withStyles((theme) => ({
@@ -123,7 +103,6 @@ const ColorButton = withStyles((theme) => ({
     "&:hover": {
       backgroundColor: orange[500]
     },
-  
   }
 }))(Button);
 
@@ -132,7 +111,6 @@ const theme = createMuiTheme({
     primary: lightBlue,
   },
 });
-
 
 const QuizForm = (props) => {
   const classes = useStyles();
@@ -147,11 +125,6 @@ const QuizForm = (props) => {
   const handleInputChange = (event) => {
     setValue(event.target.value === '' ? '' : Number(event.target.value));
   };
-
-
-  // const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setValue(event.target.value === '' ? '' : Number(event.target.value));
-  // };
 
   const handleBlur = () => {
     if (value < 0) {
@@ -194,25 +167,16 @@ const QuizForm = (props) => {
       time: props.inputState.time,
       }
   
-  
     axios.post(`http://localhost:8080/quiz`, {quizInfo})
       .then(res => {
-        console.log("resss", res.data.recipes)
         props.setMatchingRecipes(res.data.recipes)
         if (res.status === 200) {
           setRedirect(true)
-          console.log("redirect??", redirect)
         }
       })
       .catch(err => {
-        // res.status(500).json({ error: err.message });
-        // or set error state
       });
-
     };
-
-  // console.log("state", inputState)
-
 
 if (!redirect) {
   return (
@@ -227,9 +191,7 @@ if (!redirect) {
           <QuizAvatar setInput={props.setInputState} inputState={props.inputState}/>
         </div>
         <h2 className='quizSubtitle'>I need it to be...</h2>
-        
         <div className={classes.checkbox}>
-
         <QuizButton setInput={props.setInputState} inputState={props.inputState} name="glutenFree" attribute="Gluten Free"/>
         <QuizButton setInput={props.setInputState} inputState={props.inputState} name="nutFree" attribute="Nut Free" />
         <QuizButton setInput={props.setInputState} inputState={props.inputState} name="dairyFree" attribute="Dairy Free"/>
@@ -261,7 +223,6 @@ if (!redirect) {
         <h2  className='quizSubtitle'> I only have... </h2> 
         <div className={classes.align}>
         <div>
-
       <Grid container spacing={2} alignItems="center">
         <Grid item>
         <AccessTimeIcon fontSize="medium" colorName={classes.min}/>
@@ -274,7 +235,6 @@ if (!redirect) {
             name="time"
             aria-labelledby="input-slider"
             max="200"
-            
           /> 
         </Grid>
         <Grid item>
@@ -296,13 +256,10 @@ if (!redirect) {
         <p className={classes.min}>minutes</p>
       </Grid>
     </div>
-
         </div>
-
         <div className={classes.submit}>
         <ColorButton size="large" type = 'submit' variant="contained" >Generate Recipes</ColorButton>
         </div>
-
         </form>
     </article>
   )
