@@ -1,10 +1,5 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles((theme) => ({
@@ -27,8 +22,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
 export default function IngredientForm(props) {
   const classes = useStyles(); 
 
@@ -36,14 +29,10 @@ export default function IngredientForm(props) {
     props.setIngredient({ ...props.ingredient, [event.target.name]: event.target.value });
   };
 
-
-
   return (
     <div>
-
  <form>
         <TextField
-          // label="Name"
           onChange={handleChange}
           placeholder= "Ingredients"
           id=""
@@ -54,7 +43,6 @@ export default function IngredientForm(props) {
           name= "one"
         />
         <TextField
-          // label="Name"
           onChange={handleChange}
           placeholder= "Ingredients"
           id=""
@@ -65,7 +53,6 @@ export default function IngredientForm(props) {
           name= "two"
         />
         <TextField
-          // label="Name"
           onChange={handleChange}
           placeholder= "Ingredients"
           id=""
@@ -76,7 +63,6 @@ export default function IngredientForm(props) {
           name= "three"
         />
       </form>   
-
     </div>
   );
 }

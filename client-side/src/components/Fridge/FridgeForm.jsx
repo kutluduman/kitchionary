@@ -1,20 +1,15 @@
-import React, { useState, useReducer } from "react";
+import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import {
-  createMuiTheme,
   makeStyles,
   withStyles,
-  ThemeProvider,
   Theme,
   createStyles,
 } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import { orange, lightBlue } from "@material-ui/core/colors";
-import { Helmet } from "react-helmet";
+import { orange } from "@material-ui/core/colors";
 import FridgeAvatar from "./FridgeAvatar";
 import FridgeCheckbox from "./FridgeCheckbox";
-import { Select, MenuItem, FormControl, InputLabel } from "@material-ui/core";
 import axios from "axios";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
@@ -22,7 +17,7 @@ import StepLabel from "@material-ui/core/StepLabel";
 import StepContent from "@material-ui/core/StepContent";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import IngredientForm from "../FridgeIngredientInput";
+import IngredientForm from "./FridgeIngredientInput";
 import "../styles/fridgeMealCheck.css";
 
 const ColorButton = withStyles((theme) => ({
@@ -140,22 +135,18 @@ const FridgeForm = (props) => {
       ingredient_one: ingredient.one,
       ingredient_two: ingredient.two,
       ingredient_three: ingredient.three,
-      // name: props.inputState.name,
-      // quantity: props.inputState.quantity,
-      // unit: props.inputState.unit,
     };
 
     axios
       .post(`http://localhost:8080/recipes`, { recipes })
       .then((res) => {
-        console.log("resss", res.data.recipes);
         props.setMatchingRecipes(res.data.recipes);
         if (res.status === 200) {
           setRedirect(true);
         }
       })
       .catch((err) => {
-        // res.status(500).json({ error: err.message });
+
       });
   };
 
@@ -190,8 +181,6 @@ const FridgeForm = (props) => {
                       Back
                     </Button>
                     <ColorButton
-                      // variant=""
-                      // // color="primary"
                       onClick={handleNext}
                       className={classes.button}
                     >
@@ -225,8 +214,6 @@ const FridgeForm = (props) => {
                       Back
                     </ColorButton>
                     <ColorButton
-                      // variant="contained"
-                      // color="primary"
                       onClick={handleNext}
                       className={classes.button}
                     >
@@ -260,8 +247,6 @@ const FridgeForm = (props) => {
                       Back
                     </ColorButton>
                     <ColorButton
-                      // variant="contained"
-                      // color="primary"
                       onClick={handleSubmit}
                       className={classes.button}
                     >
