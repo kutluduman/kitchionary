@@ -120,6 +120,7 @@ function RecipeDetail(props) {
     </Row>
     <Row  className={classes.row2}>
       <Col className={classes.col1}>
+      <h3><FaceIcon fontSize="medium" color="primary"/> {info[0].first_name} {info[0].last_name}</h3> 
       <h3><AccessTimeIcon fontSize="medium" color="secondary"/> {info[0].time} min</h3>
             <Box component="fieldset" mb={3} borderColor="transparent">
               <h3>Rating:</h3>
