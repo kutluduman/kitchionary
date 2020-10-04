@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   media: {
         width: 700,
         height: 700,
-        marginTop: 30,
+       
         marginLeft: 45,
         
       },
@@ -28,11 +28,12 @@ const useStyles = makeStyles((theme) => ({
    marginTop: 30,
    
   },
-
-  title:{
-    marginTop: 110,
+  ingredient: {
+   fontFamily: "Roboto",
+   fontSize: "17px"
   }
 
+  
 }));
 
 function IngredientDetail(props) {
@@ -50,8 +51,9 @@ function IngredientDetail(props) {
 
 
     return (
-      <div>
-        <ListItemText primary={ingredient} secondary={amount}/>
+      <div className={classes.ingredient}>
+        <ListItemText className={classes.ingredient}/>
+        {amount} {ingredient} 
       </div>   
     );
   }

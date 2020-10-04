@@ -17,7 +17,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee, faBreadSlice,faCheese,faLeaf, faSeedling } from '@fortawesome/free-solid-svg-icons';
 import SpaIcon from '@material-ui/icons/Spa';
 
-
+import './detail.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,15 +29,17 @@ const useStyles = makeStyles((theme) => ({
         height: 360,
         
         justifyContent: 'center',
-        display:'flex'
+        display:'flex',
+        boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)',
         
       },
   cont: {
    marginTop: 30,
-   border: "solid black",
-   width: "80%",
-  marginLeft: 200,
+  marginLeft: "300px",
+   width: "70%",
+ 
   marginBottom: 30,
+  boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)',
    
   },
 
@@ -55,17 +57,51 @@ const useStyles = makeStyles((theme) => ({
     
   },
   stars: {
-    display:"flex"
+    display:"flex",
+    marginLeft: "40px"
+
   },
   col1: {
-    marginLeft: "85px",
-    marginTop: "50px"
+    marginLeft: "55px",
+    marginTop: "30px"
   },
   col2: {
     width: "72%",
     marginLeft: "55px"
   },
+  ratingsTitle:{
+  
+    marginBottom: 0
+  },
+  ingredientsTitle:{
+    marginTop:"-5px",
+    marginBottom: 9,
+    color: "black",
+    backgroundColor: "orange",
+    justifyContent: "center",
+    display: "flex"
 
+  },
+  diet: {
+  padding: "14px"
+  },
+  nut: {
+    padding: "10px"
+    },
+  desc: {
+    fontSize: "22px",
+    fontFamily: "Roboto",
+    color: "gray",
+    borderBottom: "#80808047 2px solid",
+    paddingBottom: "30px",
+    textAlign: "center"
+  },
+  dir: {
+   fontSize: "20px"
+  },
+  ingredients: {
+    marginBottom: "30px"
+  }
   
 
 }));
@@ -118,82 +154,20 @@ function RecipeDetail(props) {
           title={info[0].name}
          />
     </Row>
+   
     <Row  className={classes.row2}>
       <Col className={classes.col1}>
       <h3><FaceIcon fontSize="medium" color="primary"/> {info[0].first_name} {info[0].last_name}</h3> 
       <h3><AccessTimeIcon fontSize="medium" color="secondary"/> {info[0].time} min</h3>
-            <Box component="fieldset" mb={3} borderColor="transparent">
-              <h3>Rating:</h3>
+            <Box  component="fieldset" mb={3} borderColor="transparent">
             <Rating name="read-only" value={rating} readOnly />
         
          </Box>
-           <Box component="fieldset" mb={3} borderColor="transparent">
-             <h3>Your Rating:</h3>
-              <Rating
-                name="simple-controlled"
-                value={value}
-                onChange={handleChange}
-                className={classes.stars}
-              />
-              
-              </Box>
-       
 
-
-<div>
-{info[0].is_gluten_free && <div>
-<FontAwesomeIcon className="fa.fa-signal" icon={faBreadSlice} />
-<span>  Gluten Free</span>
-<br/>
-</div>}
-</div>
-
-<br/>
-
-<div>
-{info[0].is_dairy_free && <div>
-<FontAwesomeIcon className="fa.fa-signal" icon={faCheese} />
-<span>  Dairy Free</span>
-<br/>
-</div>}
-</div>
-
-<br/>
-
-<div>
-{info[0].is_nut_free && <div>
-<SpaIcon/>
-<span>  Nut Free</span>
-<br/>
-</div>}
-</div>
-
-<br/>
-
-<div>
-{info[0].vegan && <div>
-<br/>
-<FontAwesomeIcon className="fa.fa-signal" icon={faLeaf} />
-<span>  Vegan</span>
-<br/>
-</div>}
-</div>
-
-<br/>
-
-<div>
-{info[0].vegetarian && <div>
-<FontAwesomeIcon className="fa.fa-signal" icon={faSeedling} />
-<span>  Vegetarian</span>
-<br/>
-</div>}
-</div>
-
-
-        
-        <Typography variant="h5" color="textSecondary">
+<div className={classes.ingredients}>
+         <Typography variant="h5" color="textSecondary">
           {/* INSERT RECIPE INGREDIENTS */}
-          <h3>Ingredients</h3>
+          <h3 className={classes.ingredientsTitle} >Ingredients</h3>
           {props.recipeData.map(ingredient => {
           return (
             <IngredientDetails
@@ -204,45 +178,108 @@ function RecipeDetail(props) {
           );
           })
          }
- 
+  
         </Typography>
+        
+        </div>
+         <div>
+      <div>
+{info[0].is_gluten_free && <div>
+  
+<FontAwesomeIcon className="fa.fa-signal" icon={faBreadSlice} />
+<span className={classes.diet}>  Gluten Free</span>
+</div>}
+</div>
+
+<br/>
+
+<div>
+{info[0].is_dairy_free && <div>
+<FontAwesomeIcon className="fa.fa-signal" icon={faCheese} />
+<span className={classes.diet}>  Dairy Free</span>
+</div>}
+</div>
+
+<br/>
+
+<div>
+{info[0].is_nut_free && <div>
+<SpaIcon/>
+<span className={classes.nut}>  Nut Free</span>
+</div>}
+</div>
+
+<br/>
+
+<div>
+{info[0].vegan && <div>
+<FontAwesomeIcon className="fa.fa-signal" icon={faLeaf} />
+<span className={classes.diet}>  Vegan</span>
+</div>}
+</div>
+
+<br/>
+
+<div>
+{info[0].vegetarian && <div>
+<FontAwesomeIcon className="fa.fa-signal"icon={faSeedling} />
+<span className={classes.diet}>  Vegetarian</span>
+</div>}
+</div>
+</div>
+         
 
       </Col>
 
 
       <Col className={classes.col2}>
+
+
         <div className={classes.col2}>
            <Typography className={classes.title} variant="h3" component="h2" align="center">
             {/* INSERT RECIPE NAME */}
           {info[0].name}
         </Typography>
         <br/>
-        <Typography >
+        <Typography className={classes.desc}>
             {/* INSERT RECIPE DESCRIPTION */}
-            {info[0].description_one}
+            {info[0].description}
         </Typography>
-            <Typography variant="h5" color="textSecondary">
+
+        <h2 className={classes.titleDir}> Directions</h2>
+            <Typography variant="h5" >
           {/* INSERT DIRECTIONS */}
-          <p>
+          <p className={classes.dir}>
             {info[0].directions_one}
           </p>     
-          <p>
+          <p className={classes.dir}>
             {info[0].directions_two}
           </p> 
-          <p>
+          <p className={classes.dir}>
             {info[0].directions_three}
           </p> 
-          <p>
+          <p className={classes.dir}>
             {info[0].directions_four}
           </p> 
-          <p>
+          <p className={classes.dir}>
             {info[0].directions_five}
-          </p> 
-          <p>
+          </p > 
+          <p className={classes.dir}>
             {info[0].directions_six}
           </p>    
         </Typography>
         </div>
+
+        <Box component="fieldset" mb={3}    className={classes.stars} borderColor="transparent">
+             <h3>Your Rating:</h3>
+              <Rating
+                name="simple-controlled"
+                value={value}
+                onChange={handleChange}
+             
+              />
+              
+              </Box>
       </Col>
     </Row>
 
