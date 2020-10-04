@@ -1,11 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
+
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -33,35 +28,27 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-
 }));
-
-
 
 const MyRecipe = (props) => {
 
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const [like, setLike] = useState('default');
+  const [matchingRec, setMatchingRec] = useState([]);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  const [matchingRec, setMatchingRec] = useState([]);
-
   useEffect(() => {
     axios.post("http://localhost:8080/myrecipes", props.cookies)
     .then(res => {
-      console.log("resss", res.data)
       setMatchingRec(res.data.recipes)
     })
     .catch(err => {
-      // setError("Incorrect Email or Password!");
     });
   }, []);
-
-
 
   return (
     <div>
@@ -80,30 +67,8 @@ const MyRecipe = (props) => {
                   })
                   }
             </Grid>   
-{/* <Card className={classes.root}>
-      <CardHeader
-        title="Shrimp and Chorizo Paella"
-      />
-      <CardMedia
-        className={classes.media}
-        image="/static/images/cards/paella.jpg"
-        title="Paella dish"
-      />
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing >
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-      </Collapse>
-    </Card> */}
     </div>
   )
-
-
 }
 
 export default MyRecipe;

@@ -16,14 +16,12 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee, faBreadSlice,faCheese,faLeaf, faSeedling } from '@fortawesome/free-solid-svg-icons';
 import SpaIcon from '@material-ui/icons/Spa';
-
 import '../styles/detail.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1, 
   },
-  
   media: {
         width: "1528px",
         height: 360,
@@ -31,18 +29,14 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
         display:'flex',
         boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)',
-        
       },
   cont: {
    marginTop: 30,
   marginLeft: "300px",
    width: "70%",
- 
   marginBottom: 30,
   boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)',
-   
   },
-
   title:{
     marginTop: 57,
     fontFamily: "Roboto",
@@ -54,12 +48,10 @@ const useStyles = makeStyles((theme) => ({
   },
   row2: {
     display: "flex",
-    
   },
   stars: {
     display:"flex",
     marginLeft: "40px"
-
   },
   col1: {
     marginLeft: "55px",
@@ -70,7 +62,6 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "55px"
   },
   ratingsTitle:{
-  
     marginBottom: 0
   },
   ingredientsTitle:{
@@ -80,7 +71,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "orange",
     justifyContent: "center",
     display: "flex"
-
   },
   diet: {
   padding: "14px"
@@ -102,8 +92,6 @@ const useStyles = makeStyles((theme) => ({
   ingredients: {
     marginBottom: "30px"
   }
-  
-
 }));
 
 function RecipeDetail(props) {
@@ -116,16 +104,11 @@ function RecipeDetail(props) {
     const recipe_id = info[0].id;
     axios.post("http:localhost:8080/rating", {recipe_id})
     .then(res => {
-      console.log("response for rating", res.data.rating[0].round)
       setRating(res.data.rating[0].round);
     })
     .catch(err => {
-      console.log('err', err);
     });
   }, []);
-
-  console.log("PROPS recipeData", props.recipeData);
-  console.log("INFO", info[0])
 
     const handleChange = (event, newValue) => {
       setValue(newValue);
@@ -136,11 +119,8 @@ function RecipeDetail(props) {
       }
       axios.post(`http:localhost:8080/rating/new`, {rating})
       .then(res => {
-        console.log("rating", res.data.rating)
-     
       })
       .catch(err => {
-       
       })
     }
 
@@ -154,16 +134,13 @@ function RecipeDetail(props) {
           title={info[0].name}
          />
     </Row>
-   
     <Row  className={classes.row2}>
       <Col className={classes.col1}>
       <h3><FaceIcon fontSize="medium" color="primary"/> {info[0].first_name} {info[0].last_name}</h3> 
       <h3><AccessTimeIcon fontSize="medium" color="secondary"/> {info[0].time} min</h3>
             <Box  component="fieldset" mb={3} borderColor="transparent">
             <Rating name="read-only" value={rating} readOnly />
-        
          </Box>
-
 <div className={classes.ingredients}>
          <Typography variant="h5" color="textSecondary">
           {/* INSERT RECIPE INGREDIENTS */}
@@ -178,77 +155,56 @@ function RecipeDetail(props) {
           );
           })
          }
-  
         </Typography>
-        
         </div>
          <div>
       <div>
-{info[0].is_gluten_free && <div>
-  
-<FontAwesomeIcon className="fa.fa-signal" icon={faBreadSlice} />
-<span className={classes.diet}>  Gluten Free</span>
-</div>}
-</div>
-
-<br/>
-
-<div>
-{info[0].is_dairy_free && <div>
-<FontAwesomeIcon className="fa.fa-signal" icon={faCheese} />
-<span className={classes.diet}>  Dairy Free</span>
-</div>}
-</div>
-
-<br/>
-
-<div>
-{info[0].is_nut_free && <div>
-<SpaIcon/>
-<span className={classes.nut}>  Nut Free</span>
-</div>}
-</div>
-
-<br/>
-
-<div>
-{info[0].vegan && <div>
-<FontAwesomeIcon className="fa.fa-signal" icon={faLeaf} />
-<span className={classes.diet}>  Vegan</span>
-</div>}
-</div>
-
-<br/>
-
-<div>
-{info[0].vegetarian && <div>
-<FontAwesomeIcon className="fa.fa-signal"icon={faSeedling} />
-<span className={classes.diet}>  Vegetarian</span>
-</div>}
-</div>
-</div>
-         
-
+        {info[0].is_gluten_free && <div>
+        <FontAwesomeIcon className="fa.fa-signal" icon={faBreadSlice} />
+        <span className={classes.diet}>  Gluten Free</span>
+        </div>}
+        </div>
+        <br/>
+        <div>
+        {info[0].is_dairy_free && <div>
+        <FontAwesomeIcon className="fa.fa-signal" icon={faCheese} />
+        <span className={classes.diet}>  Dairy Free</span>
+        </div>}
+        </div>
+        <br/>
+        <div>
+        {info[0].is_nut_free && <div>
+        <SpaIcon/>
+        <span className={classes.nut}>  Nut Free</span>
+        </div>}
+        </div>
+        <br/>
+        <div>
+        {info[0].vegan && <div>
+        <FontAwesomeIcon className="fa.fa-signal" icon={faLeaf} />
+        <span className={classes.diet}>  Vegan</span>
+        </div>}
+        </div>
+        <br/>
+        <div>
+        {info[0].vegetarian && <div>
+        <FontAwesomeIcon className="fa.fa-signal"icon={faSeedling} />
+        <span className={classes.diet}>  Vegetarian</span>
+        </div>}
+        </div>
+        </div>
       </Col>
-
-
       <Col className={classes.col2}>
-
-
         <div className={classes.col2}>
            <Typography className={classes.title} variant="h3" component="h2" align="center">
-            {/* INSERT RECIPE NAME */}
           {info[0].name}
         </Typography>
         <br/>
         <Typography className={classes.desc}>
-            {/* INSERT RECIPE DESCRIPTION */}
             {info[0].description}
         </Typography>
-
         <h2 className={classes.titleDir}> Directions</h2>
             <Typography variant="h5" >
-          {/* INSERT DIRECTIONS */}
           <p className={classes.dir}>
             {info[0].directions_one}
           </p>     
@@ -269,26 +225,17 @@ function RecipeDetail(props) {
           </p>    
         </Typography>
         </div>
-
         <Box component="fieldset" mb={3}    className={classes.stars} borderColor="transparent">
              <h3>Your Rating:</h3>
               <Rating
                 name="simple-controlled"
                 value={value}
                 onChange={handleChange}
-             
               />
-              
               </Box>
       </Col>
     </Row>
-
-
-
-
-
     </div>
-
   );
 }
 

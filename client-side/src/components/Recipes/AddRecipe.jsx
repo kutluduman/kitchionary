@@ -12,16 +12,13 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     justifyContent: 'center',
     flexDirection: "row",
-
   },
   textField: {
-
     width: '60ch',
     "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
       borderColor: "orange",
@@ -43,31 +40,23 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: '15px',
     borderBottom: "#8080801c solid"
   },
-
   cont: {
     display: 'flex',
     flexDirection: "column",
     justifyContent: 'center',
     marginRight: '400px',
     marginLeft: '25%'
-
   },
-
   directions: {
     display: 'flex',
     flexDirection: "column",
     justifyContent: 'center',
     alignItems: 'center',
-
   },
-
   ingredients: {
     display: "flex",
     flexDirection: "row",
-
-
   },
-
   description: {
     width: "800px",
     marginLeft: '45px',
@@ -75,16 +64,13 @@ const useStyles = makeStyles((theme) => ({
       borderColor: "orange",
     },
   },
-
   name: {
     width: "550px",
     marginLeft: '45px',
     "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
       borderColor: "orange",
     },
-
   },
-
   form: {
     display: 'flex',
     justifyContent: 'center',
@@ -95,25 +81,20 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '30px',
     marginBottom: '30px'
   },
-
   subheading: {
     fontSize: '15px',
     marginLeft: '40px'
-
   },
-
   unit: {
     marginTop: "15px",
     width: "120px"
   },
-
   step: {
     width: "750px",
     "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
       borderColor: "orange",
     },
   },
-
   ingredient: {
     width: "550px",
     marginLeft: '150px',
@@ -121,7 +102,6 @@ const useStyles = makeStyles((theme) => ({
       borderColor: "orange",
     },
   },
-
   amount: {
     marginLeft: '20px',
     marginRight: '20px',
@@ -130,7 +110,6 @@ const useStyles = makeStyles((theme) => ({
       borderColor: "orange",
     },
   },
-
   button: {
     display: 'flex',
     justifyContent: 'center',
@@ -138,7 +117,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "40px",
     marginTop: "40px"
   },
-
   time: {
     width: "150px",
     marginLeft: '45px',
@@ -146,13 +124,11 @@ const useStyles = makeStyles((theme) => ({
       borderColor: "orange",
     },
   },
-
   check: {
     display: "flex",
     flexDirection: "row",
     marginLeft: "50px"
   },
-
 }));
 
 const ColorButton = withStyles((theme) => ({
@@ -244,7 +220,6 @@ const AddRecipe = (props) => {
     time: null,
   });
 
-
   const validate = () => {
     if (!inputRecipe.name) {
       setError("Recipe name is required!");
@@ -333,7 +308,6 @@ const AddRecipe = (props) => {
       setError("Amount is required!");
       return;
     }
-    console.log("ingredients before send", inputRecipe.ingredients)
 
     const newRecipe = {
       user: inputRecipe.user,
@@ -383,18 +357,10 @@ const AddRecipe = (props) => {
 
     axios.post(`http://localhost:8080/add`, newRecipe)
       .then(res => {
-        console.log(res);
-        console.log("resfromadd", res.data);
         setRedirect(true)
-        if (res.status === 200) {
-
-        }
       })
       .catch(err => {
-
       })
-
-
   };
 
   const handleSubmit = (e) => {
@@ -466,26 +432,20 @@ const AddRecipe = (props) => {
       four: [],
       five: [],
     })
-
   };
 
   const handleChangeName = (e) => {
-    console.log("NAME", e.target.value)
     setInputRecipe({ ...inputRecipe, name: e.target.value });
   }
 
   const handleChangeDescription = (e) => {
-    console.log('Des', e.target.value)
     setInputRecipe({ ...inputRecipe, description: e.target.value });
   }
 
   const handleChangeImg = (e) => {
-    console.log("IMAGE", e.target.value)
     setInputRecipe({ ...inputRecipe, img_url: e.target.value });
   }
   const handleChangeIngredientsOne = (e) => {
-    console.log("INGRED", e.target.value)
-
     setIngredient({ ...ingredient, one: e.target.value });
   }
 
@@ -534,7 +494,6 @@ const AddRecipe = (props) => {
   }
 
   const handleChangeUnitTwo = (e) => {
-    console.log('unit 2 ', e.target.value)
     inputRecipe.unit.push({ 1: e.target.value });
   }
 
@@ -575,13 +534,8 @@ const AddRecipe = (props) => {
   }
 
   const handleChange = (event) => {
-    console.log(event.target.name);
-    console.log(event.target.checked);
     setInputRecipe({ ...inputRecipe, [event.target.name]: event.target.checked });
   };
-
-  console.log(inputRecipe)
-  console.log("INGREDIENT.ONE", ingredient.one)
 
   if (!redirect) {
     return (
@@ -707,7 +661,6 @@ const AddRecipe = (props) => {
                     </div>
                     <h1 className={classes.subheading}>Dietary Restrictations: </h1>
                     <div className={classes.check}>
-
                       <FormControlLabel
                         control={
                           <Checkbox
@@ -760,7 +713,6 @@ const AddRecipe = (props) => {
                         }
                         label="Vegan"
                       />
-
                       <FormControlLabel
                         control={
                           <Checkbox
@@ -1097,11 +1049,9 @@ const AddRecipe = (props) => {
                         </Select>
                       </FormControl>
                     </div>
-
                     <div className={classes.ingredients}>
                       <TextField onChange={handleChangeIngredientsTwo}
                         value={ingredient.two}
-                        // label="Password"
                         id="outlined-margin-normal"
                         placeholder="Ingredient 2"
                         className={classes.ingredient}
@@ -1111,7 +1061,6 @@ const AddRecipe = (props) => {
                           style: { color: 'orange' },
                         }}
                       />
-
                       <TextField onChange={handleChangeAmountTwo}
                         value={amount.two}
                         id="outlined-margin-normal"
@@ -1148,11 +1097,9 @@ const AddRecipe = (props) => {
                         </Select>
                       </FormControl>
                     </div>
-
                     <div className={classes.ingredients}>
                       <TextField onChange={handleChangeIngredientsThree}
                         value={ingredient.three}
-                        // label="Password"
                         id="outlined-margin-normal"
                         placeholder="Ingredient 3"
                         className={classes.ingredient}
@@ -1162,7 +1109,6 @@ const AddRecipe = (props) => {
                           style: { color: 'orange' },
                         }}
                       />
-
                       <TextField onChange={handleChangeAmountThree}
                         value={amount.three}
                         id="outlined-margin-normal"
@@ -1184,7 +1130,6 @@ const AddRecipe = (props) => {
                           label="Unit"
                           name='unit'
                         >
-
                           <MenuItem value="">
                             <em>None</em>
                           </MenuItem>
@@ -1200,7 +1145,6 @@ const AddRecipe = (props) => {
                         </Select>
                       </FormControl>
                     </div>
-
                     <div className={classes.ingredients}>
                       <TextField onChange={handleChangeIngredientsFour}
                         value={ingredient.four}
@@ -1213,7 +1157,6 @@ const AddRecipe = (props) => {
                           style: { color: 'orange' },
                         }}
                       />
-
                       <TextField onChange={handleChangeAmountFour}
                         value={amount.four}
                         id="outlined-margin-normal"
@@ -1250,7 +1193,6 @@ const AddRecipe = (props) => {
                         </Select>
                       </FormControl>
                     </div>
-
                     <div className={classes.ingredients}>
                       <TextField onChange={handleChangeIngredientsFive}
                         value={ingredient.five}
@@ -1263,7 +1205,6 @@ const AddRecipe = (props) => {
                           style: { color: 'orange' },
                         }}
                       />
-
                       <TextField onChange={handleChangeAmountFive}
                         value={amount.five}
                         id="outlined-margin-normal"
@@ -1275,7 +1216,6 @@ const AddRecipe = (props) => {
                           style: { color: 'orange' },
                         }}
                       />
-
                       <FormControl className={classes.textField} variant="outlined">
                         <Select
                           className={classes.unit}
@@ -1301,10 +1241,8 @@ const AddRecipe = (props) => {
                         </Select>
                       </FormControl>
                     </div>
-
                     <h1 className={classes.subheading}>Directions:</h1>
                   </div>
-
                   <div className={classes.directions}>
                     <TextField onChange={handleChangeDirectionsOne}
                       value={inputRecipe.directions_one}
@@ -1317,7 +1255,6 @@ const AddRecipe = (props) => {
                         style: { color: 'orange' },
                       }}
                     />
-
                     <TextField onChange={handleChangeDirectionsTwo}
                       value={inputRecipe.directions_two}
                       id="outlined-margin-normal"
@@ -1329,7 +1266,6 @@ const AddRecipe = (props) => {
                         style: { color: 'orange' },
                       }}
                     />
-
                     <TextField onChange={handleChangeDirectionsThree}
                       value={inputRecipe.directions_three}
                       id="outlined-margin-normal"
@@ -1341,7 +1277,6 @@ const AddRecipe = (props) => {
                         style: { color: 'orange' },
                       }}
                     />
-
                     <TextField onChange={handleChangeDirectionsFour}
                       value={inputRecipe.directions_four}
                       id="outlined-margin-normal"
@@ -1353,7 +1288,6 @@ const AddRecipe = (props) => {
                         style: { color: 'orange' },
                       }}
                     />
-
                     <TextField onChange={handleChangeDirectionsFive}
                       value={inputRecipe.directions_five}
                       id="outlined-margin-normal"
@@ -1365,7 +1299,6 @@ const AddRecipe = (props) => {
                         style: { color: 'orange' },
                       }}
                     />
-
                     <TextField onChange={handleChangeDirectionsSix}
                       value={inputRecipe.directions_six}
                       id="outlined-margin-normal"
@@ -1378,12 +1311,10 @@ const AddRecipe = (props) => {
                       }}
                     />
                   </div>
-
                   <br />
                   <div className={classes.button}>
                     <ColorButton type='submit' variant="contained" color="primary">Add</ColorButton>
                   </div>
-
                 </form>
               </div>
             </div>

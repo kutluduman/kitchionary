@@ -16,8 +16,6 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 
-
-
 const useStyles = makeStyles({
   root: {
     maxWidth: 450,
@@ -29,23 +27,19 @@ const useStyles = makeStyles({
   media: {
     height: 450,
     weight: 250,
-
   },
   name: {
   display: "flex",
   justifyContent: "center",
   fontFamily: "Roboto"
   },
-
   description: {
     marginLeft: '20px',
     marginRight: '20px',
     fontSize: '17px'
   },
-
   cook: {
     marginLeft: '20px',
-    // marginBottom: '5px',
     fontSize: '19px',
     color: 'orange',
     borderColor: 'orange',
@@ -53,9 +47,6 @@ const useStyles = makeStyles({
       backgroundColor: "orange[500]"
     },
     fontSize: '15px',
-    // marginTop: '20px'
-    // display:'flex',
-    // alignSelf: 'flex-end',
     height: "120px"
   },
   button: {
@@ -73,11 +64,9 @@ const useStyles = makeStyles({
   },
    like: {
     position: "absolute",
-marginLeft: "400px",
-marginTop: "40px",
-backgroundColor: "white",
-
-
+    marginLeft: "400px",
+    marginTop: "40px",
+    backgroundColor: "white",
   transform: "translate(-50%, -50%)"
    },
    star: {
@@ -86,9 +75,7 @@ backgroundColor: "white",
    marginTop: '635px',
    marginLeft: "350px",
    fontSize: '15px',
-
    }
-
 });
 
 const RecipeCard = (props) => {
@@ -98,20 +85,16 @@ const RecipeCard = (props) => {
   const [like, setLike] = useState('default');
   const [red, setRed] = useState(true);
   const [rating, setRating] = React.useState(5);
-
   const [matchingRec, setMatchingRec] = useState([]);
 
   useEffect(() => {
     const recipe_id = props.id;
-    console.log(recipe_id, "hello")
     const favourite = {
       user_id: props.cookies,
       recipe_id: props.id,
-      // is_favourite: red,
     }
     axios.post(`http://localhost:8080/favorite/${recipe_id}`, { favourite })
     .then(res => {
-      console.log("resssfromfav", res.data.favourited)
       if (res.data.favourited.length === 0 || (res.data.favourited.length === 1 && res.data.favourited.is_favourite === false)) {
         setLike('default')
         setRed(true)
@@ -119,22 +102,16 @@ const RecipeCard = (props) => {
         setLike('secondary')
         setRed(false)
       }
-      // setMatchingRec(res.data.favourited)
     })
     .catch(err => {
-      // setError("Incorrect Email or Password!");
     });
     
-    // const recipe_id = info[0].id;
     axios.post("http://localhost:8080/rating", {recipe_id})
     .then(res => {
-      console.log("response for rating", res.data.rating[0].round)
       setRating(res.data.rating[0].round);
     })
     .catch(err => {
-      console.log('err', err);
     });
-
   }, []);
 
 function truncate(selector) {
@@ -143,27 +120,20 @@ if (selector.length > 100) {
   } else {
     return selector
   }
-
 }
   const handleLink = (e) => {
     e.preventDefault();
-    console.log('props', props.name)
     const recipe = props.name;
     const recipe_id = props.id;
-    console.log('RECIPEID2', recipe_id);
 
     axios.post(`http://localhost:8080/recipes/${recipe_id}`, { recipe })
       .then(res => {
-        console.log("resss", res.data.info)
         props.setRecipeData(res.data.info)
         if (res.status === 200) {
-          console.log('redirect?fromabove', redirect)
           setRedirect(true)
-          console.log('redirect?frombelow', redirect)
         }
       })
       .catch(err => {
-        // setError("Incorrect Email or Password!");
       })
   };
 
@@ -183,17 +153,9 @@ if (selector.length > 100) {
 
       axios.post(`http://localhost:8080/favorite/${recipe_id}/favourites`, { favourite })
       .then(res => {
-        console.log("resssfromrebder", res.data.favourited)
-        // if ()
-        // props.setRecipeData(res.data.info)
-        // if (res.status === 200) {
-        //   console.log('redirect?fromabove', redirect)
-        //   setRedirect(true)
-        //   console.log('redirect?frombelow', redirect)
-        // }
       })
       .catch(err => {
-        // setError("Incorrect Email or Password!");
+
       })
     } else {
       // if red
@@ -201,22 +163,13 @@ if (selector.length > 100) {
       setRed(true);
       axios.post(`http://localhost:8080/favorite/${recipe_id}/favourites`, { favourite })
       .then(res => {
-        console.log("resssfromrecipecardunlike", res.data.favourited)
-        // props.setRecipeData(res.data.info)
-        // if (res.status === 200) {
-        //   console.log('redirect?fromabove', redirect)
-        //   setRedirect(true)
-        //   console.log('redirect?frombelow', redirect)
-        // }
       })
       .catch(err => {
-        // setError("Incorrect Email or Password!");
       })
     }
   }
   }
 
-  console.log('whta color', red)
   if (!redirect) {
   return (
         <Card className={classes.root}>
@@ -227,13 +180,11 @@ if (selector.length > 100) {
         <Button className={classes.button} onClick= {handleLink} size="large" >
             Cook This!
         </Button>
-            
         <Box component="fieldset" className={classes.star}  mb={3} borderColor="transparent">
         <Rating name="read-only" value={rating} readOnly />
       </Box>
           <CardMedia className={classes.media}
             component="img"
-            // alt="Shrimp and Chorizo Paella"
             height="140"
             image={props.image}
             title={props.name}
@@ -247,12 +198,6 @@ if (selector.length > 100) {
             </Typography>
           </CardContent>
         </CardActionArea>
-        
-        {/* <CardActions> */}
-        {/* <div > */}
-      {/* </div> */}
-        {/* </CardActions> */}
-     
       </Card>
       )
     } else {
