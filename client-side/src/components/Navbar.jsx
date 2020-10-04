@@ -20,7 +20,11 @@ import { Link } from "react-router-dom";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import axios from 'axios';
-import SearchBar from "material-ui-search-bar";
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
+import PublicIcon from '@material-ui/icons/Public';
+import HelpIcon from '@material-ui/icons/Help';
+
+
 
 //popout
 
@@ -38,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
   menuButton: {
     marginLeft: theme.spacing(2),
-    marginRight: "25%",
+    // marginRight: "25%",
     color: "orange",
   },
   search: {
@@ -100,6 +104,10 @@ const useStyles = makeStyles((theme) => ({
     color: "black",
     fontSize: '18px',
     padding: "30px"
+  },
+  navIcon: {
+    marginLeft: '20px',
+   
   }
 }));
 
@@ -115,9 +123,7 @@ const ColorButton = withStyles((theme) => ({
 
 function Navbar(props) {
   const classes = useStyles();
-  // const [cookies, setCookie, removeCookie] = useCookies(["name"]);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [search, setSearch] = useState('');
   const [redirect,setRedirect] = useState('false');
 
   const handleClick = (event) => {
@@ -132,61 +138,6 @@ function Navbar(props) {
     props.removeCookie("name");
   };
 
-  const handleChange = (value) => {
-    setSearch(value);
-  }
-
-//   const onKeyUpValue = (e) => {
-
-//     if (e.charCode === 13) {
-//       axios
-//       .post(`http://localhost:8080/search`, { search })
-//       .then((res) => {
-//         // console.log("resss", res.data.recipes);
-//         props.setMatchingRecipes(res.data.recipes);
-//         if (res.status === 200) {
-//           setRedirect(true);
-//         }
-//       })
-//       .catch((err) => {
-//         // res.status(500).json({ error: err.message });
-//       });
-//   }
-// }
-const onSubmit = (e) => {
-
-
-  const working = () => {
-    setRedirect(true)
-    setfalse()
-  }
-
-  const setfalse =() => {
-    setRedirect(false)
-  }
-
-    axios
-    .post(`http://localhost:8080/search`, { search })
-    .then((res) => {
-      console.log("resss from nav bar", res.data);
-      // setRedirect(true);
-      props.setMatchingRecipes(res.data.recipes);
-      // setRedirect(false);
-
-      // if(redirect) {
-      //   setRedirect(false)
-      // }
-   
-
-    })
-    .catch((err) => {
-      // res.status(500).json({ error: err.message });
-    });
-}
-
-  
-  console.log('search', search);
-
   if (!props.cookies.name) {
 
     return (
@@ -200,45 +151,8 @@ const onSubmit = (e) => {
                   <img src={logo} className="logo" alt="logo"></img>{" "}
                 </Button>
               </Typography>
-              {/* </IconButton> */}
-              <div className={classes.search2}>
-                
-                <div className={classes.searchIcon}>
-                  <SearchIcon />
-                </div>
-                {/* <InputBase
-                  // onKeyUp={onKeyUpValue}
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Search…"
-                  classes={{2
-                    root: classes.inputRoot,
-                    input: classes.inputInput,
-                  }}
-                  inputProps={{ "aria-label": "search" }}
-                /> */}
-              <form onSubmit={onSubmit} >
-                <SearchBar
-                    value={search}
-                    onChange={handleChange}
-                  placeholder="Search…"
-                    // onChange={(s) => this.setState({ value: newValue })}
-                    onRequestSearch={onSubmit}
-                  /> 
-                {/* <input
-                    value={search}
-                    onChange={handleChange}
-                  placeholder="Search…"
-                />*/}
+            
 
-                </form> 
-                    {/* <form className="App" onSubmit={onSubmit}>
-                      <input
-                        value={search}
-                        onChange={e => handleChange(e.target.value)}
-                      />
-                    </form> */}
-              </div>
               <div className={classes.root}>
                 <ColorButton href="#login" startIcon={<ExitToAppIcon />}>
                   {" "}
@@ -253,12 +167,7 @@ const onSubmit = (e) => {
           </main>
         </AppBar>
       </div>
-    );
-    // } else if (!props.cookies.name && redirect || props.cookies.name && redirect) {
-    //   //  return <Redirect to = {{ pathname: "/quiz" }} />;        
-    //   return (
-    //     <h1> ITS NOT WORKING</h1>
-    //   )     
+    );   
   } else {
     return (
       <div>
@@ -271,13 +180,6 @@ const onSubmit = (e) => {
                   <img src={logo} className="logo" alt="logo"></img>{" "}
                 </Button>
               </Typography>
-              {/* <IconButton
-                edge="start"
-                className={classes.menuButton}
-                color="inherit"
-                aria-label="menu"
-              >
-                <MenuIcon /> */}
                 <IconButton
                 className={classes.menuButton}
                 color="inherit"
@@ -313,42 +215,37 @@ const onSubmit = (e) => {
                   >
                     <MenuItem onClick={handleClose}>New Recipe</MenuItem>
                   </Link>
-                  <Link
-                    to="/fridge"
-                    style={{ textDecoration: "none", display: "block", color: "black" }}
-                  >
-                    <MenuItem onClick={handleClose}>Fridge Mode</MenuItem>
-                  </Link>
-                  <Link
-                    to="/quiz"
-                    style={{ textDecoration: "none", display: "block", color: "black" }}
-                  >
-                    <MenuItem onClick={handleClose}>Quiz Mode</MenuItem>
-                  </Link>
-                  <Link
-                    to="/globe"
-                    style={{ textDecoration: "none", display: "block", color: "black" }}
-                  >
-                    <MenuItem onClick={handleClose}>Globe Mode</MenuItem>
-                  </Link>
-
+                  
                 </Menu>
-              </IconButton>
-              <div className={classes.search}>
-                <div className={classes.searchIcon}>
-                  <SearchIcon />
-                </div>
-                <InputBase
-                  placeholder="Search…"
-                  classes={{
-                    root: classes.inputRoot,
-                    input: classes.inputInput,
-                  }}
-                  inputProps={{ "aria-label": "search" }}
-                />
-              </div>
-              <div className={classes.root}>
+                </IconButton>
+    
+                <div className={classes.navIcon}>
+                  <Link to='/fridge'>
+                  <IconButton>
+                    <MeetingRoomIcon fontSize="medium" style={{ color: orange[400] }}  />            
+                  </IconButton>
+                  </Link>
+                  </div>
+
+                  <div className={classes.navIcon}>
+                  <Link to='/quiz'>
+                  <IconButton>
+                    <HelpIcon fontSize="medium" style={{ color: orange[400] }}/>            
+                  </IconButton>
+                  </Link>
+                  </div>
+
+                  <div className={classes.navIcon}>
+                  <Link to='/globe'>
+                  <IconButton>
+                    <PublicIcon fontSize="medium" style={{ color: orange[400] }}/>            
+                  </IconButton>
+                  </Link>
+                  </div>
+           
                
+
+              <div className={classes.root}>
                 <h2 className={classes.name}> Logged in as {props.cookies.name}!</h2>
                 <ColorButton onClick={handleRemoveCookie} href="/">
                   {" "}
