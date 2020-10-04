@@ -80,6 +80,7 @@ const LoginTemplate = (props) => {
       .then(res => {
         if (res.status === 200) {
           props.setCookie('name', user.email, {path: '/'});
+          setRedirect(true);
         }
       })
       .catch(err => {
@@ -104,7 +105,7 @@ const LoginTemplate = (props) => {
     setPassword(e.target.value);
   }
 
-  if (!props.cookies.name){
+  if (!redirect){
 
   return (
     <section>
