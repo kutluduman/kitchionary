@@ -6,6 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { orange, lightBlue} from "@material-ui/core/colors";
 import axios from 'axios';
+import PasswordField from 'material-ui-password-field'
 
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Register from "./Register";
@@ -136,7 +137,7 @@ const LoginTemplate = (props) => {
         />
          
         <div>
-        <TextField onChange={handleChangePassword}
+        {/* <TextField onChange={handleChangePassword}
           // label="Password"
           value={password}
           id="outlined-margin-normal"
@@ -147,6 +148,13 @@ const LoginTemplate = (props) => {
           InputLabelProps={{
             style: { color: 'orange' },
           }}
+        /> */}
+        <PasswordField
+        onChange={handleChangePassword}
+        value={password}
+          hintText="At least 8 characters"
+          floatingLabelText="Enter your password"
+          errorText="Your password is too short"
         />
         </div>
         <br/>
