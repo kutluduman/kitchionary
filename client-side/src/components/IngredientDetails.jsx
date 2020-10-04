@@ -49,13 +49,11 @@ function IngredientDetail(props) {
   };
 
 
-  return (
-   <div>
-              <ListItemText primary={ingredient} secondary={amount}/>
-              <Divider variant="inset" component="li" />
-      </div>
-        
-  );
+    return (
+      <div>
+        <ListItemText primary={ingredient} secondary={amount}/>
+      </div>   
+    );
   }
 
 

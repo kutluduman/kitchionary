@@ -25,20 +25,48 @@ const useStyles = makeStyles((theme) => ({
   },
   
   media: {
-        width: 700,
-        height: 700,
-        marginTop: 30,
-        marginLeft: 45,
+        width: "1528px",
+        height: 360,
+        
+        justifyContent: 'center',
+        display:'flex'
         
       },
   cont: {
    marginTop: 30,
+   border: "solid black",
+   width: "80%",
+  marginLeft: 200,
+  marginBottom: 30,
    
   },
 
   title:{
-    marginTop: 110,
-  }
+    marginTop: 57,
+    fontFamily: "Roboto",
+    backgroundColor: "orange"
+  },
+  row: {
+    display: "flex",
+    justifyContent: "space-evenly"
+  },
+  row2: {
+    display: "flex",
+    
+  },
+  stars: {
+    display:"flex"
+  },
+  col1: {
+    marginLeft: "85px",
+    marginTop: "50px"
+  },
+  col2: {
+    width: "72%",
+    marginLeft: "55px"
+  },
+
+  
 
 }));
 
@@ -50,7 +78,7 @@ function RecipeDetail(props) {
 
   useEffect(() => {
     const recipe_id = info[0].id;
-    axios.post("http://localhost:8080/rating", {recipe_id})
+    axios.post("http:localhost:8080/rating", {recipe_id})
     .then(res => {
       console.log("response for rating", res.data.rating[0].round)
       setRating(res.data.rating[0].round);
@@ -70,7 +98,7 @@ function RecipeDetail(props) {
         recipe_id: info[0].id,
         rating: newValue,
       }
-      axios.post(`http://localhost:8080/rating/new`, {rating})
+      axios.post(`http:localhost:8080/rating/new`, {rating})
       .then(res => {
         console.log("rating", res.data.rating)
      
@@ -81,38 +109,34 @@ function RecipeDetail(props) {
     }
 
   return (
-    <Row>
-      <Col span={5}>
-        <CardMedia
-        // INSERT RECIPE IMAGE
+<div className={classes.cont}>
+   <Row className={classes.row}>
+      <CardMedia
+          INSERT RECIPE IMAGE
           className={classes.media}
-          image={info[0].img_url}
+           image={info[0].img_url}
           title={info[0].name}
-        />
-      </Col>
-      <Col span={6}>
-
-        <Col  className={classes.cont} span={3}>
-        
-        <Box className="rating" component="fieldset" mb={3} borderColor="transparent">
-          {/* INSERT RECIPE OWNER */}
-         <h3><FaceIcon fontSize="medium" color="primary"/> {info[0].first_name} {info[0].last_name}</h3> 
-          {/* INSERT RECIPE TIME */}
-            <h3><AccessTimeIcon fontSize="medium" color="secondary"/> {info[0].time} min</h3> 
+         />
+    </Row>
+    <Row  className={classes.row2}>
+      <Col className={classes.col1}>
+      <h3><AccessTimeIcon fontSize="medium" color="secondary"/> {info[0].time} min</h3>
             <Box component="fieldset" mb={3} borderColor="transparent">
               <h3>Rating:</h3>
-             <Rating name="read-only" value={rating} readOnly />
-           </Box>
-           
+            <Rating name="read-only" value={rating} readOnly />
+        
+         </Box>
            <Box component="fieldset" mb={3} borderColor="transparent">
              <h3>Your Rating:</h3>
               <Rating
                 name="simple-controlled"
                 value={value}
                 onChange={handleChange}
+                className={classes.stars}
               />
+              
               </Box>
-        </Box>
+       
 
 
 <div>
@@ -171,20 +195,23 @@ function RecipeDetail(props) {
           <h3>Ingredients</h3>
           {props.recipeData.map(ingredient => {
           return (
-            <IngredientDetails 
+            <IngredientDetails
             ingredient={ingredient.ingredient}
             amount={ingredient.amount}
             unit={ingredient.unit}
             />
           );
           })
-          }
-
+         }
+ 
         </Typography>
-        </Col>
-        <Col span={9}>
-          
-        <Typography className={classes.title} variant="h3" component="h2" align="center">
+
+      </Col>
+
+
+      <Col className={classes.col2}>
+        <div className={classes.col2}>
+           <Typography className={classes.title} variant="h3" component="h2" align="center">
             {/* INSERT RECIPE NAME */}
           {info[0].name}
         </Typography>
@@ -197,26 +224,33 @@ function RecipeDetail(props) {
           {/* INSERT DIRECTIONS */}
           <p>
             {info[0].directions_one}
-          </p>      
+          </p>     
           <p>
             {info[0].directions_two}
-          </p>  
+          </p> 
           <p>
             {info[0].directions_three}
-          </p>  
+          </p> 
           <p>
             {info[0].directions_four}
-          </p>  
+          </p> 
           <p>
             {info[0].directions_five}
-          </p>  
+          </p> 
           <p>
             {info[0].directions_six}
-          </p>     
+          </p>    
         </Typography>
-        </Col>
+        </div>
       </Col>
     </Row>
+
+
+
+
+
+    </div>
+
   );
 }
 
