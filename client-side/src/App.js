@@ -85,7 +85,7 @@ function App() {
     <Router>
       <div className="App">
         <Navbar cookies={cookies} setCookie={setCookie} removeCookie={removeCookie} />
-          <dialog role="alertdialog" id="login" open>
+        <dialog role="alertdialog" id="login" open>
             <LoginTemplate cookies={cookies} setCookie={setCookie} />
           </dialog>
           <dialog role="alertdialog" id="register">
