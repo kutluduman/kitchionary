@@ -10,43 +10,18 @@ import axios from 'axios';
 import { ReactComponent as Logo } from '../docs/breakfast.jpg'
 import RecipeCard from '../Recipes/RecipeCard';
 import Grid from '@material-ui/core/Grid';
-
-
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-//door
-
-// import "./door.css";
-// // import "./door.js"
-// import Door from "./Door";
-
-
-//quiz
 import "../styles/quiz.css"
 
-// food images
 import breakfast from "../docs/breakfast.jpg";
 import lunch from "../docs/lunch.jpg";
 import appetizer from "../docs/appetizer.jpg";
 import dinner from "../docs/dinner.jpg";
 import dessert from "../docs/dessert.jpg";
 
-
 import Door from "./Door.jsx";
 import Question from "./Question";
 import Globe from "./Globe.jsx"
 import "../styles/mode.css";
-
-
-import FeaturedDessert from "./FeaturedDessert"
-import FeaturedPasta from "./FeaturedPasta";
-import FeaturedSalad from "./FeaturedSalad";
-
-
 
 const images = [
   {
@@ -84,9 +59,6 @@ const images = [
 const useStyles = makeStyles((theme) => ({
  
   image: {
-
-    // margin:'.9%',
-    //marginTop: '2%',
     position: 'relative',
     height: 200,
     [theme.breakpoints.down('xs')]: {
@@ -182,8 +154,6 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-
-
 const Home = (props) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -195,11 +165,10 @@ const Home = (props) => {
   useEffect(() => {
     axios.get("http://localhost:8080/recipes")
     .then(res => {
-      console.log("resss", res.data)
       setMatchingRec(res.data.recipes)
     })
     .catch(err => {
-      // setError("Incorrect Email or Password!");
+
     });
   }, []);
 
@@ -213,24 +182,18 @@ const Home = (props) => {
 
   axios.post(`http://localhost:8080/${category}`, {category})
     .then(res => {
-      console.log("resss", res.data.recipes)
       props.setMatchingRecipes(res.data.recipes)
-      // console.log("outside if statement")
       if (res.status === 200) {
-        // console.log("inside if statement")
         setRedirect(true);
-        // console.log("redirect??", redirect)
       }
     })
     .catch(err => {
-      // res.status(500).json({ error: err.message });
-      // or set error state
+
     });
   }
 
   if (!redirect) {
     return (
-
       <div className={classes.root}>
           <Helmet>
             <style>{'body { background-color: #fafafa; }'}</style>
@@ -238,8 +201,6 @@ const Home = (props) => {
       {images.map((image) => (
         <ButtonBase
         onClick={() => handleClick(image.title)}
-          // value={image.title}
-          // href={image.href}
           focusRipple
           key={image.title}
           
@@ -256,8 +217,8 @@ const Home = (props) => {
               backgroundImage: `url(${image.url})`,
             }}
           />
-          <span className={classes.imageBackdrop}    />
-          <span className={classes.imageButton}   >
+          <span className={classes.imageBackdrop} />
+          <span className={classes.imageButton} >
             <Typography
               component="span"
               variant="subtitle1"
@@ -276,10 +237,7 @@ const Home = (props) => {
         <Question cookies={props.cookies}/> 
         <Globe cookies={props.cookies}/> 
       </div>
-
-          {/* <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2> */}
       <div className={classes.recipes}>
-
           <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2>
       <div className="featured">
               <Grid container direction="row" justify="center">
@@ -302,7 +260,6 @@ const Home = (props) => {
       </div>
     );
   } else {
-    console.log('meal', meal);
     if (meal === 'breakfast') {
       return <Redirect to = {{ pathname: "/breakfast" }} />;
     } else if (meal === 'lunch') {

@@ -109,11 +109,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 const FridgeBoxImage = () => {
   const classes = useStyles();
 
- 
   return (
     <div className={classes.root}>
       {images.map((image) => (

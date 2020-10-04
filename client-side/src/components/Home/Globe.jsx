@@ -5,9 +5,7 @@ import imageQuestion from "../docs/world_white.jpg";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
 import background from "../docs/white_back.jpg"
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,15 +24,12 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-
 const Globe = (props) =>  {
   const classes = useStyles();
   const [redirect,setRedirect]= useState(false);
   
   const handleClick = (e) => {
-    // if (props.cookies.name) {
       setRedirect(true);
-    // }
   };
   
   if (!redirect) {
@@ -94,6 +89,5 @@ const Globe = (props) =>  {
   }
   }
 }
-
 
 export default Globe;

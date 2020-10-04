@@ -43,9 +43,7 @@ const Door = (props) => {
   }
 
   const handleClick = (e) => {
-    // if (props.cookies.name) {
       setRedirect(true);
-    // }
   };
 
   if (!redirect) {
@@ -68,7 +66,6 @@ const Door = (props) => {
           </div>
         </div>
     </div>
-  
   )
   } else {
     if (!props.cookies.name) {
@@ -91,7 +88,6 @@ const Door = (props) => {
               </div>
             </div>
         </div>
-      
       )
     } else {
       return <Redirect to = {{ pathname: "/fridge" }} />;

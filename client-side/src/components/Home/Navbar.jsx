@@ -1,14 +1,11 @@
 import React, {useState} from "react";
 import { Redirect } from "react-router-dom";
-// import { useCookies } from "react-cookie";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import SearchIcon from "@material-ui/icons/Search";
-import InputBase from "@material-ui/core/InputBase";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import logo from "../docs/Kitchionary_logo_white.jpg";
 import "../styles/navbar.css";
@@ -19,34 +16,24 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Link } from "react-router-dom";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import axios from 'axios';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
-import PublicIcon from '@material-ui/icons/Public';
 import HelpIcon from '@material-ui/icons/Help';
-
-
-
-//popout
-
 import Login from "./Login";
-import useLogin from "./useLogin";
-import Register from "./Register";
-import useRegister from "./useRegister";
+import useLogin from "../Users/useLogin";
+import Register from "../Users/Register";
+import useRegister from "../Users/useRegister";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     marginLeft: "auto",
     display: "flex",
-    // backgroundColor:orange,
   },
 
   menuButton: {
     marginLeft: theme.spacing(2),
-    // marginRight: "25%",
     color: "orange",
   },
   search: {
-    //font color: #37ade0
     position: "relative",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
@@ -60,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   search2: {
-    //font color: #37ade0
     marginLeft: '500px',
     position: "relative",
     borderRadius: theme.shape.borderRadius,
@@ -89,14 +75,12 @@ const useStyles = makeStyles((theme) => ({
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(12)}px)`,
     transition: theme.transitions.create("width"),
     width: "100%",
     [theme.breakpoints.up("md")]: {
       width: "50ch",
     },
-    // backgroundColor: "white"
   },
 
   name :{
@@ -106,8 +90,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "30px"
   },
   navIcon: {
-    marginLeft: '20px',
-   
+    marginLeft: '20px', 
   }
 }));
 
@@ -139,7 +122,6 @@ function Navbar(props) {
   };
 
   if (!props.cookies.name) {
-
     return (
       <div>
         <AppBar position="static">
@@ -151,8 +133,6 @@ function Navbar(props) {
                   <img src={logo} className="logo" alt="logo"></img>{" "}
                 </Button>
               </Typography>
-            
-
               <div className={classes.root}>
                 <ColorButton href="#login" startIcon={<ExitToAppIcon />}>
                   {" "}
@@ -226,7 +206,6 @@ function Navbar(props) {
                   </IconButton>
                   </Link>
                   </div>
-
                   <div className={classes.navIcon}>
                   <Link to='/quiz'>
                   <IconButton>
@@ -234,7 +213,6 @@ function Navbar(props) {
                   </IconButton>
                   </Link>
                   </div>
-
                   <div className={classes.navIcon}>
                   <Link to='/globe'>
                   <IconButton>
@@ -242,9 +220,6 @@ function Navbar(props) {
                   </IconButton>
                   </Link>
                   </div>
-           
-               
-
               <div className={classes.root}>
                 <h2 className={classes.name}> Logged in as {props.cookies.name}!</h2>
                 <ColorButton onClick={handleRemoveCookie} href="/">
@@ -259,7 +234,6 @@ function Navbar(props) {
       </div>
     );
   }
-
 }
 
 export default Navbar;

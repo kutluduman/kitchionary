@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Redirect, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import "../styles/quiz.css";
 import imageQuestion from "../docs/question_white.jpg";
 import background from "../docs/white_back.jpg"
@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '15px',
     marginTop: "55px"
   },
- 
 }));
 
 const Question = (props) =>  {
@@ -30,9 +29,7 @@ const Question = (props) =>  {
   const [redirect, setRedirect] = useState(false);
 
   const handleClick = (e) => {
-    // if (props.cookies.name) {
       setRedirect(true);
-    // }
   };
 
   if (!redirect) {
@@ -56,7 +53,6 @@ const Question = (props) =>  {
         </div>
       </div>
     </div>
-  
   )
 } else {
   if (!props.cookies.name) {
