@@ -136,7 +136,6 @@ const FridgeForm = (props) => {
         }
       })
       .catch((err) => {
-
       });
   };
 

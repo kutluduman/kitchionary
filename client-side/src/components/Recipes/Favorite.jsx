@@ -39,21 +39,21 @@ const Favorite = (props) => {
 
   return(
     <div>
-            <Grid container direction="row" justify="center">
-                {matchingRec.map(recipe => {
-                  return (
-                    <RecipeCard 
-                    id={recipe.id}
-                    name={recipe.name}
-                    description={recipe.description}
-                    image={recipe.img_url}
-                    setRecipeData={props.setRecipeData}
-                    cookies={props.cookies}
-                    />
-                  );
-                  })
-                  }
-            </Grid>   
+      <Grid container direction="row" justify="center">
+          {matchingRec.map(recipe => {
+            return (
+              <RecipeCard 
+              id={recipe.id}
+              name={recipe.name}
+              description={recipe.description}
+              image={recipe.img_url}
+              setRecipeData={props.setRecipeData}
+              cookies={props.cookies}
+              />
+            );
+            })
+            }
+        </Grid>   
     </div>
   )
 }

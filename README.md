@@ -21,7 +21,7 @@ A platform for food lovers to discover a diverse range of recipes that can be pe
 
 ## Features
 
-By using the Kitchionary application, recipes can be easily recommended with the following features :
+By using the Kitchionary application, recipes can be easily recommended with the following features:
 
 **Fridge Mode:**
 

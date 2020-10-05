@@ -92,7 +92,7 @@ const RecipeCard = (props) => {
     axios.post(`http://localhost:8080/favorite/${recipe_id}`, { favourite })
     .then(res => {
       console.log("res", res.data.favourited)
-      if (res.data.favourited.length === 0 || (res.data.favourited.length === 1 && res.data[0].favourited.is_favourite === false)) {
+      if (res.data.favourited.length === 0 || res.data.favourited[0].is_favourite === false) {
         setLike('default')
         setRed(true)
       } else {
