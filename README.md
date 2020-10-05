@@ -6,31 +6,43 @@ Kitchionary
 A platform for food lovers to discover a diverse range of recipes that can be personalized to ingredients readily available at home. Kitchionary suggests different recipes according to ingredients, desired meal, and type of cuisine. Kitchionary redefines food by helping people waste less food while eating fantastic meals!
 
 ## How to Setup
-1. Install all dependencies (npm install from Terminal) within project directory.
-2. Fork and clone [scheduler-api](https://github.com/lighthouse-labs/scheduler-api). Follow the instructions on the github page of scheduler-api.
 
-3. Start the API server while in the "scheduler-api" directory using npm start.
+1. Fork and clone [Kitchionary](https://github.com/kutluduman/kitchionary). Follow the instructions on the github page of Kitchonary.
 
-4. Start the Webpack development server while in the "scheduler" directory using npm start. The app will be served at http://localhost:8000/.
+2. Install all dependencies (npm install from Terminal) within project directories client-side and express-backend.
+
+
+3. Open up two terminals. First will be used for the express-backend and the other one will be used for client-side directories. 
+
+4. Within each of the terminals, run "npm start". 
+
+5.  The app will be served at http://localhost:3000/.
 
 
 ## Features
 
-By using the Interview Schedular application, appointments can be easily organized with the following :
+By using the Kitchionary application, recipes can be easily recommended with the following features :
 
-**Book an Interview:**
+**Fridge Mode:**
 
-Click on any available spot, enter the name of the interviewee and select an interviewer.
+Users can input the ingredients they have readily available in their fridge and Kitchionary will recommend recipes they can make
  
 
-**Edit an Interview:**
+**Quiz Mode:**
 
-By hovering to appointment, you can simply edit your appointment.
+If a user is unsure about what to cook, Kitchionary offers a short quiz that will recommend recipes according to the user's needs
 
-**Delete an Interview:**
+**Globe Mode:**
 
-By hovering to appointment, you can also simply delete your appointment as well.
+Users can interact with international recipes through Kitchionary's filtering feature.
 
+**Add a Recipe:**
+
+Users can add their own recipes that can be viewed and rated by other users
+
+**Favorite Recipe:**
+
+Users can save recipes they like for future viewing
 
 
 ## Stacks
