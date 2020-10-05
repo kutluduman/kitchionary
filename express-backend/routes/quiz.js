@@ -279,7 +279,6 @@ module.exports = (db) => {
     }
 
     queryString += `;`;
-    console.log("query", queryString)
 
     return db
       .query(queryString)
