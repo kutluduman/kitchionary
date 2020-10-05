@@ -29,7 +29,11 @@ const Globe = (props) =>  {
   const [redirect,setRedirect]= useState(false);
   
   const handleClick = (e) => {
+    if (!props.cookies.name) {
+      props.toggleModal();
+    } else {
       setRedirect(true);
+    }
   };
   
   if (!redirect) {
@@ -59,35 +63,35 @@ const Globe = (props) =>  {
       </div>
       )
 } else {
-  if (!props.cookies.name) {
-    return (
-      <div>
-        <div className="container">
-          <img className='background image' src={background} alt="dessert" width="450" height="650" />
-          <img className="globe image" src={imageQuestion} alt="globe" width="260" height="260"/>
-        </div>
-        <br/>
-        <div className="descriptionGlobe">  
-          <h1 className="titleGlobe"> GLOBE MODE</h1>
+  // if (!props.cookies.name) {
+  //   return (
+  //     <div>
+  //       <div className="container">
+  //         <img className='background image' src={background} alt="dessert" width="450" height="650" />
+  //         <img className="globe image" src={imageQuestion} alt="globe" width="260" height="260"/>
+  //       </div>
+  //       <br/>
+  //       <div className="descriptionGlobe">  
+  //         <h1 className="titleGlobe"> GLOBE MODE</h1>
         
-        <div className="globeText">
-          <Typography variant="h5" align="center" color="textSecondary" component="h3">
-                No need to get on a plane to try international cuisines! Discover recipes from around the world!
-                </Typography>  
-    </div>
-    <br/>
-          <div className="globeButton">
+  //       <div className="globeText">
+  //         <Typography variant="h5" align="center" color="textSecondary" component="h3">
+  //               No need to get on a plane to try international cuisines! Discover recipes from around the world!
+  //               </Typography>  
+  //   </div>
+  //   <br/>
+  //         <div className="globeButton">
             
-            <Button href='#login' variant="outlined" className={classes.button} onClick={handleClick}>
-              Discover
-            </Button>
-            </div>
-          </div>
-      </div>
-      )
-  } else {
+  //           <Button href='#login' variant="outlined" className={classes.button} onClick={handleClick}>
+  //             Discover
+  //           </Button>
+  //           </div>
+  //         </div>
+  //     </div>
+  //     )
+  // } else {
     return <Redirect to = {{ pathname: "/globe" }} />;
-  }
+  // }
   }
 }
 

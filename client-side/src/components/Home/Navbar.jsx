@@ -134,7 +134,7 @@ function Navbar(props) {
                   {" "}
                   Login{" "}
                 </ColorButton>
-                <ColorButton href="#register" startIcon={<AccountCircleIcon />}>
+                <ColorButton onClick={() => props.toggleModalRegister()} startIcon={<AccountCircleIcon />}>
                   {" "}
                   Register{" "}
                 </ColorButton>

@@ -29,7 +29,11 @@ const Question = (props) =>  {
   const [redirect, setRedirect] = useState(false);
 
   const handleClick = (e) => {
+    if (!props.cookies.name) {
+      props.toggleModal();
+    } else {
       setRedirect(true);
+    }
   };
 
   if (!redirect) {
@@ -55,31 +59,31 @@ const Question = (props) =>  {
     </div>
   )
 } else {
-  if (!props.cookies.name) {
-    return (
-      <div className="container1">
-      <img className='background1 image1' src={background} alt="dessert" width="450" height="650px" />
-      <img className='question1 image1' src={imageQuestion} alt="question" width="250" height="250" />
-    <div >
-      <h1 className="titleQuiz"> QUIZ MODE</h1>
-      <div className="description">
-           <Typography  className="text" variant="h5" align="center" color="textSecondary" component="h3">
-            Have a craving and not sure what to make?
-            </Typography>
-            <Typography  className="text" variant="h5" align="center" color="textSecondary" component="h3">
-       Let us help you decide!
-            </Typography>
-           </div>
-            <br/>
-            <div className="quizButton">      
-          <Button href='#login' onClick={handleClick} className={classes.button} variant="outlined" >Decide</Button>
-        </div>
-      </div>
-    </div>
-    )
-  } else {
+  // if (!props.cookies.name) {
+  //   return (
+  //     <div className="container1">
+  //     <img className='background1 image1' src={background} alt="dessert" width="450" height="650px" />
+  //     <img className='question1 image1' src={imageQuestion} alt="question" width="250" height="250" />
+  //   <div >
+  //     <h1 className="titleQuiz"> QUIZ MODE</h1>
+  //     <div className="description">
+  //          <Typography  className="text" variant="h5" align="center" color="textSecondary" component="h3">
+  //           Have a craving and not sure what to make?
+  //           </Typography>
+  //           <Typography  className="text" variant="h5" align="center" color="textSecondary" component="h3">
+  //      Let us help you decide!
+  //           </Typography>
+  //          </div>
+  //           <br/>
+  //           <div className="quizButton">      
+  //         <Button href='#login' onClick={handleClick} className={classes.button} variant="outlined" >Decide</Button>
+  //       </div>
+  //     </div>
+  //   </div>
+  //   )
+  // } else {
     return <Redirect to = {{ pathname: "/quiz" }} />;
-  }
+  // }
 }
 }
 
