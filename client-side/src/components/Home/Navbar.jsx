@@ -18,10 +18,6 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import HelpIcon from '@material-ui/icons/Help';
-import Login from "../Users/Login";
-import useLogin from "../Users/useLogin";
-import Register from "../Users/Register";
-import useRegister from "../Users/useRegister";
 import PublicIcon from '@material-ui/icons/Public';
 
 const useStyles = makeStyles((theme) => ({
@@ -107,8 +103,7 @@ const ColorButton = withStyles((theme) => ({
 
 function Navbar(props) {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [redirect,setRedirect] = useState('false');
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);

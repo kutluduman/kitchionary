@@ -1,16 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { Redirect } from "react-router-dom";
-import { Row, Col } from 'react-simple-flex-grid';
+import { Col } from 'react-simple-flex-grid';
 import CardMedia from '@material-ui/core/CardMedia';
-import { makeStyles, ThemeProvider, withStyles, createMuiTheme } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import { display, fontFamily, textAlign } from '@material-ui/system';
 import Typography from '@material-ui/core/Typography';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import {
-  orange, lightBlue, green, blueGrey
-} from "@material-ui/core/colors";
 import axios from 'axios';
 import americanAll from '../../docs/AmericanAll.jpg';
 import chineseAll from '../../docs/chineseAll.jpg'
@@ -551,9 +546,7 @@ function GlobeFeature(props) {
             />
           </Col>
         </div>
-
         <div className={classes.formatRow}>
-
           <Col>
             <CardMedia
               className={classes.location2}

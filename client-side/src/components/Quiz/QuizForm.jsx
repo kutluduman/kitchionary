@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
 import { Redirect } from "react-router-dom";
-import { createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { orange, black, lightBlue} from "@material-ui/core/colors";
+import { orange, lightBlue} from "@material-ui/core/colors";
 import {Helmet} from 'react-helmet';
 import QuizAvatar from './QuizAvatar';
-import FridgeCheckbox from '../Fridge/FridgeCheckbox';
-import {Select,MenuItem, FormControl, InputLabel} from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Slider from '@material-ui/core/Slider';
 import Input1 from '@material-ui/core/Input';

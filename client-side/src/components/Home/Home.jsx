@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Redirect } from "react-router-dom";
-import {createMuiTheme, makeStyles, withStyles, MuiThemeProvider, ThemeProvider, styled } from '@material-ui/core/styles';
-import {lightBlue,red } from "@material-ui/core/colors";
+import { makeStyles } from '@material-ui/core/styles';
+import { red } from "@material-ui/core/colors";
 import {Helmet} from 'react-helmet';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
@@ -156,7 +156,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Home = (props) => {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
   const [redirect, setRedirect] = useState(false);
   const [meal, setMeal] = useState('');
 
@@ -171,10 +170,6 @@ const Home = (props) => {
 
     });
   }, []);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   const handleClick = (category) => {
   setMeal(category)

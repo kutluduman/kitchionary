@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import {createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { orange, lightBlue } from "@material-ui/core/colors";
+import { orange } from "@material-ui/core/colors";
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
