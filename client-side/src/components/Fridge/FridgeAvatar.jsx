@@ -34,20 +34,20 @@ const FridgeAvatar = (props) => {
   return (
     <div className={classes.root}>
       <ul>
-        <li><input onClick={handleChange} name='breakfast' type="checkbox" id="cb1" />
+        <li><input onClick={handleChange} name='breakfast' type="checkbox" id="cb1" checked={props.inputState.breakfast} />
           <label className="labelMeal" for="cb1"><img src={breakfast} />
           </label>
         </li>
-        <li><input onClick={handleChange} name='lunch' type="checkbox" id="cb2" />
+        <li><input onClick={handleChange} name='lunch' type="checkbox" id="cb2" checked={props.inputState.lunch} />
           <label className="labelMeal" for="cb2"><img src={lunch} /></label>
         </li>
-        <li><input onClick={handleChange} name='appetizer' type="checkbox" id="cb3" />
+        <li><input onClick={handleChange} name='appetizer' type="checkbox" id="cb3" checked={props.inputState.appetizer} />
           <label className="labelMeal" for="cb3"><img src={appetizer} /></label>
         </li>
-        <li><input onClick={handleChange} name='dinner' type="checkbox" id="cb4" />
+        <li><input onClick={handleChange} name='dinner' type="checkbox" id="cb4" checked={props.inputState.dinner} />
           <label className="labelMeal" for="cb4"><img src={dinner} /></label>
         </li>
-        <li><input onClick={handleChange} name='dessert' type="checkbox" id="cb5" />
+        <li><input onClick={handleChange} name='dessert' type="checkbox" id="cb5" checked={props.inputState.dessert} />
           <label className="labelMeal" for="cb5"><img src={dessert} /></label>
         </li>
       </ul>

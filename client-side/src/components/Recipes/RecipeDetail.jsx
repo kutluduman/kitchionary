@@ -108,6 +108,7 @@ function RecipeDetail(props) {
   }, []);
 
     const handleChange = (event, newValue) => {
+      if (props.cookies.name) {
       setValue(newValue);
       const rating = {
         user_id: props.cookies,
@@ -119,6 +120,7 @@ function RecipeDetail(props) {
       })
       .catch(err => {
       })
+    }
     }
 
   return (
@@ -140,7 +142,6 @@ function RecipeDetail(props) {
          </Box>
 <div className={classes.ingredients}>
          <Typography variant="h5" color="textSecondary">
-          {/* INSERT RECIPE INGREDIENTS */}
           <h3 className={classes.ingredientsTitle} >Ingredients</h3>
           {props.recipeData.map(ingredient => {
           return (
@@ -222,20 +223,19 @@ function RecipeDetail(props) {
           </p>    
         </Typography>
         </div>
-        <Box component="fieldset" mb={3}    className={classes.stars} borderColor="transparent">
-             <h3>Your Rating:</h3>
-              <Rating
-                name="simple-controlled"
-                value={value}
-                onChange={handleChange}
-              />
-              </Box>
+        <Box component="fieldset" mb={3} className={classes.stars} borderColor="transparent">
+          <h3>Your Rating:</h3>
+          <Rating
+            name="simple-controlled"
+            value={value}
+            onChange={handleChange}
+          />
+        </Box>
       </Col>
     </Row>
     </div>
   );
 }
-
 
 export default RecipeDetail;
 

@@ -94,7 +94,7 @@ const FridgeForm = (props) => {
     one: '',
     two: '',
     three: '',
-  })
+  });
 
   const steps = getSteps();
 
@@ -136,8 +136,32 @@ const FridgeForm = (props) => {
         }
       })
       .catch((err) => {
-
       });
+
+    props.setInputState({
+      breakfast: false,
+      lunch: false,
+      appetizer: false,
+      dinner: false,
+      dessert: false,
+      glutenFree: false,
+      nutFree: false,
+      dairyFree: false,
+      vegetarian: false,
+      vegan: false,
+    })
+    setDietaryRestrictions({
+      glutenFree: false,
+      nutFree: false,
+      dairyFree: false,
+      vegetarian: false,
+      vegan: false
+    });
+    setIngredient({
+      one: '',
+      two: '',
+      three: '',
+    });
   };
 
   if (!redirect) {
@@ -180,7 +204,6 @@ const FridgeForm = (props) => {
                 </div>
               </StepContent>
             </Step>
-
             <Step className={classes.stepper} key="key">
               <StepLabel>
                 <h2 className={classes.quiz}>Any dietary restrictions?</h2>
@@ -213,7 +236,6 @@ const FridgeForm = (props) => {
                 </div>
               </StepContent>
             </Step>
-
             <Step className={classes.stepper} key="key">
               <StepLabel>
                 <h2 className={classes.quiz}>

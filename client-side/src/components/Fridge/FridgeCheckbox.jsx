@@ -75,7 +75,6 @@ const FridgeCheckbox = (props) => {
   return (
     <div>
       <ToggleButton
-
         className={classes.toggle}
         onClick={() => handleChangeGlutenFree(props.dietaryRestrictions.glutenFree)}
         value="check"

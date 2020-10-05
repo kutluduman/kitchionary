@@ -93,7 +93,6 @@ module.exports = (db) => {
   });
 
   router.post("/:id", (req, res) => {
-    // const is_favourite = req.body.favourite.is_favourite;
     const recipe_id = req.body.favourite.recipe_id;
     const email = req.body.favourite.user_id.name;
 

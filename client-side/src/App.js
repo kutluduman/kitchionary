@@ -147,7 +147,6 @@ function App() {
               <Route path="/recipes">
                 <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
               </Route>
-
               <Route path="/myrecipes">
                 <MyRecipes cookies={cookies} setRecipeData={setRecipeData}/>
               </Route>
