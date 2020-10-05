@@ -94,7 +94,7 @@ const FridgeForm = (props) => {
     one: '',
     two: '',
     three: '',
-  })
+  });
 
   const steps = getSteps();
 
@@ -157,6 +157,11 @@ const FridgeForm = (props) => {
       vegetarian: false,
       vegan: false
     });
+    setIngredient({
+      one: '',
+      two: '',
+      three: '',
+    });
   };
 
   if (!redirect) {
@@ -199,7 +204,6 @@ const FridgeForm = (props) => {
                 </div>
               </StepContent>
             </Step>
-
             <Step className={classes.stepper} key="key">
               <StepLabel>
                 <h2 className={classes.quiz}>Any dietary restrictions?</h2>
@@ -232,7 +236,6 @@ const FridgeForm = (props) => {
                 </div>
               </StepContent>
             </Step>
-
             <Step className={classes.stepper} key="key">
               <StepLabel>
                 <h2 className={classes.quiz}>
