@@ -155,7 +155,6 @@ if (selector.length > 100) {
       .then(res => {
       })
       .catch(err => {
-
       })
     } else {
       // if red
