@@ -1,9 +1,5 @@
 import React,{useState,useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import RecipeCard from './RecipeCard';
@@ -31,13 +27,8 @@ const useStyles = makeStyles((theme) => ({
 const MyRecipe = (props) => {
 
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-  const [like, setLike] = useState('default');
   const [matchingRec, setMatchingRec] = useState([]);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   useEffect(() => {
     axios.post("http://localhost:8080/myrecipes", props.cookies)

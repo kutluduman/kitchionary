@@ -7,13 +7,11 @@ import Box from '@material-ui/core/Box';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import { Row, Col } from 'react-simple-flex-grid';
 import "react-simple-flex-grid/lib/main.css";
-import Divider from '@material-ui/core/Divider';
-import ListItemText from '@material-ui/core/ListItemText';
 import FaceIcon from '@material-ui/icons/Face';
 import IngredientDetails from './IngredientDetails';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee, faBreadSlice,faCheese,faLeaf, faSeedling } from '@fortawesome/free-solid-svg-icons';
+import { faBreadSlice,faCheese,faLeaf, faSeedling } from '@fortawesome/free-solid-svg-icons';
 import SpaIcon from '@material-ui/icons/Spa';
 import '../../styles/detail.css'
 
@@ -95,9 +93,9 @@ const useStyles = makeStyles((theme) => ({
 
 function RecipeDetail(props) {
   const classes = useStyles();
-  const [rating, setRating] = React.useState(5);
+  const [rating, setRating] = useState(5);
   const info = props.recipeData;
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   useEffect(() => {
     const recipe_id = info[0].id;

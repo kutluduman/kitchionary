@@ -106,10 +106,6 @@ const FridgeForm = (props) => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleReset = () => {
-    setActiveStep(0);
-  };
-
   const [redirect, setRedirect] = useState(false);
 
   const handleSubmit = (e) => {

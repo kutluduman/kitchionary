@@ -6,10 +6,6 @@ import Button from '@material-ui/core/Button';
 import { orange} from "@material-ui/core/colors";
 import axios from 'axios';
 import PasswordField from 'material-ui-password-field'
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import Register from "./Register";
-import useRegister from './useRegister';
-import useLogin from './useLogin';
 
 const useStyles = makeStyles((theme) => ({
   root: {

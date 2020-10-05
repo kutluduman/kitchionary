@@ -1,7 +1,5 @@
 import React,{useState,useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import RecipeCard from './RecipeCard';
@@ -28,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Favorite = (props) => {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
   const [matchingRec, setMatchingRec] = useState([]);
 
   useEffect(() => {
@@ -39,10 +36,6 @@ const Favorite = (props) => {
     .catch(err => {
     });
   }, []);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   return(
     <div>
