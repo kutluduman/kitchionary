@@ -232,11 +232,6 @@ const AddRecipe = (props) => {
       return;
     }
 
-    // const amountOne = amount.one[amount.one.length - 1];
-    // const amountTwo = amount.two[amount.two.length - 1];
-    // const amountThree = amount.three[amount.three.length - 1];
-    // const amountFour = amount.four[amount.four.length - 1];
-    // const amountFive = amount.five[amount.five.length - 1];
     const unitOne = unit.one[unit.one.length - 1];
     const unitTwo = unit.two[unit.two.length - 1];
     const unitThree = unit.three[unit.three.length - 1];

@@ -176,6 +176,36 @@ const QuizForm = (props) => {
       })
       .catch(err => {
       });
+
+      props.setInputState({
+        breakfast: false,
+        lunch: false,
+        appetizer: false,
+        dinner: false,
+        dessert: false,
+        glutenFree: false,
+        nutFree: false,
+        dairyFree: false,
+        vegetarian: false,
+        vegan: false,
+        isSalty: false,
+        isGreasy: false,
+        isSpicy: false,
+        isSweet: false,
+        isFruity: false,
+        isHealthy: false,
+        isCold: false,
+        isHot: false,
+        notSalty: false,
+        notGreasy: false,
+        notSpicy: false,
+        notSweet: false,
+        notFruity: false,
+        notHealthy: false,
+        notCold: false,
+        notHot: false,
+        time: 0,
+      })
     };
 
 if (!redirect) {
