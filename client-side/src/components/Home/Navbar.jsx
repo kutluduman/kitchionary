@@ -88,7 +88,8 @@ const useStyles = makeStyles((theme) => ({
   },
   navIcon: {
     marginLeft: '20px', 
-  }
+  },
+ 
 }));
 
 const ColorButton = withStyles((theme) => ({

@@ -69,10 +69,9 @@ Users can save recipes they like for future viewing
 
 
 ## Screenshots
-!["register"](https://github.com/kutluduman/kitchionary/blob/master/docs/register.png?raw=true)
 !["login"](https://github.com/kutluduman/kitchionary/blob/master/docs/login.png?raw=true)
-!["home"](https://github.com/kutluduman/kitchionary/blob/master/docs/home_page.png?raw=true)
-!["featured_recipe"](https://github.com/kutluduman/kitchionary/blob/master/docs/featured_recipes.png?raw=true)
+!["home"](https://github.com/kutluduman/kitchionary/blob/master/docs/home.png?raw=true)
+!["featured_recipe"](https://github.com/kutluduman/kitchionary/blob/master/docs/featured.png?raw=true)
 !["fridge_mode"](https://github.com/kutluduman/kitchionary/blob/master/docs/fridge_mode.png?raw=true)
 !["quiz"](https://github.com/kutluduman/kitchionary/blob/master/docs/quiz_mode.png?raw=true)
 !["globe"](https://github.com/kutluduman/kitchionary/blob/master/docs/globe_mode.png?raw=true)
