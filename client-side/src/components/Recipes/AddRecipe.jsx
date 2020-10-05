@@ -160,11 +160,11 @@ const AddRecipe = (props) => {
     five: '',
   });
   const [amount, setAmount] = useState({
-    one: [],
-    two: [],
-    three: [],
-    four: [],
-    five: [],
+    one: '',
+    two: '',
+    three: '',
+    four: '',
+    five: '',
   })
   const [unit, setUnit] = useState({
     one: [],
@@ -232,11 +232,11 @@ const AddRecipe = (props) => {
       return;
     }
 
-    const amountOne = amount.one[amount.one.length - 1];
-    const amountTwo = amount.two[amount.two.length - 1];
-    const amountThree = amount.three[amount.three.length - 1];
-    const amountFour = amount.four[amount.four.length - 1];
-    const amountFive = amount.five[amount.five.length - 1];
+    // const amountOne = amount.one[amount.one.length - 1];
+    // const amountTwo = amount.two[amount.two.length - 1];
+    // const amountThree = amount.three[amount.three.length - 1];
+    // const amountFour = amount.four[amount.four.length - 1];
+    // const amountFive = amount.five[amount.five.length - 1];
     const unitOne = unit.one[unit.one.length - 1];
     const unitTwo = unit.two[unit.two.length - 1];
     const unitThree = unit.three[unit.three.length - 1];
@@ -258,20 +258,20 @@ const AddRecipe = (props) => {
     if (ingredient.five) {
       inputRecipe.ingredients.push(ingredient.five);
     }
-    if (amountOne) {
-      inputRecipe.amount.push(amountOne);
+    if (amount.one) {
+      inputRecipe.amount.push(amount.one);
     };
-    if (amountTwo) {
-      inputRecipe.amount.push(amountTwo);
+    if (amount.two) {
+      inputRecipe.amount.push(amount.two);
     }
-    if (amountThree) {
-      inputRecipe.amount.push(amountThree);
+    if (amount.three) {
+      inputRecipe.amount.push(amount.three);
     }
-    if (amountFour) {
-      inputRecipe.amount.push(amountFour);
+    if (amount.four) {
+      inputRecipe.amount.push(amount.four);
     }
-    if (amountFive) {
-      inputRecipe.amount.push(amountFive);
+    if (amount.five) {
+      inputRecipe.amount.push(amount.five);
     }
     if (unitOne) {
       inputRecipe.unit.push(unitOne);
@@ -288,23 +288,23 @@ const AddRecipe = (props) => {
     if (unitFive) {
       inputRecipe.unit.push(unitFive);
     }
-    if (ingredient.one && !amountOne) {
+    if (ingredient.one && !amount.one) {
       setError("Amount is required!");
       return;
     }
-    if (ingredient.two && !amountTwo) {
+    if (ingredient.two && !amount.two) {
       setError("Amount is required!");
       return;
     }
-    if (ingredient.three && !amountThree) {
+    if (ingredient.three && !amount.three) {
       setError("Amount is required!");
       return;
     }
-    if (ingredient.four && !amountFour) {
+    if (ingredient.four && !amount.four) {
       setError("Amount is required!");
       return;
     }
-    if (ingredient.five && !amountFive) {
+    if (ingredient.five && !amount.five) {
       setError("Amount is required!");
       return;
     }
@@ -419,11 +419,11 @@ const AddRecipe = (props) => {
       five: '',
     });
     setAmount({
-      one: [],
-      two: [],
-      three: [],
-      four: [],
-      five: [],
+      one: '',
+      two: '',
+      three: '',
+      four: '',
+      five: '',
     })
     setUnit({
       one: [],
@@ -470,23 +470,23 @@ const AddRecipe = (props) => {
   }
 
   const handleChangeAmountOne = (e) => {
-    amount.one.push(e.target.value);
+    setAmount({ ...amount, one: e.target.value });
   }
 
   const handleChangeAmountTwo = (e) => {
-    amount.two.push(e.target.value);
+    setAmount({ ...amount, two: e.target.value });
   }
 
   const handleChangeAmountThree = (e) => {
-    amount.three.push(e.target.value);
+    setAmount({ ...amount, three: e.target.value });
   }
 
   const handleChangeAmountFour = (e) => {
-    amount.four.push(e.target.value);
+    setAmount({ ...amount, four: e.target.value });
   }
 
   const handleChangeAmountFive = (e) => {
-    amount.five.push(e.target.value);
+    setAmount({ ...amount, five: e.target.value });
   }
 
   const handleChangeUnitOne = (e) => {
