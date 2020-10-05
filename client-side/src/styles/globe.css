@@ -17,7 +17,7 @@
   /* position: relative; */
   margin-top: 10em;
   z-index: 5;
-  margin-left: 110px;
+  margin-left: 125px;
 }
 
 .descriptionGlobe{
@@ -42,11 +42,11 @@ margin-right: 20px;
 
 .globeText {
   width: 250px;
-  margin-left: 80px;
+  margin-left: 100px;
 }
 
 .globeButton{
-  margin-left: 85px;
+  margin-left: 98px;
   display: flex;
 justify-content: center;
 }

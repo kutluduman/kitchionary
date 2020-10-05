@@ -22,6 +22,18 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
+  favoritesHeader : {
+    padding: 50,
+    paddingTop: 30,
+    paddingBottom: 30,
+    fontSize: 50,
+    height: 50,
+    display: 'flex',
+    justifyContent: 'center',
+     backgroundColor: 'orange',
+    width: '1200px',  
+    marginTop: "200px"    
+  }, 
 }));
 
 const Favorite = (props) => {
@@ -37,11 +49,19 @@ const Favorite = (props) => {
     });
   }, []);
 
+
+
+
   return(
     <div>
-      <Grid container direction="row" justify="center">
+<h1 className={classes.favoritesHeader}> My Favourites </h1>
+<div>
+      <Grid container direction="row" justify="center">      
+    
           {matchingRec.map(recipe => {
             return (
+           
+
               <RecipeCard 
               id={recipe.id}
               name={recipe.name}
@@ -50,10 +70,13 @@ const Favorite = (props) => {
               setRecipeData={props.setRecipeData}
               cookies={props.cookies}
               />
+           
             );
             })
             }
-        </Grid>   
+            
+        </Grid>
+        </div>   
     </div>
   )
 }
