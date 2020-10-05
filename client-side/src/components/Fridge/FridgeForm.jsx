@@ -137,6 +137,19 @@ const FridgeForm = (props) => {
       })
       .catch((err) => {
       });
+
+    props.setInputState({
+      breakfast: false,
+      lunch: false,
+      appetizer: false,
+      dinner: false,
+      dessert: false,
+      glutenFree: false,
+      nutFree: false,
+      dairyFree: false,
+      vegetarian: false,
+      vegan: false,
+    })
   };
 
   if (!redirect) {
