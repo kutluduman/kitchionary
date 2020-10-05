@@ -71,13 +71,17 @@ function App() {
     time: 0,
   });
 
+  const [modal,toggleModal] = useState(false);
+
+  const handleToggleModal = () => toggleModal(prev => !prev);
+
   return (
     <Router>
       <div className="App">
-        <Navbar cookies={cookies} setCookie={setCookie} removeCookie={removeCookie} setMatchingRecipes={setMatchingRecipes} />
-          <dialog role="alertdialog" id="login" >
-            <LoginTemplate cookies={cookies} setCookie={setCookie} />
-          </dialog>
+        <Navbar cookies={cookies} setCookie={setCookie} removeCookie={removeCookie} toggleModal= {handleToggleModal} setMatchingRecipes={setMatchingRecipes} />
+          {/* <dialog role="alertdialog" id="login" > */}
+            {modal && <LoginTemplate cookies={cookies} setCookie={setCookie} />}
+          {/* </dialog> */}
           <dialog role="alertdialog" id="register">
             <RegisterTemplate cookies={cookies} setCookie={setCookie} />
           </dialog>

@@ -130,7 +130,7 @@ function Navbar(props) {
                 </Button>
               </Typography>
               <div className={classes.root}>
-                <ColorButton href="#login" startIcon={<ExitToAppIcon />}>
+                <ColorButton onClick={() => props.toggleModal()} startIcon={<ExitToAppIcon />}>
                   {" "}
                   Login{" "}
                 </ColorButton>
