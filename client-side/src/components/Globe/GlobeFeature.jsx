@@ -76,14 +76,14 @@ const useStyles = makeStyles((theme) => ({
   },
   right: {
     padding: 50,
-    paddingTop: 50,
+    paddingTop: 35,
     paddingBottom: 30,
     fontSize: 50,
     height: 50,
     display: 'flex',
     justifyContent: 'center',
     backgroundColor: 'orange',
-    marginTop: 150,
+    marginTop: 40,
     marginBottom: 100,
     width: "65%",
     marginLeft: "35%"
@@ -359,7 +359,7 @@ function GlobeFeature(props) {
           <Col>
             <CardMedia
               className={classes.location}
-              image="https://lh3.googleusercontent.com/proxy/wi_P6sMY9rsPDwjvYnjmiCPJjZgquzC2XXXakBo0qm712H_-F2uY65V1wvH4vcRG_eJm0O8IsQRhSdYtr-HWQMVmOIDspFuEp9J7KqFgITo_xI7P"
+              image="https://lh3.googleusercontent.com/proxy/05cafU4UM7b0V6i4UK_Ot7ss_zA05gY47X8r1telhJKycQ5i6vgnwdWUs3gboWVWo7TonzxgMhP6kTEqaUkPgahjoIiwwGjYeCK10OOmcEooUMNM"
               title="SAMPLE 1"
             />
           </Col>

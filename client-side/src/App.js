@@ -20,6 +20,20 @@ import {
   Route,
 } from "react-router-dom";
 
+import { createMuiTheme } from '@material-ui/core/styles';
+import orange from '@material-ui/core/colors/orange';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: orange[500],
+    },
+    secondary: {
+      main: '#f44336',
+    },
+  },
+});
+
 
 function App() {
   const [matchingRecipes, setMatchingRecipes] = useState({});
@@ -61,7 +75,7 @@ function App() {
     <Router>
       <div className="App">
         <Navbar cookies={cookies} setCookie={setCookie} removeCookie={removeCookie} setMatchingRecipes={setMatchingRecipes} />
-          <dialog role="alertdialog" id="login" open>
+          <dialog role="alertdialog" id="login" >
             <LoginTemplate cookies={cookies} setCookie={setCookie} />
           </dialog>
           <dialog role="alertdialog" id="register">
