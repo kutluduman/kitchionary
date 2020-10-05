@@ -42,7 +42,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   password:{
-    marginTop: "20px"
+    marginTop: "15px",
+    width: '25ch'
   }
 }));
 
