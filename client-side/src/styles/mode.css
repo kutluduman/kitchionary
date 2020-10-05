@@ -20,6 +20,10 @@
   
 }
 
+.page {
+  margin-top: 115px;
+}
+
 .featuredTitle {
   display: flex;
     justify-content: center;

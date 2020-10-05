@@ -81,7 +81,7 @@ function App() {
           <dialog role="alertdialog" id="register">
             <RegisterTemplate cookies={cookies} setCookie={setCookie} />
           </dialog>
-          <main role="main">
+          <main role="main" class="page">
             <Switch>
               <Route exact path="/">
                 <Home setMatchingRecipes={setMatchingRecipes} setRecipeData={setRecipeData} cookies={cookies} />

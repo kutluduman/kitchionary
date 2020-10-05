@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   image: {
+    marginTop: "115px",
     position: 'relative',
     height: 200,
     [theme.breakpoints.down('xs')]: {
@@ -98,6 +99,9 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
   },
+  top:{
+    marginTop: "30003px"
+  },
   imageMarked: {
     height: 3,
     width: 18,
@@ -113,7 +117,7 @@ const FridgeBoxImage = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.top}>
       {images.map((image) => (
         <ButtonBase
           focusRipple
@@ -144,7 +148,7 @@ const FridgeBoxImage = () => {
           </span>
         </ButtonBase>
       ))}
-    </div>
+  </div>
   );
 }
 
