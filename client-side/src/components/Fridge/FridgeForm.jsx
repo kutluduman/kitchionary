@@ -150,6 +150,13 @@ const FridgeForm = (props) => {
       vegetarian: false,
       vegan: false,
     })
+    setDietaryRestrictions({
+      glutenFree: false,
+      nutFree: false,
+      dairyFree: false,
+      vegetarian: false,
+      vegan: false
+    });
   };
 
   if (!redirect) {
