@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
 import { Redirect } from "react-router-dom";
-import { createMuiTheme, makeStyles, withStyles, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, makeStyles, withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { orange, black, lightBlue} from "@material-ui/core/colors";
+import { orange, lightBlue} from "@material-ui/core/colors";
 import {Helmet} from 'react-helmet';
 import QuizAvatar from './QuizAvatar';
-import FridgeCheckbox from '../Fridge/FridgeCheckbox';
-import {Select,MenuItem, FormControl, InputLabel} from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Slider from '@material-ui/core/Slider';
 import Input1 from '@material-ui/core/Input';
@@ -176,6 +174,36 @@ const QuizForm = (props) => {
       })
       .catch(err => {
       });
+
+      props.setInputState({
+        breakfast: false,
+        lunch: false,
+        appetizer: false,
+        dinner: false,
+        dessert: false,
+        glutenFree: false,
+        nutFree: false,
+        dairyFree: false,
+        vegetarian: false,
+        vegan: false,
+        isSalty: false,
+        isGreasy: false,
+        isSpicy: false,
+        isSweet: false,
+        isFruity: false,
+        isHealthy: false,
+        isCold: false,
+        isHot: false,
+        notSalty: false,
+        notGreasy: false,
+        notSpicy: false,
+        notSweet: false,
+        notFruity: false,
+        notHealthy: false,
+        notCold: false,
+        notHot: false,
+        time: 0,
+      })
     };
 
 if (!redirect) {

@@ -5,27 +5,16 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { orange} from "@material-ui/core/colors";
 import axios from 'axios';
-import PasswordField from 'material-ui-password-field'
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import Register from "./Register";
-import useRegister from './useRegister';
-import useLogin from './useLogin';
 import "../../styles/user.css";
 import { FormControl } from '@material-ui/core';
-
 import clsx from 'clsx';
 import { Theme, createStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import FormHelperText from '@material-ui/core/FormHelperText';
-
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-
-
-
 
 
 const useStyles = makeStyles((theme) => ({
@@ -199,21 +188,6 @@ const LoginTemplate = (props) => {
           />
 
 </FormControl>
-
-        {/* <PasswordField
-        onChange={handleChangePassword}
-        value={password}
-        color="primary"
-        // className="MuiInput-underline"
-        // className={classes.textField}
-          hintText="At least 8 characters"
-          floatingLabelText="Enter your password"
-          errorText="Your password is too short"
-          
-          iconButton={{
-            style: { color: 'orange' },
-          }}
-        /> */}
 
 </div>
 
