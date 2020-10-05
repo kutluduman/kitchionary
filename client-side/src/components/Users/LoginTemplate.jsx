@@ -10,6 +10,10 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Register from "./Register";
 import useRegister from './useRegister';
 import useLogin from './useLogin';
+import "../../styles/user.css";
+
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -140,7 +144,9 @@ const LoginTemplate = (props) => {
         <PasswordField
         onChange={handleChangePassword}
         value={password}
-        className={classes.textField}
+        color="orange"
+        className="MuiInput-underline"
+        // className={classes.textField}
           hintText="At least 8 characters"
           floatingLabelText="Enter your password"
           errorText="Your password is too short"
@@ -148,7 +154,9 @@ const LoginTemplate = (props) => {
             style: { color: 'orange' },
           }}
         />
-        </div>
+
+</div>
+
         <br/>
         <div className={classes.root}>
         <ColorButton type = 'submit' variant="contained" >Login</ColorButton>

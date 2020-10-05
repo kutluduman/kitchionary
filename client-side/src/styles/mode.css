@@ -27,11 +27,12 @@
     /* margin-bottom: 100px; */
     font-size: 3em;
     /* background-color: rgb(240, 187, 89); */
-
+background-color: #f3f3f3;
+top: 30px;
     margin-left: 1.8em;
     margin-right: 1.8em;
     margin-bottom:  20px;
-    margin-top: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)
 }
 
 .bottomLine {

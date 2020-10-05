@@ -239,9 +239,12 @@ const Home = (props) => {
         <Question cookies={props.cookies}/> 
         <Globe cookies={props.cookies}/> 
       </div>
-      <h2 className="bottomLine"> </h2>
-      <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2>
+      {/* <h2 className="bottomLine"> </h2>
+      <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2> */}
       <div className={classes.recipes}>
+      <br/>
+      <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2>
+    
       <div className="featured">
               <Grid container direction="row" justify="center">
                 {matchingRec.map(recipe => {
