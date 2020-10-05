@@ -41,6 +41,7 @@ export default function IngredientForm(props) {
           margin="normal"
           variant="outlined"
           name= "one"
+          value={props.ingredient.one}
         />
         <TextField
           onChange={handleChange}
@@ -51,6 +52,7 @@ export default function IngredientForm(props) {
           margin="normal"
           variant="outlined"
           name= "two"
+          value={props.ingredient.two}
         />
         <TextField
           onChange={handleChange}
@@ -61,6 +63,7 @@ export default function IngredientForm(props) {
           margin="normal"
           variant="outlined"
           name= "three"
+          value={props.ingredient.three}
         />
       </form>   
     </div>
