@@ -364,7 +364,7 @@ function GlobeFeature(props) {
           <Col>
             <CardMedia
               className={classes.location}
-              image="https://lh3.googleusercontent.com/proxy/wi_P6sMY9rsPDwjvYnjmiCPJjZgquzC2XXXakBo0qm712H_-F2uY65V1wvH4vcRG_eJm0O8IsQRhSdYtr-HWQMVmOIDspFuEp9J7KqFgITo_xI7P"
+              image="https://lh3.googleusercontent.com/proxy/05cafU4UM7b0V6i4UK_Ot7ss_zA05gY47X8r1telhJKycQ5i6vgnwdWUs3gboWVWo7TonzxgMhP6kTEqaUkPgahjoIiwwGjYeCK10OOmcEooUMNM"
               title="SAMPLE 1"
             />
           </Col>

@@ -151,6 +151,9 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "4.75%",
     marginRight: "4.75%",
     boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)',
+  },
+  bottomLine: {
+    
   }
 }));
 
@@ -236,8 +239,9 @@ const Home = (props) => {
         <Question cookies={props.cookies}/> 
         <Globe cookies={props.cookies}/> 
       </div>
+      <h2 className="bottomLine"> </h2>
+      <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2>
       <div className={classes.recipes}>
-          <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2>
       <div className="featured">
               <Grid container direction="row" justify="center">
                 {matchingRec.map(recipe => {
