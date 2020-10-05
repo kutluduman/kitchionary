@@ -64,8 +64,9 @@ const Globe = (props) =>  {
       <div>
         <div className="container">
           <img className='background image' src={background} alt="dessert" width="450" height="650" />
-          <img className="globe image" src={imageQuestion} alt="globe" width="275" height="275"/>
+          <img className="globe image" src={imageQuestion} alt="globe" width="260" height="260"/>
         </div>
+        <br/>
         <div className="descriptionGlobe">  
           <h1 className="titleGlobe"> GLOBE MODE</h1>
         
@@ -73,8 +74,8 @@ const Globe = (props) =>  {
           <Typography variant="h5" align="center" color="textSecondary" component="h3">
                 No need to get on a plane to try international cuisines! Discover recipes from around the world!
                 </Typography>  
-            </div>
-            <br/>
+    </div>
+    <br/>
           <div className="globeButton">
             
             <Button href='#login' variant="outlined" className={classes.button} onClick={handleClick}>
