@@ -33,15 +33,6 @@ By hovering to appointment, you can also simply delete your appointment as well.
 
 
 
-## Test
-
-Application was tested from different environments such as :
-
-- Unit Testing: Storybook
-- Unit and Integration Testing: Jest 
-- E2E Testing: Cypress
-
-
 ## Stacks
 
 
