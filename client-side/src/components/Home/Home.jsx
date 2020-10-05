@@ -20,7 +20,7 @@ import dessert from "../../docs/dessert.jpg";
 
 import Door from "./Door.jsx";
 import Question from "./Question";
-import Globe from "./Globe.jsx"
+import Globe from "./Globe.jsx";
 import "../../styles/mode.css";
 
 const images = [
@@ -34,7 +34,7 @@ const images = [
     url: lunch,
     title:'Lunch',
     width: '20%',
-    href: '/breakfast'
+    href: '/lunch'
   },
   {
     url: appetizer,
@@ -259,13 +259,13 @@ const Home = (props) => {
       </div>
     );
   } else {
-    if (meal === 'breakfast') {
+    if (meal === 'Breakfast') {
       return <Redirect to = {{ pathname: "/breakfast" }} />;
-    } else if (meal === 'lunch') {
+    } else if (meal === 'Lunch') {
       return <Redirect to = {{ pathname: "/lunch" }} />;
-    } else if (meal === 'appetizer') {
+    } else if (meal === 'Appetizer') {
       return <Redirect to = {{ pathname: "/appetizer" }} />;
-    } else if (meal === 'dinner') {
+    } else if (meal === 'Dinner') {
       return <Redirect to = {{ pathname: "/dinner" }} />;
     } else {
       return <Redirect to = {{ pathname: "/dessert" }} />;
