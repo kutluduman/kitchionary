@@ -171,9 +171,9 @@ function GlobeFeature(props) {
     axios.post(`http://localhost:8080/${cuisine}`, { cuisine })
       .then(res => {
         props.setMatchingRecipes(res.data.recipes)
-        if (res.status === 200) {
+        // if (res.status === 200) {
           setRedirect(true);
-        }
+        // }/
       })
       .catch(err => {
       });
@@ -491,7 +491,7 @@ function GlobeFeature(props) {
                   ko{bull}re{bull}an
                 </Typography>
                 <p className={classes.paragraph}>Korean cuisine is the customary cooking traditions and practices of the culinary arts of Korea. Korean cuisine has evolved through centuries of social and political change.</p>
-                <Button className={classes.link} onClick={() => handleClick('Korean')} color="primary">
+                <Button className={classes.link} onClick={() => handleClick('korean')} color="primary">
                   Find more Recipes here!
             </Button>
               </div>
