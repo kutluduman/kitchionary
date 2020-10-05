@@ -81,14 +81,14 @@ const useStyles = makeStyles((theme) => ({
   },
   right: {
     padding: 50,
-    paddingTop: 50,
+    paddingTop: 35,
     paddingBottom: 30,
     fontSize: 50,
     height: 50,
     display: 'flex',
     justifyContent: 'center',
     backgroundColor: 'orange',
-    marginTop: 150,
+    marginTop: 40,
     marginBottom: 100,
     width: "65%",
     marginLeft: "35%"
