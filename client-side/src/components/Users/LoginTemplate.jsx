@@ -11,6 +11,19 @@ import Register from "./Register";
 import useRegister from './useRegister';
 import useLogin from './useLogin';
 import "../../styles/user.css";
+import { FormControl } from '@material-ui/core';
+
+import clsx from 'clsx';
+import { Theme, createStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormHelperText from '@material-ui/core/FormHelperText';
+
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+
 
 
 
@@ -69,7 +82,24 @@ const LoginTemplate = (props) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
  
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
 
+  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+  };
+
+
+  const [values, setValues] = React.useState({
+    amount: '',
+    password: '',
+    weight: '',
+    weightRange: '',
+    showPassword: false,
+  });
+
+  
   const validate = () => {
     if (!email) {
       setError("Email is required!");
@@ -141,19 +171,49 @@ const LoginTemplate = (props) => {
           }}
         />
         <div>
-        <PasswordField
+
+
+        <FormControl className={clsx(classes.margin, classes.textField)}  variant="outlined">
+         
+          <OutlinedInput
+             variant="outlined"
+            margin="normal"
+            id="outlined-adornment-password"
+            placeholder="Password"
+            type={values.showPassword ? 'text' : 'password'}
+            value={password}
+            onChange={handleChangePassword}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            }
+            labelWidth={70}
+          />
+
+</FormControl>
+
+        {/* <PasswordField
         onChange={handleChangePassword}
         value={password}
-        color="orange"
-        className="MuiInput-underline"
+        color="primary"
+        // className="MuiInput-underline"
         // className={classes.textField}
           hintText="At least 8 characters"
           floatingLabelText="Enter your password"
           errorText="Your password is too short"
+          
           iconButton={{
             style: { color: 'orange' },
           }}
-        />
+        /> */}
 
 </div>
 
