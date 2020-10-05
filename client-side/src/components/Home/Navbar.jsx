@@ -125,7 +125,7 @@ function Navbar(props) {
   if (!props.cookies.name) {
     return (
       <div>
-        <AppBar position="static">
+        <AppBar position="fixed">
           <main className="banner">
             <Toolbar>
               <Typography variant="h6">
@@ -152,7 +152,7 @@ function Navbar(props) {
   } else {
     return (
       <div>
-        <AppBar position="static">
+        <AppBar position="fixed">
           <main className="banner">
             <Toolbar>
               <Typography variant="h6">
