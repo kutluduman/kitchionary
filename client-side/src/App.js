@@ -37,7 +37,6 @@ const theme = createMuiTheme({
 
 function App() {
   const [matchingRecipes, setMatchingRecipes] = useState({});
-  // const [matchingQuiz, setMatchingQuiz] = useState({});
   const [recipeData, setRecipeData] = useState({});
   const [cookies, setCookie, removeCookie] = useCookies(["name"]);
   const [inputState, setInputState] = useState({
@@ -71,20 +70,25 @@ function App() {
     time: 0,
   });
 
+  const [modal,toggleModal] = useState(false);
+  const [modalRegister, toggleModalRegister] = useState(false);
+
+  const handleToggleModal = () => toggleModal(prev => !prev);
+  const handleToggleModalRegister = () => toggleModalRegister(prev => !prev);
+
   return (
     <Router>
       <div className="App">
-        <Navbar cookies={cookies} setCookie={setCookie} removeCookie={removeCookie} setMatchingRecipes={setMatchingRecipes} />
-          <dialog role="alertdialog" id="login" >
-            <LoginTemplate cookies={cookies} setCookie={setCookie} />
-          </dialog>
-          <dialog role="alertdialog" id="register">
+        <Navbar cookies={cookies} setCookie={setCookie} removeCookie={removeCookie} toggleModal= {handleToggleModal} toggleModalRegister= {handleToggleModalRegister} setMatchingRecipes={setMatchingRecipes} />
+            {modal && <LoginTemplate cookies={cookies} setCookie={setCookie} />}
+            {modalRegister && <RegisterTemplate cookies={cookies} setCookie={setCookie} />}
+          {/* <dialog role="alertdialog" id="register">
             <RegisterTemplate cookies={cookies} setCookie={setCookie} />
-          </dialog>
+          </dialog> */}
           <main role="main" class="page">
             <Switch>
               <Route exact path="/">
-                <Home setMatchingRecipes={setMatchingRecipes} setRecipeData={setRecipeData} cookies={cookies} />
+                <Home setMatchingRecipes={setMatchingRecipes} setRecipeData={setRecipeData} cookies={cookies} toggleModal= {handleToggleModal} />
               </Route>
               <Route exact path="/breakfast">
                 <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />

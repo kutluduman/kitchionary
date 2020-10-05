@@ -43,7 +43,11 @@ const Door = (props) => {
   }
 
   const handleClick = (e) => {
+    if (!props.cookies.name) {
+      props.toggleModal();
+    } else {
       setRedirect(true);
+    }
   };
 
   if (!redirect) {
@@ -68,30 +72,30 @@ const Door = (props) => {
     </div>
   )
   } else {
-    if (!props.cookies.name) {
-      return (
-        <div className="container">
-          <img className='background image' src={background} alt="dessert" width="450" height="650" />
-            <div className="backDoor" onMouseOver={hover} >
-              <div className="door"> 
-                <img  src={fridge} alt="question" width="200" height="270" />
-                </div>
-            <div> 
-            <h1 className="titleFridge"> FRIDGE MODE</h1>
-                <Typography  className={classes.description} variant="h5" align="center" color="textSecondary" component="h3">
-                Explore recipes to make with ingredients you already have at home!
-                </Typography>
-                <br/>
-                <div className="fridgeButton">
-                  <Button href='#login' onClick={handleClick} size="large" className={classes.button} variant="outlined" >Explore</Button>
-                </div>
-              </div>
-            </div>
-        </div>
-      )
-    } else {
+    // if (!props.cookies.name) {
+    //   return (
+    //     <div className="container">
+    //       <img className='background image' src={background} alt="dessert" width="450" height="650" />
+    //         <div className="backDoor" onMouseOver={hover} >
+    //           <div className="door"> 
+    //             <img  src={fridge} alt="question" width="200" height="270" />
+    //             </div>
+    //         <div> 
+    //         <h1 className="titleFridge"> FRIDGE MODE</h1>
+    //             <Typography  className={classes.description} variant="h5" align="center" color="textSecondary" component="h3">
+    //             Explore recipes to make with ingredients you already have at home!
+    //             </Typography>
+    //             <br/>
+    //             <div className="fridgeButton">
+    //               <Button href='#login' onClick={handleClick} size="large" className={classes.button} variant="outlined" >Explore</Button>
+    //             </div>
+    //           </div>
+    //         </div>
+    //     </div>
+    //   )
+    // } else {
       return <Redirect to = {{ pathname: "/fridge" }} />;
-    }
+    // }
   }
 };
 

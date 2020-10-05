@@ -130,11 +130,11 @@ function Navbar(props) {
                 </Button>
               </Typography>
               <div className={classes.root}>
-                <ColorButton href="#login" startIcon={<ExitToAppIcon />}>
+                <ColorButton onClick={() => props.toggleModal()} startIcon={<ExitToAppIcon />}>
                   {" "}
                   Login{" "}
                 </ColorButton>
-                <ColorButton href="#register" startIcon={<AccountCircleIcon />}>
+                <ColorButton onClick={() => props.toggleModalRegister()} startIcon={<AccountCircleIcon />}>
                   {" "}
                   Register{" "}
                 </ColorButton>

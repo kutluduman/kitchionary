@@ -40,6 +40,10 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
       borderColor: "orange",
     },
+  },
+  password:{
+    marginTop: "15px",
+    width: '25ch'
   }
 }));
 
@@ -78,7 +82,6 @@ const RegisterTemplate = (props) => {
   const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
   };
-
 
   const [values, setValues] = React.useState({
     amount: '',
@@ -223,6 +226,7 @@ const RegisterTemplate = (props) => {
                         margin="normal"
                         id="outlined-adornment-password"
                         placeholder="Password"
+                        className={classes.password}
                         type={values.showPassword ? 'text' : 'password'}
                         value={password}
                         onChange={handleChangePassword}

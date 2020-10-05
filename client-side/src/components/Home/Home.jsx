@@ -185,7 +185,6 @@ const Home = (props) => {
       }
     })
     .catch(err => {
-
     });
   }
 
@@ -230,12 +229,10 @@ const Home = (props) => {
     
       ))}
       <div className="mode"> 
-        <Door cookies={props.cookies}/> 
-        <Question cookies={props.cookies}/> 
-        <Globe cookies={props.cookies}/> 
+        <Door cookies={props.cookies} toggleModal= {props.toggleModal}/> 
+        <Question cookies={props.cookies} toggleModal= {props.toggleModal}/> 
+        <Globe cookies={props.cookies} toggleModal= {props.toggleModal}/> 
       </div>
-      {/* <h2 className="bottomLine"> </h2>
-      <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2> */}
       <div className={classes.recipes}>
       <br/>
       <h2 className="featuredTitle"> Kitchionary Featured Recipes </h2>
