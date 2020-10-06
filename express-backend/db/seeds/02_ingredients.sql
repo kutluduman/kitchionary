@@ -104,3 +104,5 @@ INSERT INTO ingredients (name) VALUES ('condensed milk');
 INSERT INTO ingredients (name) VALUES ('sponge fingers');
 INSERT INTO ingredients (name) VALUES ('frozen fruit mix');
 INSERT INTO ingredients (name) VALUES ('tropical fruit');
+INSERT INTO ingredients (name) VALUES ('siracha');
+INSERT INTO ingredients (name) VALUES ('zucchini');

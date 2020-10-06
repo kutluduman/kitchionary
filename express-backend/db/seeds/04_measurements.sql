@@ -178,3 +178,10 @@ INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('480',
 INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('170', 'g', 15, 33);
 INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('2', 'tbsp', 49, 33);
 INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('200', 'g', 105, 33);
+INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('1/2', 'cup', 21, 34);
+INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('1', 'tbsp', 106, 34);
+INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('1', 'tbsp', 3, 34);
+INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('1/4', 'cup', 53, 34);
+INSERT INTO measurements (amount, ingredient_id, recipe_id) VALUES ('4', 107, 34);
+INSERT INTO measurements (amount, ingredient_id, recipe_id) VALUES ('4', 19, 34);
+INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('1', 'tsp', 2, 34);
