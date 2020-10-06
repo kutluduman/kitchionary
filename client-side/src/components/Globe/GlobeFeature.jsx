@@ -213,7 +213,7 @@ function GlobeFeature(props) {
                   a{bull}mer{bull}i{bull}can
               </Typography>
                 <p className={classes.paragraph}>American cuisine reflects the history of the United States, blending the culinary contributions of various groups of people from around the world, including indigenous American Indians, African Americans, Asians, Europeans, Pacific Islanders, and Latin Americans.</p>
-                <Button onClick={() => handleClick('american')} className={classes.link} color="primary">
+                <Button onClick={() => handleClick('american')} className={classes.link} >
                   Find more Recipes here!
             </Button>
               </div>
@@ -241,7 +241,7 @@ function GlobeFeature(props) {
                 ame={classes.text}>
                 <h1 className={classes.title}>Mac & Cheese</h1>
                 <p className={classes.paragraph}>This mac and cheese is a family favorite recipe, loved by both children and adults. It uses a combination of cheeses, layered in the dish as well as melted into a rich and creamy cheese sauce, for the ultimate in cheesy deliciousness!  Perfect for a comforting dinner or as a holiday side dish!</p>
-                <Button onClick={() => handleClickRecipe(12, 'Mac & Cheese')} className={classes.link} color="primary">
+                <Button onClick={() => handleClickRecipe(12, 'Mac & Cheese')} className={classes.link}>
                   Try making it here!
             </Button>
               </div>
@@ -258,7 +258,7 @@ function GlobeFeature(props) {
                   chi{bull}nese
               </Typography>
                 <p className={classes.paragraph}>Chinese cuisine is an important part of Chinese culture, which includes cuisine originating from the diverse regions of China, as well as from Overseas Chinese who have settled in other parts of the world.</p>
-                <Button className={classes.link} onClick={() => handleClick('chinese')} color="primary">
+                <Button className={classes.link} onClick={() => handleClick('chinese')} >
                   Find more Recipes here!
             </Button>
               </div>
@@ -286,7 +286,7 @@ function GlobeFeature(props) {
                 ame={classes.text}>
                 <h1 className={classes.title}>Egg Fried Rice</h1>
                 <p className={classes.paragraph}>The easiest egg fried rice that you can prep and cook in 10 minutes, and it tastes better than the restaurant version.</p>
-                <Button onClick={() => handleClickRecipe(4, 'Egg Fried Rice')} className={classes.link} color="primary">
+                <Button onClick={() => handleClickRecipe(4, 'Egg Fried Rice')} className={classes.link} >
                   Try making it here!
             </Button>
               </div>
@@ -303,7 +303,7 @@ function GlobeFeature(props) {
                   gr{bull}eek
               </Typography>
                 <p className={classes.paragraph}>Greek cuisine is the cuisine of Greece and the Greek diaspora. It is founded on the triad of wheat, olive oil, and wine. It uses vegetables, olive oil, grains, fish, and meat, including pork, poultry, veal and beef, lamb, rabbit, and goat.</p>
-                <Button className={classes.link} onClick={() => handleClick('greek')} color="primary">
+                <Button className={classes.link} onClick={() => handleClick('greek')} >
                   Find more Recipes here!
             </Button>
               </div>
@@ -331,7 +331,7 @@ function GlobeFeature(props) {
                 ame={classes.text}>
                 <h1 className={classes.title}>Crispy Greek-style pie</h1>
                 <p className={classes.paragraph}>A crispy pie that you can adapt for your needs, add chicken or keep it veggie. A good fail-safe for your repertoire</p>
-                <Button onClick={() => handleClickRecipe(13, 'Crispy Greek-style pie')} className={classes.link} color="primary">
+                <Button onClick={() => handleClickRecipe(13, 'Crispy Greek-style pie')} className={classes.link} >
                   Try making it here!
             </Button>
               </div>
@@ -347,7 +347,7 @@ function GlobeFeature(props) {
                   in{bull}di{bull}an
               </Typography>
                 <p className={classes.paragraph}>Indian cuisine consists of a variety of regional and traditional cuisines native to the Indian subcontinent. Given the diversity in soil, climate, culture, ethnic groups, and occupations, these cuisines vary substantially and use locally available spices, herbs, vegetables, and fruits.</p>
-                <Button className={classes.link} onClick={() => handleClick('indian')} color="primary">
+                <Button className={classes.link} onClick={() => handleClick('indian')} >
                   Find more Recipes here!
             </Button>
               </div>
@@ -375,7 +375,7 @@ function GlobeFeature(props) {
                 ame={classes.text}>
                 <h1 className={classes.title}>Naan</h1>
                 <p className={classes.paragraph}>While this recipe is not a true naan bread, this sure works in a pinch!</p>
-                <Button onClick={() => handleClickRecipe(3, 'Naan')} className={classes.link} color="primary">
+                <Button onClick={() => handleClickRecipe(3, 'Naan')} className={classes.link}>
                   Try making it here!
             </Button>
               </div>
@@ -391,7 +391,7 @@ function GlobeFeature(props) {
                   i{bull}tal{bull}ian
               </Typography>
                 <p className={classes.paragraph}>Italian cuisine consists of the ingredients, recipes and cooking techniques developed across the Italian Peninsula since the antiquity, and later spread around the world together with waves of Italian diaspora.</p>
-                <Button className={classes.link} onClick={() => handleClick('italian')} color="primary">
+                <Button className={classes.link} onClick={() => handleClick('italian')}>
                   Find more Recipes here!
             </Button>
               </div>
@@ -418,7 +418,7 @@ function GlobeFeature(props) {
               <div className={classes.text}>
                 <h1 className={classes.title}>Spinach Parmesan Pasta</h1>
                 <p className={classes.paragraph}>5-Ingredient Spinach Parmesan Pasta-you only need 5 ingredients to make this quick and easy pasta dish! Add it to your dinner menu today!</p>
-                <Button onClick={() => handleClickRecipe(16, 'Spinach Parmesan Pasta')} className={classes.link} color="primary">
+                <Button onClick={() => handleClickRecipe(16, 'Spinach Parmesan Pasta')} className={classes.link}>
                   Try making it here!
             </Button>
               </div>
@@ -434,7 +434,7 @@ function GlobeFeature(props) {
                   jap{bull}a{bull}nese
               </Typography>
                 <p className={classes.paragraph}>Japanese cuisine encompasses the regional and traditional foods of Japan, which have developed through centuries of political, economic, and social changes. The traditional cuisine of Japan, washoku, lit. "Japanese eating", is based on rice with miso soup and other dishes; there is an emphasis on seasonal ingredients.</p>
-                <Button className={classes.link} onClick={() => handleClick('japanese')} color="primary">
+                <Button className={classes.link} onClick={() => handleClick('japanese')}>
                   Find more Recipes here!
             </Button>
               </div>
@@ -461,7 +461,7 @@ function GlobeFeature(props) {
               <div className={classes.text}>
                 <h1 className={classes.title}>Teriyaki Chicken</h1>
                 <p className={classes.paragraph}>Everyone loves this quick and easy marinade! I always make extra chicken for leftovers – it is great chopped up on top of a salad or in a sandwich wrap. YUM! We make this almost every other week – so good!'</p>
-                <Button onClick={() => handleClickRecipe(11, 'Teriyaki Chicken')} className={classes.link} color="primary">
+                <Button onClick={() => handleClickRecipe(11, 'Teriyaki Chicken')} className={classes.link}>
                   Try making it here!
             </Button>
               </div>
@@ -477,7 +477,7 @@ function GlobeFeature(props) {
                   ko{bull}re{bull}an
                 </Typography>
                 <p className={classes.paragraph}>Korean cuisine is the customary cooking traditions and practices of the culinary arts of Korea. Korean cuisine has evolved through centuries of social and political change.</p>
-                <Button className={classes.link} onClick={() => handleClick('korean')} color="primary">
+                <Button className={classes.link} onClick={() => handleClick('korean')}>
                   Find more Recipes here!
             </Button>
               </div>
@@ -505,7 +505,7 @@ function GlobeFeature(props) {
                 ame={classes.text}>
                 <h1 className={classes.title}>Cheese Corn</h1>
                 <p className={classes.paragraph}>Cheese corn what Koreans call cheesy corn. It often served in Korean BBQ restraints.</p>
-                <Button onClick={() => handleClickRecipe(7, 'Cheese Corn')} className={classes.link} color="primary">
+                <Button onClick={() => handleClickRecipe(7, 'Cheese Corn')} className={classes.link}>
                   Try making it here!
             </Button>
               </div>
@@ -521,7 +521,7 @@ function GlobeFeature(props) {
                   med{bull}i{bull}ter{bull}ra{bull}ne{bull}an
                 </Typography>
                 <p className={classes.paragraph}>Mediterranean cuisine is the foods and methods of preparation by people of the Mediterranean Basin. The idea of a Mediterranean cuisine originates with the cookery writer Elizabeth David's book, A Book of Mediterranean Food (1950) and was amplified by other writers working in English. Many writers define the three core elements of the cuisine as the olive, wheat, and the grape, yielding olive oil, bread and pasta, and wine; other writers emphasize the diversity of the region's foods and deny that it is a useful concept. A common definition of the geographical area covered follows the distribution of the olive tree.</p>
-                <Button onClick={() => handleClick('mediterranean')} className={classes.link} color="primary">
+                <Button onClick={() => handleClick('mediterranean')} className={classes.link}>
                   Find more Recipes here!
             </Button>
               </div>
@@ -549,7 +549,7 @@ function GlobeFeature(props) {
                 ame={classes.text}>
                 <h1 className={classes.title}>Shakshuka</h1>
                 <p className={classes.paragraph}>This delicious breakfast dish comes together fast, thanks to prepared salsa.</p>
-                <Button onClick={() => handleClickRecipe(9, 'Shakshuka')} className={classes.link} color="primary">
+                <Button onClick={() => handleClickRecipe(9, 'Shakshuka')} className={classes.link}>
                   Try making it here!
             </Button>
               </div>
@@ -565,7 +565,7 @@ function GlobeFeature(props) {
                   mex{bull}i{bull}can
                 </Typography>
                 <p className={classes.paragraph}>Mexican cuisine began about nine thousand years ago, when agricultural communities such as the Maya formed, domesticating maize, creating the standard process of maize nixtamalization, and establishing their foodways (Maya cuisine). The staples are native foods, such as corn (maize), beans, squash, amaranth, chia, avocados, tomatoes, tomatillos, cacao, vanilla, agave, turkey, spirulina, sweet potato, cactus, and chili pepper.</p>
-                <Button onClick={() => handleClick('mexican')} className={classes.link} color="primary">
+                <Button onClick={() => handleClick('mexican')} className={classes.link}>
                   Find more Recipes here!
             </Button>
               </div>
@@ -593,7 +593,7 @@ function GlobeFeature(props) {
                 ame={classes.text}>
                 <h1 className={classes.title}>Perfect Guacamole</h1>
                 <p className={classes.paragraph}>The perfect guacamole!</p>
-                <Button onClick={() => handleClickRecipe(1, 'Perfect Guacamole')} className={classes.link} color="primary">
+                <Button onClick={() => handleClickRecipe(1, 'Perfect Guacamole')} className={classes.link}>
                   Try making it here!
             </Button>
               </div>
@@ -609,7 +609,7 @@ function GlobeFeature(props) {
                   span{bull}ish
                 </Typography>
                 <p className={classes.paragraph}>Spanish cuisine is heavily influenced by historical processes that shaped local culture and society in some of Europe's Iberian Peninsula territories. Geography and climate have had a great influence on cooking methods and available ingredients. These cooking methods and ingredients are still present in the gastronomy of the various regions that make up Spain. Spanish cuisine derives from a complex history where invasions and conquests of Spain have modified traditions, which made new ingredients available. Thus, the current and old cuisine of Spain incorporates old and new traditions.</p>
-                <Button onClick={() => handleClick('spanish')} className={classes.link} color="primary">
+                <Button onClick={() => handleClick('spanish')} className={classes.link}>
                   Find more Recipes here!
             </Button>
               </div>
@@ -637,7 +637,7 @@ function GlobeFeature(props) {
                 ame={classes.text}>
                 <h1 className={classes.title}>Tomato Soup</h1>
                 <p className={classes.paragraph}>Roasting the tomatoes intensifies their flavor in this simple yet delicious soup.</p>
-                <Button onClick={() => handleClickRecipe(10, 'Tomato Soup')} className={classes.link} color="primary">
+                <Button onClick={() => handleClickRecipe(10, 'Tomato Soup')} className={classes.link}>
                   Try making it here!
             </Button>
               </div>
@@ -654,7 +654,7 @@ function GlobeFeature(props) {
                   tur{bull}kish
                 </Typography>
                 <p className={classes.paragraph}>Turkish cuisine is largely the heritage of Ottoman cuisine, which can be described as a fusion and refinement of Central Asian, Middle Eastern, Mediterranean, Eastern European and Balkan cuisines.</p>
-                <Button onClick={() => handleClick('turkish')} className={classes.link} color="primary">
+                <Button onClick={() => handleClick('turkish')} className={classes.link}>
                   Find more Recipes here!
             </Button>
               </div>
@@ -682,7 +682,7 @@ function GlobeFeature(props) {
                 ame={classes.text}>
                 <h1 className={classes.title}>Homemade Turkish Flatbread</h1>
                 <p className={classes.paragraph}>Delicious, easy and cheap to make Turkish flatbread recipe. You can have this bread for breakfast, as a starter, snack or as a side dish to about everything.</p>
-                <Button onClick={() => handleClickRecipe(17, 'Homemade Turkish Flatbread')} className={classes.link} color="primary">
+                <Button onClick={() => handleClickRecipe(17, 'Homemade Turkish Flatbread')} className={classes.link}>
                   Try making it here!
             </Button>
               </div>
