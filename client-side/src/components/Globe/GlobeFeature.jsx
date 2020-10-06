@@ -50,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     fontSize: 18,
+    color: 'orange',
   },
   location: {
     width: 800,
@@ -271,9 +272,7 @@ function GlobeFeature(props) {
             />
           </Col>
         </div>
-
         <div className={classes.formatRow}>
-
           <Col>
             <CardMedia
               className={classes.location2}
@@ -318,9 +317,7 @@ function GlobeFeature(props) {
             />
           </Col>
         </div>
-
         <div className={classes.formatRow}>
-
           <Col>
             <CardMedia
               className={classes.location2}
@@ -364,9 +361,7 @@ function GlobeFeature(props) {
             />
           </Col>
         </div>
-
         <div className={classes.formatRow}>
-
           <Col>
             <CardMedia
               className={classes.location2}
@@ -410,9 +405,7 @@ function GlobeFeature(props) {
             />
           </Col>
         </div>
-
         <div className={classes.formatRow}>
-
           <Col>
             <CardMedia
               className={classes.location2}
@@ -455,9 +448,7 @@ function GlobeFeature(props) {
             />
           </Col>
         </div>
-
         <div className={classes.formatRow}>
-
           <Col>
             <CardMedia
               className={classes.location2}
@@ -500,9 +491,7 @@ function GlobeFeature(props) {
             />
           </Col>
         </div>
-
         <div className={classes.formatRow}>
-
           <Col>
             <CardMedia
               className={classes.location2}
@@ -590,9 +579,7 @@ function GlobeFeature(props) {
             />
           </Col>
         </div>
-
         <div className={classes.formatRow}>
-
           <Col>
             <CardMedia
               className={classes.location2}
@@ -636,9 +623,7 @@ function GlobeFeature(props) {
             />
           </Col>
         </div>
-
         <div className={classes.formatRow}>
-
           <Col>
             <CardMedia
               className={classes.location2}
@@ -683,9 +668,7 @@ function GlobeFeature(props) {
             />
           </Col>
         </div>
-
         <div className={classes.formatRow}>
-
           <Col>
             <CardMedia
               className={classes.location2}
@@ -706,7 +689,6 @@ function GlobeFeature(props) {
             </Box>
           </Col>
         </div>
-
       </div>
     )
   } else {
