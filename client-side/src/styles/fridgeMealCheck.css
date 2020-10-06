@@ -23,10 +23,7 @@ input[type="checkbox"][id^="cb"] {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  
 }
-
-
 
 label::before {
   background-color: white;
@@ -56,12 +53,6 @@ label img {
 :checked+label {
   border-color: #ddd;
 }
-
-/* :checked+label::before {
-  content: "✓";
-  background-color: grey;
-  transform: scale(1);
-} */
 
 :checked+label img {
   transform: scale(0.9);
