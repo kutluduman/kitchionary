@@ -19,3 +19,14 @@ INSERT INTO cultures (recipe_id, name) VALUES (17, 'Turkish');
 INSERT INTO cultures (recipe_id, name) VALUES (18, 'Italian');
 INSERT INTO cultures (recipe_id, name) VALUES (19, 'Italian');
 INSERT INTO cultures (recipe_id, name) VALUES (20, 'Italian');
+INSERT INTO cultures (recipe_id, name) VALUES (21, 'Mexican');
+INSERT INTO cultures (recipe_id, name) VALUES (22,'Mediterranean');
+INSERT INTO cultures (recipe_id, name) VALUES (23,'Mexican');
+INSERT INTO cultures (recipe_id, name) VALUES (24,'Indian');
+INSERT INTO cultures (recipe_id, name) VALUES (25,'Italian');
+INSERT INTO cultures (recipe_id, name) VALUES (26,'Mexican');
+INSERT INTO cultures (recipe_id, name) VALUES (26,'Spanish');
+INSERT INTO cultures (recipe_id, name) VALUES (27,'Mediterranean');
+INSERT INTO cultures (recipe_id, name) VALUES (27,'Greek');
+
+

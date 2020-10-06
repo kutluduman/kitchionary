@@ -32,3 +32,4 @@ INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (5, 17, true);
 INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (6, 18, true);
 INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (7, 19, true);
 INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (8, 20, true);
+INSERT INTO favourites (user_id, recipe_id, is_favourite) VALUES (9, 21, true);
