@@ -32,3 +32,5 @@ INSERT INTO cultures (recipe_id, name) VALUES (28,'Italian');
 INSERT INTO cultures (recipe_id, name) VALUES (28,'Mediterranean');
 INSERT INTO cultures (recipe_id, name) VALUES (29,'Mexican');
 INSERT INTO cultures (recipe_id, name) VALUES (30,'American');
+INSERT INTO cultures (recipe_id, name) VALUES (31,'American');
+INSERT INTO cultures (recipe_id, name) VALUES (31,'Italian');

@@ -167,3 +167,14 @@ INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('1/2',
 INSERT INTO measurements (amount, ingredient_id, recipe_id) VALUES ('1/4', 1, 31);
 INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('2', 'tbsp', 98, 31);
 INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('2', 'tbsp', 37, 31);
+INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('3', 'tsp', 99, 32);
+INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('3', 'tbsp', 100, 32);
+INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('250', 'g', 101, 32);
+INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('85', 'g', 102, 32);
+INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('1', 'tsp', 62, 32);
+INSERT INTO measurements (amount, ingredient_id, recipe_id) VALUES ('5', 103, 32);
+INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('1', 'tbsp', 22, 32);
+INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('480', 'g', 104, 33);
+INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('170', 'g', 15, 33);
+INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('2', 'tbsp', 49, 33);
+INSERT INTO measurements (amount, unit, ingredient_id, recipe_id) VALUES ('200', 'g', 105, 33);

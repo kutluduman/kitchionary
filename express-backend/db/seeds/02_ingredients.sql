@@ -102,3 +102,5 @@ INSERT INTO ingredients (name) VALUES ('coffee liqueur');
 INSERT INTO ingredients (name) VALUES ('mascarpone');
 INSERT INTO ingredients (name) VALUES ('condensed milk');
 INSERT INTO ingredients (name) VALUES ('sponge fingers');
+INSERT INTO ingredients (name) VALUES ('frozen fruit mix');
+INSERT INTO ingredients (name) VALUES ('tropical fruit');
