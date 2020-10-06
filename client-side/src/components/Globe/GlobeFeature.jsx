@@ -595,7 +595,7 @@ function GlobeFeature(props) {
               <div classN
                 ame={classes.text}>
                 <h1 className={classes.title}>Perfect Guacamole</h1>
-                <p className={classes.paragraph}>The perfect guacamole!</p>
+                <p className={classes.paragraph}>This is my favorite guacamole recipe! See how to make the very best guacamole at home. Our recipe is simple, fresh, and no matter what else we serve with it, it’s always the first to go.</p>
                 <Button onClick={() => handleClickRecipe(1, 'Perfect Guacamole')} className={classes.link}>
                   Try making it here!
             </Button>
