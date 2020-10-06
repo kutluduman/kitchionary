@@ -99,7 +99,7 @@ function RecipeDetail(props) {
 
   useEffect(() => {
     const recipe_id = info[0].id;
-    axios.post("http:localhost:8080/rating", {recipe_id})
+    axios.post("http://localhost:8080/rating", {recipe_id})
     .then(res => {
       setRating(res.data.rating[0].round);
     })
@@ -178,14 +178,14 @@ function RecipeDetail(props) {
         </div>
         <br/>
         <div>
-        {info[0].vegan && <div>
+        {info[0].is_vegan && <div>
         <FontAwesomeIcon className="fa.fa-signal" icon={faLeaf} />
         <span className={classes.diet}>  Vegan</span>
         </div>}
         </div>
         <br/>
         <div>
-        {info[0].vegetarian && <div>
+        {info[0].is_vegetarian && <div>
         <FontAwesomeIcon className="fa.fa-signal"icon={faSeedling} />
         <span className={classes.diet}>  Vegetarian</span>
         </div>}
