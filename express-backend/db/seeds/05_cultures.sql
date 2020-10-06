@@ -28,5 +28,7 @@ INSERT INTO cultures (recipe_id, name) VALUES (26,'Mexican');
 INSERT INTO cultures (recipe_id, name) VALUES (26,'Spanish');
 INSERT INTO cultures (recipe_id, name) VALUES (27,'Mediterranean');
 INSERT INTO cultures (recipe_id, name) VALUES (27,'Greek');
-
-
+INSERT INTO cultures (recipe_id, name) VALUES (28,'Italian');
+INSERT INTO cultures (recipe_id, name) VALUES (28,'Mediterranean');
+INSERT INTO cultures (recipe_id, name) VALUES (29,'Mexican');
+INSERT INTO cultures (recipe_id, name) VALUES (30,'American');

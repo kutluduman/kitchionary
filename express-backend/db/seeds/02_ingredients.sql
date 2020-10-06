@@ -88,4 +88,17 @@ INSERT INTO ingredients (name) VALUES ('fresh dill');
 INSERT INTO ingredients (name) VALUES ('lemon juice');
 INSERT INTO ingredients (name) VALUES ('chickpeas');
 INSERT INTO ingredients (name) VALUES ('baguette');
-
+INSERT INTO ingredients (name) VALUES ('dry ranch dip');
+INSERT INTO ingredients (name) VALUES ('red enchilada sauce');
+INSERT INTO ingredients (name) VALUES ('shredded chicken');
+INSERT INTO ingredients (name) VALUES ('green chiles');
+INSERT INTO ingredients (name) VALUES ('monterey jack cheese');
+INSERT INTO ingredients (name) VALUES ('bell pepper');
+INSERT INTO ingredients (name) VALUES ('vegetable oil');
+INSERT INTO ingredients (name) VALUES ('cherry tomato');
+INSERT INTO ingredients (name) VALUES ('salsa');
+INSERT INTO ingredients (name) VALUES ('instant coffee');
+INSERT INTO ingredients (name) VALUES ('coffee liqueur');
+INSERT INTO ingredients (name) VALUES ('mascarpone');
+INSERT INTO ingredients (name) VALUES ('condensed milk');
+INSERT INTO ingredients (name) VALUES ('sponge fingers');
