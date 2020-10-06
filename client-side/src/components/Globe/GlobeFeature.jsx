@@ -206,8 +206,9 @@ function GlobeFeature(props) {
           <Button className={classes.navButton} onClick={executeScrollMexican}>Mexican</Button>
           <Button className={classes.navButton} onClick={executeScrollSpanish}>Spanish</Button>
           <ColorButton className={classes.navButton} onClick={executeScrollTurkish}>Turkish</ColorButton>
+        <div ref={myRefAmerican}></div>
         </div>
-        <h2 className={classes.left} ref={myRefAmerican}>American</h2>
+        <h2 className={classes.left} >American</h2>
         <div className={classes.formatRow}>
           <Col>
             <Box className={classes.formatBox}>
@@ -230,6 +231,7 @@ function GlobeFeature(props) {
             />
           </Col>
         </div>
+        
         <div className={classes.formatRow}>
           <Col>
             <CardMedia
@@ -240,8 +242,7 @@ function GlobeFeature(props) {
           </Col>
           <Col>
             <Box className={classes.formatBox}>
-              <div classN
-                ame={classes.text}>
+              <div className={classes.text}>
                 <h1 className={classes.title}>Mac & Cheese</h1>
                 <p className={classes.paragraph}>This mac and cheese is a family favorite recipe, loved by both children and adults. It uses a combination of cheeses, layered in the dish as well as melted into a rich and creamy cheese sauce, for the ultimate in cheesy deliciousness!  Perfect for a comforting dinner or as a holiday side dish!</p>
                 <Button onClick={() => handleClickRecipe(12, 'Mac & Cheese')} className={classes.link}>
@@ -250,8 +251,9 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
+          <div ref={myRefChinese}></div>
         </div>
-        <h2 className={classes.right} ref={myRefChinese}>Chinese</h2>
+        <h2 className={classes.right} >Chinese</h2>
         <div className={classes.formatRow}>
           <Col>
             <Box className={classes.formatBox}>
@@ -295,8 +297,9 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
+          <div ref={myRefGreek}></div>
         </div>
-        <h2 className={classes.left} ref={myRefGreek}>Greek</h2>
+        <h2 className={classes.left} >Greek</h2>
         <div className={classes.formatRow}>
           <Col>
             <Box className={classes.formatBox}>
@@ -340,8 +343,9 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
+          <div ref={myRefIndian}></div>
         </div>
-        <h2 className={classes.right} ref={myRefIndian}>Indian</h2>
+        <h2 className={classes.right} >Indian</h2>
         <div className={classes.formatRow}>
           <Col>
             <Box className={classes.formatBox}>
@@ -384,8 +388,9 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
+          <div ref={myRefItalian}></div>
         </div>
-        <h2 className={classes.left} ref={myRefItalian}>Italian</h2>
+        <h2 className={classes.left} >Italian</h2>
         <div className={classes.formatRow}>
           <Col>
             <Box className={classes.formatBox}>
@@ -427,8 +432,9 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
+          <div ref={myRefJapanese}></div>
         </div>
-        <h2 className={classes.right} ref={myRefJapanese}>Japanese</h2>
+        <h2 className={classes.right} >Japanese</h2>
         <div className={classes.formatRow}>
           <Col>
             <Box className={classes.formatBox}>
@@ -470,8 +476,9 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
+          <div ref={myRefKorean}></div>
         </div>
-        <h2 className={classes.left} ref={myRefKorean}>Korean</h2>
+        <h2 className={classes.left} >Korean</h2>
         <div className={classes.formatRow}>
           <Col>
             <Box className={classes.formatBox}>
@@ -514,8 +521,9 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
+          <div ref={myRefMediterranean}></div>
         </div>
-        <h2 className={classes.right} ref={myRefMediterranean}>Mediterranean</h2>
+        <h2 className={classes.right} >Mediterranean</h2>
         <div className={classes.formatRow}>
           <Col>
             <Box className={classes.formatBox}>
@@ -558,8 +566,9 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
+          <div ref={myRefMexican}></div>
         </div>
-        <h2 className={classes.left} ref={myRefMexican}>Mexican</h2>
+        <h2 className={classes.left} >Mexican</h2>
         <div className={classes.formatRow}>
           <Col>
             <Box className={classes.formatBox}>
@@ -602,8 +611,9 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
+          <div ref={myRefSpanish}></div>
         </div>
-        <h2 className={classes.right} ref={myRefSpanish}>Spanish</h2>
+        <h2 className={classes.right} >Spanish</h2>
         <div className={classes.formatRow}>
           <Col>
             <Box className={classes.formatBox}>
@@ -646,8 +656,9 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
+          <div ref={myRefTurkish}></div>
         </div>
-        <h2 className={classes.left} ref={myRefTurkish}>Turkish</h2>
+        <h2 className={classes.left} >Turkish</h2>
         <div className={classes.formatRow}>
           <Col>
             <Box className={classes.formatBox}>
