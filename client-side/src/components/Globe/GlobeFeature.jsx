@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 import americanAll from '../../docs/AmericanAll.jpg';
 import chineseAll from '../../docs/chineseAll.jpg'
+import indian from '../../docs/indianAll.jpg';
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
 
@@ -663,7 +664,7 @@ function GlobeFeature(props) {
           <Col>
             <CardMedia
               className={classes.location}
-              image="https://iadsb.tmgrup.com.tr/bad6a2/1200/627/0/68/1000/590?u=https://idsb.tmgrup.com.tr/2019/12/09/1575888943332.jpg"
+              image={indian}
               title="SAMPLE 1"
             />
           </Col>
