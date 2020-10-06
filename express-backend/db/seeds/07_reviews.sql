@@ -23,3 +23,4 @@ INSERT INTO reviews (user_id,recipe_id, rating) VALUES(2,23,5);
 INSERT INTO reviews (user_id,recipe_id, rating) VALUES(3,24,5);
 INSERT INTO reviews (user_id,recipe_id, rating) VALUES(2,25,5);
 INSERT INTO reviews (user_id,recipe_id, rating) VALUES(3,26,4)
+INSERT INTO reviews (user_id,recipe_id, rating) VALUES(4,27,4)
