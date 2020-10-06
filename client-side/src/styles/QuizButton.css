@@ -5,8 +5,8 @@ label {
   box-sizing: content-box;
   margin-right: 20px;
   margin-top: 20px;
-  
 }
+
 .input {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -17,6 +17,7 @@ label {
   height: 100px; 
   z-index: 1;  
 }
+
 .input + .button {
   box-sizing: border-box;
   position: relative;
@@ -24,8 +25,8 @@ label {
   width: 200px;
   height: 75px;
   z-index: 0;
-   
 }
+
 .input:checked + .button {
   background-color: orange;
 }

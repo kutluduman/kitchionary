@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     backgroundColor: 'orange',
     marginTop: 50,
-    marginBottom: 100,
+    marginBottom: 50,
     width: "60%",
     boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)',
   },
@@ -87,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     backgroundColor: 'orange',
     marginTop: 40,
-    marginBottom: 100,
+    marginBottom: 50,
     width: "65%",
     marginLeft: "35%",
     boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)',
@@ -251,8 +251,11 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
-          <div ref={myRefChinese}></div>
         </div>
+        <div ref={myRefChinese}></div>
+        <br/>
+        <br/>
+        <br/>
         <h2 className={classes.right} >Chinese</h2>
         <div className={classes.formatRow}>
           <Col>
@@ -297,8 +300,11 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
-          <div ref={myRefGreek}></div>
         </div>
+        <div ref={myRefGreek}></div>
+        <br/>
+        <br/>
+        <br/>
         <h2 className={classes.left} >Greek</h2>
         <div className={classes.formatRow}>
           <Col>
@@ -343,8 +349,11 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
-          <div ref={myRefIndian}></div>
-        </div>
+        </div>     
+        <div ref={myRefIndian}></div>
+        <br/>
+        <br/>
+        <br/>
         <h2 className={classes.right} >Indian</h2>
         <div className={classes.formatRow}>
           <Col>
@@ -388,8 +397,11 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
-          <div ref={myRefItalian}></div>
         </div>
+        <div ref={myRefItalian}></div>
+        <br/>
+        <br/>
+        <br/>
         <h2 className={classes.left} >Italian</h2>
         <div className={classes.formatRow}>
           <Col>
@@ -432,8 +444,11 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
-          <div ref={myRefJapanese}></div>
         </div>
+        <div ref={myRefJapanese}></div>
+        <br/>
+        <br/>
+        <br/>
         <h2 className={classes.right} >Japanese</h2>
         <div className={classes.formatRow}>
           <Col>
@@ -476,8 +491,11 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
-          <div ref={myRefKorean}></div>
         </div>
+        <div ref={myRefKorean}></div>
+        <br/>
+        <br/>
+        <br/>
         <h2 className={classes.left} >Korean</h2>
         <div className={classes.formatRow}>
           <Col>
@@ -521,8 +539,11 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
-          <div ref={myRefMediterranean}></div>
         </div>
+        <div ref={myRefMediterranean}></div>
+        <br/>
+        <br/>
+        <br/>
         <h2 className={classes.right} >Mediterranean</h2>
         <div className={classes.formatRow}>
           <Col>
@@ -566,8 +587,11 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
-          <div ref={myRefMexican}></div>
         </div>
+        <div ref={myRefMexican}></div>
+        <br/>
+        <br/>
+        <br/>
         <h2 className={classes.left} >Mexican</h2>
         <div className={classes.formatRow}>
           <Col>
@@ -611,8 +635,11 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
-          <div ref={myRefSpanish}></div>
         </div>
+        <div ref={myRefSpanish}></div>
+        <br/>
+        <br/>
+        <br/>
         <h2 className={classes.right} >Spanish</h2>
         <div className={classes.formatRow}>
           <Col>
@@ -656,8 +683,11 @@ function GlobeFeature(props) {
               </div>
             </Box>
           </Col>
-          <div ref={myRefTurkish}></div>
         </div>
+        <div ref={myRefTurkish}></div>
+        <br/>
+        <br/>
+        <br/>
         <h2 className={classes.left} >Turkish</h2>
         <div className={classes.formatRow}>
           <Col>

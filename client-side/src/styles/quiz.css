@@ -1,25 +1,14 @@
 .container1 {
   position: relative;
-  /* margin-top: 0;
-  margin-left: 0; */
   margin: 100px;
   margin-left: 200px;
   display:flex;
   justify-content: center;
 }
 
-/* .image {
-   position: relative;
-} */
-
 .titleQuiz {
-  /* position: relative;
-  margin-top: 17em;
-  z-index: 5;
-  */
   display: flex;
   justify-content: center; 
-
   position: relative;
   margin-top: 10.7em;
   z-index: 5;
@@ -38,17 +27,13 @@ justify-content: center;
   width: 250px;
 }
 
-
 .image1 {
   position: absolute;
   display: flex;
   justify-content: center;
-  
 }
-.background1 {
 
-  /* border: #53a5dc solid 0.3em;  */
-  /* border-radius: 50px; */
+.background1 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19);
   margin-left: 40px;
 }

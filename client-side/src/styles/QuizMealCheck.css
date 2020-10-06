@@ -54,12 +54,6 @@ label::before {
   border-color: #ddd;
 }
 
-/* .mealPic :checked+label::before {
-  content: "✓";
-  background-color: grey;
-  transform: scale(1);
-} */
-
 :checked+label img {
   transform: scale(0.9);
   box-shadow: 0 0 5px #333;

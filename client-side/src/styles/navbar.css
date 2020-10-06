@@ -4,90 +4,83 @@
   margin-right: 0;
 }
 
+.banner {
+  background-color: #f3f3f3;
+}
 
-  .banner {
+.navButton {
+  margin: 10px;
+}
 
-
-    background-color: #f3f3f3;
-  }
-
-  .navButton {
-    margin: 10px;
-  }
-
-
-  /* popout */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: .5;
+}
   
-  .modal-overlay {
-    position: fixed;
+.modal-wrapper {
+  position: absolute;
+  top: 100;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.modal {
+
+  background: white;
+  position: fixed;
+  margin: 1.75rem auto;
+  border-radius: 3px;
+  max-width: 700px;
+  padding: 2rem;
     top: 0;
-    left: 0;
-    z-index: 1040;
-    width: 100vw;
-    height: 100vh;
-    background-color: #000;
-    opacity: .5;
-  }
-  
-  .modal-wrapper {
-    position: absolute;
-    top: 100;
-    left: 0;
-    z-index: 1050;
     width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-    outline: 0;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .modal {
- 
-    background: white;
-    position: fixed;
-    margin: 1.75rem auto;
-    border-radius: 3px;
-    max-width: 700px;
-    padding: 2rem;
-     top: 0;
-     width: 100%;
-     margin-top: 200px;
-  }
-  
-  .modal-header {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .modal-close-button {
-    font-size: 1.4rem;
-    font-weight: 700;
-    line-height: 1;
-    color: #000;
-    opacity: .3;
-    cursor: pointer;
-    border: none;
-  }
-  
-  button {
-    font-size: .9rem;
-    font-weight: 700;
-    border: none;
-    border-radius: 3px;
-    padding: .3rem 1rem;
-    margin-left: .5rem;
-  }
+    margin-top: 200px;
+}
 
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
+  
+.modal-close-button {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  opacity: .3;
+  cursor: pointer;
+  border: none;
+}
+  
+button {
+  font-size: .9rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 3px;
+  padding: .3rem 1rem;
+  margin-left: .5rem;
+}
 
-  .MuiButton-label{
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
-  }
+.MuiButton-label{
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
 
-  .Name{
-    color: black;
-    display: flex;
-    justify-content: center;
-  }
+.Name{
+  color: black;
+  display: flex;
+  justify-content: center;
+}
