@@ -50,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     fontSize: 18,
+    color: 'orange',
   },
   location: {
     width: 800,
