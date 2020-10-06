@@ -75,6 +75,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 50,
     marginBottom: 100,
     width: "60%",
+    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)',
   },
   right: {
     padding: 50,
@@ -88,7 +89,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 40,
     marginBottom: 100,
     width: "65%",
-    marginLeft: "35%"
+    marginLeft: "35%",
+    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 50px 0 rgba(0, 0, 0, 0.19)',
   },
   bullet: {
     display: 'inline-block',
