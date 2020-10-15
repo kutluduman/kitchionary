@@ -134,7 +134,7 @@ if (selector.length > 100) {
   };
 
   const handleLike = () => {
-    if (props.cookies.name) {
+      if (props.cookies.name) {
     // if grey
     const recipe_id = props.id;
     const favourite = {

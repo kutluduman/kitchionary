@@ -91,52 +91,52 @@ function App() {
                 <Home setMatchingRecipes={setMatchingRecipes} setRecipeData={setRecipeData} cookies={cookies} toggleModal= {handleToggleModal} />
               </Route>
               <Route exact path="/breakfast">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} cookies={cookies}/>
               </Route>
               <Route exact path="/lunch">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} cookies={cookies}/>
               </Route>
               <Route exact path="/appetizer">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} cookies={cookies}/>
               </Route>
               <Route exact path="/dinner">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} cookies={cookies}/>
               </Route>
               <Route exact path="/dessert">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} cookies={cookies}/>
               </Route>
               <Route exact path="/american">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} cookies={cookies}/>
               </Route>
               <Route exact path="/chinese">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} cookies={cookies}/>
               </Route>
               <Route exact path="/indian">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} cookies={cookies}/>
               </Route>
               <Route exact path="/greek">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} cookies={cookies}/>
               </Route>
               <Route exact path="/italian">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} cookies={cookies}/>
               </Route>
               <Route exact path="/japanese">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} cookies={cookies}/>
               </Route>
               <Route exact path="/korean">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} cookies={cookies}/>
               </Route>
               <Route exact path="/mediterranean">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} cookies={cookies}/>
               </Route>
               <Route exact path="/mexican">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} cookies={cookies}/>
               </Route>
               <Route exact path="/spanish">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} cookies={cookies}/>
               </Route>
               <Route exact path="/turkish">
-                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} />
+                <MatchingRecipes matchingRecipes={matchingRecipes} setRecipeData={setRecipeData} cookies={cookies}/>
               </Route>
               <Route exact path="/fridge">
                 <FridgeForm inputState={inputState} setInputState={setInputState} setMatchingRecipes={setMatchingRecipes} />
